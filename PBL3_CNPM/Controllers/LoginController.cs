@@ -21,12 +21,12 @@ namespace PBL3CNPM.Controllers
 
 		}
 		[HttpPost]
-        [HttpPost]
+       
         public IActionResult Login(Nhanvien user, Phanquyen quyen)
         {
             if (HttpContext.Session.GetString("MaNv") == null)
             {
-                var u = db.Nhanviens.FirstOrDefault(x => x.MaNv.Equals(user.MaNv) && x.Password.Equals(user.Password) && x.MaPhanQuyen.Equals(user.MaPhanQuyen));
+                var u = db.Nhanviens.FirstOrDefault(x => x.MaNv.Equals(user.MaNv) && x.Password.Equals(user.Password));
                 if (u != null)
                 {
                     HttpContext.Session.SetString("MaNv", u.MaNv.ToString());
@@ -35,11 +35,11 @@ namespace PBL3CNPM.Controllers
                     {
                         if (role.PhanQuyen.Equals("Quản lý"))
                         {
-                            return RedirectToAction("Phanquyenquanly", "Login");
+                            return RedirectToAction("Trangchuquanly", "Quanly");
                         }
                         else if (role.PhanQuyen.Equals("Kế toán"))
                         {
-                            return RedirectToAction("Phanquyenketoan", "Login");
+                            return RedirectToAction("Trangchuketoan", "Ketoan");
                         }
                         else if (role.PhanQuyen.Equals("Nhân viên"))
                         {

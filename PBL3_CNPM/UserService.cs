@@ -1,4 +1,5 @@
 ﻿using Microsoft.Data.SqlClient;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using PBL3_CNPM.Models;
 
 namespace PBL3_CNPM
@@ -19,7 +20,7 @@ namespace PBL3_CNPM
             using (SqlConnection connection = new SqlConnection(_connectionString))
             {
                 string sqlQuery = "SELECT * FROM Nhanvien WHERE [Ma NV] = @MaNV";
-                
+
                 SqlCommand command = new SqlCommand(sqlQuery, connection);
                 command.Parameters.AddWithValue("@MaNV", IdUser);
                 connection.Open();
@@ -42,6 +43,70 @@ namespace PBL3_CNPM
             }
             return user;
         }
+
+
+        public List<(Luong, LuongNv)> GetCombinedData(string IdUser)
+        {
+            List<(Luong, LuongNv)> combinedDataList = new List<(Luong, LuongNv)>();
+
+            using (SqlConnection connection = new SqlConnection(_connectionString))
+            {
+                string sqlQuery = @"SELECT L.*, LN.*
+                            FROM Luong AS L
+                            INNER JOIN LuongNV AS LN ON L.[Ma Luong] = LN.[Ma Luong]
+                            WHERE LN.[Ma NV] = @MaNV";
+                SqlCommand command = new SqlCommand(sqlQuery, connection);
+                command.Parameters.AddWithValue("@MaNV", IdUser);
+
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    Luong luong = new Luong
+                    {
+                        MaLuong = reader["Ma Luong"].ToString(),
+                        TenMaLuong = reader["Ten Ma Luong"].ToString(),
+                        LuongCoBan = Convert.ToDecimal(reader["Luong Co Ban"]),
+                        PhuCap = Convert.ToDecimal(reader["Phu Cap"])
+                    };
+
+                    LuongNv luongNv = new LuongNv
+                    {
+                        MaNv = reader["Ma NV"].ToString(),
+                        NgayCong = Convert.ToInt16(reader["Ngay cong"]),
+                        Thuong = Convert.ToDecimal(reader["Thuong"]),
+                        Phat = Convert.ToDecimal(reader["Phat"]),
+                        Thang = Convert.ToInt16(reader["Thang"])
+                    };
+
+                    combinedDataList.Add((luong, luongNv));
+                }
+            }
+
+            return combinedDataList;
+        }
+        public Luong GetLuong( string IdUser)
+        {
+            Luong luong = null;
+            using (SqlConnection connection = new SqlConnection(_connectionString))
+            {
+                string sqlquery = "SELECT * FROM Luong WHERE [Ma Luong] = @MaLuong";
+
+                SqlCommand command = new SqlCommand(sqlquery, connection);
+                command.Parameters.AddWithValue("@MaLuong", IdUser);
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+                if (reader.Read())
+                {
+                    luong = new Luong();
+                    luong.MaLuong = reader["Ma Luong"].ToString();
+                    luong.LuongCoBan = Convert.ToDecimal(reader["LuongCoBan"]);
+                    luong.PhuCap = Convert.ToDecimal(reader["PhuCap"]);
+                }
+                return luong;
+            }    
+        }
         public LuongNv GetLuongById(string IdUser)
         {
             LuongNv luongNv = null;
@@ -63,41 +128,18 @@ namespace PBL3_CNPM
                     luongNv.NgayCong = Convert.ToInt16(reader["Ngay cong"]);
                     luongNv.Thuong = Convert.ToDecimal(reader["Thuong"]);
                     luongNv.Phat = Convert.ToDecimal(reader["Phat"]);
-                    luongNv.Thang = Convert.ToInt16(reader["Thang"]);
+                    luongNv.Thang = Convert.ToUInt16(reader["Thang"]);
                 }
             }
             return luongNv;
         }
-        
-        
 
-        
-    
-    public LuongNv Getluongnv(string IdUser)
-    {
-        LuongNv user = null;
-        using (SqlConnection connection = new SqlConnection(_connectionString))
-        {
-                string sqlQuery = "SELECT * FROM LuongNV WHERE [Ma NV] = @MaNV";
 
-                SqlCommand command = new SqlCommand(sqlQuery, connection);
-                command.Parameters.AddWithValue("@MaNV", IdUser);
-                connection.Open();
-                SqlDataReader reader = command.ExecuteReader();
-                if (reader.Read())
-            {
-                user = new LuongNv();
-                user.MaNv = reader["Ma NV"].ToString();
-                user.MaLuong = reader["Ma Luong"].ToString();
-                user.NgayCong = Convert.ToInt16(reader["Ngay cong"].ToString());
-                user.Thuong = Convert.ToDecimal(reader["Thuong"].ToString());
-                user.Phat = Convert.ToDecimal(reader["Phat"].ToString());
-                user.LuongTong = Convert.ToDecimal(reader["Luong Tong"].ToString());
-            }
-        }
-        return user;
+
+
+
+
     }
-}
 }
 
 

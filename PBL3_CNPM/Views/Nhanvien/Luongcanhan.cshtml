@@ -1,6 +1,8 @@
 ﻿@{
     Layout = null;
 }
+@model PBL3_CNPM.Models.LuongNvCombined
+
 <!DOCTYPE html>
 <html>
 <style>
@@ -554,12 +556,12 @@ display: inline-block; top: 13px; right: 45px;">Đăng xuất</a>
         <div class="rectangle-div"></div>
         
 
-        <b class="lng-thng">Lương tháng : 3/2024</b>
-        <div class="div">5000000</div>
+        <b class="lng-thng">Lương tháng : @Model.Thang </b>
+        <div class="div">hi</div>
         <div class="div1"> @Model.Thuong</div>
         <b class="tng-lng">Tổng lương:</b>
         <div class="div2"> @Model.Phat</div>
-        <div class="div3"> 001</div>
+        <div class="div3"> @Model.MaLuong </div>
         <div class="div4"> @Model.NgayCong</div>
         <div class="div5"> @Model.LuongTong</div>
         <div class="vnd">VND</div>

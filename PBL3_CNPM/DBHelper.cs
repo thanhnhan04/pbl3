@@ -23,9 +23,8 @@ namespace PBL3_CNPM
             {
                 string sqlQuery = @"SELECT * 
                                 FROM Nhanvien AS N 
-                                INNER JOIN LuongNv AS LN ON N.[Ma NV] = LN.[Ma NV]
+                                INNER JOIN LuongNV AS LN ON N.[Ma NV] = LN.[Ma NV]
                                 INNER JOIN Luong AS L ON LN.[Ma Luong] = L.[Ma Luong]
-                                INNER JOIN LuongDo AS LD ON N.[Ma NV] = LD.[Ma NV]
                                 WHERE N.[Ma NV] = @MaNV";
                 SqlCommand command = new SqlCommand(sqlQuery, connection);
                 command.Parameters.AddWithValue("@MaNV", IdUser);

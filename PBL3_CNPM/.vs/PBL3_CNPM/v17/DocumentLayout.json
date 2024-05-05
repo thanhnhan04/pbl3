@@ -3,95 +3,52 @@
   "WorkspaceRootPath": "C:\\Users\\ADMIN\\Desktop\\pbl3\\PBL3_CNPM\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{1858DD82-42F6-433D-980F-FAA9FBD6BB9F}|PBL3_CNPM.csproj|c:\\users\\admin\\desktop\\pbl3\\pbl3_cnpm\\dbhelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1858DD82-42F6-433D-980F-FAA9FBD6BB9F}|PBL3_CNPM.csproj|solutionrelative:dbhelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1858DD82-42F6-433D-980F-FAA9FBD6BB9F}|PBL3_CNPM.csproj|c:\\users\\admin\\desktop\\pbl3\\pbl3_cnpm\\controllers\\logincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1858DD82-42F6-433D-980F-FAA9FBD6BB9F}|PBL3_CNPM.csproj|solutionrelative:controllers\\logincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1858DD82-42F6-433D-980F-FAA9FBD6BB9F}|PBL3_CNPM.csproj|c:\\users\\admin\\desktop\\pbl3\\pbl3_cnpm\\models\\luongnv.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1858DD82-42F6-433D-980F-FAA9FBD6BB9F}|PBL3_CNPM.csproj|solutionrelative:models\\luongnv.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{1858DD82-42F6-433D-980F-FAA9FBD6BB9F}|PBL3_CNPM.csproj|c:\\users\\admin\\desktop\\pbl3\\pbl3_cnpm\\controllers\\nhanviencontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1858DD82-42F6-433D-980F-FAA9FBD6BB9F}|PBL3_CNPM.csproj|solutionrelative:controllers\\nhanviencontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{1858DD82-42F6-433D-980F-FAA9FBD6BB9F}|PBL3_CNPM.csproj|c:\\users\\admin\\desktop\\pbl3\\pbl3_cnpm\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{1858DD82-42F6-433D-980F-FAA9FBD6BB9F}|PBL3_CNPM.csproj|solutionrelative:userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1858DD82-42F6-433D-980F-FAA9FBD6BB9F}|PBL3_CNPM.csproj|c:\\users\\admin\\desktop\\pbl3\\pbl3_cnpm\\views\\nhanvien\\chinhsua.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{1858DD82-42F6-433D-980F-FAA9FBD6BB9F}|PBL3_CNPM.csproj|solutionrelative:views\\nhanvien\\chinhsua.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{1858DD82-42F6-433D-980F-FAA9FBD6BB9F}|PBL3_CNPM.csproj|c:\\users\\admin\\desktop\\pbl3\\pbl3_cnpm\\models\\luongnvcombined.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1858DD82-42F6-433D-980F-FAA9FBD6BB9F}|PBL3_CNPM.csproj|solutionrelative:models\\luongnvcombined.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{1858DD82-42F6-433D-980F-FAA9FBD6BB9F}|PBL3_CNPM.csproj|c:\\users\\admin\\desktop\\pbl3\\pbl3_cnpm\\views\\nhanvien\\luongcanhan.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{1858DD82-42F6-433D-980F-FAA9FBD6BB9F}|PBL3_CNPM.csproj|solutionrelative:views\\nhanvien\\luongcanhan.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1858DD82-42F6-433D-980F-FAA9FBD6BB9F}|PBL3_CNPM.csproj|c:\\users\\admin\\desktop\\pbl3\\pbl3_cnpm\\views\\nhanvien\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{1858DD82-42F6-433D-980F-FAA9FBD6BB9F}|PBL3_CNPM.csproj|solutionrelative:views\\nhanvien\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1858DD82-42F6-433D-980F-FAA9FBD6BB9F}|PBL3_CNPM.csproj|c:\\users\\admin\\desktop\\pbl3\\pbl3_cnpm\\controllers\\nhanviencontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1858DD82-42F6-433D-980F-FAA9FBD6BB9F}|PBL3_CNPM.csproj|solutionrelative:controllers\\nhanviencontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1858DD82-42F6-433D-980F-FAA9FBD6BB9F}|PBL3_CNPM.csproj|c:\\users\\admin\\desktop\\pbl3\\pbl3_cnpm\\controllers\\quanlycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1858DD82-42F6-433D-980F-FAA9FBD6BB9F}|PBL3_CNPM.csproj|solutionrelative:controllers\\quanlycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1858DD82-42F6-433D-980F-FAA9FBD6BB9F}|PBL3_CNPM.csproj|c:\\users\\admin\\desktop\\pbl3\\pbl3_cnpm\\views\\ketoan\\trangchuketoan.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{1858DD82-42F6-433D-980F-FAA9FBD6BB9F}|PBL3_CNPM.csproj|solutionrelative:views\\ketoan\\trangchuketoan.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1858DD82-42F6-433D-980F-FAA9FBD6BB9F}|PBL3_CNPM.csproj|c:\\users\\admin\\desktop\\pbl3\\pbl3_cnpm\\views\\nhanvien\\thongtin.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{1858DD82-42F6-433D-980F-FAA9FBD6BB9F}|PBL3_CNPM.csproj|solutionrelative:views\\nhanvien\\thongtin.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{1858DD82-42F6-433D-980F-FAA9FBD6BB9F}|PBL3_CNPM.csproj|c:\\users\\admin\\desktop\\pbl3\\pbl3_cnpm\\models\\luongnv.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1858DD82-42F6-433D-980F-FAA9FBD6BB9F}|PBL3_CNPM.csproj|solutionrelative:models\\luongnv.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{1858DD82-42F6-433D-980F-FAA9FBD6BB9F}|PBL3_CNPM.csproj|c:\\users\\admin\\desktop\\pbl3\\pbl3_cnpm\\models\\nhanvien.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{1858DD82-42F6-433D-980F-FAA9FBD6BB9F}|PBL3_CNPM.csproj|solutionrelative:models\\nhanvien.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{1858DD82-42F6-433D-980F-FAA9FBD6BB9F}|PBL3_CNPM.csproj|c:\\users\\admin\\desktop\\pbl3\\pbl3_cnpm\\models\\luongifo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1858DD82-42F6-433D-980F-FAA9FBD6BB9F}|PBL3_CNPM.csproj|solutionrelative:models\\luongifo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1858DD82-42F6-433D-980F-FAA9FBD6BB9F}|PBL3_CNPM.csproj|c:\\users\\admin\\desktop\\pbl3\\pbl3_cnpm\\models\\errorviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1858DD82-42F6-433D-980F-FAA9FBD6BB9F}|PBL3_CNPM.csproj|solutionrelative:models\\errorviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1858DD82-42F6-433D-980F-FAA9FBD6BB9F}|PBL3_CNPM.csproj|c:\\users\\admin\\desktop\\pbl3\\pbl3_cnpm\\dbhelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1858DD82-42F6-433D-980F-FAA9FBD6BB9F}|PBL3_CNPM.csproj|solutionrelative:dbhelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1858DD82-42F6-433D-980F-FAA9FBD6BB9F}|PBL3_CNPM.csproj|c:\\users\\admin\\desktop\\pbl3\\pbl3_cnpm\\controllers\\quanlycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1858DD82-42F6-433D-980F-FAA9FBD6BB9F}|PBL3_CNPM.csproj|solutionrelative:controllers\\quanlycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1858DD82-42F6-433D-980F-FAA9FBD6BB9F}|PBL3_CNPM.csproj|c:\\users\\admin\\desktop\\pbl3\\pbl3_cnpm\\controllers\\logincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1858DD82-42F6-433D-980F-FAA9FBD6BB9F}|PBL3_CNPM.csproj|solutionrelative:controllers\\logincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{1858DD82-42F6-433D-980F-FAA9FBD6BB9F}|PBL3_CNPM.csproj|c:\\users\\admin\\desktop\\pbl3\\pbl3_cnpm\\views\\login\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{1858DD82-42F6-433D-980F-FAA9FBD6BB9F}|PBL3_CNPM.csproj|solutionrelative:views\\login\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1858DD82-42F6-433D-980F-FAA9FBD6BB9F}|PBL3_CNPM.csproj|c:\\users\\admin\\desktop\\pbl3\\pbl3_cnpm\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1858DD82-42F6-433D-980F-FAA9FBD6BB9F}|PBL3_CNPM.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1858DD82-42F6-433D-980F-FAA9FBD6BB9F}|PBL3_CNPM.csproj|c:\\users\\admin\\desktop\\pbl3\\pbl3_cnpm\\views\\quanly\\trangchuquanly.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{1858DD82-42F6-433D-980F-FAA9FBD6BB9F}|PBL3_CNPM.csproj|solutionrelative:views\\quanly\\trangchuquanly.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1858DD82-42F6-433D-980F-FAA9FBD6BB9F}|PBL3_CNPM.csproj|c:\\users\\admin\\desktop\\pbl3\\pbl3_cnpm\\views\\login\\phanquyenquanly.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{1858DD82-42F6-433D-980F-FAA9FBD6BB9F}|PBL3_CNPM.csproj|solutionrelative:views\\login\\phanquyenquanly.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1858DD82-42F6-433D-980F-FAA9FBD6BB9F}|PBL3_CNPM.csproj|c:\\users\\admin\\desktop\\pbl3\\pbl3_cnpm\\models\\authentication\\authentication.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1858DD82-42F6-433D-980F-FAA9FBD6BB9F}|PBL3_CNPM.csproj|solutionrelative:models\\authentication\\authentication.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1858DD82-42F6-433D-980F-FAA9FBD6BB9F}|PBL3_CNPM.csproj|c:\\users\\admin\\desktop\\pbl3\\pbl3_cnpm\\models\\phanquyen.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1858DD82-42F6-433D-980F-FAA9FBD6BB9F}|PBL3_CNPM.csproj|solutionrelative:models\\phanquyen.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\ADMIN\\AppData\\Local\\Temp\\.vsdbgsrc\\b22ee79cd32ad25aca74a46a0fa7e92cc5bebc51fa5595ce643edd5c3f7d1bff\\LoginController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1858DD82-42F6-433D-980F-FAA9FBD6BB9F}|PBL3_CNPM.csproj|c:\\users\\admin\\desktop\\pbl3\\pbl3_cnpm\\models\\quanlynhanvienkhachsancontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1858DD82-42F6-433D-980F-FAA9FBD6BB9F}|PBL3_CNPM.csproj|solutionrelative:models\\quanlynhanvienkhachsancontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1858DD82-42F6-433D-980F-FAA9FBD6BB9F}|PBL3_CNPM.csproj|c:\\users\\admin\\desktop\\pbl3\\pbl3_cnpm\\models\\luong.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1858DD82-42F6-433D-980F-FAA9FBD6BB9F}|PBL3_CNPM.csproj|solutionrelative:models\\luong.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1858DD82-42F6-433D-980F-FAA9FBD6BB9F}|PBL3_CNPM.csproj|c:\\users\\admin\\desktop\\pbl3\\pbl3_cnpm\\controllers\\ketoancontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1858DD82-42F6-433D-980F-FAA9FBD6BB9F}|PBL3_CNPM.csproj|solutionrelative:controllers\\ketoancontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1858DD82-42F6-433D-980F-FAA9FBD6BB9F}|PBL3_CNPM.csproj|c:\\users\\admin\\desktop\\pbl3\\pbl3_cnpm\\views\\login\\phanquyenketoan.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{1858DD82-42F6-433D-980F-FAA9FBD6BB9F}|PBL3_CNPM.csproj|solutionrelative:views\\login\\phanquyenketoan.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
   "DocumentGroupContainers": [
@@ -101,7 +58,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 13,
           "Children": [
             {
               "$type": "Bookmark",
@@ -113,285 +70,159 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "chinhsua.cshtml",
-              "DocumentMoniker": "C:\\Users\\ADMIN\\Desktop\\pbl3\\PBL3_CNPM\\Views\\Nhanvien\\chinhsua.cshtml",
-              "RelativeDocumentMoniker": "Views\\Nhanvien\\chinhsua.cshtml",
-              "ToolTip": "C:\\Users\\ADMIN\\Desktop\\pbl3\\PBL3_CNPM\\Views\\Nhanvien\\chinhsua.cshtml",
-              "RelativeToolTip": "Views\\Nhanvien\\chinhsua.cshtml",
-              "ViewState": "AQIAAHIAAAAAAAAAAAAAAHoAAAAOAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-05-03T23:52:12.928Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 18,
-              "Title": "LoginController.cs",
-              "DocumentMoniker": "C:\\Users\\ADMIN\\AppData\\Local\\Temp\\.vsdbgsrc\\b22ee79cd32ad25aca74a46a0fa7e92cc5bebc51fa5595ce643edd5c3f7d1bff\\LoginController.cs",
-              "RelativeDocumentMoniker": "..\\..\\..\\AppData\\Local\\Temp\\.vsdbgsrc\\b22ee79cd32ad25aca74a46a0fa7e92cc5bebc51fa5595ce643edd5c3f7d1bff\\LoginController.cs",
-              "ToolTip": "C:\\Users\\ADMIN\\AppData\\Local\\Temp\\.vsdbgsrc\\b22ee79cd32ad25aca74a46a0fa7e92cc5bebc51fa5595ce643edd5c3f7d1bff\\LoginController.cs [Read Only]",
-              "RelativeToolTip": "..\\..\\..\\AppData\\Local\\Temp\\.vsdbgsrc\\b22ee79cd32ad25aca74a46a0fa7e92cc5bebc51fa5595ce643edd5c3f7d1bff\\LoginController.cs [Read Only]",
-              "ViewState": "AQIAAAEAAAAAAAAAAAAAAA4AAAAaAAAA",
+              "DocumentIndex": 2,
+              "Title": "LuongNvCombined.cs",
+              "DocumentMoniker": "C:\\Users\\ADMIN\\Desktop\\pbl3\\PBL3_CNPM\\Models\\LuongNvCombined.cs",
+              "RelativeDocumentMoniker": "Models\\LuongNvCombined.cs",
+              "ToolTip": "C:\\Users\\ADMIN\\Desktop\\pbl3\\PBL3_CNPM\\Models\\LuongNvCombined.cs",
+              "RelativeToolTip": "Models\\LuongNvCombined.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAAAsAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-03T16:56:47.958Z",
-              "EditorCaption": " [Read Only]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 16,
-              "Title": "Authentication.cs",
-              "DocumentMoniker": "C:\\Users\\ADMIN\\Desktop\\pbl3\\PBL3_CNPM\\Models\\Authentication\\Authentication.cs",
-              "RelativeDocumentMoniker": "Models\\Authentication\\Authentication.cs",
-              "ToolTip": "C:\\Users\\ADMIN\\Desktop\\pbl3\\PBL3_CNPM\\Models\\Authentication\\Authentication.cs",
-              "RelativeToolTip": "Models\\Authentication\\Authentication.cs",
-              "ViewState": "AQIAAAMAAAAAAAAAAAAAwAwAAAAmAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-03T15:55:30.215Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "DBHelper.cs",
-              "DocumentMoniker": "C:\\Users\\ADMIN\\Desktop\\pbl3\\PBL3_CNPM\\DBHelper.cs",
-              "RelativeDocumentMoniker": "DBHelper.cs",
-              "ToolTip": "C:\\Users\\ADMIN\\Desktop\\pbl3\\PBL3_CNPM\\DBHelper.cs",
-              "RelativeToolTip": "DBHelper.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAACIAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-03T12:52:42.068Z",
+              "WhenOpened": "2024-05-05T17:16:36.497Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 4,
               "Title": "LuongNv.cs",
               "DocumentMoniker": "C:\\Users\\ADMIN\\Desktop\\pbl3\\PBL3_CNPM\\Models\\LuongNv.cs",
               "RelativeDocumentMoniker": "Models\\LuongNv.cs",
               "ToolTip": "C:\\Users\\ADMIN\\Desktop\\pbl3\\PBL3_CNPM\\Models\\LuongNv.cs",
               "RelativeToolTip": "Models\\LuongNv.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABEAAAAeAAAA",
+              "ViewState": "AQIAAAUAAAAAAAAAAAAQwBIAAAAbAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-03T10:09:30.918Z"
+              "WhenOpened": "2024-05-05T17:06:13.412Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 20,
-              "Title": "Luong.cs",
-              "DocumentMoniker": "C:\\Users\\ADMIN\\Desktop\\pbl3\\PBL3_CNPM\\Models\\Luong.cs",
-              "RelativeDocumentMoniker": "Models\\Luong.cs",
-              "ToolTip": "C:\\Users\\ADMIN\\Desktop\\pbl3\\PBL3_CNPM\\Models\\Luong.cs",
-              "RelativeToolTip": "Models\\Luong.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAASAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-03T09:25:27.047Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "thongtin.cshtml",
-              "DocumentMoniker": "C:\\Users\\ADMIN\\Desktop\\pbl3\\PBL3_CNPM\\Views\\Nhanvien\\thongtin.cshtml",
-              "RelativeDocumentMoniker": "Views\\Nhanvien\\thongtin.cshtml",
-              "ToolTip": "C:\\Users\\ADMIN\\Desktop\\pbl3\\PBL3_CNPM\\Views\\Nhanvien\\thongtin.cshtml",
-              "RelativeToolTip": "Views\\Nhanvien\\thongtin.cshtml",
-              "ViewState": "AQIAAL8CAAAAAAAAAAAAAMcCAABPAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-05-03T08:18:43.537Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 5,
               "Title": "Nhanvien.cs",
               "DocumentMoniker": "C:\\Users\\ADMIN\\Desktop\\pbl3\\PBL3_CNPM\\Models\\Nhanvien.cs",
               "RelativeDocumentMoniker": "Models\\Nhanvien.cs",
               "ToolTip": "C:\\Users\\ADMIN\\Desktop\\pbl3\\PBL3_CNPM\\Models\\Nhanvien.cs",
               "RelativeToolTip": "Models\\Nhanvien.cs",
-              "ViewState": "AQIAAAkAAAAAAAAAAAAuwA0AAAARAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-03T08:17:27.32Z"
+              "WhenOpened": "2024-05-05T16:59:20.28Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 6,
+              "Title": "LuongIfo.cs",
+              "DocumentMoniker": "C:\\Users\\ADMIN\\Desktop\\pbl3\\PBL3_CNPM\\Models\\LuongIfo.cs",
+              "RelativeDocumentMoniker": "Models\\LuongIfo.cs",
+              "ToolTip": "C:\\Users\\ADMIN\\Desktop\\pbl3\\PBL3_CNPM\\Models\\LuongIfo.cs",
+              "RelativeToolTip": "Models\\LuongIfo.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAaAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-05T16:50:55.396Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "ErrorViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\ADMIN\\Desktop\\pbl3\\PBL3_CNPM\\Models\\ErrorViewModel.cs",
+              "RelativeDocumentMoniker": "Models\\ErrorViewModel.cs",
+              "ToolTip": "C:\\Users\\ADMIN\\Desktop\\pbl3\\PBL3_CNPM\\Models\\ErrorViewModel.cs",
+              "RelativeToolTip": "Models\\ErrorViewModel.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-05T16:45:45.183Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "DBHelper.cs",
+              "DocumentMoniker": "C:\\Users\\ADMIN\\Desktop\\pbl3\\PBL3_CNPM\\DBHelper.cs",
+              "RelativeDocumentMoniker": "DBHelper.cs",
+              "ToolTip": "C:\\Users\\ADMIN\\Desktop\\pbl3\\PBL3_CNPM\\DBHelper.cs",
+              "RelativeToolTip": "DBHelper.cs",
+              "ViewState": "AQIAAAkAAAAAAAAAAAAuwEYAAAARAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-05T16:19:20.663Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "UserService.cs",
               "DocumentMoniker": "C:\\Users\\ADMIN\\Desktop\\pbl3\\PBL3_CNPM\\UserService.cs",
               "RelativeDocumentMoniker": "UserService.cs",
               "ToolTip": "C:\\Users\\ADMIN\\Desktop\\pbl3\\PBL3_CNPM\\UserService.cs",
               "RelativeToolTip": "UserService.cs",
-              "ViewState": "AQIAAAYAAAAAAAAAAAAuwEQAAAAbAAAA",
+              "ViewState": "AQIAAFIAAAAAAAAAAAAAAFsAAABTAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-03T08:17:19.683Z"
+              "WhenOpened": "2024-05-05T15:20:40.062Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 3,
               "Title": "Luongcanhan.cshtml",
               "DocumentMoniker": "C:\\Users\\ADMIN\\Desktop\\pbl3\\PBL3_CNPM\\Views\\Nhanvien\\Luongcanhan.cshtml",
               "RelativeDocumentMoniker": "Views\\Nhanvien\\Luongcanhan.cshtml",
               "ToolTip": "C:\\Users\\ADMIN\\Desktop\\pbl3\\PBL3_CNPM\\Views\\Nhanvien\\Luongcanhan.cshtml",
               "RelativeToolTip": "Views\\Nhanvien\\Luongcanhan.cshtml",
-              "ViewState": "AQIAADECAAAAAAAAAAAAAD4CAACQAQAA",
+              "ViewState": "AQIAACsCAAAAAAAAAAAAAC4CAAA2AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-05-03T08:08:19.704Z"
+              "WhenOpened": "2024-05-05T15:20:09.505Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 9,
-              "Title": "Trangchuketoan.cshtml",
-              "DocumentMoniker": "C:\\Users\\ADMIN\\Desktop\\pbl3\\PBL3_CNPM\\Views\\Ketoan\\Trangchuketoan.cshtml",
-              "RelativeDocumentMoniker": "Views\\Ketoan\\Trangchuketoan.cshtml",
-              "ToolTip": "C:\\Users\\ADMIN\\Desktop\\pbl3\\PBL3_CNPM\\Views\\Ketoan\\Trangchuketoan.cshtml",
-              "RelativeToolTip": "Views\\Ketoan\\Trangchuketoan.cshtml",
-              "ViewState": "AQIAAIMBAAAAAAAAAADwv44BAAAWAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-05-02T16:26:31.92Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 21,
-              "Title": "KetoanController.cs",
-              "DocumentMoniker": "C:\\Users\\ADMIN\\Desktop\\pbl3\\PBL3_CNPM\\Controllers\\KetoanController.cs",
-              "RelativeDocumentMoniker": "Controllers\\KetoanController.cs",
-              "ToolTip": "C:\\Users\\ADMIN\\Desktop\\pbl3\\PBL3_CNPM\\Controllers\\KetoanController.cs",
-              "RelativeToolTip": "Controllers\\KetoanController.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAkAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-02T16:26:00.654Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 22,
-              "Title": "Phanquyenketoan.cshtml",
-              "DocumentMoniker": "C:\\Users\\ADMIN\\Desktop\\pbl3\\PBL3_CNPM\\Views\\Login\\Phanquyenketoan.cshtml",
-              "RelativeDocumentMoniker": "Views\\Login\\Phanquyenketoan.cshtml",
-              "ToolTip": "C:\\Users\\ADMIN\\Desktop\\pbl3\\PBL3_CNPM\\Views\\Login\\Phanquyenketoan.cshtml",
-              "RelativeToolTip": "Views\\Login\\Phanquyenketoan.cshtml",
-              "ViewState": "AQIAAJYAAAAAAAAAAIBZwAcBAABUAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-05-02T15:47:19.393Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "Trangchuquanly.cshtml",
-              "DocumentMoniker": "C:\\Users\\ADMIN\\Desktop\\pbl3\\PBL3_CNPM\\Views\\Quanly\\Trangchuquanly.cshtml",
-              "RelativeDocumentMoniker": "Views\\Quanly\\Trangchuquanly.cshtml",
-              "ToolTip": "C:\\Users\\ADMIN\\Desktop\\pbl3\\PBL3_CNPM\\Views\\Quanly\\Trangchuquanly.cshtml",
-              "RelativeToolTip": "Views\\Quanly\\Trangchuquanly.cshtml",
-              "ViewState": "AQIAAKcBAAAAAAAAAADwv6sBAAAuAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-05-02T15:44:48.151Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\ADMIN\\Desktop\\pbl3\\PBL3_CNPM\\Views\\Nhanvien\\Index.cshtml",
-              "RelativeDocumentMoniker": "Views\\Nhanvien\\Index.cshtml",
-              "ToolTip": "C:\\Users\\ADMIN\\Desktop\\pbl3\\PBL3_CNPM\\Views\\Nhanvien\\Index.cshtml",
-              "RelativeToolTip": "Views\\Nhanvien\\Index.cshtml",
-              "ViewState": "AQIAAEYBAAAAAAAAAAAAAE0BAAAeAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-05-02T14:24:10.762Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 15,
-              "Title": "Phanquyenquanly.cshtml",
-              "DocumentMoniker": "C:\\Users\\ADMIN\\Desktop\\pbl3\\PBL3_CNPM\\Views\\Login\\Phanquyenquanly.cshtml",
-              "RelativeDocumentMoniker": "Views\\Login\\Phanquyenquanly.cshtml",
-              "ToolTip": "C:\\Users\\ADMIN\\Desktop\\pbl3\\PBL3_CNPM\\Views\\Login\\Phanquyenquanly.cshtml",
-              "RelativeToolTip": "Views\\Login\\Phanquyenquanly.cshtml",
-              "ViewState": "AQIAABsBAAAAAAAAAAAuwCQBAABPAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-05-02T10:26:11.894Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
               "Title": "QuanlyController.cs",
               "DocumentMoniker": "C:\\Users\\ADMIN\\Desktop\\pbl3\\PBL3_CNPM\\Controllers\\QuanlyController.cs",
               "RelativeDocumentMoniker": "Controllers\\QuanlyController.cs",
               "ToolTip": "C:\\Users\\ADMIN\\Desktop\\pbl3\\PBL3_CNPM\\Controllers\\QuanlyController.cs",
               "RelativeToolTip": "Controllers\\QuanlyController.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAkAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-02T10:01:29.174Z"
+              "WhenOpened": "2024-05-05T15:16:29.952Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "NhanvienController.cs",
-              "DocumentMoniker": "C:\\Users\\ADMIN\\Desktop\\pbl3\\PBL3_CNPM\\Controllers\\NhanvienController.cs",
-              "RelativeDocumentMoniker": "Controllers\\NhanvienController.cs",
-              "ToolTip": "C:\\Users\\ADMIN\\Desktop\\pbl3\\PBL3_CNPM\\Controllers\\NhanvienController.cs",
-              "RelativeToolTip": "Controllers\\NhanvienController.cs",
-              "ViewState": "AQIAADgAAAAAAAAAAAAAAD0AAAAvAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-29T17:30:07.221Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\ADMIN\\Desktop\\pbl3\\PBL3_CNPM\\Program.cs",
-              "RelativeDocumentMoniker": "Program.cs",
-              "ToolTip": "C:\\Users\\ADMIN\\Desktop\\pbl3\\PBL3_CNPM\\Program.cs",
-              "RelativeToolTip": "Program.cs",
-              "ViewState": "AQIAAAkAAAAAAAAAAAAAACMAAAAMAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-29T16:48:30.044Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 11,
               "Title": "Login.cshtml",
               "DocumentMoniker": "C:\\Users\\ADMIN\\Desktop\\pbl3\\PBL3_CNPM\\Views\\Login\\Login.cshtml",
               "RelativeDocumentMoniker": "Views\\Login\\Login.cshtml",
               "ToolTip": "C:\\Users\\ADMIN\\Desktop\\pbl3\\PBL3_CNPM\\Views\\Login\\Login.cshtml",
               "RelativeToolTip": "Views\\Login\\Login.cshtml",
-              "ViewState": "AQIAABIAAAAAAAAAAAAAABEBAAAdAAAA",
+              "ViewState": "AQIAAA4BAAAAAAAAAAAAABwBAAATAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-04-29T16:42:23.787Z"
+              "WhenOpened": "2024-05-05T15:14:04.481Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 10,
               "Title": "LoginController.cs",
               "DocumentMoniker": "C:\\Users\\ADMIN\\Desktop\\pbl3\\PBL3_CNPM\\Controllers\\LoginController.cs",
               "RelativeDocumentMoniker": "Controllers\\LoginController.cs",
               "ToolTip": "C:\\Users\\ADMIN\\Desktop\\pbl3\\PBL3_CNPM\\Controllers\\LoginController.cs",
               "RelativeToolTip": "Controllers\\LoginController.cs",
-              "ViewState": "AQIAABoAAAAAAAAAAAAAACYAAAAZAAAA",
+              "ViewState": "AQIAACIAAAAAAAAAAAAmwCwAAAAZAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-29T16:40:42.621Z"
+              "WhenOpened": "2024-05-05T15:13:25.659Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
-              "Title": "Phanquyen.cs",
-              "DocumentMoniker": "C:\\Users\\ADMIN\\Desktop\\pbl3\\PBL3_CNPM\\Models\\Phanquyen.cs",
-              "RelativeDocumentMoniker": "Models\\Phanquyen.cs",
-              "ToolTip": "C:\\Users\\ADMIN\\Desktop\\pbl3\\PBL3_CNPM\\Models\\Phanquyen.cs",
-              "RelativeToolTip": "Models\\Phanquyen.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "DocumentIndex": 0,
+              "Title": "NhanvienController.cs",
+              "DocumentMoniker": "C:\\Users\\ADMIN\\Desktop\\pbl3\\PBL3_CNPM\\Controllers\\NhanvienController.cs",
+              "RelativeDocumentMoniker": "Controllers\\NhanvienController.cs",
+              "ToolTip": "C:\\Users\\ADMIN\\Desktop\\pbl3\\PBL3_CNPM\\Controllers\\NhanvienController.cs",
+              "RelativeToolTip": "Controllers\\NhanvienController.cs",
+              "ViewState": "AQIAAIUAAAAAAAAAAAAAAIsAAAABAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-29T16:40:19.993Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 19,
-              "Title": "QuanlynhanvienkhachsanContext.cs",
-              "DocumentMoniker": "C:\\Users\\ADMIN\\Desktop\\pbl3\\PBL3_CNPM\\Models\\QuanlynhanvienkhachsanContext.cs",
-              "RelativeDocumentMoniker": "Models\\QuanlynhanvienkhachsanContext.cs",
-              "ToolTip": "C:\\Users\\ADMIN\\Desktop\\pbl3\\PBL3_CNPM\\Models\\QuanlynhanvienkhachsanContext.cs",
-              "RelativeToolTip": "Models\\QuanlynhanvienkhachsanContext.cs",
-              "ViewState": "AQIAACUAAAAAAAAAAAAuwDMAAAAhAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-29T16:40:13.359Z"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{269a02dc-6af8-11d3-bdc4-00c04f688e50}"
+              "WhenOpened": "2024-05-05T15:13:15.014Z",
+              "EditorCaption": ""
             }
           ]
         }
