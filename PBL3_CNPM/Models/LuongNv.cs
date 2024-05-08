@@ -18,6 +18,7 @@ public partial class LuongNv
     public decimal? Phat { get; set; }
     public decimal? Luongcoban { get; set; }
     public decimal? LuongTong { get; set; }
+    public decimal? Phucap { get; set; }
 
     public virtual Luong MaLuongNavigation { get; set; } = null!;
 

@@ -3,19 +3,17 @@
 }
 <!DOCTYPE html>
 <html>
-<head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="initial-scale=1, width=device-width" />
-
-    <link rel="stylesheet" href="./global.css" />
-    <link rel="stylesheet" href="./trang-ch-nhn-vin.css" />
-    <link rel="stylesheet"
-          href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" />
-    <link rel="stylesheet"
-          href="https://fonts.googleapis.com/css2?family=Irish Grover:wght@400&display=swap" />
-</head>
 <style>
-    .thng-tin-c3 {
+    .thng-tin-c-nhn-child {
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-color: var(--color-darkslategray);
+        width: 289px;
+        height: 90px;
+    }
+
+    .thng-tin-c {
         position: absolute;
         top: 33px;
         left: 55px;
@@ -23,28 +21,26 @@
         display: inline-block;
         width: 222px;
         height: 32px;
+        cursor: pointer;
     }
 
-    .thng-tin-c-nhn4 {
+    .thng-tin-c-nhn,
+    .trang-ch-nhn-vin-child {
         position: absolute;
         top: 220px;
         left: 0;
         width: 289px;
         height: 90px;
-        cursor: pointer;
     }
 
     .trang-ch-nhn-vin-child {
-        position: absolute;
         top: 490px;
-        left: 0;
-        background-color: var(--color-forestgreen-100);
-        width: 289px;
+        background-color: var(--color-forestgreen-200);
         height: 534px;
         overflow: hidden;
     }
 
-    .binh-minh-hotel2 {
+    .binh-minh-hotel {
         position: absolute;
         top: 0;
         left: 148px;
@@ -80,9 +76,9 @@
         left: 1240px;
     }
 
-    .i-mt-khu2,
-    .ng-xut2,
-    .trang-ch2 {
+    .i-mt-khu,
+    .ng-xut,
+    .trang-ch {
         position: absolute;
         top: 48px;
         left: 933px;
@@ -92,22 +88,22 @@
         height: 28px;
     }
 
-    .i-mt-khu2,
-    .ng-xut2 {
+    .i-mt-khu,
+    .ng-xut {
         left: 1091px;
         width: 134px;
     }
 
-    .ng-xut2 {
+    .ng-xut {
         left: 1272px;
         width: 116px;
     }
 
-    .binh-minh-hotel-container {
+    .binh-minh-hotel-parent {
         position: absolute;
         top: 0;
         left: -1px;
-        background-color: var(--color-forestgreen-200);
+        background-color: var(--color-forestgreen-300);
         width: 1500px;
         height: 120px;
         overflow: hidden;
@@ -115,7 +111,7 @@
         color: var(--color-black);
     }
 
-    .istockphoto-1420738401-170667a-icon2 {
+    .istockphoto-1420738401-170667a-icon {
         position: absolute;
         top: 13px;
         left: 15px;
@@ -128,7 +124,7 @@
         position: absolute;
         top: 140px;
         left: 310px;
-        font-size: 48px;
+        font-size: var(--font-size-29xl);
         color: var(--color-black);
         display: inline-block;
         width: 708px;
@@ -167,7 +163,7 @@
         height: 44px;
     }
 
-    .trang-ch-nhn-vin-child1 {
+    .rectangle-div {
         position: absolute;
         top: 308px;
         left: 364px;
@@ -190,7 +186,7 @@
         height: 48px;
     }
 
-    .trang-ch-nhn-vin-child2 {
+    .trang-ch-nhn-vin-child1 {
         position: absolute;
         top: 229px;
         left: 719px;
@@ -200,7 +196,7 @@
         height: 150px;
     }
 
-    .trang-ch-nhn-vin-child3 {
+    .trang-ch-nhn-vin-child2 {
         position: absolute;
         top: 246px;
         left: 739px;
@@ -222,7 +218,7 @@
         height: 44px;
     }
 
-    .trang-ch-nhn-vin-child4 {
+    .trang-ch-nhn-vin-child3 {
         position: absolute;
         top: 308px;
         left: 739px;
@@ -234,52 +230,45 @@
         height: 54px;
     }
 
-    .chm-cng {
+    .chm-cng,
+    .lch-lm-vic1 {
         position: absolute;
+        display: inline-block;
+    }
+
+    .chm-cng {
         top: 311px;
         left: 835px;
         font-size: var(--font-size-21xl);
         color: var(--color-black);
-        display: inline-block;
         width: 282px;
         height: 48px;
     }
 
-    .lch-lm-vic-inner {
-        position: absolute;
-        top: 0;
-        left: 0;
-        background-color: var(--color-darkslategray);
-        width: 289px;
-        height: 90px;
-    }
-
-    .lch-lm-vic5 {
-        position: absolute;
+    .lch-lm-vic1 {
         top: 30px;
         left: 77px;
         font-weight: 500;
-        display: inline-block;
         width: 147.9px;
         height: 40px;
+        cursor: pointer;
     }
 
-    .lch-lm-vic4,
-    .trang-ch-nhn-vin-child5 {
+    .lch-lm-vic,
+    .trang-ch-nhn-vin-child4 {
         position: absolute;
         top: 310px;
         left: 0;
         width: 289px;
         height: 90px;
-        cursor: pointer;
     }
 
-    .trang-ch-nhn-vin-child5 {
+    .trang-ch-nhn-vin-child4 {
         top: 400px;
         background-color: var(--color-darkslategray);
     }
 
-    .lng-c-nhn5 {
+    .lng-c-nhn {
         position: absolute;
         top: 428px;
         left: 65.5px;
@@ -287,28 +276,29 @@
         display: inline-block;
         width: 179.8px;
         height: 39px;
+        cursor: pointer;
     }
 
-    .thng-tin-c-nhn-child3,
-    .thng-tin-c-nhn5 {
+    .thng-tin-c-nhn-item,
+    .thng-tin-c-nhn1,
+    .user01 {
         position: absolute;
         left: 0;
         width: 289px;
         height: 101px;
     }
 
-    .thng-tin-c-nhn-child3 {
+    .thng-tin-c-nhn-item {
         top: 0;
         background-color: var(--color-darkslategray);
     }
 
-    .thng-tin-c-nhn5 {
+    .thng-tin-c-nhn1,
+    .user01 {
         top: 119px;
-        cursor: pointer;
     }
 
-    .user012 {
-        position: absolute;
+    .user01 {
         top: 157px;
         left: 155px;
         display: inline-block;
@@ -317,25 +307,13 @@
         height: 24px;
     }
 
-    .n-1-icon2 {
+    .n-1-icon {
         position: absolute;
         top: 133px;
         left: 55px;
         width: 75px;
         height: 75px;
         object-fit: cover;
-    }
-
-    .dang-xuat-link {
-        position: absolute;
-        top: 45px;
-        right: 140px;
-        font-weight: 500;
-        display: inline-block;
-        font-size: var(--font-size-xl); /* Điều chỉnh kích thước chữ */
-        color: black; /* Màu chữ */
-        font-family: var(--font-inter); /* Kiểu font chữ */
-        text-decoration: none; /* Loại bỏ gạch chân */
     }
 
     .trang-ch-nhn-vin {
@@ -364,77 +342,79 @@
         --font-irish-grover: "Irish Grover";
         /* font sizes */
         --font-size-3xl: 22px;
+        --font-size-21xl: 40px;
+        --font-size-29xl: 48px;
         --font-size-xl: 20px;
         --font-size-31xl: 50px;
         --font-size-11xl: 30px;
-        --font-size-21xl: 40px;
+        --font-size-5xl: 24px;
         /* Colors */
         --color-white: #fff;
         --color-darkslategray: rgba(48, 46, 46, 0.89);
-        --color-honeydew: #e2ffe1;
         --color-black: #000;
-        --color-forestgreen-100: rgba(39, 162, 58, 0.8);
-        --color-forestgreen-200: rgba(49, 162, 39, 0.8);
         --color-limegreen: #2dd01e;
+        --color-forestgreen-100: #31a227;
+        --color-forestgreen-200: rgba(39, 162, 58, 0.8);
+        --color-forestgreen-300: rgba(49, 162, 39, 0.8);
+        --color-honeydew: #e2ffe1;
         /* Border radiuses */
-        --br-3xs: 10px;
         --br-8xs: 5px;
         --br-xl: 20px;
+        --br-3xs: 10px;
     }
 
 </style>
 <body>
     <div class="trang-ch-nhn-vin">
-        <div class="thng-tin-c-nhn4" id="thngTinCNhn">
-            <div class="lch-lm-vic-inner"></div>
-            <div class="thng-tin-c3">Thông tin cá nhân</div>
+        <div class="thng-tin-c-nhn">
+            <div class="thng-tin-c-nhn-child"></div>
+            <div class="thng-tin-c" id="thngTinC">Thông tin cá nhân</div>
         </div>
         <div class="trang-ch-nhn-vin-child"></div>
-        <div class="binh-minh-hotel-container">
-            <div class="binh-minh-hotel2">BINH MINH HOTEL</div>
+        <div class="binh-minh-hotel-parent">
+            <div class="binh-minh-hotel">BINH MINH HOTEL</div>
             <div class="frame-child"></div>
             <div class="frame-item" id="rectangle1"></div>
             <div class="frame-inner" id="rectangle2"></div>
-            <div class="trang-ch2">Trang chủ</div>
-            <div class="i-mt-khu2">Đổi mật khẩu</div>
-            <a asp-controller="Login" asp-action="Logout" class="dang-xuat-link" style="position: absolute; font-weight: 500;
-            display: inline-block; top: 48px; right: 135px;">Đăng xuất</a>
+            <div class="trang-ch">Trang chủ</div>
+            <div class="i-mt-khu">Đổi mật khẩu</div>
+            <div class="ng-xut">Đăng xuất</div>
         </div>
-        <img class="istockphoto-1420738401-170667a-icon2"
+        <img class="istockphoto-1420738401-170667a-icon"
              alt=""
-             src="https://scontent.fdad3-1.fna.fbcdn.net/v/t1.15752-9/434534001_1448732405736076_2728451762103298305_n.png?_nc_cat=108&ccb=1-7&_nc_sid=5f2048&_nc_eui2=AeELIMxQW_20PbqvrN_Laesa3i0KWcVikJ_eLQpZxWKQn5ANGfV59GLmC_gCpYHKR6n1pkGFUOFXN7xtrfKYOuxS&_nc_ohc=omjHx4n50lYQ7kNvgEGrgiN&_nc_ht=scontent.fdad3-1.fna&oh=03_Q7cD1QGE8QM12JKsRYENqDdje-3szUmO1E_h_Y4YHuOU5d5AMA&oe=665B1E3E" />
+             src="https://scontent.xx.fbcdn.net/v/t1.15752-9/435264282_1107310530502381_1832007922840023753_n.png?stp=cp0_dst-png&_nc_cat=105&ccb=1-7&_nc_sid=5f2048&_nc_eui2=AeGkaGa3xbADwxbD9rSckcFSJg-_qGl2dC4mD7-oaXZ0LjcNXf169KDmAOPpq4qMWk5_EPM1k0uEuIMxMTpMa4s_&_nc_ohc=Bn2WIaAA1zEQ7kNvgHhm-k_&_nc_ad=z-m&_nc_cid=0&_nc_ht=scontent.xx&oh=03_Q7cD1QHTEKShaxf0StvFsnqL-HWaYrhIDLaG2uCoOGyD95SRNw&oe=666283D0" />
 
         <div class="cho-mng-bn">Chào mừng bạn trở lại, User01!</div>
         <div class="trang-ch-nhn-vin-item"></div>
         <div class="trang-ch-nhn-vin-inner"></div>
         <div class="chc-v">Chức vụ</div>
-        <div class="trang-ch-nhn-vin-child1"></div>
+        <div class="rectangle-div"></div>
         <div class="nhn-vin">Nhân viên</div>
+        <div class="trang-ch-nhn-vin-child1"></div>
         <div class="trang-ch-nhn-vin-child2"></div>
-        <div class="trang-ch-nhn-vin-child3"></div>
         <div class="trng-thi-chm">Trạng thái chấm công</div>
-        <div class="trang-ch-nhn-vin-child4"></div>
+        <div class="trang-ch-nhn-vin-child3"></div>
         <div class="chm-cng">Đã chấm công</div>
-        <div class="lch-lm-vic4" id="lchLmVic">
-            <div class="lch-lm-vic-inner"></div>
-            <div class="lch-lm-vic5">Lịch làm việc</div>
+        <div class="lch-lm-vic">
+            <div class="thng-tin-c-nhn-child"></div>
+            <div class="lch-lm-vic1" id="lchLmVic">Lịch làm việc</div>
         </div>
-        <div class="trang-ch-nhn-vin-child5" id="rectangle6"></div>
-        <div class="lng-c-nhn5">Lương cá nhân</div>
-        <div class="thng-tin-c-nhn5" id="thngTinCNhn1">
-            <div class="thng-tin-c-nhn-child3"></div>
+        <div class="trang-ch-nhn-vin-child4"></div>
+        <div class="lng-c-nhn" id="lngCNhn">Lương cá nhân</div>
+        <div class="thng-tin-c-nhn1">
+            <div class="thng-tin-c-nhn-item"></div>
         </div>
-        <b class="user012">User01</b>
-        <img class="n-1-icon2"
+        <b class="user01">User01</b>
+        <img class="n-1-icon"
              alt=""
-             src="https://scontent.fdad3-6.fna.fbcdn.net/v/t1.15752-9/435130161_653072980295404_4271028034475173711_n.png?_nc_cat=105&ccb=1-7&_nc_sid=5f2048&_nc_eui2=AeG8tk7KTjd7wcwF73zG-ynne93imBE8o2Z73eKYETyjZo30U7apSA5kMEvsTjqngkAAgoe4i1Cp2ORyFPureElV&_nc_ohc=-iM-PodUooYQ7kNvgH1xpYI&_nc_ht=scontent.fdad3-6.fna&oh=03_Q7cD1QGt1yGXxBJ2aN6rnikrioL4A70c21EVcZ7azsHq3fbtgg&oe=665B1BA9" />
+             src="https://scontent.xx.fbcdn.net/v/t1.15752-9/434534001_1448732405736076_2728451762103298305_n.png?_nc_cat=108&ccb=1-7&_nc_sid=5f2048&_nc_eui2=AeGjeQ92gKdHOdLGBTTsmL9O3i0KWcVikJ_eLQpZxWKQn54vjn1hliXtFFRCB4aZTqtGX_28Vs3lqsqjH76gMq_E&_nc_ohc=gQiDw6zaWwEQ7kNvgGZYNzQ&_nc_ad=z-m&_nc_cid=0&_nc_ht=scontent.xx&oh=03_Q7cD1QEKjqwrVaXSS4NGskH3fr92mbelZDFGntvfbssyF89ekA&oe=666296BE" />
     </div>
 
     <script>
-        var thng_Tin_C_Nhn = document.getElementById("thngTinCNhn");
-        if (thng_Tin_C_Nhn) {
-            thng_Tin_C_Nhn.addEventListener("click", function (e) {
-                window.location.href = " https://localhost:7221/Nhanvien/thongtin";
+        var thngTinC = document.getElementById("thngTinC");
+        if (thngTinC) {
+            thngTinC.addEventListener("click", function (e) {
+                window.location.href = "https://localhost:7221/Nhanvien/thongtin";
             });
         }
 
@@ -445,27 +425,24 @@
             });
         }
 
-       
+        var rectangle2 = document.getElementById("rectangle2");
+        if (rectangle2) {
+            rectangle2.addEventListener("click", function (e) {
+                window.location.href = "https://localhost:7221/Nhanvien/Index"
+            });
+        }
 
         var lchLmVic = document.getElementById("lchLmVic");
         if (lchLmVic) {
             lchLmVic.addEventListener("click", function (e) {
-                // Please sync "lịch làm việc cá nhân" to the project
+                window.location.href = "https://localhost:7221/Nhanvien/Lichlamvieccanhan";
             });
         }
 
-        var rectangle6 = document.getElementById("rectangle6");
-        if (rectangle6) {
-            rectangle6.addEventListener("click", function (e) {
+        var lngCNhn = document.getElementById("lngCNhn");
+        if (lngCNhn) {
+            lngCNhn.addEventListener("click", function (e) {
                 window.location.href = " https://localhost:7221/Nhanvien/Luongcanhan";
-            });
-        }
-
-        var lch_lm_vic_inner = document.getElementById("lch-lm-vic-inner");
-
-        if (lch_lm_vic_inner) {
-            lch_lm_vic_inner.addEventListener("click", function (e) {
-                window.location.href = " https://localhost:7221/Nhanvien/thongtin";
             });
         }
     </script>

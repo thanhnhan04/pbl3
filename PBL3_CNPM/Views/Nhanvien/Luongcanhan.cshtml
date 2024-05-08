@@ -1,7 +1,6 @@
 ﻿@{
     Layout = null;
 }
-@model PBL3_CNPM.Models.LuongNvCombined
 
 <!DOCTYPE html>
 <html>
@@ -557,7 +556,7 @@ display: inline-block; top: 13px; right: 45px;">Đăng xuất</a>
         
 
         <b class="lng-thng">Lương tháng : @Model.Thang </b>
-        <div class="div">hi</div>
+        <div class="div">@Model.Luongcoban</div>
         <div class="div1"> @Model.Thuong</div>
         <b class="tng-lng">Tổng lương:</b>
         <div class="div2"> @Model.Phat</div>
@@ -576,7 +575,7 @@ display: inline-block; top: 13px; right: 45px;">Đăng xuất</a>
              alt=""
              src="https://scontent.fdad3-4.fna.fbcdn.net/v/t1.15752-9/435264282_1107310530502381_1832007922840023753_n.png?stp=cp0_dst-png&_nc_cat=105&ccb=1-7&_nc_sid=5f2048&_nc_eui2=AeHOUg5KIOU8mEknvYP0PRBjJg-_qGl2dC4mD7-oaXZ0Lu7JgLZwZuUTIvjIjdhKMXg8mpFYWyZCIHjES7Z3xD73&_nc_ohc=wZdHW7XxITUQ7kNvgG7yOs7&_nc_ht=scontent.fdad3-4.fna&oh=03_Q7cD1QFyNb1yA9EeE8qV7USGKe8_Xx3IFx_9ReukRIFtrZioCw&oe=665D0590" />
 
-        <div class="div6">1500000</div>
+        <div class="div6">@Model.Phucap</div>
         <div class="vnd4">VND</div>
         <div class="m-lng-parent">
             <div class="m-lng">Mã lương:</div>
@@ -615,7 +614,7 @@ display: inline-block; top: 13px; right: 45px;">Đăng xuất</a>
         var lchLmVic = document.getElementById("lchLmVic");
         if (lchLmVic) {
             lchLmVic.addEventListener("click", function (e) {
-                // Please sync "lịch làm việc cá nhân" to the project
+                window.location.href = "https://localhost:7221/Nhanvien/Lichlamvieccanhan";
             });
         }
 

@@ -1,16 +1,25 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Elfie.Serialization;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Data.SqlClient;
+using Microsoft.EntityFrameworkCore;
 using PBL3_CNPM.Models;
 using PBL3_CNPM.Models.Authentication;
+using System;
 using System.Diagnostics;
+using System.Security.Claims;
+using static System.Net.Mime.MediaTypeNames;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace PBL3_CNPM.Controllers
 {
     public class NhanvienController : Controller
     {
+        private readonly QuanlynhanvienkhachsanContext _masterContext;
         private readonly ILogger<NhanvienController> _logger;
 
         public NhanvienController(ILogger<NhanvienController> logger)
         {
+            _masterContext = new  ();
             _logger = logger;
         }
         [Authentication]
@@ -42,93 +51,27 @@ namespace PBL3_CNPM.Controllers
             return View(nv);
         }
         [Authentication]
-        //public IActionResult Luongcanhan()
-        //{
-        //    string currentUserId = HttpContext.Session.GetString("MaNv");
-
-        //    if (string.IsNullOrEmpty(currentUserId))
-        //    {
-        //        return RedirectToAction("Login", "Login");
-        //    }
-        //    UserService user = new UserService("Data Source=DESKTOP-SP2HFDB;Initial Catalog=QUANLYNHANVIENKHACHSAN;Integrated Security=True;Connect Timeout=30;Encrypt=False;Trust Server Certificate=False;Application Intent=ReadWrite;Multi Subnet Failover=False");
-
-        //    // Khởi tạo đối tượng để lưu dữ liệu từ hai bảng
-        //    LuongNvCombined luongNvCombined = new LuongNvCombined();
-
-        //    // Gọi hàm GetLuong để lấy thông tin lương từ bảng Luong
-        //    Luong luong = user.GetLuong(currentUserId);
-        //    if (luong != null)
-        //    {
-        //        luongNvCombined.Luong = luong;
-        //    }
-
-        //    // Gọi hàm GetLuongById để lấy thông tin lương nhân viên từ bảng LuongNv
-        //    LuongNv luongNv = user.GetLuongById(currentUserId);
-        //    if (luongNv != null)
-        //    {
-        //        luongNvCombined.LuongNv = luongNv;
-        //    }
-
-        //    // Trả về view và truyền đối tượng LuongNvCombined vào view
-        //    return View(luongNvCombined);
-        //}
-
-        //public IActionResult Luongcanhan()
-        //{
-        //    string currentUserId = HttpContext.Session.GetString("MaNv");
-
-        //    if (string.IsNullOrEmpty(currentUserId))
-        //    {
-
-        //        return RedirectToAction("Login", "Login");
-        //    }
-
-
-        //    UserService user = new UserService("Data Source=DESKTOP-SP2HFDB;Initial Catalog=QUANLYNHANVIENKHACHSAN;Integrated Security=True;Connect Timeout=30;Encrypt=False;Trust Server Certificate=False;Application Intent=ReadWrite;Multi Subnet Failover=False");
-
-
-
-
-        //    LuongNv luongNv = user.GetLuongById(currentUserId);
-
-
-        //    return View(luongNv);
-        //}
         public IActionResult Luongcanhan()
         {
             string currentUserId = HttpContext.Session.GetString("MaNv");
 
             if (string.IsNullOrEmpty(currentUserId))
             {
+
                 return RedirectToAction("Login", "Login");
             }
+            UserService user = new UserService("Data Source = DESKTOP - SP2HFDB; Initial Catalog = QUANLYNHANVIENKHACHSAN; Integrated Security = True; Connect Timeout = 30; Encrypt = False; Trust Server Certificate = False; Application Intent = ReadWrite; Multi Subnet Failover = False");
+            LuongNv luong = user.GetLuongNv(currentUserId);
+            return View(luong);
 
-            UserService user = new UserService("Data Source=DESKTOP-SP2HFDB;Initial Catalog=QUANLYNHANVIENKHACHSAN;Integrated Security=True;Connect Timeout=30;Encrypt=False;Trust Server Certificate=False;Application Intent=ReadWrite;Multi Subnet Failover=False");
-
-            // Lấy thông tin từ bảng Luong
-            Luong luong = user.GetLuong(currentUserId);
-
-            // Lấy thông tin từ bảng LuongNv
-            LuongNv luongNv = user.GetLuongById(currentUserId);
-
-            // Khởi tạo đối tượng ViewModel và gán dữ liệu
-            LuongNvCombined viewModel = new LuongNvCombined
-            {
-                Luong = luong,
-                LuongNv = luongNv
-            };
-
-            return View(viewModel);
         }
 
+        [Authentication]
         public IActionResult chinhsua()
         {
             string currentUserId = HttpContext.Session.GetString("MaNv");
-
-            // Kiểm tra xem người dùng đã đăng nhập hay chưa
             if (string.IsNullOrEmpty(currentUserId))
             {
-                // Nếu không có thông tin người dùng, chuyển hướng đến trang đăng nhập
                 return RedirectToAction("Login", "Login");
             }
             UserService user = new UserService("Data Source=DESKTOP-SP2HFDB;Initial Catalog=QUANLYNHANVIENKHACHSAN;Integrated Security=True;Connect Timeout=30;Encrypt=False;Trust Server Certificate=False;Application Intent=ReadWrite;Multi Subnet Failover=False");
@@ -136,5 +79,49 @@ namespace PBL3_CNPM.Controllers
             return View(nv);
           
         }
-    }
+         [Authentication]
+        public IActionResult Lichlamvieccanhan()
+        {
+            try
+            {
+                string currentUserId = HttpContext.Session.GetString("MaNv");
+
+                if (string.IsNullOrEmpty(currentUserId))
+                {
+                  
+                    return RedirectToAction("Login", "Login");
+                }
+             
+                var user = _masterContext.Nhanviens.FirstOrDefault(u => u.MaNv ==currentUserId);
+
+                if (user == null)
+                {
+                    
+                    return NotFound("Không tìm thấy thông tin của người dùng.");
+                }
+
+            
+                var lichLamViecList = (from cnv in _masterContext.CongviecNvs
+                                       join cv in _masterContext.Congviecs on cnv.MaCongViec equals cv.MaCongViec
+                                       where cnv.MaNv == currentUserId
+                                       select new
+                                       {
+                                           MaCongViec = cv.MaCongViec,
+                                           CaLam = cv.CaLam,
+                                           ChiTietCongViec = cv.ChiTietCongViec,
+                                           NgayLam = cnv.NgayLam
+                                       }).ToList();
+
+                ViewBag.LichLamViec = lichLamViecList;
+
+                return View();
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError($"Lỗi khi lấy danh sách công việc cá nhân: {ex.Message}");
+                throw; 
+            }
+        }
+    
+}
 }

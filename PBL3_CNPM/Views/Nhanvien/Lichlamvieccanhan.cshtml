@@ -1,0 +1,476 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="initial-scale=1, width=device-width" />
+
+    <link rel="stylesheet" href="./global.css" />
+    <link rel="stylesheet" href="./lch-lm-vic-c-nhn.css" />
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700&display=swap" />
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Irish Grover:wght@400&display=swap" />
+    <style>
+        body {
+            margin: 0;
+            line-height: normal;
+        }
+
+        :root {
+            /* fonts */
+            --font-inter: Inter;
+            --font-irish-grover: "Irish Grover";
+            /* font sizes */
+            --font-size-xl: 20px;
+            --font-size-3xl: 22px;
+            --font-size-31xl: 50px;
+            /* Colors */
+            --color-honeydew: #e2ffe1;
+            --color-black: #000;
+            --color-white: #fff;
+            --color-darkslategray: rgba(48, 46, 46, 0.89);
+            --color-forestgreen-100: rgba(39, 162, 58, 0.8);
+            --color-forestgreen-200: rgba(49, 162, 39, 0.8);
+            /* Border radiuses */
+            --br-3xs: 10px;
+        }
+
+        .thng-tin-c-nhn-item {
+            position: absolute;
+            top: 0;
+            left: 0;
+            background-color: var(--color-darkslategray);
+            width: 289px;
+            height: 90px;
+        }
+
+        .thng-tin-c1 {
+            position: absolute;
+            top: 33px;
+            left: 55px;
+            font-weight: 500;
+            display: inline-block;
+            width: 222px;
+            height: 32px;
+        }
+
+        .thng-tin-c-nhn1 {
+            position: absolute;
+            top: 220px;
+            left: 0;
+            width: 289px;
+            height: 90px;
+            cursor: pointer;
+        }
+
+        .rectangle-icon,
+        .user011 {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 289px;
+            height: 100px;
+        }
+
+        .user011 {
+            top: 36.5px;
+            left: 59.4px;
+            display: inline-block;
+            width: 174.2px;
+            height: 44.8px;
+        }
+
+        .n-1-icon1 {
+            position: absolute;
+            top: 13px;
+            left: 55px;
+            width: 75px;
+            height: 75px;
+            object-fit: cover;
+        }
+
+        .vector-group {
+            position: absolute;
+            top: 120px;
+            left: 0;
+            width: 289px;
+            height: 100px;
+            text-align: right;
+        }
+
+        .lch-lm-vic-c-nhn-child {
+            position: absolute;
+            top: 490px;
+            left: 0;
+            background-color: var(--color-forestgreen-100);
+            width: 289px;
+            height: 534px;
+            overflow: hidden;
+        }
+
+        .binh-minh-hotel1 {
+            position: absolute;
+            top: 0;
+            left: 148px;
+            display: inline-block;
+            width: 279px;
+            height: 111px;
+        }
+
+        .group-child2,
+        .group-child3,
+        .group-child4 {
+            position: absolute;
+            top: 0;
+            left: 0;
+            border-radius: var(--br-3xs);
+            background-color: var(--color-white);
+            border: 1px solid var(--color-black);
+            box-sizing: border-box;
+            width: 160px;
+            height: 50px;
+            cursor: pointer;
+        }
+
+        .group-child3,
+        .group-child4 {
+            left: 170px;
+        }
+
+        .group-child4 {
+            left: 340px;
+        }
+
+        .i-mt-khu1,
+        .ng-xut1,
+        .trang-ch1 {
+            position: absolute;
+            top: 13px;
+            left: 33px;
+            font-weight: 500;
+            display: inline-block;
+            width: 116px;
+            height: 28px;
+        }
+
+        .i-mt-khu1,
+        .ng-xut1 {
+            left: 191px;
+            width: 134px;
+        }
+
+        .ng-xut1 {
+            left: 372px;
+            width: 116px;
+        }
+
+        .rectangle-group {
+            position: absolute;
+            top: 35px;
+            left: 900px;
+            width: 500px;
+            height: 50px;
+            font-size: var(--font-size-xl);
+            color: var(--color-black);
+            font-family: var(--font-inter);
+        }
+
+        .binh-minh-hotel-group {
+            position: absolute;
+            top: 0;
+            left: 0;
+            background-color: var(--color-forestgreen-200);
+            width: 1500px;
+            height: 120px;
+            overflow: hidden;
+            font-size: var(--font-size-31xl);
+            font-family: var(--font-irish-grover);
+        }
+
+        .istockphoto-1420738401-170667a-icon1 {
+            position: absolute;
+            top: 13px;
+            left: 15px;
+            width: 107px;
+            height: 96px;
+            object-fit: cover;
+        }
+
+        .lch-lm-vic-item {
+            position: absolute;
+            top: 0;
+            left: 0;
+            background-color: var(--color-black);
+            width: 289px;
+            height: 90px;
+        }
+
+        .lch-lm-vic3 {
+            position: absolute;
+            top: 27.8px;
+            left: 77px;
+            font-weight: 500;
+            display: inline-block;
+            width: 147.9px;
+            height: 37px;
+        }
+
+        .lch-lm-vic-c-nhn-item,
+        .lch-lm-vic2 {
+            position: absolute;
+            top: 310px;
+            left: 0;
+            width: 289px;
+            height: 90px;
+        }
+
+        .lch-lm-vic-c-nhn-item {
+            top: 400px;
+            background-color: var(--color-darkslategray);
+            cursor: pointer;
+        }
+
+        .lng-c-nhn3 {
+            position: absolute;
+            top: 428px;
+            left: 65.5px;
+            font-weight: 500;
+            display: inline-block;
+            width: 180px;
+            height: 36px;
+            cursor: pointer;
+        }
+
+        .lch-lm-vic4 {
+            position: absolute;
+            top: -1px;
+            left: -3px;
+            font-weight: 600;
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            width: 240px;
+            height: 30px;
+        }
+
+        .lch-lm-vic-c-nhn-wrapper {
+            position: absolute;
+            top: 0;
+            left: 0;
+            background-color: var(--color-honeydew);
+            width: 1104px;
+            height: 32px;
+            overflow: hidden;
+        }
+
+        .lch-lm-vic-c-nhn-inner {
+            position: absolute;
+            top: 140px;
+            left: 311px;
+            width: 1104px;
+            height: 32px;
+            text-align: center;
+            font-size: var(--font-size-xl);
+            color: var(--color-black);
+        }
+
+        .lch,
+        .lch-child {
+            position: absolute;
+            width: 1111px;
+            height: 802px;
+        }
+
+        .table-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh; /* Đảm bảo bảng được căn giữa theo chiều dọc của trang */
+        }
+        .lch-child {
+            top: 0;
+            left: 0;
+            background-color: var(--color-white);
+        }
+
+        .lch {
+            top: 208px;
+            left: 307px;
+        }
+
+        .table-container {
+            position: absolute;
+            top: 50%; /* Đưa phần tử lên trên 50% của trang */
+            left: 60%; /* Đưa phần tử sang trái 50% của trang */
+            transform: translate(-50%, -50%); /* Dịch chuyển phần tử đi lùi 50% của nó */
+            width: 80%; /* Độ rộng của bảng */
+            max-width: 1000px; /* Giới hạn chiều rộng tối đa của bảng */
+        }
+
+        .table {
+            width: 100%;
+            border-collapse: collapse;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        }
+
+            .table th, .table td {
+                padding: 12px 15px;
+                text-align: left;
+            }
+
+            .table thead th {
+                background-color: antiquewhite;
+                border-bottom: 2px solid #dee2e6;
+            }
+
+            .table tbody tr:nth-child(even) {
+                background-color: #f3f4f6;
+            }
+
+            .table tbody tr:hover {
+                background-color: #e2e6ea;
+            }
+
+        .lch-lm-vic-c-nhn {
+            width: 100%;
+            position: relative;
+            height: 1024px;
+            overflow: hidden;
+            background-image: url(https://scontent.fhan5-11.fna.fbcdn.net/v/t1.15752-9/440736727_353764851017798_6861426850163908646_n.png?stp=dst-png_s2048x2048&_nc_cat=104&ccb=1-7&_nc_sid=5f2048&_nc_eui2=AeG_YIx2Azp65Mlv-dfKlxjI6kTreHBItd_qROt4cEi1358fyfkOg6y7bITNqGZgKNTZUy9VIya2BAgq0Hso6FpA&_nc_ohc=gk4J6HJ6DvwQ7kNvgEMeTrA&_nc_ht=scontent.fhan5-11.fna&oh=03_Q7cD1QF6FJs1knuSkntE9p7zYzgWQCf_uVQUYhMppjC5o3I74A&oe=6662A07A);
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: top;
+            text-align: left;
+            font-size: var(--font-size-3xl);
+            color: var(--color-white);
+            font-family: var(--font-inter);
+        }
+
+    </style>
+</head>
+<body>
+    <div class="lch-lm-vic-c-nhn">
+        <div class="thng-tin-c-nhn1" id="thngTinCNhn">
+            <div class="thng-tin-c-nhn-item"></div>
+            <div class="thng-tin-c1">Thông tin cá nhân</div>
+        </div>
+        <div class="vector-group">
+            <img class="rectangle-icon" alt="" src="https://scontent.fhan5-1.fna.fbcdn.net/v/t1.15752-9/440201234_1626054398227659_2339006340770070233_n.png?_nc_cat=106&ccb=1-7&_nc_sid=5f2048&_nc_eui2=AeHXw55fipvNRy3WknPEFHWmFxo5UHAbJpoXGjlQcBsmmkHlO5WaXS1sSGFjhoxVXEgEIXO5VzuJTTZtYaK3hcZf&_nc_ohc=E08ZnYnFgYwQ7kNvgGJ1sul&_nc_ht=scontent.fhan5-1.fna&oh=03_Q7cD1QErQXANdchdsv9CsRthWVCj3hM5dlbQCziGsgyhps1tUw&oe=666296E9" />
+
+            <b class="user011">User01</b>
+            <img class="n-1-icon1"
+                 alt=""
+                 src="https://scontent.xx.fbcdn.net/v/t1.15752-9/435264282_1107310530502381_1832007922840023753_n.png?stp=cp0_dst-png&_nc_cat=105&ccb=1-7&_nc_sid=5f2048&_nc_eui2=AeGkaGa3xbADwxbD9rSckcFSJg-_qGl2dC4mD7-oaXZ0LjcNXf169KDmAOPpq4qMWk5_EPM1k0uEuIMxMTpMa4s_&_nc_ohc=Bn2WIaAA1zEQ7kNvgHhm-k_&_nc_ad=z-m&_nc_cid=0&_nc_ht=scontent.xx&oh=03_Q7cD1QHTEKShaxf0StvFsnqL-HWaYrhIDLaG2uCoOGyD95SRNw&oe=666283D0" />
+        </div>
+        <div class="lch-lm-vic-c-nhn-child"></div>
+        <div class="binh-minh-hotel-group">
+            <div class="binh-minh-hotel1">BINH MINH HOTEL</div>
+            <div class="rectangle-group">
+                <div class="group-child2" id="rectangle"></div>
+                <div class="group-child3" id="rectangle1"></div>
+                <div class="group-child4" id="rectangle2"></div>
+                <div class="trang-ch1">Trang chủ</div>
+                <div class="i-mt-khu1">Đổi mật khẩu</div>
+                <div class="ng-xut1">Đăng xuất</div>
+            </div>
+        </div>
+        <img class="istockphoto-1420738401-170667a-icon1"
+             alt=""
+             src="https://scontent.xx.fbcdn.net/v/t1.15752-9/434534001_1448732405736076_2728451762103298305_n.png?_nc_cat=108&ccb=1-7&_nc_sid=5f2048&_nc_eui2=AeGjeQ92gKdHOdLGBTTsmL9O3i0KWcVikJ_eLQpZxWKQn54vjn1hliXtFFRCB4aZTqtGX_28Vs3lqsqjH76gMq_E&_nc_ohc=gQiDw6zaWwEQ7kNvgGZYNzQ&_nc_ad=z-m&_nc_cid=0&_nc_ht=scontent.xx&oh=03_Q7cD1QEKjqwrVaXSS4NGskH3fr92mbelZDFGntvfbssyF89ekA&oe=666296BE" />
+
+        <div class="lch-lm-vic2">
+            <div class="lch-lm-vic-item"></div>
+            <div class="lch-lm-vic3">Lịch làm việc</div>
+        </div>
+        <div class="lch-lm-vic-c-nhn-item" id="rectangle"></div>
+        <div class="lng-c-nhn3" id="lngCNhn">Lương cá nhân</div>
+        <div class="lch-lm-vic-c-nhn-inner">
+            <div class="lch-lm-vic-c-nhn-wrapper">
+                <div class="lch-lm-vic4">Lịch làm việc cá nhân</div>
+            </div>
+        </div>
+        <div class="lch">
+            <div class="lch-child"></div>
+        </div>
+    </div>
+    @if (ViewBag.Lichlamviec != null && ViewBag.Lichlamviec.Count > 0)
+    {
+        <div class="table-container">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Mã công việc</th>
+                        <th>Ca làm</th>
+                        <th>Ngày làm</th>
+                        <th>Chi tiết công việc</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var congViec in ViewBag.Lichlamviec)
+                    {
+                        <tr>
+                            <td>@congViec.MaCongViec</td>
+                            <td>@congViec.CaLam</td>
+                            <td>@congViec.NgayLam</td>
+                            <td>@congViec.ChiTietCongViec</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    }
+    else
+    {
+        <p>Danh sách công việc trống.</p>
+    }
+    
+    <script>
+        var thngTinCNhn = document.getElementById("thngTinCNhn");
+        if (thngTinCNhn) {
+            thngTinCNhn.addEventListener("click", function (e) {
+                window.location.href = " https://localhost:7221/Nhanvien/thongtin";
+            });
+        }
+
+        var rectangle = document.getElementById("rectangle");
+        if (rectangle) {
+            rectangle.addEventListener("click", function (e) {
+                // Please sync "trang chủ nhân viên" to the project
+            });
+        }
+
+        var rectangle1 = document.getElementById("rectangle1");
+        if (rectangle1) {
+            rectangle1.addEventListener("click", function (e) {
+                // Please sync "Đổi mật khẩu - nv" to the project
+            });
+        }
+
+        var rectangle2 = document.getElementById("rectangle2");
+        if (rectangle2) {
+            rectangle2.addEventListener("click", function (e) {
+                // Please sync "đăng nhập nv" to the project
+            });
+        }
+
+        var rectangle = document.getElementById("rectangle");
+        if (rectangle) {
+            rectangle.addEventListener("click", function (e) {
+                window.location.href = " https://localhost:7221/Nhanvien/Luongcanhan";
+            });
+        }
+
+        var lngCNhn = document.getElementById("lngCNhn");
+        if (lngCNhn) {
+            lngCNhn.addEventListener("click", function (e) {
+                window.location.href = "./lng-c-nhn.html";
+            });
+        }
+    </script>
+</body>
+</html>
