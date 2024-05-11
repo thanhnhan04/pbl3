@@ -53,8 +53,8 @@
             <div class="lch-lm-vic-child"></div>
             <div class="lch-lm-vic1">Lịch làm việc</div>
         </div>
-        <div class="thng-tin-c-nhn-inner" id="rectangle"></div>
-        <div class="lng-c-nhn">Lương cá nhân</div>
+        <div class="thng-tin-c-nhn-inner" ></div>
+        <div class="lng-c-nhn" id="lngCNhn">Lương cá nhân</div>
         <div class="rectangle-group">
             <div class="group-child1"></div>
             <div class="h-v-tn">Họ và tên:</div>
@@ -678,12 +678,12 @@
     </style>
 
     <script>
-        var rectangle = document.getElementById("rectangle");
-        if (rectangle) {
-            rectangle.addEventListener("click", function (e) {
-                window.location.href = "https://localhost:7221/Nhanvien/Index"
-            });
-        }
+        // var rectangle = document.getElementById("rectangle");
+        // if (rectangle) {
+        //     rectangle.addEventListener("click", function (e) {
+        //         window.location.href = "https://localhost:7221/Nhanvien/Index"
+        //     });
+        // }
 
         var rectangle1 = document.getElementById("rectangle1");
         if (rectangle1) {
@@ -692,26 +692,28 @@
             });
         }
 
-        var rectangle2 = document.getElementById("rectangle2");
-        if (rectangle2) {
-            rectangle2.addEventListener("click", function (e) {
-                // Please sync "đăng nhập nv" to the project
-            });
-        }
+       
 
         var lchLmVic = document.getElementById("lchLmVic");
         if (lchLmVic) {
             lchLmVic.addEventListener("click", function (e) {
-                // Please sync "lịch làm việc cá nhân" to the project
+                window.location.href = "https://localhost:7221/Nhanvien/Lichlamvieccanhan";
             });
         }
 
-        var rectangle = document.getElementById("rectangle");
-        if (rectangle) {
-            rectangle.addEventListener("click", function (e) {
+        var lngCNhn = document.getElementById("lngCNhn");
+        if (lngCNhn) {
+            lngCNhn.addEventListener("click", function (e) {
                 window.location.href = " https://localhost:7221/Nhanvien/Luongcanhan";
             });
         }
+
+        // var rectangle = document.getElementById("rectangle");
+        // if (rectangle) {
+        //     rectangle.addEventListener("click", function (e) {
+        //         window.location.href = " https://localhost:7221/Nhanvien/Luongcanhan";
+        //     });
+        // }
 
         var rectangle3 = document.getElementById("rectangle3");
         if (rectangle3) {

@@ -16,7 +16,7 @@ namespace PBL3CNPM.Controllers
 			}
 			else
 			{
-				return RedirectToAction("Index", "Home");
+				return RedirectToAction("login", "login");
 			}
 
 		}
@@ -35,7 +35,7 @@ namespace PBL3CNPM.Controllers
                     {
                         if (role.PhanQuyen.Equals("Quản lý"))
                         {
-                            return RedirectToAction("Trangchuquanly", "Quanly");
+                            return RedirectToAction("quanlyhoso", "Quanly");
                         }
                         else if (role.PhanQuyen.Equals("Kế toán"))
                         {
@@ -43,12 +43,12 @@ namespace PBL3CNPM.Controllers
                         }
                         else if (role.PhanQuyen.Equals("Nhân viên"))
                         {
-                            return RedirectToAction("Index", "Nhanvien");
+                            return RedirectToAction("thongtin", "Nhanvien");
                         }
                     }
                     else
                     {
-                        return RedirectToAction("Index", "Nhanvien");
+                        return RedirectToAction("thongtin", "Nhanvien");
                     }
                 }
             }

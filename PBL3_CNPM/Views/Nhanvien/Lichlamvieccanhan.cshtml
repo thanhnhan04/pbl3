@@ -336,6 +336,17 @@
                 background-color: #e2e6ea;
             }
 
+        .dang-xuat-link {
+            position: absolute;
+            top: 45px;
+            right: 140px;
+            font-weight: 500;
+            display: inline-block;
+            font-size: var(--font-size-xl); /* Điều chỉnh kích thước chữ */
+            color: black; /* Màu chữ */
+            font-family: var(--font-inter); /* Kiểu font chữ */
+            text-decoration: none; /* Loại bỏ gạch chân */
+        }
         .lch-lm-vic-c-nhn {
             width: 100%;
             position: relative;
@@ -376,7 +387,8 @@
                 <div class="group-child4" id="rectangle2"></div>
                 <div class="trang-ch1">Trang chủ</div>
                 <div class="i-mt-khu1">Đổi mật khẩu</div>
-                <div class="ng-xut1">Đăng xuất</div>
+                <a asp-controller="Login" asp-action="Logout" class="dang-xuat-link" style="position: absolute; font-weight: 500;
+display: inline-block; top: 13px; right: 45px;">Đăng xuất</a>
             </div>
         </div>
         <img class="istockphoto-1420738401-170667a-icon1"
@@ -437,12 +449,7 @@
             });
         }
 
-        var rectangle = document.getElementById("rectangle");
-        if (rectangle) {
-            rectangle.addEventListener("click", function (e) {
-                // Please sync "trang chủ nhân viên" to the project
-            });
-        }
+        
 
         var rectangle1 = document.getElementById("rectangle1");
         if (rectangle1) {
@@ -451,12 +458,7 @@
             });
         }
 
-        var rectangle2 = document.getElementById("rectangle2");
-        if (rectangle2) {
-            rectangle2.addEventListener("click", function (e) {
-                // Please sync "đăng nhập nv" to the project
-            });
-        }
+       
 
         var rectangle = document.getElementById("rectangle");
         if (rectangle) {
@@ -468,7 +470,7 @@
         var lngCNhn = document.getElementById("lngCNhn");
         if (lngCNhn) {
             lngCNhn.addEventListener("click", function (e) {
-                window.location.href = "./lng-c-nhn.html";
+                window.location.href = " https://localhost:7221/Nhanvien/Luongcanhan";
             });
         }
     </script>

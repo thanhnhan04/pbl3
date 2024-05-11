@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("PBL3_CNPM")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7122f02202458cca478f791f06739ebe34121bb7")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a1bb615b5601d145925c56d427d10cad9140413d")]
 [assembly: System.Reflection.AssemblyProductAttribute("PBL3_CNPM")]
 [assembly: System.Reflection.AssemblyTitleAttribute("PBL3_CNPM")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -24,12 +24,13 @@
         <div class="binh-minh-hotel-group">
             <div class="binh-minh-hotel1">BINH MINH HOTEL</div>
             <div class="rectangle-group">
-                <div class="group-child1" id="rectangle"></div>
+
                 <div class="group-child2" id="rectangle1"></div>
                 <div class="group-child3" id="rectangle2"></div>
-                <div class="trang-ch1">Trang chủ</div>
+
                 <div class="i-mt-khu1">Đổi mật khẩu</div>
-                <div class="ng-xut1">Đăng xuất</div>
+                <a asp-controller="Login" asp-action="Logout" class="dang-xuat-link" style="position: absolute; font-weight: 500;
+display: inline-block; top: 13px; right: 45px;">Đăng xuất</a>
             </div>
         </div>
         <div class="chnh-sa-thng-tin-c-nhn-inner">
@@ -55,36 +56,38 @@
         <img class="n-1-icon1"
              alt=""
              src="https://scontent.fsgn5-9.fna.fbcdn.net/v/t1.15752-9/435264282_1107310530502381_1832007922840023753_n.png?stp=cp0_dst-png&_nc_cat=105&ccb=1-7&_nc_sid=5f2048&_nc_eui2=AeEWw0jKlDzYG29vauLC2BRxJg-_qGl2dC4mD7-oaXZ0LmRBLhQT3PNGmmJczUgrzhH9vauygVsNzDWGfIeTVasP&_nc_ohc=wZdHW7XxITUQ7kNvgG_nYz2&_nc_ht=scontent.fsgn5-9.fna&oh=03_Q7cD1QEaP6wJO8kvmJEo-EgQAJYu3HK9-gRZAGCJyKloWKyjOA&oe=665C5CD0" />
+        <form id="myForm" action="/Nhanvien/chinhsua" method="post">
+            <div class="chnh-sa-thng-tin-c-nhn-child1">
+                <div class="ten">Họ và tên</div>
+                <input type="text" class="tennv" name="tennv" value="@Model.TenNhanVien">
+                <div class="Ns">Ngày sinh</div>
+                <input type="date" class="ns" name="ns" value="@Model.NgaySinh.ToString("yyyy-MM-dd")">
+                <div class="Gt">Giới tính</div>
+                <select name="gt" class="gt">
+                    <option value="Nam" selected="@(Model.GioiTinh == "Nam" ? "selected" : null)">Nam</option>
+                    <option value="Nữ" selected="@(Model.GioiTinh == "Nữ" ? "selected" : null)">Nữ</option>
 
-        <div class="chnh-sa-thng-tin-c-nhn-child1">
-            <div class="ten">Họ và tên</div>
-            <input type="text" class="tennv" id="tennv" value="@Model.TenNhanVien" > 
-            <div class="Ns">Ngày sinh</div>
-            <input type="date" class="ns" value="@Model.NgaySinh.ToString("yyyy-MM-dd")">
-            <div class="Gt">Giới tính</div>
-            <select name="gt" class="gt">
-                <option value="nam" selected="@(Model.GioiTinh == "Nam" ? "selected" : null)">Nam</option>
-                <option value="nu" selected="@(Model.GioiTinh == "Nữ" ? "selected" : null)">Nữ</option>
-            </select>
-            <div class="Dc">Địa chỉ</div>
-            <input type="text" class="dc" value="@Model.DiaChi"> 
-            <div class="Sdt">Số điện thoại</div>
-            <input type="text" class="sdt" value="@Model.SoDienThoai"> 
-            <div class="Em">Email</div>
-            <input type="text" class="em" value="@Model.Email"> 
-            <div class="Stk">Số tài khoản</div>
-            <input type="text" class="stk" value="@Model.TaiKhoanNganHang"> 
-            <div class="Bank">Tên ngân hàng</div>
-            <input type="text" class="bank" value="@Model.TenNganHang">
-            <button type="btLuu" class="btLuu">Lưu lại</button>
-            <button type="btHuy" class="btHuy">Hủy</button>
-            <img src="https://scontent.fdad3-4.fna.fbcdn.net/v/t1.15752-9/435130161_653072980295404_4271028034475173711_n.png?_nc_cat=105&ccb=1-7&_nc_sid=5f2048&_nc_eui2=AeE47DWn9eYgu-dKMT1AqTIje93imBE8o2Z73eKYETyjZliNkSuZ-ULRIv03MSjBc5sQ6O5_AfgOHBaaO2giRUt6&_nc_ohc=-iM-PodUooYQ7kNvgHFvde0&_nc_ht=scontent.fdad3-4.fna&oh=03_Q7cD1QEKGKYDNnLnNJmz_ULFX34aSWtD_2RtFXyHqoZvDM-05A&oe=665C6D29" alt="" class="image">
-            <div class="Doi_ha"><u>Thay đổi hình ảnh</u></div>
-        </div>
-
+                </select>
+                <div class="Dc">Địa chỉ</div>
+                <input type="text" class="dc" name="dc" value="@Model.DiaChi">
+                <div class="Sdt">Số điện thoại</div>
+                <input type="text" class="sdt" name="sdt" value="@Model.SoDienThoai">
+                <div class="Em">Email</div>
+                <input type="text" class="em" name="em" value="@Model.Email">
+                <div class="Stk">Số tài khoản</div>
+                <input type="text" class="stk" name="stk" value="@Model.TaiKhoanNganHang">
+                <div class="Bank">Tên ngân hàng</div>
+                <input type="text" class="bank" name="bank" value="@Model.TenNganHang">
+                <button class="btLuu" id="btLuu">Lưu lại</button>
+                <button class="btHuy" id="btHuy">Hủy</button>
+                <img src="https://scontent.fdad3-4.fna.fbcdn.net/v/t1.15752-9/435130161_653072980295404_4271028034475173711_n.png?_nc_cat=105&ccb=1-7&_nc_sid=5f2048&_nc_eui2=AeE47DWn9eYgu-dKMT1AqTIje93imBE8o2Z73eKYETyjZliNkSuZ-ULRIv03MSjBc5sQ6O5_AfgOHBaaO2giRUt6&_nc_ohc=-iM-PodUooYQ7kNvgHFvde0&_nc_ht=scontent.fdad3-4.fna&oh=03_Q7cD1QEKGKYDNnLnNJmz_ULFX34aSWtD_2RtFXyHqoZvDM-05A&oe=665C6D29" alt="" class="image">
+                <div class="Doi_ha"><u>Thay đổi hình ảnh</u></div>
+            </div>
+        </form>
     </div>
 
     <script>
+
         var thngTinCNhn = document.getElementById("thngTinCNhn");
         if (thngTinCNhn) {
             thngTinCNhn.addEventListener("click", function () {
@@ -95,13 +98,7 @@
             });
         }
 
-        var rectangle = document.getElementById("rectangle");
-        if (rectangle) {
-            rectangle.addEventListener("click", function (e) {
-                // Please sync "trang chủ nhân viên" to the project
-            });
-        }
-
+        
         var rectangle1 = document.getElementById("rectangle1");
         if (rectangle1) {
             rectangle1.addEventListener("click", function (e) {
@@ -109,17 +106,12 @@
             });
         }
 
-        var rectangle2 = document.getElementById("rectangle2");
-        if (rectangle2) {
-            rectangle2.addEventListener("click", function (e) {
-                // Please sync "đăng nhập nv" to the project
-            });
-        }
+        
 
         var lchLmVic = document.getElementById("lchLmVic");
         if (lchLmVic) {
             lchLmVic.addEventListener("click", function (e) {
-                // Please sync "lịch làm việc cá nhân" to the project
+                window.location.href = "https://localhost:7221/Nhanvien/Lichlamvieccanhan";
             });
         }
 
@@ -129,12 +121,29 @@
                 window.location.href = " https://localhost:7221/Nhanvien/Luongcanhan";
             });
         }
-
+                }
         var thngTinCNhn1 = document.getElementById("thngTinCNhn1");
         if (thngTinCNhn1) {
             thngTinCNhn1.addEventListener("click", function (e) {
                 window.location.href = " https://localhost:7221/Nhanvien/thongtin";
             });
+        }
+        document.getElementById("btLuu").addEventListener("click", function () {
+            sendData(); // Gọi hàm gửi dữ liệu
+        });
+
+        function sendData() {
+            var xhr = new XMLHttpRequest();
+            var formData = new FormData(document.getElementById("myForm"));
+            formData.append("gt", gt);
+            //  xhr.open("POST", "/HomeController/chinhsua", true);
+            xhr.onload = function () {
+                if (xhr.status === 200) {
+                    // Xử lý phản hồi từ server nếu cần
+                    console.log(xhr.responseText);
+                }
+            };
+            xhr.send(formData);
         }
     </script>
 </body>
@@ -159,6 +168,17 @@
         height: 32px;
     }
 
+    .dang-xuat-link {
+        position: absolute;
+        top: 45px;
+        right: 140px;
+        font-weight: 500;
+        display: inline-block;
+        font-size: var(--font-size-xl); /* Điều chỉnh kích thước chữ */
+        color: black; /* Màu chữ */
+        font-family: var(--font-inter); /* Kiểu font chữ */
+        text-decoration: none; /* Loại bỏ gạch chân */
+    }
     .thng-tin-c-nhn2 {
         position: absolute;
         top: 220px;
@@ -434,7 +454,6 @@
         width: 300px;
         height: 30px;
         padding: 5px;
-        border: --color-black;
         border-radius: 10px;
         font-size: 24px;
         font-family: var(--font-inter);
@@ -455,7 +474,6 @@
         width: 300px;
         height: 30px;
         padding: 5px;
-        border: --color-black;
         border-radius: 10px;
         font-size: 24px;
         font-family: var(--font-inter);
@@ -476,7 +494,6 @@
         width: 310px;
         height: 45px;
         padding: 5px;
-        border: --color-black;
         border-radius: 10px;
         font-size: 24px;
         font-family: var(--font-inter);
@@ -497,7 +514,6 @@
         width: 650px;
         height: 30px;
         padding: 5px;
-        border: --color-black;
         border-radius: 10px;
         font-size: 24px;
         font-family: var(--font-inter);
@@ -518,7 +534,6 @@
         width: 300px;
         height: 30px;
         padding: 5px;
-        border: --color-black;
         border-radius: 10px;
         font-size: 24px;
         font-family: var(--font-inter);
@@ -539,7 +554,6 @@
         width: 300px;
         height: 30px;
         padding: 5px;
-        border: --color-black;
         border-radius: 10px;
         font-size: 24px;
         font-family: var(--font-inter);
@@ -560,7 +574,6 @@
         width: 300px;
         height: 30px;
         padding: 5px;
-        border: --color-black;
         border-radius: 10px;
         font-size: 24px;
         font-family: var(--font-inter);
@@ -581,7 +594,6 @@
         width: 300px;
         height: 30px;
         padding: 5px;
-        border: --color-black;
         border-radius: 10px;
         font-size: 24px;
         font-family: var(--font-inter);

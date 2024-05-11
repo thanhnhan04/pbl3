@@ -22,7 +22,9 @@ namespace PBL3_CNPM.Controllers
             _masterContext = new  ();
             _logger = logger;
         }
-        [Authentication]
+        QuanlynhanvienkhachsanContext db = new QuanlynhanvienkhachsanContext();
+        [HttpGet]
+        //  [Authentication]
         public IActionResult Index()
         {
             return View();
@@ -67,19 +69,45 @@ namespace PBL3_CNPM.Controllers
         }
 
         [Authentication]
+        //public IActionResult chinhsua()
+        //{
+        //    string currentUserId = HttpContext.Session.GetString("MaNv");
+        //    if (string.IsNullOrEmpty(currentUserId))
+        //    {
+        //        return RedirectToAction("Login", "Login");
+        //    }
+        //    UserService user = new UserService("Data Source=DESKTOP-SP2HFDB;Initial Catalog=QUANLYNHANVIENKHACHSAN;Integrated Security=True;Connect Timeout=30;Encrypt=False;Trust Server Certificate=False;Application Intent=ReadWrite;Multi Subnet Failover=False");
+        //    Nhanvien nv = user.GetUserById(currentUserId);
+        //    return View(nv);
+          
+        //}
+        [HttpPost]
+        public ActionResult chinhsua(string manv,string tennv, DateTime ns, string gt, string dc, string sdt, string em, string stk, string bank)
+        {
+            YourModel.UpdateDatabase(HttpContext, tennv, ns, gt, dc, sdt, em, stk, bank);
+            return RedirectToAction("thongtin");
+        }
         public IActionResult chinhsua()
         {
+            // Lấy MaNv từ phiên
             string currentUserId = HttpContext.Session.GetString("MaNv");
+
+            // Kiểm tra xem MaNv có tồn tại không
             if (string.IsNullOrEmpty(currentUserId))
             {
+                // Nếu không, chuyển hướng đến trang đăng nhập
                 return RedirectToAction("Login", "Login");
             }
+
+            // Nếu MaNv tồn tại, tiếp tục lấy thông tin người dùng từ cơ sở dữ liệu
             UserService user = new UserService("Data Source=DESKTOP-SP2HFDB;Initial Catalog=QUANLYNHANVIENKHACHSAN;Integrated Security=True;Connect Timeout=30;Encrypt=False;Trust Server Certificate=False;Application Intent=ReadWrite;Multi Subnet Failover=False");
             Nhanvien nv = user.GetUserById(currentUserId);
+
+            // Trả về view với thông tin người dùng
             return View(nv);
-          
         }
-         [Authentication]
+
+        [Authentication]
         public IActionResult Lichlamvieccanhan()
         {
             try
