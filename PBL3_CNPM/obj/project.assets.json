@@ -7580,11 +7580,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\LTNet\\PBL3_CNPM\\PBL3_CNPM.csproj",
+      "projectUniqueName": "C:\\Users\\ADMIN\\Desktop\\pbl3\\PBL3_CNPM\\PBL3_CNPM.csproj",
       "projectName": "PBL3_CNPM",
-      "projectPath": "D:\\LTNet\\PBL3_CNPM\\PBL3_CNPM.csproj",
+      "projectPath": "C:\\Users\\ADMIN\\Desktop\\pbl3\\PBL3_CNPM\\PBL3_CNPM.csproj",
       "packagesPath": "C:\\Users\\ADMIN\\.nuget\\packages\\",
-      "outputPath": "D:\\LTNet\\PBL3_CNPM\\obj\\",
+      "outputPath": "C:\\Users\\ADMIN\\Desktop\\pbl3\\PBL3_CNPM\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\ADMIN\\AppData\\Roaming\\NuGet\\NuGet.Config",
