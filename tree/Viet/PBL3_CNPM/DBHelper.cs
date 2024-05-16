@@ -8,7 +8,7 @@ namespace PBL3_CNPM
 {
     public class DBHelper
     {
-        private string _connectionString;
+      /*  private string _connectionString;
 
         public DBHelper(string connectionString)
         {
@@ -72,6 +72,6 @@ namespace PBL3_CNPM
             }
 
             return combinedDataList;
-        }
+        }*/
     }
 }

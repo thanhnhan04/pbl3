@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
 
+
 namespace PBL3_CNPM.Models;
 
 public partial class QuanlynhanvienkhachsanContext : DbContext
@@ -20,8 +21,6 @@ public partial class QuanlynhanvienkhachsanContext : DbContext
     public virtual DbSet<Congviec> Congviecs { get; set; }
 
     public virtual DbSet<CongviecNv> CongviecNvs { get; set; }
-
-    public virtual DbSet<Hoso> Hosos { get; set; }
 
     public virtual DbSet<Luong> Luongs { get; set; }
 
@@ -48,7 +47,7 @@ public partial class QuanlynhanvienkhachsanContext : DbContext
             entity.Property(e => e.MaChucVu)
                 .HasMaxLength(10)
                 .HasColumnName("Ma ChucVu");
-            entity.Property(e => e.ChucVu)
+            entity.Property(e => e.ChucVu1)
                 .HasMaxLength(50)
                 .HasColumnName("Chuc Vu");
         });
@@ -71,62 +70,28 @@ public partial class QuanlynhanvienkhachsanContext : DbContext
 
         modelBuilder.Entity<CongviecNv>(entity =>
         {
-            entity.HasKey(e => e.MaCongViec).HasName("PK_Congviec");
+            entity
+                .HasNoKey()
+                .ToTable("CongviecNV");
 
-            entity.ToTable("CongviecNV");
-
+            entity.Property(e => e.ChamCong).HasColumnName("Cham Cong");
             entity.Property(e => e.MaCongViec)
                 .HasMaxLength(10)
                 .HasColumnName("Ma CongViec");
-            entity.Property(e => e.ChamCong).HasColumnName("Cham Cong");
             entity.Property(e => e.MaNv)
                 .HasMaxLength(10)
                 .HasColumnName("Ma NV");
             entity.Property(e => e.NgayLam).HasColumnName("Ngay Lam");
             entity.Property(e => e.NghiPhep).HasColumnName("Nghi Phep");
 
-            entity.HasOne(d => d.MaCongViecNavigation).WithOne(p => p.CongviecNv)
-                .HasForeignKey<CongviecNv>(d => d.MaCongViec)
+            entity.HasOne(d => d.MaCongViecNavigation).WithMany()
+                .HasForeignKey(d => d.MaCongViec)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK_CongviecNV_Congviec");
 
-            entity.HasOne(d => d.MaNvNavigation).WithMany(p => p.CongviecNvs)
+            entity.HasOne(d => d.MaNvNavigation).WithMany()
                 .HasForeignKey(d => d.MaNv)
                 .HasConstraintName("FK_CongviecNV_Nhanvien");
-        });
-
-        modelBuilder.Entity<Hoso>(entity =>
-        {
-            entity.HasKey(e => e.MaHoSo);
-
-            entity.ToTable("Hoso");
-
-            entity.Property(e => e.MaHoSo)
-                .HasMaxLength(10)
-                .HasColumnName("Ma HoSo");
-            entity.Property(e => e.KinhNghiem).HasColumnName("Kinh nghiem");
-            entity.Property(e => e.MaChucVu)
-                .HasMaxLength(10)
-                .HasColumnName("Ma ChucVu");
-            entity.Property(e => e.MaMv)
-                .HasMaxLength(10)
-                .HasColumnName("Ma MV");
-            entity.Property(e => e.MaPhongBan)
-                .HasMaxLength(10)
-                .HasColumnName("Ma PhongBan");
-            entity.Property(e => e.TrinhDo).HasColumnName("Trinh do");
-
-            entity.HasOne(d => d.MaChucVuNavigation).WithMany(p => p.Hosos)
-                .HasForeignKey(d => d.MaChucVu)
-                .HasConstraintName("FK_Hoso_Luong");
-
-            entity.HasOne(d => d.MaMvNavigation).WithMany(p => p.Hosos)
-                .HasForeignKey(d => d.MaMv)
-                .HasConstraintName("FK_Hoso_Nhanvien");
-
-            entity.HasOne(d => d.MaPhongBanNavigation).WithMany(p => p.Hosos)
-                .HasForeignKey(d => d.MaPhongBan)
-                .HasConstraintName("FK_Hoso_Phongban");
         });
 
         modelBuilder.Entity<Luong>(entity =>
@@ -142,7 +107,7 @@ public partial class QuanlynhanvienkhachsanContext : DbContext
                 .HasColumnType("decimal(12, 3)")
                 .HasColumnName("Luong Co Ban");
             entity.Property(e => e.PhuCap)
-                .HasColumnType("decimal(10, 3)")
+                .HasColumnType("decimal(12, 3)")
                 .HasColumnName("Phu Cap");
             entity.Property(e => e.TenMaLuong)
                 .HasMaxLength(50)
@@ -151,16 +116,16 @@ public partial class QuanlynhanvienkhachsanContext : DbContext
 
         modelBuilder.Entity<LuongNv>(entity =>
         {
-            entity.HasKey(e => e.MaLuong).HasName("PK_Bangluong");
+            entity
+                .HasNoKey()
+                .ToTable("LuongNV");
 
-            entity.ToTable("LuongNV");
-
-            entity.Property(e => e.MaLuong)
-                .HasMaxLength(10)
-                .HasColumnName("Ma Luong");
             entity.Property(e => e.LuongTong)
                 .HasColumnType("decimal(12, 0)")
                 .HasColumnName("Luong Tong");
+            entity.Property(e => e.MaLuong)
+                .HasMaxLength(10)
+                .HasColumnName("Ma Luong");
             entity.Property(e => e.MaNv)
                 .HasMaxLength(10)
                 .HasColumnName("Ma NV");
@@ -168,12 +133,11 @@ public partial class QuanlynhanvienkhachsanContext : DbContext
             entity.Property(e => e.Phat).HasColumnType("decimal(10, 3)");
             entity.Property(e => e.Thuong).HasColumnType("decimal(10, 3)");
 
-            entity.HasOne(d => d.MaLuongNavigation).WithOne(p => p.LuongNv)
-                .HasForeignKey<LuongNv>(d => d.MaLuong)
-                .OnDelete(DeleteBehavior.ClientSetNull)
+            entity.HasOne(d => d.MaLuongNavigation).WithMany()
+                .HasForeignKey(d => d.MaLuong)
                 .HasConstraintName("FK_LuongNV_Luong");
 
-            entity.HasOne(d => d.MaNvNavigation).WithMany(p => p.LuongNvs)
+            entity.HasOne(d => d.MaNvNavigation).WithMany()
                 .HasForeignKey(d => d.MaNv)
                 .HasConstraintName("FK_LuongNV_Nhanvien");
         });
@@ -195,19 +159,29 @@ public partial class QuanlynhanvienkhachsanContext : DbContext
                 .HasMaxLength(50)
                 .HasColumnName("Dia chi");
             entity.Property(e => e.Email).HasMaxLength(50);
-            entity.Property(e => e.GioiTinh).HasColumnName("Gioi Tinh");
-            entity.Property(e => e.HinhAnh).HasColumnName("Hinh anh");
+            entity.Property(e => e.GioiTinh)
+                .HasMaxLength(50)
+                .HasColumnName("Gioi Tinh");
+            entity.Property(e => e.HinhAnh)
+                .HasColumnType("image")
+                .HasColumnName("Hinh anh");
+            entity.Property(e => e.KinhNghiem).HasColumnName("Kinh nghiem");
             entity.Property(e => e.MaBaoHiem)
                 .HasMaxLength(10)
                 .IsFixedLength()
                 .HasColumnName("Ma BaoHiem");
+            entity.Property(e => e.MaChucVu)
+                .HasMaxLength(10)
+                .HasColumnName("Ma ChucVu");
             entity.Property(e => e.MaPhanQuyen)
                 .HasMaxLength(10)
                 .HasColumnName("Ma PhanQuyen");
             entity.Property(e => e.MaPhongBan)
                 .HasMaxLength(10)
                 .HasColumnName("Ma PhongBan");
-            entity.Property(e => e.NgaySinh).HasColumnName("Ngay Sinh");
+            entity.Property(e => e.NgaySinh)
+                .HasColumnType("datetime")
+                .HasColumnName("Ngay Sinh");
             entity.Property(e => e.Password).HasMaxLength(50);
             entity.Property(e => e.SoDienThoai)
                 .HasMaxLength(10)
@@ -223,10 +197,19 @@ public partial class QuanlynhanvienkhachsanContext : DbContext
             entity.Property(e => e.TenNhanVien)
                 .HasMaxLength(50)
                 .HasColumnName("Ten Nhan Vien");
+            entity.Property(e => e.TrinhDo).HasColumnName("Trinh do");
+
+            entity.HasOne(d => d.MaChucVuNavigation).WithMany(p => p.Nhanviens)
+                .HasForeignKey(d => d.MaChucVu)
+                .HasConstraintName("FK_Nhanvien_Chucvu");
 
             entity.HasOne(d => d.MaPhanQuyenNavigation).WithMany(p => p.Nhanviens)
                 .HasForeignKey(d => d.MaPhanQuyen)
                 .HasConstraintName("FK_Nhanvien_Phanquyen");
+
+            entity.HasOne(d => d.MaPhongBanNavigation).WithMany(p => p.Nhanviens)
+                .HasForeignKey(d => d.MaPhongBan)
+                .HasConstraintName("FK_Nhanvien_Phongban");
         });
 
         modelBuilder.Entity<Phanquyen>(entity =>

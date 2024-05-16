@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "FJFUCyUNY31dIqXkXyDMNbgBTDmtoh2NB1Z1x8zvUFwr4bvh+6wci71MxeVdPgvknCpLjS6WBqB9GnXUEZypFw==",
+  "dgSpecHash": "H1RvCphYcwSzgS0cGVuKvLqoDGpSD3JsODbihLgqFnra6g1Z09VVdNNS+xUYIX06+7VKZU6gJEyZ89uNIkYVhg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\OS\\OneDrive - The University of Technology\\Documents\\PBL3\\PBL3_CNPM\\PBL3_CNPM.csproj",
+  "projectFilePath": "C:\\Users\\OS\\OneDrive - The University of Technology\\Documents\\PBL3\\PBL3_CNPM - Copy\\PBL3_CNPM.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\OS\\.nuget\\packages\\azure.core\\1.35.0\\azure.core.1.35.0.nupkg.sha512",
     "C:\\Users\\OS\\.nuget\\packages\\azure.identity\\1.10.3\\azure.identity.1.10.3.nupkg.sha512",

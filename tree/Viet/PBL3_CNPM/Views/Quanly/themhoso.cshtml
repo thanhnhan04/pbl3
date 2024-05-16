@@ -1,6 +1,7 @@
 ﻿@{
     Layout = null;
 }
+@model IEnumerable<Chucvu>
 <!DOCTYPE html>
 <html>
 <head>
@@ -49,7 +50,7 @@ display: inline-block; top: 13px; right: 45px;">Đăng xuất</a>
         <div class="thng-tin-c-nhn1" id="thngTinCNhn1">
             <div class="thng-tin-c-nhn-item"></div>
         </div>
-        <b class="user01">User01</b>
+        <b class="user01"></b>
         <img class="n-1-icon"
              alt=""
              src="https://scontent.xx.fbcdn.net/v/t1.15752-9/435264282_1107310530502381_1832007922840023753_n.png?stp=cp0_dst-png&_nc_cat=105&ccb=1-7&_nc_sid=5f2048&_nc_eui2=AeEWw0jKlDzYG29vauLC2BRxJg-_qGl2dC4mD7-oaXZ0LmRBLhQT3PNGmmJczUgrzhH9vauygVsNzDWGfIeTVasP&_nc_ohc=6rRhPDRx88YQ7kNvgEacIE8&_nc_ad=z-m&_nc_cid=0&_nc_ht=scontent.xx&oh=03_Q7cD1QFpSE1Rb0K_jYmJqzusrCQiwyb2t76tpXm3UPYvuAke_A&oe=66655F10" />
@@ -83,10 +84,20 @@ display: inline-block; top: 13px; right: 45px;">Đăng xuất</a>
                 <input type="text" class="cccd" name="cccd">
                 <div class="MaBH">Mã bảo hiểm</div>
                 <input type="text" class="maBH" name="maBH" value="">
-                <div class="MaPB">Mã phòng ban</div>
-                <input type="text" class="maPB" name="maPB" value="">
                 <div class="Pass">Mật khẩu</div>
                 <input type="text" class="pass" name="pass" value="">
+                <div class="Cv">Chức vụ</div>
+                <select id="cv" name="cv" class="cv">
+                    @foreach (var cv in Model)
+                    {
+                        <option value="@cv.MaChucVu">@cv.ChucVu1</option>
+                    }
+
+                </select>
+                <div class="Td">Trình độ</div>
+                <input type="text" class="td" name="td" value="">
+                <div class="Kn">Kinh nghiệm</div>
+                <input type="text" class="kn" name="kn" value="">
                 <button class="btAdd" id="btAdd">Thêm hồ sơ</button>
                 <img src="https://scontent.fdad3-4.fna.fbcdn.net/v/t1.15752-9/435130161_653072980295404_4271028034475173711_n.png?_nc_cat=105&ccb=1-7&_nc_sid=5f2048&_nc_eui2=AeE47DWn9eYgu-dKMT1AqTIje93imBE8o2Z73eKYETyjZliNkSuZ-ULRIv03MSjBc5sQ6O5_AfgOHBaaO2giRUt6&_nc_ohc=-iM-PodUooYQ7kNvgHFvde0&_nc_ht=scontent.fdad3-4.fna&oh=03_Q7cD1QEKGKYDNnLnNJmz_ULFX34aSWtD_2RtFXyHqoZvDM-05A&oe=665C6D29" alt="" class="image">
                 <div class="Doi_ha"><u>Thay đổi hình ảnh</u></div>
@@ -142,6 +153,9 @@ display: inline-block; top: 13px; right: 45px;">Đăng xuất</a>
                 var cccd = $("#cccd").val();
                 var maBH = $("#maBH").val();
                 var pass = $("#pass").val();
+                var cv = $("#cv").val();
+                var kn = $("#kn").val();
+                var td = $("#td").val();
                 // Gửi dữ liệu đến phương thức hành động trong controller
                 $.ajax({
                     url: '/Quanly/themhoso',
@@ -158,7 +172,10 @@ display: inline-block; top: 13px; right: 45px;">Đăng xuất</a>
                         bank: bank,
                         cccd: cccd,
                         maBH: maBH,
-                        pass: pass
+                        pass: pass,
+                        kn: kn,
+                        td: td,
+                        cv: cv
                     },
                     success: function (result) {
                         // Xử lý kết quả nếu cần thiết
@@ -404,20 +421,20 @@ display: inline-block; top: 13px; right: 45px;">Đăng xuất</a>
         font-family: var(--font-inter);
     }
 
-    .MaPB {
+    .Cv {
         position: absolute;
         top: 680px;
         left: 700px;
-        color: var(--color-black);
+        color: var(--color-white);
         font-size: 20px;
     }
 
-    .maPB {
+    .cv {
         position: absolute;
         top: 710px;
         left: 700px;
-        width: 300px;
-        height: 30px;
+        width: 310px;
+        height: 45px;
         padding: 5px;
         border-radius: 10px;
         font-size: 24px;
@@ -444,20 +461,61 @@ display: inline-block; top: 13px; right: 45px;">Đăng xuất</a>
         font-family: var(--font-inter);
     }
 
+    .Td {
+        position: absolute;
+        top: 760px;
+        left: 350px;
+        color: var(--color-white);
+        font-size: 20px;
+    }
+
+    .td {
+        position: absolute;
+        top: 790px;
+        left: 350px;
+        width: 500px;
+        height: 100px;
+        padding: 5px;
+        border-radius: 10px;
+        font-size: 24px;
+        font-family: var(--font-inter);
+    }
+
+    .Kn {
+        position: absolute;
+        top: 760px;
+        left: 900px;
+        color: var(--color-white);
+        font-size: 20px;
+    }
+
+    .kn {
+        position: absolute;
+        top: 790px;
+        left: 900px;
+        width: 500px;
+        height: 100px;
+        padding: 5px;
+        border-radius: 10px;
+        font-size: 24px;
+        font-family: var(--font-inter);
+    }
+
     .btAdd {
         position: absolute;
-        top: 850px;
-        left: 750px;
+        top: 950px;
+        left: 600px;
         width: 150px;
         height: 40px;
         font-size: 24px;
         border-radius: 5px;
+        background-color: rgba(49, 162, 39, 0.8);
     }
 
     .btHuy {
         position: absolute;
-        top: 850px;
-        left: 1100px;
+        top: 950px;
+        left: 1000px;
         width: 150px;
         height: 40px;
         font-size: 24px;

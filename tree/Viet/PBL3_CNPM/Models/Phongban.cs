@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 
 namespace PBL3_CNPM.Models;
@@ -11,5 +12,5 @@ public partial class Phongban
 
     public int? MaTruongPhong { get; set; }
 
-    public virtual ICollection<Hoso> Hosos { get; set; } = new List<Hoso>();
+    public virtual ICollection<Nhanvien> Nhanviens { get; set; } = new List<Nhanvien>();
 }

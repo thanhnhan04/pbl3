@@ -61,16 +61,41 @@ namespace PBL3_CNPM.Controllers
 
                 return RedirectToAction("Login", "Login");
             }
-            UserService user = new UserService("Data Source=LAPTOP-0P18FSJ6\\MYSQL;Initial Catalog=QUANLYNHANVIENKHACHSAN;Integrated Security=True;Encrypt=False");
-            LuongNv luong = user.GetLuongNv(currentUserId);
-            return View(luong);
+             /*UserService user = new UserService("Data Source=LAPTOP-0P18FSJ6\\MYSQL;Initial Catalog=QUANLYNHANVIENKHACHSAN;Integrated Security=True;Encrypt=False");
+             LuongNv luong = user.GetLuongNv(currentUserId);*/
+             LuongNv luong = db.LuongNvs.Include(p => p.MaLuongNavigation).FirstOrDefault(p => p.MaNv == currentUserId);
+            var luongnv = new LuongIfo
+            {
+                LuongNv = luong,
+                Luong = luong.MaLuongNavigation
+            };
+
+            return View(luongnv);
 
         }
         [HttpPost]
-        public ActionResult chinhsua(string manv,string tennv, DateTime ns, string gt, string dc, string sdt, string em, string stk, string bank)
+        public ActionResult chinhsua( string tennv, DateTime ns, string gt, string dc, string sdt, string em, string stk, string bank)
         {
-            YourModel.UpdateDatabase(HttpContext, tennv, ns, gt, dc, sdt, em, stk, bank);
-            return RedirectToAction("thongtin");
+            string currentUserId = HttpContext.Session.GetString("MaNv");
+            var nvUp = db.Nhanviens.FirstOrDefault(e => e.MaNv == currentUserId);
+            if (nvUp !=null)
+            {
+                nvUp.TenNhanVien = tennv;
+                nvUp.NgaySinh = Convert.ToDateTime(ns);
+                nvUp.GioiTinh = gt;
+                nvUp.DiaChi = dc;
+                nvUp.SoDienThoai = sdt;
+                nvUp.Email = em;
+                nvUp.TaiKhoanNganHang = stk;
+                nvUp.TenNganHang = bank;
+                db.SaveChanges();
+                return RedirectToAction("thongtin");
+            }
+            else
+            {
+                return View();
+            }
+
         }
         public IActionResult chinhsua()
         {

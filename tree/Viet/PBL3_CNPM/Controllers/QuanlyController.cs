@@ -33,13 +33,15 @@ namespace PBL3_CNPM.Controllers
         [Authentication]
         public IActionResult themhoso()
         {
-            return View(new Nhanvien());
+            var cv = db.Chucvus.ToList();
+            return View(cv);
         }
         [HttpPost]
         [Authentication]
-        public ActionResult themhoso(string maNV, string tennv, DateTime ns, string gt, string dc, string sdt, string em, string stk, string bank, string cccd, string maBH, string pass)
+        public ActionResult themhoso(string maNV, string tennv, DateTime ns, string gt, string dc, string sdt, string em, string stk, string bank, string cccd, string maBH, string pass, string cv, string td, string kn)
         {
             Nhanvien nv = new Nhanvien();
+      
             nv.MaNv = maNV;
             nv.TenNhanVien = tennv;
             nv.NgaySinh = ns;
@@ -53,6 +55,10 @@ namespace PBL3_CNPM.Controllers
             nv.MaBaoHiem = maBH;
             nv.Password = pass;
             nv.MaPhanQuyen = "103";
+            nv.MaChucVu = cv;
+            nv.TrinhDo = td;
+            nv.KinhNghiem = kn;
+     
             db.Nhanviens.Add(nv);
             db.SaveChanges();
             return RedirectToAction("quanlyhoso", "Quanly");
@@ -170,7 +176,7 @@ namespace PBL3_CNPM.Controllers
                     lichLamViecList = (from cnv in _masterContext.CongviecNvs
                                        join cv in _masterContext.Congviecs on cnv.MaCongViec equals cv.MaCongViec
                                        join nv in _masterContext.Nhanviens on cnv.MaNv equals nv.MaNv
-                                       where cnv.NgayLam.Date == strSearch.Value.Date
+                                       where cnv.NgayLam.Value.Day == strSearch.Value.Day
                                        select new
                                        {
                                            MaNv = cnv.MaNv,
@@ -209,9 +215,10 @@ namespace PBL3_CNPM.Controllers
                 throw;
             }
         }
-        public IActionResult Chinhsua()
+        public IActionResult Chinhsua(string id)
         {
-            return View();
+            var nv = db.Nhanviens.Find(id);
+            return View(nv);
         }
         public IActionResult Sapxepcongviec()
         {

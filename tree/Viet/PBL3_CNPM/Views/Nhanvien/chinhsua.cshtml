@@ -52,7 +52,7 @@ display: inline-block; top: 13px; right: 45px;">Đăng xuất</a>
         <div class="thng-tin-c-nhn3" id="thngTinCNhn1">
             <div class="thng-tin-c-nhn-child1"></div>
         </div>
-        <b class="user011">User01</b>
+        <b class="user011">@Model.MaNv</b>
         <img class="n-1-icon1"
              alt=""
              src="https://scontent.fsgn5-9.fna.fbcdn.net/v/t1.15752-9/435264282_1107310530502381_1832007922840023753_n.png?stp=cp0_dst-png&_nc_cat=105&ccb=1-7&_nc_sid=5f2048&_nc_eui2=AeEWw0jKlDzYG29vauLC2BRxJg-_qGl2dC4mD7-oaXZ0LmRBLhQT3PNGmmJczUgrzhH9vauygVsNzDWGfIeTVasP&_nc_ohc=wZdHW7XxITUQ7kNvgG_nYz2&_nc_ht=scontent.fsgn5-9.fna&oh=03_Q7cD1QEaP6wJO8kvmJEo-EgQAJYu3HK9-gRZAGCJyKloWKyjOA&oe=665C5CD0" />
@@ -136,7 +136,7 @@ display: inline-block; top: 13px; right: 45px;">Đăng xuất</a>
             var xhr = new XMLHttpRequest();
             var formData = new FormData(document.getElementById("myForm"));
             formData.append("gt", gt);
-            //  xhr.open("POST", "/HomeController/chinhsua", true);
+            xhr.open("POST", "/HomeController/chinhsua", true);
             xhr.onload = function () {
                 if (xhr.status === 200) {
                     // Xử lý phản hồi từ server nếu cần

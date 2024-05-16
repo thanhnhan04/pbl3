@@ -8,7 +8,7 @@ namespace PBL3_CNPM
 {
     public class DataProvider
     {
-        private string connectionSTR = @"Data Source=DESKTOP-SP2HFDB;Initial Catalog=QUANLYNHANVIENKHACHSAN;Integrated Security=True;Connect Timeout=30;Encrypt=False;Trust Server Certificate=False;Application Intent=ReadWrite;Multi Subnet Failover=False";
+        private string connectionSTR = @"Data Source=LAPTOP-0P18FSJ6\MYSQL;Initial Catalog=QUANLYNHANVIENKHACHSAN;Integrated Security=True;Encrypt=False";
         private SqlConnection connection;
         public DataProvider()
         {

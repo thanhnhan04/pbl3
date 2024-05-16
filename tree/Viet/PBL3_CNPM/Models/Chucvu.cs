@@ -7,7 +7,7 @@ public partial class Chucvu
 {
     public string MaChucVu { get; set; } = null!;
 
-    public string? ChucVu { get; set; }
+    public string? ChucVu1 { get; set; }
 
-    public virtual ICollection<Hoso> Hosos { get; set; } = new List<Hoso>();
+    public virtual ICollection<Nhanvien> Nhanviens { get; set; } = new List<Nhanvien>();
 }

@@ -1,7 +1,7 @@
 ﻿@{
     Layout = null;
 }
-
+@model PBL3_CNPM.Models.LuongIfo
 <!DOCTYPE html>
 
 <html>
@@ -539,10 +539,10 @@
         <div class="binh-minh-hotel-parent">
             <div class="binh-minh-hotel">BINH MINH HOTEL</div>
             <div class="rectangle-parent">
-                <div class="group-child" id="rectangle"></div>
+      
                 <div class="group-item" id="rectangle1"></div>
                 <div class="group-inner"></div>
-                <div class="trang-ch">Trang chủ</div>
+     
                 <div class="i-mt-khu">Đổi mật khẩu</div>
                 <a asp-controller="Login" asp-action="Logout" class="dang-xuat-link" style="position: absolute; font-weight: 500;
 display: inline-block; top: 13px; right: 45px;">Đăng xuất</a>
@@ -567,14 +567,14 @@ display: inline-block; top: 13px; right: 45px;">Đăng xuất</a>
         <div class="rectangle-div"></div>
         
 
-        <b class="lng-thng">Lương tháng : @Model.Thang </b>
-        <div class="div">@Model.Luongcoban</div>
-        <div class="div1"> @Model.Thuong</div>
+        <b class="lng-thng">Lương tháng : @Model.LuongNv.Thang </b>
+        <div class="div">@Model.Luong.LuongCoBan</div>
+        <div class="div1"> @Model.LuongNv.Thuong</div>
         <b class="tng-lng">Tổng lương:</b>
-        <div class="div2"> @Model.Phat</div>
-        <div class="div3"> @Model.MaLuong </div>
-        <div class="div4"> @Model.NgayCong</div>
-        <div class="div5"> @Model.LuongTong</div>
+        <div class="div2"> @Model.LuongNv.Phat</div>
+        <div class="div3"> @Model.LuongNv.MaLuong </div>
+        <div class="div4"> @Model.LuongNv.NgayCong</div>
+        <div class="div5"> @Model.LuongNv.LuongTong</div>
         <div class="vnd">VND</div>
         <div class="vnd1">VND</div>
         <div class="vnd2">VND</div>
@@ -582,12 +582,12 @@ display: inline-block; top: 13px; right: 45px;">Đăng xuất</a>
         <div class="thng-tin-c-nhn1" id="thngTinCNhn1">
             <div class="thng-tin-c-nhn-item"></div>
         </div>
-        <b class="user01">User01</b>
+        <b class="user01">@Model.LuongNv.MaNv</b>
         <img class="n-1-icon"
              alt=""
              src="https://scontent.fdad3-4.fna.fbcdn.net/v/t1.15752-9/435264282_1107310530502381_1832007922840023753_n.png?stp=cp0_dst-png&_nc_cat=105&ccb=1-7&_nc_sid=5f2048&_nc_eui2=AeHOUg5KIOU8mEknvYP0PRBjJg-_qGl2dC4mD7-oaXZ0Lu7JgLZwZuUTIvjIjdhKMXg8mpFYWyZCIHjES7Z3xD73&_nc_ohc=wZdHW7XxITUQ7kNvgG7yOs7&_nc_ht=scontent.fdad3-4.fna&oh=03_Q7cD1QFyNb1yA9EeE8qV7USGKe8_Xx3IFx_9ReukRIFtrZioCw&oe=665D0590" />
 
-        <div class="div6">@Model.Phucap</div>
+        <div class="div6">@Model.Luong.PhuCap</div>
         <div class="vnd4">VND</div>
         <div class="m-lng-parent">
             <div class="m-lng">Mã lương:</div>

@@ -9,9 +9,7 @@ public partial class Luong
 
     public string? TenMaLuong { get; set; }
 
-    public Decimal? LuongCoBan { get; set; }
+    public decimal? LuongCoBan { get; set; }
 
-    public Decimal? PhuCap { get; set; }
-
-    public virtual LuongNv? LuongNv { get; set; }
+    public decimal? PhuCap { get; set; }
 }

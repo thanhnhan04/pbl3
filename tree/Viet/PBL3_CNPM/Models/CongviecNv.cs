@@ -1,15 +1,16 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 
 namespace PBL3_CNPM.Models;
 
 public partial class CongviecNv
 {
-    public int? MaCongViec { get; set; } 
+    public string MaCongViec { get; set; } = null!;
 
     public string? MaNv { get; set; }
-    public DateTime NgayLam { get; set; }
-    //public DateOnly? NgayLam { get; set; }
+
+    public DateOnly? NgayLam { get; set; }
 
     public bool? ChamCong { get; set; }
 
