@@ -1,0 +1,662 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="initial-scale=1, width=device-width" />
+
+    <link rel="stylesheet" href="./global.css" />
+    <link rel="stylesheet" href="./chnh-sa-thng-tin-c-nhn.css" />
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;600;700&display=swap" />
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Irish Grover:wght@400&display=swap" />
+</head>
+<body>
+    <div class="chnh-sa-thng-tin-c-nhn">
+        <div class="thng-tin-c-nhn2" id="thngTinCNhn">
+            <div class="thng-tin-c-nhn-inner" data-scroll-to="rectangle"></div>
+            <div class="thng-tin-c1">Thông tin cá nhân</div>
+        </div>
+        <div class="chnh-sa-thng-tin-c-nhn-child"></div>
+        <div class="binh-minh-hotel-group">
+            <div class="binh-minh-hotel1">BINH MINH HOTEL</div>
+            <div class="rectangle-group">
+
+                <div class="group-child2" id="rectangle1"></div>
+                <div class="group-child3" id="rectangle2"></div>
+
+                <div class="i-mt-khu1">Đổi mật khẩu</div>
+                <a asp-controller="Login" asp-action="Logout" class="dang-xuat-link" style="position: absolute; font-weight: 500;
+display: inline-block; top: 13px; right: 45px;">Đăng xuất</a>
+            </div>
+        </div>
+        <div class="chnh-sa-thng-tin-c-nhn-inner">
+            <div class="thng-tin-c-nhn-parent">
+                <div class="thng-tin-c2">Thông tin cá nhân</div>
+                <div class="chnh-sa-thng">&gt; Chỉnh sửa thông tin</div>
+            </div>
+        </div>
+        <img class="istockphoto-1420738401-170667a-icon1"
+             alt=""
+             src="https://scontent.fsgn5-5.fna.fbcdn.net/v/t1.15752-9/434534001_1448732405736076_2728451762103298305_n.png?_nc_cat=108&ccb=1-7&_nc_sid=5f2048&_nc_eui2=AeE2P5sA1mJK9p7yZAhnHbdR3i0KWcVikJ_eLQpZxWKQn2eF8rUbJCrgvsFmWc-PcaF3QNeTMGaAO-LHN5k9EqKX&_nc_ohc=omjHx4n50lYQ7kNvgETnvdS&_nc_ht=scontent.fsgn5-5.fna&oh=03_Q7cD1QEZiMxKXdt1kV0xS42RdvEpl6Cl9JPsnkts_G5cJPBsRQ&oe=665C6FBE" />
+
+        <div class="lch-lm-vic2" id="lchLmVic">
+            <div class="lch-lm-vic-item"></div>
+            <div class="lch-lm-vic3">Lịch làm việc</div>
+        </div>
+        <div class="chnh-sa-thng-tin-c-nhn-item"></div>
+        <div class="lng-c-nhn4" id="lngCNhn">Lương cá nhân</div>
+        <div class="thng-tin-c-nhn3" id="thngTinCNhn1">
+            <div class="thng-tin-c-nhn-child1"></div>
+        </div>
+        <b class="user011">User01</b>
+        <img class="n-1-icon1"
+             alt=""
+             src="https://scontent.fsgn5-9.fna.fbcdn.net/v/t1.15752-9/435264282_1107310530502381_1832007922840023753_n.png?stp=cp0_dst-png&_nc_cat=105&ccb=1-7&_nc_sid=5f2048&_nc_eui2=AeEWw0jKlDzYG29vauLC2BRxJg-_qGl2dC4mD7-oaXZ0LmRBLhQT3PNGmmJczUgrzhH9vauygVsNzDWGfIeTVasP&_nc_ohc=wZdHW7XxITUQ7kNvgG_nYz2&_nc_ht=scontent.fsgn5-9.fna&oh=03_Q7cD1QEaP6wJO8kvmJEo-EgQAJYu3HK9-gRZAGCJyKloWKyjOA&oe=665C5CD0" />
+        <form id="myForm" action="/Nhanvien/chinhsua" method="post">
+            <div class="chnh-sa-thng-tin-c-nhn-child1">
+                <div class="ten">Họ và tên</div>
+                <input type="text" class="tennv" name="tennv" value="@Model.TenNhanVien">
+                <div class="Ns">Ngày sinh</div>
+                <input type="date" class="ns" name="ns" value="@Model.NgaySinh.ToString("yyyy-MM-dd")">
+                <div class="Gt">Giới tính</div>
+                <select name="gt" class="gt">
+                    <option value="Nam" selected="@(Model.GioiTinh == "Nam" ? "selected" : null)">Nam</option>
+                    <option value="Nữ" selected="@(Model.GioiTinh == "Nữ" ? "selected" : null)">Nữ</option>
+
+                </select>
+                <div class="Dc">Địa chỉ</div>
+                <input type="text" class="dc" name="dc" value="@Model.DiaChi">
+                <div class="Sdt">Số điện thoại</div>
+                <input type="text" class="sdt" name="sdt" value="@Model.SoDienThoai">
+                <div class="Em">Email</div>
+                <input type="text" class="em" name="em" value="@Model.Email">
+                <div class="Stk">Số tài khoản</div>
+                <input type="text" class="stk" name="stk" value="@Model.TaiKhoanNganHang">
+                <div class="Bank">Tên ngân hàng</div>
+                <input type="text" class="bank" name="bank" value="@Model.TenNganHang">
+                <button class="btLuu" id="btLuu">Lưu lại</button>
+                <button class="btHuy" id="btHuy">Hủy</button>
+                <img src="https://scontent.fdad3-4.fna.fbcdn.net/v/t1.15752-9/435130161_653072980295404_4271028034475173711_n.png?_nc_cat=105&ccb=1-7&_nc_sid=5f2048&_nc_eui2=AeE47DWn9eYgu-dKMT1AqTIje93imBE8o2Z73eKYETyjZliNkSuZ-ULRIv03MSjBc5sQ6O5_AfgOHBaaO2giRUt6&_nc_ohc=-iM-PodUooYQ7kNvgHFvde0&_nc_ht=scontent.fdad3-4.fna&oh=03_Q7cD1QEKGKYDNnLnNJmz_ULFX34aSWtD_2RtFXyHqoZvDM-05A&oe=665C6D29" alt="" class="image">
+                <div class="Doi_ha"><u>Thay đổi hình ảnh</u></div>
+            </div>
+        </form>
+    </div>
+
+    <script>
+
+        var thngTinCNhn = document.getElementById("thngTinCNhn");
+        if (thngTinCNhn) {
+            thngTinCNhn.addEventListener("click", function () {
+                var anchor = document.querySelector("[data-scroll-to='rectangle']");
+                if (anchor) {
+                    anchor.scrollIntoView({ block: "start", behavior: "smooth" });
+                }
+            });
+        }
+
+        
+        var rectangle1 = document.getElementById("rectangle1");
+        if (rectangle1) {
+            rectangle1.addEventListener("click", function (e) {
+                // Please sync "Đổi mật khẩu - nv" to the project
+            });
+        }
+
+        
+
+        var lchLmVic = document.getElementById("lchLmVic");
+        if (lchLmVic) {
+            lchLmVic.addEventListener("click", function (e) {
+                window.location.href = "https://localhost:7221/Nhanvien/Lichlamvieccanhan";
+            });
+        }
+
+        var lngCNhn = document.getElementById("lngCNhn");
+        if (lngCNhn) {
+            lngCNhn.addEventListener("click", function (e) {
+                window.location.href = " https://localhost:7221/Nhanvien/Luongcanhan";
+            });
+        }
+                }
+        var thngTinCNhn1 = document.getElementById("thngTinCNhn1");
+        if (thngTinCNhn1) {
+            thngTinCNhn1.addEventListener("click", function (e) {
+                window.location.href = " https://localhost:7221/Nhanvien/thongtin";
+            });
+        }
+        document.getElementById("btLuu").addEventListener("click", function () {
+            sendData(); // Gọi hàm gửi dữ liệu
+        });
+
+        function sendData() {
+            var xhr = new XMLHttpRequest();
+            var formData = new FormData(document.getElementById("myForm"));
+            formData.append("gt", gt);
+            //  xhr.open("POST", "/HomeController/chinhsua", true);
+            xhr.onload = function () {
+                if (xhr.status === 200) {
+                    // Xử lý phản hồi từ server nếu cần
+                    console.log(xhr.responseText);
+                }
+            };
+            xhr.send(formData);
+        }
+    </script>
+</body>
+</html>
+<style>
+    .thng-tin-c-nhn-inner {
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-color: var(--color-black);
+        width: 289px;
+        height: 90px;
+    }
+
+    .thng-tin-c1 {
+        position: absolute;
+        top: 33px;
+        left: 55px;
+        font-weight: 500;
+        display: inline-block;
+        width: 222px;
+        height: 32px;
+    }
+
+    .dang-xuat-link {
+        position: absolute;
+        top: 45px;
+        right: 140px;
+        font-weight: 500;
+        display: inline-block;
+        font-size: var(--font-size-xl); /* Điều chỉnh kích thước chữ */
+        color: black; /* Màu chữ */
+        font-family: var(--font-inter); /* Kiểu font chữ */
+        text-decoration: none; /* Loại bỏ gạch chân */
+    }
+    .thng-tin-c-nhn2 {
+        position: absolute;
+        top: 220px;
+        left: 0;
+        width: 289px;
+        height: 90px;
+        cursor: pointer;
+    }
+
+    .chnh-sa-thng-tin-c-nhn-child {
+        position: absolute;
+        top: 490px;
+        left: 0;
+        background-color: var(--color-forestgreen-100);
+        width: 289px;
+        height: 534px;
+        overflow: hidden;
+    }
+
+    .binh-minh-hotel1 {
+        position: absolute;
+        top: 0;
+        left: 148px;
+        display: inline-block;
+        width: 279px;
+        height: 111px;
+    }
+
+    .group-child1,
+    .group-child2,
+    .group-child3 {
+        position: absolute;
+        top: 0;
+        left: 0;
+        border-radius: var(--br-3xs);
+        background-color: var(--color-white);
+        border: 1px solid var(--color-black);
+        box-sizing: border-box;
+        width: 160px;
+        height: 50px;
+        cursor: pointer;
+    }
+
+    .group-child2,
+    .group-child3 {
+        left: 170px;
+    }
+
+    .group-child3 {
+        left: 340px;
+    }
+
+    .i-mt-khu1,
+    .ng-xut1,
+    .trang-ch1 {
+        position: absolute;
+        top: 13px;
+        left: 33px;
+        font-weight: 500;
+        display: inline-block;
+        width: 116px;
+        height: 28px;
+    }
+
+    .i-mt-khu1,
+    .ng-xut1 {
+        left: 191px;
+        width: 134px;
+    }
+
+    .ng-xut1 {
+        left: 372px;
+        width: 116px;
+    }
+
+    .rectangle-group {
+        position: absolute;
+        top: 35px;
+        left: 900px;
+        width: 500px;
+        height: 50px;
+        font-size: var(--font-size-xl);
+        color: var(--color-black);
+        font-family: var(--font-inter);
+    }
+
+    .binh-minh-hotel-group {
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-color: var(--color-forestgreen-200);
+        width: 1550px;
+        height: 120px;
+        overflow: hidden;
+        font-size: var(--font-size-31xl);
+        font-family: var(--font-irish-grover);
+    }
+
+    .chnh-sa-thng,
+    .thng-tin-c2 {
+        position: absolute;
+        top: -1px;
+        left: 1px;
+        font-weight: 600;
+        white-space: pre-wrap;
+        display: flex;
+        align-items: flex-end;
+        justify-content: center;
+        width: 207px;
+        height: 30px;
+    }
+
+    .chnh-sa-thng {
+        top: 6px;
+        left: 204px;
+        font-weight: 500;
+        width: 224px;
+        height: 23px;
+    }
+
+    .thng-tin-c-nhn-parent {
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-color: var(--color-honeydew);
+        width: 1104px;
+        height: 32px;
+        overflow: hidden;
+    }
+
+    .chnh-sa-thng-tin-c-nhn-inner {
+        position: absolute;
+        top: 140px;
+        left: 311px;
+        width: 1104px;
+        height: 32px;
+        text-align: center;
+        font-size: var(--font-size-xl);
+        color: var(--color-black);
+    }
+
+    .istockphoto-1420738401-170667a-icon1 {
+        position: absolute;
+        top: 13px;
+        left: 15px;
+        width: 107px;
+        height: 96px;
+        object-fit: cover;
+    }
+
+    .lch-lm-vic-item {
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-color: var(--color-darkslategray);
+        width: 289px;
+        height: 90px;
+    }
+
+    .lch-lm-vic3 {
+        position: absolute;
+        top: 30px;
+        left: 77px;
+        font-weight: 500;
+        display: inline-block;
+        width: 147.9px;
+        height: 40px;
+    }
+
+    .chnh-sa-thng-tin-c-nhn-item,
+    .lch-lm-vic2 {
+        position: absolute;
+        left: 0;
+        width: 289px;
+        height: 90px;
+    }
+
+    .lch-lm-vic2 {
+        top: 310px;
+        cursor: pointer;
+    }
+
+    .chnh-sa-thng-tin-c-nhn-item {
+        top: 400px;
+        background-color: var(--color-darkslategray);
+    }
+
+    .lng-c-nhn4 {
+        position: absolute;
+        top: 428px;
+        left: 65.5px;
+        font-weight: 500;
+        display: inline-block;
+        width: 179.8px;
+        height: 39px;
+        cursor: pointer;
+    }
+
+    .thng-tin-c-nhn-child1,
+    .thng-tin-c-nhn3 {
+        position: absolute;
+        left: 0;
+        width: 289px;
+        height: 103px;
+    }
+
+    .thng-tin-c-nhn-child1 {
+        top: 0;
+        background-color: var(--color-darkslategray);
+    }
+
+    .thng-tin-c-nhn3 {
+        top: 120px;
+        cursor: pointer;
+    }
+
+    .user011 {
+        position: absolute;
+        top: 159px;
+        left: 154px;
+        display: inline-block;
+        text-align: right;
+        width: 86px;
+        height: 24px;
+    }
+
+    .n-1-icon1 {
+        position: absolute;
+        top: 135px;
+        left: 54px;
+        width: 75px;
+        height: 75px;
+        object-fit: cover;
+    }
+
+    .chnh-sa-thng-tin-c-nhn-child1 {
+        position: absolute;
+        top: 228px;
+        left: 311px;
+        border-radius: var(--br-3xs);
+        background-color: var(--color-white);
+        width: 1104px;
+        height: 766px;
+    }
+
+    .chnh-sa-thng-tin-c-nhn {
+        width: 100%;
+        position: relative;
+        height: 1024px;
+        overflow: hidden;
+        background-image: url(https://scontent.fsgn5-5.fna.fbcdn.net/v/t1.15752-9/435229924_1387605835555899_1676943816951711557_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=5f2048&_nc_eui2=AeFJMnRkpBX4VXFUqgQe8t4MAnEj3tDXrhwCcSPe0NeuHBfYQCRlTLYqRSzjZcYLanAmYfZQt1qLkkGk46N3Lk1j&_nc_ohc=nYt1abA6-owQ7kNvgGcOPWC&_nc_ht=scontent.fsgn5-5.fna&oh=03_Q7cD1QG1YaNHQjJkr11C4BwBLnPFnWUgl4oQF37FW-0ZA-IruA&oe=665C6ADD);
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: top;
+        text-align: left;
+        font-size: var(--font-size-3xl);
+        color: var(--color-white);
+        font-family: var(--font-inter);
+    }
+
+    .ten {
+        position: absolute;
+        top: 50px;
+        left: 400px;
+        color: var(--color-black);
+        font-size: 20px;
+    }
+
+    .tennv {
+        position: absolute;
+        top: 90px;
+        left: 400px;
+        width: 300px;
+        height: 30px;
+        padding: 5px;
+        border-radius: 10px;
+        font-size: 24px;
+        font-family: var(--font-inter);
+    }
+
+    .Ns {
+        position: absolute;
+        top: 150px;
+        left: 400px;
+        color: var(--color-black);
+        font-size: 20px;
+    }
+
+    .ns {
+        position: absolute;
+        top: 190px;
+        left: 400px;
+        width: 300px;
+        height: 30px;
+        padding: 5px;
+        border-radius: 10px;
+        font-size: 24px;
+        font-family: var(--font-inter);
+    }
+
+    .Gt {
+        position: absolute;
+        top: 150px;
+        left: 750px;
+        color: var(--color-black);
+        font-size: 20px;
+    }
+
+    .gt {
+        position: absolute;
+        top: 190px;
+        left: 750px;
+        width: 310px;
+        height: 45px;
+        padding: 5px;
+        border-radius: 10px;
+        font-size: 24px;
+        font-family: var(--font-inter);
+    }
+
+    .Dc {
+        position: absolute;
+        top: 250px;
+        left: 400px;
+        color: var(--color-black);
+        font-size: 20px;
+    }
+
+    .dc {
+        position: absolute;
+        top: 290px;
+        left: 400px;
+        width: 650px;
+        height: 30px;
+        padding: 5px;
+        border-radius: 10px;
+        font-size: 24px;
+        font-family: var(--font-inter);
+    }
+
+    .Sdt {
+        position: absolute;
+        top: 350px;
+        left: 400px;
+        color: var(--color-black);
+        font-size: 20px;
+    }
+
+    .sdt {
+        position: absolute;
+        top: 390px;
+        left: 400px;
+        width: 300px;
+        height: 30px;
+        padding: 5px;
+        border-radius: 10px;
+        font-size: 24px;
+        font-family: var(--font-inter);
+    }
+
+    .Em {
+        position: absolute;
+        top: 350px;
+        left: 750px;
+        color: var(--color-black);
+        font-size: 20px;
+    }
+
+    .em {
+        position: absolute;
+        top: 390px;
+        left: 750px;
+        width: 300px;
+        height: 30px;
+        padding: 5px;
+        border-radius: 10px;
+        font-size: 24px;
+        font-family: var(--font-inter);
+    }
+
+    .Stk {
+        position: absolute;
+        top: 450px;
+        left: 400px;
+        color: var(--color-black);
+        font-size: 20px;
+    }
+
+    .stk {
+        position: absolute;
+        top: 490px;
+        left: 400px;
+        width: 300px;
+        height: 30px;
+        padding: 5px;
+        border-radius: 10px;
+        font-size: 24px;
+        font-family: var(--font-inter);
+    }
+
+    .Bank {
+        position: absolute;
+        top: 450px;
+        left: 750px;
+        color: var(--color-black);
+        font-size: 20px;
+    }
+
+    .bank {
+        position: absolute;
+        top: 490px;
+        left: 750px;
+        width: 300px;
+        height: 30px;
+        padding: 5px;
+        border-radius: 10px;
+        font-size: 24px;
+        font-family: var(--font-inter);
+    }
+
+    .btLuu {
+        position: absolute;
+        top: 600px;
+        left: 500px;
+        width: 150px;
+        height: 40px;
+        font-size: 24px;
+        border-radius: 5px;
+        background-color: var( --color-forestgreen-100);
+    }
+
+    .btHuy {
+        position: absolute;
+        top: 600px;
+        left: 800px;
+        width: 150px;
+        height: 40px;
+        font-size: 24px;
+        border-radius: 5px;
+    }
+
+    .image {
+        position: absolute;
+        top: 50px;
+        left: 100px;
+    }
+
+    .Doi_ha {
+        position: absolute;
+        top: 300px;
+        left: 138px;
+        font-size: 15px;
+        color: var(--color-black);
+    }
+
+    body {
+        margin: 0;
+        line-height: normal;
+    }
+
+    :root {
+        /* fonts */
+        --font-inter: Inter;
+        --font-irish-grover: "Irish Grover";
+        /* font sizes */
+        --font-size-11xl: 30px;
+        --font-size-3xl: 22px;
+        --font-size-xl: 20px;
+        --font-size-31xl: 50px;
+        /* Colors */
+        --color-black: #000;
+        --color-white: #fff;
+        --color-darkslategray: rgba(48, 46, 46, 0.89);
+        --color-forestgreen-100: rgba(39, 162, 58, 0.8);
+        --color-forestgreen-200: rgba(49, 162, 39, 0.8);
+        --color-honeydew: #e2ffe1;
+        /* Border radiuses */
+        --br-3xs: 10px;
+    }
+
+</style>

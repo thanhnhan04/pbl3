@@ -1,0 +1,641 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="initial-scale=1, width=device-width" />
+
+    <link rel="stylesheet" href="./global.css" />
+    <link rel="stylesheet" href="./lch-lm-vic-c-nhn.css" />
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700&display=swap" />
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Irish Grover:wght@400&display=swap" />
+          </head>
+<style>
+    .thng-tin-c-nhn-child {
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-color: var(--color-darkslategray);
+        width: 289px;
+        height: 90px;
+    }
+
+    .thng-tin-c {
+        position: absolute;
+        top: 33px;
+        left: 55px;
+        font-weight: 500;
+        display: inline-block;
+        width: 222px;
+        height: 32px;
+        cursor: pointer;
+    }
+
+    .lng-c-nhn-child,
+    .thng-tin-c-nhn {
+        position: absolute;
+        left: 0;
+        width: 289px;
+    }
+
+    .thng-tin-c-nhn {
+        top: 220px;
+        height: 90px;
+        font-size: var(--font-size-3xl);
+        color: var(--color-white);
+    }
+
+    .lng-c-nhn-child {
+        top: 490px;
+        background-color: var(--color-forestgreen-100);
+        height: 534px;
+        overflow: hidden;
+    }
+
+    .binh-minh-hotel {
+        position: absolute;
+        top: 0;
+        left: 148px;
+        display: inline-block;
+        width: 279px;
+        height: 111px;
+    }
+
+    .group-child {
+        left: 0;
+        cursor: pointer;
+    }
+
+    .group-child,
+    .group-inner,
+    .group-item {
+        position: absolute;
+        top: 0;
+        border-radius: var(--br-3xs);
+        background-color: var(--color-white);
+        border: 1px solid var(--color-black);
+        box-sizing: border-box;
+        width: 160px;
+        height: 50px;
+    }
+
+    .group-item {
+        left: 170px;
+        cursor: pointer;
+    }
+
+    .group-inner {
+        left: 340px;
+    }
+
+    .i-mt-khu,
+    .ng-xut,
+    .trang-ch {
+        position: absolute;
+        top: 13px;
+        left: 33px;
+        font-weight: 500;
+        display: inline-block;
+        width: 116px;
+        height: 28px;
+    }
+
+    .i-mt-khu,
+    .ng-xut {
+        left: 191px;
+        width: 134px;
+    }
+
+    .ng-xut {
+        left: 372px;
+        width: 116px;
+        cursor: pointer;
+    }
+
+    .rectangle-parent {
+        position: absolute;
+        top: 35px;
+        left: 900px;
+        width: 500px;
+        height: 50px;
+        font-size: var(--font-size-xl);
+        color: var(--color-black);
+        font-family: var(--font-inter);
+    }
+
+    .binh-minh-hotel-parent {
+        position: absolute;
+        top: 1px;
+        left: 0;
+        background-color: var(--color-forestgreen-200);
+        width: 1500px;
+        height: 120px;
+        overflow: hidden;
+        font-size: var(--font-size-31xl);
+        color: var(--color-white);
+        font-family: var(--font-irish-grover);
+    }
+
+    .istockphoto-1420738401-170667a-icon {
+        position: absolute;
+        top: 13px;
+        left: 15px;
+        width: 107px;
+        height: 89px;
+        object-fit: cover;
+    }
+
+    .lch-lm-vic1 {
+        position: absolute;
+        top: 30px;
+        left: 77px;
+        font-weight: 500;
+        display: inline-block;
+        width: 147.9px;
+        height: 40px;
+        cursor: pointer;
+    }
+
+    .lch-lm-vic,
+    .lng-c-nhn-item {
+        position: absolute;
+        left: 0;
+        width: 289px;
+        height: 90px;
+    }
+
+    .lch-lm-vic {
+        top: 310px;
+        font-size: var(--font-size-3xl);
+        color: var(--color-white);
+    }
+
+    .lng-c-nhn-item {
+        top: 400px;
+        background-color: var(--color-black);
+    }
+
+    .lng-c-nhn1 {
+        position: absolute;
+        top: 428px;
+        left: 65.5px;
+        font-size: var(--font-size-3xl);
+        font-weight: 500;
+        color: var(--color-white);
+        display: inline-block;
+        width: 179.8px;
+        height: 39px;
+    }
+
+    .lng-c-nhn2 {
+        position: absolute;
+        top: -66.5px;
+        left: -3px;
+        font-weight: 600;
+        display: flex;
+        align-items: flex-end;
+        justify-content: center;
+        width: 192px;
+        height: 30px;
+    }
+
+    .lng-c-nhn-wrapper {
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-color: var(--color-honeydew);
+        width: 1104px;
+        height: 29.6px;
+        overflow: hidden;
+    }
+
+    .lng-c-nhn-inner,
+    .lng-c-nhn3 {
+        position: absolute;
+        top: 140px;
+        left: 311px;
+        width: 1104px;
+        height: 29.6px;
+        text-align: center;
+        font-size: var(--font-size-xl);
+    }
+
+    .lng-c-nhn3 {
+        top: 137px;
+        left: 314px;
+        font-weight: 600;
+        display: flex;
+        align-items: flex-end;
+        justify-content: center;
+        width: 162px;
+        height: 30px;
+    }
+
+    .rectangle-div {
+        position: absolute;
+        top: 220px;
+        left: 321px;
+        border-radius: 8px;
+        background-color: var(--color-white);
+        width: 1104px;
+        height: 774px;
+    }
+
+    .lng-thng {
+        position: absolute;
+        top: 254px;
+        left: 332px;
+        font-size: 40px;
+        display: inline-block;
+        text-align: center;
+        width: 547px;
+        height: 56px;
+    }
+
+    .div,
+    .div1 {
+        left: 802px;
+        font-weight: 300;
+        width: 356px;
+        height: 38px;
+    }
+
+    .div {
+        position: absolute;
+        top: 440px;
+        display: inline-block;
+    }
+
+    .div1 {
+        top: 525px;
+    }
+
+    .div1,
+    .div2,
+    .div3,
+    .div4,
+    .tng-lng {
+        position: absolute;
+        display: inline-block;
+    }
+
+    .tng-lng {
+        top: 905px;
+        left: 666px;
+        color: #31a227;
+        text-align: center;
+        width: 220px;
+        height: 32px;
+    }
+
+    .div2,
+    .div3,
+    .div4 {
+        top: 607px;
+        left: 798px;
+        font-weight: 300;
+        width: 356px;
+        height: 38px;
+    }
+
+    .div3,
+    .div4 {
+        top: 366px;
+        left: 802px;
+    }
+
+    .div4 {
+        top: 692px;
+        left: 798px;
+    }
+
+    .div5 {
+        top: 908px;
+        left: 919px;
+        font-weight: 500;
+        width: 347px;
+        height: 38px;
+    }
+
+    .div5,
+    .vnd,
+    .vnd1,
+    .vnd2,
+    .vnd3 {
+        position: absolute;
+        display: inline-block;
+    }
+
+    .vnd {
+        top: 905px;
+        left: 1276px;
+        font-weight: 500;
+        text-align: center;
+        width: 69px;
+        height: 26px;
+    }
+
+    .vnd1,
+    .vnd2,
+    .vnd3 {
+        top: 440px;
+        left: 1209px;
+        font-weight: 300;
+        width: 102px;
+        height: 29px;
+    }
+
+    .vnd2,
+    .vnd3 {
+        top: 525px;
+        height: 32px;
+    }
+
+    .vnd3 {
+        top: 604px;
+    }
+
+    .thng-tin-c-nhn-item,
+    .thng-tin-c-nhn1 {
+        position: absolute;
+        width: 290px;
+        height: 99px;
+    }
+
+    .thng-tin-c-nhn-item {
+        top: 0;
+        left: 0;
+        background-color: var(--color-darkslategray);
+    }
+
+    .thng-tin-c-nhn1 {
+        top: 121px;
+        left: -1px;
+        cursor: pointer;
+    }
+
+    .user01 {
+        position: absolute;
+        top: 159px;
+        left: 154px;
+        font-size: var(--font-size-3xl);
+        display: inline-block;
+        color: var(--color-white);
+        text-align: right;
+        width: 86px;
+        height: 24px;
+    }
+
+    .n-1-icon {
+        position: absolute;
+        top: 135px;
+        left: 54px;
+        width: 75px;
+        height: 75px;
+        object-fit: cover;
+    }
+
+    .div6,
+    .vnd4 {
+        position: absolute;
+        top: 782px;
+        left: 798px;
+        font-weight: 300;
+        display: inline-block;
+        width: 356px;
+        height: 38px;
+    }
+
+    .vnd4 {
+        left: 1209px;
+        width: 102px;
+        height: 32px;
+    }
+
+    .lng-c-bn,
+    .m-lng,
+    .ph-cp,
+    .pht,
+    .s-ngy-lm,
+    .thng {
+        position: absolute;
+        top: 30px;
+        left: 34px;
+        font-weight: 500;
+        display: inline-block;
+        width: 152px;
+        height: 36px;
+    }
+
+    .lng-c-bn,
+    .ph-cp,
+    .pht,
+    .s-ngy-lm,
+    .thng {
+        top: 101px;
+        width: 215px;
+        height: 32px;
+    }
+
+    .ph-cp,
+    .pht,
+    .s-ngy-lm,
+    .thng {
+        top: 188px;
+        width: 130px;
+    }
+
+    .ph-cp,
+    .pht,
+    .s-ngy-lm {
+        top: 273px;
+        width: 115px;
+    }
+
+    .ph-cp,
+    .s-ngy-lm {
+        top: 358px;
+        width: 220px;
+    }
+
+    .ph-cp {
+        top: 445px;
+    }
+
+    .dang-xuat-link {
+        position: absolute;
+        top: 45px;
+        right: 140px;
+        font-weight: 500;
+        display: inline-block;
+        font-size: var(--font-size-xl); /* Điều chỉnh kích thước chữ */
+        color: black; /* Màu chữ */
+        font-family: var(--font-inter); /* Kiểu font chữ */
+        text-decoration: none; /* Loại bỏ gạch chân */
+    }
+    .m-lng-parent {
+        position: absolute;
+        top: 334px;
+        left: 412px;
+        width: 348px;
+        height: 548px;
+        overflow: hidden;
+    }
+
+    .lng-c-nhn {
+        width: 100%;
+        position: relative;
+        height: 1024px;
+        overflow: hidden;
+        background-image: url(https://scontent.fdad3-1.fna.fbcdn.net/v/t1.15752-9/435229924_1387605835555899_1676943816951711557_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=5f2048&_nc_eui2=AeH-hduBPulx8BUfEDVtA6eeAnEj3tDXrhwCcSPe0NeuHCIB5UgzYlt5zBgKQ2bQ3LL2aUd92XNbkmUq7xUHA-XE&_nc_ohc=nYt1abA6-owQ7kNvgGH20AD&_nc_ht=scontent.fdad3-1.fna&oh=03_Q7cD1QGWgpXrwYOA13zasdHAXZf7qC8e5NWsgIsCksB2BTkjGQ&oe=665D139D);
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: top;
+        text-align: left;
+        font-size: var(--font-size-11xl);
+        color: var(--color-black);
+        font-family: var(--font-inter);
+    }
+
+    body {
+        margin: 0;
+        line-height: normal;
+    }
+
+    :root {
+        /* fonts */
+        --font-inter: Inter;
+        --font-irish-grover: "Irish Grover";
+        /* font sizes */
+        --font-size-11xl: 30px;
+        --font-size-3xl: 22px;
+        --font-size-xl: 20px;
+        --font-size-31xl: 50px;
+        /* Colors */
+        --color-black: #000;
+        --color-white: #fff;
+        --color-darkslategray: rgba(48, 46, 46, 0.89);
+        --color-forestgreen-100: rgba(39, 162, 58, 0.8);
+        --color-forestgreen-200: rgba(49, 162, 39, 0.8);
+        --color-honeydew: #e2ffe1;
+        /* Border radiuses */
+        --br-3xs: 10px;
+    }
+
+</style>
+<body>
+    <div class="lng-c-nhn">
+        <div class="thng-tin-c-nhn">
+            <div class="thng-tin-c-nhn-child"></div>
+            <div class="thng-tin-c" id="thngTinC">Thông tin cá nhân</div>
+        </div>
+        <div class="lng-c-nhn-child"></div>
+        <div class="binh-minh-hotel-parent">
+            <div class="binh-minh-hotel">BINH MINH HOTEL</div>
+            <div class="rectangle-parent">
+                <div class="group-child" id="rectangle"></div>
+                <div class="group-item" id="rectangle1"></div>
+                <div class="group-inner"></div>
+                <div class="trang-ch">Trang chủ</div>
+                <div class="i-mt-khu">Đổi mật khẩu</div>
+                <a asp-controller="Login" asp-action="Logout" class="dang-xuat-link" style="position: absolute; font-weight: 500;
+display: inline-block; top: 13px; right: 45px;">Đăng xuất</a>
+            </div>
+        </div>
+        <img class="istockphoto-1420738401-170667a-icon"
+             alt=""
+             src="https://scontent.fdad3-1.fna.fbcdn.net/v/t1.15752-9/434534001_1448732405736076_2728451762103298305_n.png?_nc_cat=108&ccb=1-7&_nc_sid=5f2048&_nc_eui2=AeELIMxQW_20PbqvrN_Laesa3i0KWcVikJ_eLQpZxWKQn5ANGfV59GLmC_gCpYHKR6n1pkGFUOFXN7xtrfKYOuxS&_nc_ohc=omjHx4n50lYQ7kNvgEiaVOq&_nc_ht=scontent.fdad3-1.fna&oh=03_Q7cD1QGXU3sY9qWlWMxhMkCpROcbU7cij0noyiccFICWOi_Vnw&oe=665CE03E" />
+
+        <div class="lch-lm-vic">
+            <div class="thng-tin-c-nhn-child"></div>
+            <div class="lch-lm-vic1" id="lchLmVic">Lịch làm việc</div>
+        </div>
+        <div class="lng-c-nhn-item"></div>
+        <div class="lng-c-nhn1">Lương cá nhân</div>
+        <div class="lng-c-nhn-inner">
+            <div class="lng-c-nhn-wrapper">
+                <div class="lng-c-nhn2">Lương cá nhân</div>
+            </div>
+        </div>
+        <div class="lng-c-nhn3">Lương cá nhân</div>
+        <div class="rectangle-div"></div>
+        
+
+        <b class="lng-thng">Lương tháng : @Model.Thang </b>
+        <div class="div">@Model.Luongcoban</div>
+        <div class="div1"> @Model.Thuong</div>
+        <b class="tng-lng">Tổng lương:</b>
+        <div class="div2"> @Model.Phat</div>
+        <div class="div3"> @Model.MaLuong </div>
+        <div class="div4"> @Model.NgayCong</div>
+        <div class="div5"> @Model.LuongTong</div>
+        <div class="vnd">VND</div>
+        <div class="vnd1">VND</div>
+        <div class="vnd2">VND</div>
+        <div class="vnd3">VND</div>
+        <div class="thng-tin-c-nhn1" id="thngTinCNhn1">
+            <div class="thng-tin-c-nhn-item"></div>
+        </div>
+        <b class="user01">User01</b>
+        <img class="n-1-icon"
+             alt=""
+             src="https://scontent.fdad3-4.fna.fbcdn.net/v/t1.15752-9/435264282_1107310530502381_1832007922840023753_n.png?stp=cp0_dst-png&_nc_cat=105&ccb=1-7&_nc_sid=5f2048&_nc_eui2=AeHOUg5KIOU8mEknvYP0PRBjJg-_qGl2dC4mD7-oaXZ0Lu7JgLZwZuUTIvjIjdhKMXg8mpFYWyZCIHjES7Z3xD73&_nc_ohc=wZdHW7XxITUQ7kNvgG7yOs7&_nc_ht=scontent.fdad3-4.fna&oh=03_Q7cD1QFyNb1yA9EeE8qV7USGKe8_Xx3IFx_9ReukRIFtrZioCw&oe=665D0590" />
+
+        <div class="div6">@Model.Phucap</div>
+        <div class="vnd4">VND</div>
+        <div class="m-lng-parent">
+            <div class="m-lng">Mã lương:</div>
+            <div class="lng-c-bn">Lương cơ bản:</div>
+            <div class="thng">Thưởng:</div>
+            <div class="pht">Phạt:</div>
+            <div class="s-ngy-lm">Số ngày làm:</div>
+            <div class="ph-cp">Phụ cấp:</div>
+        </div>
+    </div>
+
+    <script>
+        var thngTinC = document.getElementById("thngTinC");
+        if (thngTinC) {
+            thngTinC.addEventListener("click", function (e) {
+                // Please sync "thông tin cá nhân" to the project
+            });
+        }
+
+        // var rectangle = document.getElementById("rectangle");
+        // if (rectangle) {
+        //     rectangle.addEventListener("click", function (e) {
+        //           window.location.href = "https://localhost:7221/Nhanvien/Index"
+        //     });
+        // }
+
+        var rectangle1 = document.getElementById("rectangle1");
+        if (rectangle1) {
+            rectangle1.addEventListener("click", function (e) {
+                // Please sync "Đổi mật khẩu - nv" to the project
+            });
+        }
+
+       
+
+        var lchLmVic = document.getElementById("lchLmVic");
+        if (lchLmVic) {
+            lchLmVic.addEventListener("click", function (e) {
+                window.location.href = "https://localhost:7221/Nhanvien/Lichlamvieccanhan";
+            });
+        }
+
+        var thngTinC = document.getElementById("thngTinC");
+        if (thngTinC) {
+            thngTinC.addEventListener("click", function (e) {
+                window.location.href = " https://localhost:7221/Nhanvien/thongtin";
+            });
+        }
+    </script>
+</body>
+</html>
