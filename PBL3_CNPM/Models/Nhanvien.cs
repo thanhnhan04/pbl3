@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 
 namespace PBL3_CNPM.Models;
@@ -35,11 +36,15 @@ public partial class Nhanvien
 
     public string? MaPhanQuyen { get; set; }
 
-    public virtual ICollection<CongviecNv> CongviecNvs { get; set; } = new List<CongviecNv>();
+    public string? MaChucVu { get; set; }
 
-    public virtual ICollection<Hoso> Hosos { get; set; } = new List<Hoso>();
+    public string? TrinhDo { get; set; }
 
-    public virtual ICollection<LuongNv> LuongNvs { get; set; } = new List<LuongNv>();
+    public string? KinhNghiem { get; set; }
+
+    public virtual Chucvu? MaChucVuNavigation { get; set; }
 
     public virtual Phanquyen? MaPhanQuyenNavigation { get; set; }
+
+    public virtual Phongban? MaPhongBanNavigation { get; set; }
 }

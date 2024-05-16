@@ -9,7 +9,5 @@ public partial class Congviec
 
     public string? ChiTietCongViec { get; set; }
 
-    public TimeOnly? CaLam { get; set; }
-
-    public virtual CongviecNv? CongviecNv { get; set; }
+    public string? CaLam { get; set; }
 }
