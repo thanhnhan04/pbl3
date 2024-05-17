@@ -220,6 +220,16 @@ namespace PBL3_CNPM.Controllers
             var nv = db.Nhanviens.Find(id);
             return View(nv);
         }
+        [HttpPost, ActionName("xoa")]
+        [ValidateAntiForgeryToken]
+        public ActionResult xoa(string id)
+        {
+            var nv = db.Nhanviens.Find(id);
+            db.Nhanviens.Remove(nv);
+            db.SaveChanges();
+            return RedirectToAction("quanlyhoso");
+            
+        }
         public IActionResult Sapxepcongviec()
         {
             return View();
