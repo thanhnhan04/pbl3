@@ -42,12 +42,12 @@
             <div class="lch-lm-vic-child"></div>
             <a asp-controller="Quanly" asp-action="Phongban" class="qun-l-phng">Quản lý phòng ban</a>
 
-            @* @* <div class="qun-l-phng">Quản lý phòng ban</div> *@ 
+            @* @* <div class="qun-l-phng">Quản lý phòng ban</div> *@
         </div>
         <div class="qun-l-h-s-thm-h-s-child" id="rectangle"></div>
         <div class="qun-l-cng-container">
-            <a asp-controller="Quanly" asp-action="Lichlamviec" class="qun-l-cng">Quản lý công việc</a>
-           @*  <p class="qun-l-cng">Quản lý công việc</p> *@
+            <a asp-controller="Quanly" asp-action="Quanlycongviec" class="qun-l-cng">Quản lý công việc</a>
+            @*  <p class="qun-l-cng">Quản lý công việc</p> *@
         </div>
         <div class="qun-l-h-s-parent">
             <div class="qun-l-h1">Quản lý hồ sơ</div>
@@ -60,6 +60,14 @@
              alt=""
              src="https://scontent.xx.fbcdn.net/v/t1.15752-9/435264282_1107310530502381_1832007922840023753_n.png?stp=cp0_dst-png&_nc_cat=105&ccb=1-7&_nc_sid=5f2048&_nc_eui2=AeEWw0jKlDzYG29vauLC2BRxJg-_qGl2dC4mD7-oaXZ0LmRBLhQT3PNGmmJczUgrzhH9vauygVsNzDWGfIeTVasP&_nc_ohc=6rRhPDRx88YQ7kNvgEacIE8&_nc_ad=z-m&_nc_cid=0&_nc_ht=scontent.xx&oh=03_Q7cD1QHR3jN8PTDS0R1SkLefBKrnlfqt_AlrjVsbFLjHAJI4mA&oe=6665CF90" />
         <div class="qun-l-h-s-thm-h-s-item"></div>
+        <form method="get" action="@Url.Action("quanlyhoso")">
+            <p>
+                <div class="tknv">Tìm kiếm nhân viên: </div>
+                <input type="text" class="tim" name="searchString" value="@ViewBag.SearchString" />
+                <input type="submit" class="bttim" value="Tìm" />
+            </p>
+        </form>
+
         <div class="mytable">
             <table class="custom-table">
                 <thead>
@@ -93,7 +101,7 @@
             </table>
         </div>
         <div>
-            <a asp-controller="Quanly" asp-action="themhoso" class="btAdd";">Thêm hồ sơ</a>
+            <a asp-controller="Quanly" asp-action="themhoso" class="btAdd" ;">Thêm hồ sơ</a>
             @* <button class="btAdd" id="btAdd">Thêm hồ sơ</button> *@
         </div>
     </div>
@@ -109,7 +117,7 @@
         }
 
 
-      
+
 
         // var lchLmVic = document.getElementById("lchLmVic");
         // if (lchLmVic) {
@@ -118,12 +126,12 @@
         //     });
         // }
 
-        var rectangle = document.getElementById("rectangle");
-        if (rectangle) {
-            rectangle.addEventListener("click", function (e) {
-                window.location.href = "https://localhost:7221/Quanly/Quanlycongviec";
-            });
-        }
+        // var rectangle = document.getElementById("rectangle");
+        // if (rectangle) {
+        //     rectangle.addEventListener("click", function (e) {
+        //         window.location.href = "https://localhost:7221/Quanly/Quanlycongviec";
+        //     });
+        // }
 
         // var thngTinCNhn1 = document.getElementById("thngTinCNhn1");
         // if (thngTinCNhn1) {
@@ -139,6 +147,34 @@
 </body>
 </html>
 <style>
+    .tknv {
+        position: absolute;
+        top: 180px;
+        left: 320px;
+        font-size: 20px;
+    }
+
+    .tim {
+        position: absolute;
+        top: 210px;
+        left: 320px;
+        width: 300px;
+        height: 30px;
+        font-size: 20px;
+        border-radius: 5px;
+    }
+
+    .bttim {
+        position: absolute;
+        top: 210px;
+        left: 650px;
+        width: 100px;
+        height: 35px;
+        font-size: 24px;
+        border-radius: 5px;
+        background-color: rgba(39, 162, 58, 0.8);
+    }
+
     .btAdd {
         position: absolute;
         top: 190px;
@@ -152,13 +188,24 @@
 
     .mytable {
         position: absolute;
-        top: 250px;
+        top: 280px;
         left: 300px;
+        max-width: 100%; /* Độ rộng tối đa của bảng */
+        overflow-x: auto; /* Tạo thanh cuộn ngang nếu bảng vượt quá chiều rộng */
+        max-height: 800px; /* Chiều cao tối đa của bảng (điều chỉnh theo nhu cầu của bạn) */
+        overflow-y: auto; /* Tạo thanh cuộn dọc nếu bảng vượt quá chiều cao */
     }
 
     .custom-table {
         border-collapse: collapse;
         width: 1200px;
+    }
+
+    .mytable thead {
+        position: sticky;
+        top: 0; /* Giữ phần head ở vị trí đầu tiên */
+        z-index: 1; /* Đảm bảo phần head hiển thị trên cùng */
+        background-color: #f2f2f2; /* Màu nền cho phần head */
     }
 
     th, td {
@@ -171,17 +218,6 @@
         background-color: var(--color-white);
     }
 
-    .dang-xuat-link {
-        position: absolute;
-        top: 45px;
-        right: 140px;
-        font-weight: 500;
-        display: inline-block;
-        font-size: var(--font-size-xl); /* Điều chỉnh kích thước chữ */
-        color: black; /* Màu chữ */
-        font-family: var(--font-inter); /* Kiểu font chữ */
-        text-decoration: none; /* Loại bỏ gạch chân */
-    }
     th {
         background-color: rgba(39, 162, 58, 0.8);
     }
@@ -468,5 +504,4 @@
         /* Border radiuses */
         --br-3xs: 10px;
     }
-
 </style>

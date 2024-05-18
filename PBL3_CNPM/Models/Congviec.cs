@@ -5,7 +5,7 @@ namespace PBL3_CNPM.Models;
 
 public partial class Congviec
 {
-    public string MaCongViec { get; set; } = null!;
+    public int? MaCongViec { get; set; } 
 
     public string? ChiTietCongViec { get; set; }
 

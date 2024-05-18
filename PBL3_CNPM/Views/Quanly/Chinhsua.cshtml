@@ -1,8 +1,6 @@
 ﻿@{
     Layout = null;
 }
-
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -60,9 +58,9 @@ display: inline-block; top: 13px; right: 45px;">Đăng xuất</a>
         @using (Html.BeginForm("Chinhsua", "Quanly", FormMethod.Post))
         {
             <div class="chnh-sa-thng-tin-c-nhn-child1">
-               
+
                 <div class="MaNV">Mã nhân viên</div>
-                <input type="text" class="maNV" name="maNV" value="@Model.MaNv">
+                <input type="text" class="maNV" name="maNV" value="@Model.MaNv" readonly>
                 <div class="ten">Họ và tên</div>
                 <input type="text" class="tennv" name="tennv" value="@Model.TenNhanVien">
                 <div class="Ns">Ngày sinh</div>
@@ -90,7 +88,11 @@ display: inline-block; top: 13px; right: 45px;">Đăng xuất</a>
                 <input type="text" class="pass" name="pass" value="@Model.Password">
                 <div class="Cv">Chức vụ</div>
                 <select id="cv" name="cv" class="cv">
-                  
+
+                    @foreach (var cv in ViewBag.chucvulist)
+                    {
+                        <option value="@cv.MaChucVu" selected="@(Model.MaChucVu == @cv.MaChucVu ? "selected" : null)">@cv.ChucVu1</option>
+                    }
 
                 </select>
                 <div class="Td">Trình độ</div>
@@ -135,8 +137,26 @@ display: inline-block; top: 13px; right: 45px;">Đăng xuất</a>
         var huy = document.getElementById("btHuy");
         if (huy) {
             huy.addEventListener("click", function (e) {
-                window.location.href = "https://localhost:7221/";
+                window.location.href = "https://localhost:7221/Quanly/quanlyhoso";
             });
+        }
+        document.getElementById("btAdd").addEventListener("click", function () {
+            sendData(); // Gọi hàm gửi dữ liệu
+        });
+
+        function sendData() {
+            var xhr = new XMLHttpRequest();
+            var formData = new FormData(document.getElementById("myForm"));
+            formData.append("gt", gt);
+            formData.append("cv", cv);
+            xhr.open("POST", "/Quanly/Chinhsua", true);
+            xhr.onload = function () {
+                if (xhr.status === 200) {
+                    // Xử lý phản hồi từ server nếu cần
+                    console.log(xhr.responseText);
+                }
+            };
+            xhr.send(formData);
         }
         $(document).ready(function () {
             $("#btAdd").click(function () {

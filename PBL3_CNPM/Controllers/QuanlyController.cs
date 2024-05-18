@@ -25,9 +25,15 @@ namespace PBL3_CNPM.Controllers
         QuanlynhanvienkhachsanContext db = new QuanlynhanvienkhachsanContext();
         [HttpGet]
         [Authentication]
-        public IActionResult quanlyhoso()
+        public IActionResult quanlyhoso(string searchString)
         {
+
             var nv = db.Nhanviens.Where(p => p.MaPhanQuyen == "103").Select(p => p);
+            if (!string.IsNullOrEmpty(searchString))
+            {
+                nv = nv.Where(e => e.TenNhanVien.Contains(searchString));
+            }
+            ViewBag.SearchString = searchString;
             return View(nv.ToList());
         }
         [Authentication]
@@ -41,7 +47,7 @@ namespace PBL3_CNPM.Controllers
         public ActionResult themhoso(string maNV, string tennv, DateTime ns, string gt, string dc, string sdt, string em, string stk, string bank, string cccd, string maBH, string pass, string cv, string td, string kn)
         {
             Nhanvien nv = new Nhanvien();
-      
+
             nv.MaNv = maNV;
             nv.TenNhanVien = tennv;
             nv.NgaySinh = ns;
@@ -58,7 +64,7 @@ namespace PBL3_CNPM.Controllers
             nv.MaChucVu = cv;
             nv.TrinhDo = td;
             nv.KinhNghiem = kn;
-     
+
             db.Nhanviens.Add(nv);
             db.SaveChanges();
             return RedirectToAction("quanlyhoso", "Quanly");
@@ -67,7 +73,7 @@ namespace PBL3_CNPM.Controllers
         public IActionResult Quanlycongviec()
         {
             return View();
-        
+
         }
         [Authentication]
         [HttpGet]
@@ -99,7 +105,7 @@ namespace PBL3_CNPM.Controllers
                 return RedirectToAction("Phongban");
             }
 
-            var danhSachNhanVien = _masterContext.Nhanviens
+            var danhSachNhanVien = db.Nhanviens
                 .Where(nv => nv.MaPhongBan == selectedPhongBan)
                 .ToList();
             ViewBag.DanhSachNhanVien = danhSachNhanVien;
@@ -108,19 +114,19 @@ namespace PBL3_CNPM.Controllers
             return View("Phongban");
         }
         [HttpPost]
-     [Authentication]
+        [Authentication]
         public IActionResult RemoveEmployeeFromPhongBan(string maNv)
         {
             try
             {
                 // Tìm nhân viên cần xóa từ database
-                var employee = _masterContext.Nhanviens.FirstOrDefault(e => e.MaNv == maNv);
+                var employee = db.Nhanviens.FirstOrDefault(e => e.MaNv == maNv);
 
                 if (employee != null)
                 {
                     // Xóa nhân viên ra khỏi phòng ban
                     employee.MaPhongBan = null; // Gán MaPhongBan của nhân viên thành null để xóa ra khỏi phòng ban
-                    _masterContext.SaveChanges(); // Lưu thay đổi vào database
+                    db.SaveChanges(); // Lưu thay đổi vào database
 
                     return Ok(); // Trả về mã HTTP 200 OK nếu xóa thành công
                 }
@@ -134,18 +140,19 @@ namespace PBL3_CNPM.Controllers
                 return StatusCode(500, $"Lỗi khi xóa nhân viên: {ex.Message}"); // Trả về mã HTTP 500 Internal Server Error nếu có lỗi xảy ra
             }
         }
+        [Authentication]
         public IActionResult AddEmployeeToPhongBan(string maNv, string selectedPhongBan)
         {
             try
             {
                 // Kiểm tra xem mã nhân viên có tồn tại không
-                var employee = _masterContext.Nhanviens.FirstOrDefault(e => e.MaNv == maNv);
+                var employee = db.Nhanviens.FirstOrDefault(e => e.MaNv == maNv);
 
                 if (employee != null)
                 {
                     // Cập nhật trường MaPhongBan của nhân viên
                     employee.MaPhongBan = selectedPhongBan;
-                    _masterContext.SaveChanges();
+                    db.SaveChanges();
 
                     return RedirectToAction("Phongban");
                 }
@@ -164,19 +171,43 @@ namespace PBL3_CNPM.Controllers
             }
         }
         [Authentication]
+        public IActionResult AddPhongBan(string maPhongBan, string tenPhongBan)
+        {
+            try
+            {
+
+                Phongban phongBan = new Phongban
+                {
+                    MaPhongBan = maPhongBan,
+                    TenPhongBan = tenPhongBan
+                };
+
+                db.Phongbans.Add(phongBan);
+                db.SaveChanges();
+
+                return RedirectToAction("Phongban");
+            }
+            catch (Exception ex)
+            {
+
+                _logger.LogError($"Lỗi khi thêm phòng ban mới: {ex.Message}");
+                throw;
+            }
+        }
+        [Authentication]
         public IActionResult Lichlamviec(DateTime? strSearch)
         {
             try
             {
                 IQueryable<object> lichLamViecList;
 
-                
+
                 if (strSearch.HasValue)
                 {
                     lichLamViecList = (from cnv in _masterContext.CongviecNvs
                                        join cv in _masterContext.Congviecs on cnv.MaCongViec equals cv.MaCongViec
                                        join nv in _masterContext.Nhanviens on cnv.MaNv equals nv.MaNv
-                                       where cnv.NgayLam.Value.Day == strSearch.Value.Day
+                                       where cnv.NgayLam.Date == strSearch.Value.Date
                                        select new
                                        {
                                            MaNv = cnv.MaNv,
@@ -189,14 +220,14 @@ namespace PBL3_CNPM.Controllers
                 }
                 else
                 {
-                    
+
                     lichLamViecList = (from cnv in _masterContext.CongviecNvs
                                        join cv in _masterContext.Congviecs on cnv.MaCongViec equals cv.MaCongViec
                                        join nv in _masterContext.Nhanviens on cnv.MaNv equals nv.MaNv
                                        select new
                                        {
                                            MaNv = cnv.MaNv,
-                                           TenNhanVien =nv.TenNhanVien,
+                                           TenNhanVien = nv.TenNhanVien,
                                            MaCongViec = cv.MaCongViec,
                                            CaLam = cv.CaLam,
                                            ChiTietCongViec = cv.ChiTietCongViec,
@@ -210,16 +241,49 @@ namespace PBL3_CNPM.Controllers
             }
             catch (Exception ex)
             {
-                
+
                 _logger.LogError($"Lỗi khi lấy danh sách công việc nhân viên: {ex.Message}");
                 throw;
             }
         }
+        [Authentication]
         public IActionResult Chinhsua(string id)
         {
+            var cv = db.Chucvus.ToList();
+            ViewBag.chucvulist = cv;
             var nv = db.Nhanviens.Find(id);
             return View(nv);
         }
+        [HttpPost]
+        public ActionResult Chinhsua(string pass, string cccd, string td, string kn, string maBH, string cv, string maNV, string tennv, DateTime ns, string gt, string dc, string sdt, string em, string stk, string bank)
+        {
+            var nvUp = db.Nhanviens.FirstOrDefault(e => e.MaNv == maNV);
+            if (nvUp != null)
+            {
+                nvUp.TenNhanVien = tennv;
+                nvUp.NgaySinh = Convert.ToDateTime(ns);
+                nvUp.GioiTinh = gt;
+                nvUp.DiaChi = dc;
+                nvUp.SoDienThoai = sdt;
+                nvUp.Email = em;
+                nvUp.TaiKhoanNganHang = stk;
+                nvUp.TenNganHang = bank;
+                nvUp.MaChucVu = cv;
+                nvUp.MaBaoHiem = maBH;
+                nvUp.KinhNghiem = kn;
+                nvUp.TrinhDo = td;
+                nvUp.Cccd = cccd;
+                nvUp.Password = pass;
+                db.SaveChanges();
+                return RedirectToAction("quanlyhoso");
+            }
+            else
+            {
+                return View();
+            }
+
+        }
+
         [HttpPost, ActionName("xoa")]
         [ValidateAntiForgeryToken]
         public ActionResult xoa(string id)
@@ -228,16 +292,134 @@ namespace PBL3_CNPM.Controllers
             db.Nhanviens.Remove(nv);
             db.SaveChanges();
             return RedirectToAction("quanlyhoso");
-            
+
         }
-        public IActionResult Sapxepcongviec()
+       // [Authentication]
+        public IActionResult CongViec()
         {
+            var cv = db.Congviecs.ToList();
+            ViewBag.cv = cv;
+
+
+            if (cv == null || !cv.Any())
+            {
+                ViewBag.Message = "No tasks available";
+            }
+
             return View();
+
+        }
+
+        public IActionResult Chinhsuacongviec(int id)
+        {
+            var cv = db.Congviecs.FirstOrDefault(x => x.MaCongViec == id);
+            return View(cv);
+        }
+        [HttpPost]
+
+        public IActionResult Chinhsuacongviec(int macv, string calam, string chitietcongviec)
+        {
+            if (ModelState.IsValid)
+            {
+                var congviec = db.Congviecs.FirstOrDefault(x => x.MaCongViec == macv);
+                if (congviec != null)
+                {
+                    congviec.ChiTietCongViec = chitietcongviec;
+                    congviec.CaLam = calam;
+                    db.SaveChanges();
+                    return RedirectToAction("CongViec");
+                }
+                else
+                {
+                    ModelState.AddModelError("", "Không tìm thấy công việc");
+                }
+            }
+
+            // Fetch the task again to pass back to the view
+            var viewModel = db.Congviecs.FirstOrDefault(x => x.MaCongViec == macv);
+            return View(viewModel);
         }
 
 
+
+        public IActionResult Xoacongviec(int id)
+        {
+            var cv = db.Congviecs.Find(id);
+            db.Congviecs.Remove(cv);
+            db.SaveChanges();
+            return RedirectToAction("CongViec");
+        }
+        public IActionResult themcongviec()
+        {
+
+            var cv = db.Congviecs.ToList();
+            return View(cv);
+
+        }
+         
+        [HttpPost]
        
+        public IActionResult themcongviec(int macv, string calam, string chitietcongviec)
+        {
+           
+            Congviec congviec = new Congviec();
+           
+            congviec.CaLam = calam;
+            congviec.ChiTietCongViec = chitietcongviec;
+            db.Congviecs.Add(congviec);
+            db.SaveChanges();
+
+          
+            return RedirectToAction("CongViec");
+        }
 
 
-    }
+        public IActionResult Sapxepcongviec(string maNv)
+        {
+
+
+            var nv = db.Nhanviens.ToList();
+            ViewBag.NhanViens = nv;
+            return View();
+            
+
+        }
+        [HttpPost]
+        public IActionResult Sapxepcongviec(int macv,string maNv, DateTime ngayLam)
+        {
+            try
+            {
+
+                CongviecNv congviecNv = new CongviecNv
+                {    MaCongViec = macv,
+                    MaNv = maNv,
+                    NgayLam = ngayLam,
+                   // MaCongViec = maCongViec
+                };
+
+                
+                db.CongviecNvs.Add(congviecNv);
+                db.SaveChanges();
+
+              
+                return RedirectToAction("CongViec", "Quanly"); 
+            }
+            catch (Exception ex)
+            {
+              
+                ViewBag.ErrorMessage = "Có lỗi xảy ra khi xếp lịch làm việc: " + ex.Message;
+
+                
+                ViewBag.CongViecs = db.Congviecs.ToList();
+                ViewBag.NhanViens = db.Nhanviens.ToList();
+
+                return View();
+            }
+        }
+
+
+
+    } 
+
+    
 }

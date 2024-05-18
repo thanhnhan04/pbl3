@@ -34,7 +34,7 @@ public partial class QuanlynhanvienkhachsanContext : DbContext
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
-        => optionsBuilder.UseSqlServer("Data Source=LAPTOP-0P18FSJ6\\MYSQL;Initial Catalog=QUANLYNHANVIENKHACHSAN;Integrated Security=True;Encrypt=False");
+        => optionsBuilder.UseSqlServer("Data Source=DESKTOP-SP2HFDB;Initial Catalog=QUANLYNHANVIENKHACHSAN;Integrated Security=True;Connect Timeout=30;Encrypt=False;Trust Server Certificate=False;Application Intent=ReadWrite;Multi Subnet Failover=False");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -81,7 +81,7 @@ public partial class QuanlynhanvienkhachsanContext : DbContext
             entity.Property(e => e.MaNv)
                 .HasMaxLength(10)
                 .HasColumnName("Ma NV");
-            entity.Property(e => e.NgayLam).HasColumnName("Ngay Lam");
+            entity.Property(e => e.NgayLam).HasColumnType("datetime").HasColumnName("Ngay Lam");
             entity.Property(e => e.NghiPhep).HasColumnName("Nghi Phep");
 
             entity.HasOne(d => d.MaCongViecNavigation).WithMany()

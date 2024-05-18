@@ -1,7 +1,6 @@
 ﻿@{
     Layout = null;
 }
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -299,17 +298,6 @@
             overflow: hidden;
         }
 
-        .dang-xuat-link {
-            position: absolute;
-            top: 45px;
-            right: 140px;
-            font-weight: 500;
-            display: inline-block;
-            font-size: var(--font-size-xl); /* Điều chỉnh kích thước chữ */
-            color: black; /* Màu chữ */
-            font-family: var(--font-inter); /* Kiểu font chữ */
-            text-decoration: none; /* Loại bỏ gạch chân */
-        }
         .qun-l-phng-ban {
             width: 100%;
             position: relative;
@@ -324,7 +312,6 @@
             color: var(--color-white);
             font-family: var(--font-inter);
         }
-
     </style>
 </head>
 <body>
@@ -341,13 +328,12 @@
             <div class="binh-minh-hotel1">BINH MINH HOTEL</div>
             <div class="home" id="home"></div>
             <div class="rectangle-parent1" id="groupContainer">
-              @*   <div class="group-child5" id="rectangle"></div> *@
+                <div class="group-child5" id="rectangle"></div>
                 <div class="group-child6" id="rectangle1"></div>
                 <div class="group-child7" id="rectangle2"></div>
-              @*   <div class="trang-ch1">Trang chủ</div> *@
+                <div class="trang-ch1">Trang chủ</div>
                 <div class="i-mt-khu1">Đổi mật khẩu</div>
-                <a asp-controller="Login" asp-action="Logout" class="dang-xuat-link" style="position: absolute; font-weight: 500;
-display: inline-block; top: 13px; right: 45px;">Đăng xuất</a>
+                <div class="ng-xut1">Đăng xuất</div>
             </div>
         </div>
         <img class="istockphoto-1420738401-170667a-icon1"
@@ -372,6 +358,8 @@ display: inline-block; top: 13px; right: 45px;">Đăng xuất</a>
         </div>
         <div class="qun-l-phng-ban-item"></div>
         <h2 class="custom-heading">Danh sách nhân viên của phòng ban: @ViewBag.SelectedPhongBan</h2>
+
+
         <form asp-controller="Quanly" asp-action="DisplayNhanVienByPhongBan" method="post">
             <div class="form-group">
                 <select class="form-control" id="phongBanSelect" name="selectedPhongBan">
@@ -391,7 +379,7 @@ display: inline-block; top: 13px; right: 45px;">Đăng xuất</a>
         @if (ViewBag.DanhSachNhanVien != null && ViewBag.DanhSachNhanVien.Count > 0)
         {
             <div class="table-container">
-                <table class="table" top: 270px;left: 350px;>
+                <table class="table" ;>
                     <thead>
                         <tr>
                             <th>Mã NV</th>
@@ -418,12 +406,58 @@ display: inline-block; top: 13px; right: 45px;">Đăng xuất</a>
         {
             <p></p>
         }
+
+        <form id="addEmployeeForm" asp-controller="Quanly" asp-action="AddEmployeeToPhongBan" method="post">
+            <input type="hidden" name="selectedPhongBan" value="@ViewBag.SelectedPhongBan" />
+
+            <div class="form-group">
+                <label for="maNv">Nhập Mã Nhân Viên:</label>
+                <input type="text" class="form-control" id="maNv" name="maNv" required />
+            </div>
+
+            <button type="button" class="btn btn-primary" onclick="addEmployee()">Thêm Nhân Viên</button>
+        </form>
+
+        <div class="modal fade" id="addPhongBanModal" tabindex="-1" role="dialog" aria-labelledby="addPhongBanModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="addPhongBanModalLabel">Thêm Phòng Ban Mới</h5>
+                    </div>
+                    <div class="modal-body">
+                        <form id="addPhongBanForm" asp-controller="Quanly" asp-action="AddPhongBan" method="post">
+                            <div class="form-group">
+                                <label for="maPhongBan" class="label-maPhongBan">Mã Phòng Ban:</label>
+                                <input type="text" class="form-control1" id="maPhongBan" name="maPhongBan" required />
+                            </div>
+                            <div class="form-group">
+                                <label for="tenPhongBan" class="label-tenPhongBan">Tên Phòng Ban:</label>
+                                <input type="text" class="form-control2" id="tenPhongBan" name="tenPhongBan" required />
+                            </div>
+                            <button type="submit" class="btn-themPHG">Thêm Phòng Ban</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </div>
 
-    <script>
-        
 
-       
+    <script>
+        var home = document.getElementById("home");
+        if (home) {
+            home.addEventListener("click", function (e) {
+                // Please sync "trang chủ quản lý" to the project
+            });
+        }
+
+        var rectangle = document.getElementById("rectangle");
+        if (rectangle) {
+            rectangle.addEventListener("click", function (e) {
+                // Please sync "trang chủ quản lý" to the project
+            });
+        }
 
         var rectangle1 = document.getElementById("rectangle1");
         if (rectangle1) {
@@ -432,9 +466,20 @@ display: inline-block; top: 13px; right: 45px;">Đăng xuất</a>
             });
         }
 
-        
+        var rectangle2 = document.getElementById("rectangle2");
+        if (rectangle2) {
+            rectangle2.addEventListener("click", function (e) {
+                // Please sync "đăng nhập ql" to the project
+            });
+        }
 
-      
+        var groupContainer = document.getElementById("groupContainer");
+        if (groupContainer) {
+            groupContainer.addEventListener("click", function (e) {
+                // Please sync "trang chủ quản lý" to the project
+            });
+        }
+
         var thngTinCNhn = document.getElementById("thngTinCNhn");
         if (thngTinCNhn) {
             thngTinCNhn.addEventListener("click", function (e) {
@@ -448,6 +493,10 @@ display: inline-block; top: 13px; right: 45px;">Đăng xuất</a>
                 window.location.href = "https://localhost:7221/Quanly/Quanlycongviec";
             });
         }
+
+
+
+        /* scrip của xóa nhân viên */
         function confirmDelete(maNv) {
             if (confirm('Bạn có chắc muốn xóa nhân viên có mã ' + maNv + ' không?')) {
                 // Gửi yêu cầu xóa đến server bằng Ajax
@@ -471,45 +520,78 @@ display: inline-block; top: 13px; right: 45px;">Đăng xuất</a>
                     });
             }
         }
-        // function addEmployee() {
-        //     var maNv = document.getElementById("maNv").value;
-        //     var selectedPhongBan = document.querySelector('input[name="selectedPhongBan"]').value;
+        /* scrip của thêm nhân viên */
+        function addEmployee() {
+            var maNv = document.getElementById("maNv").value;
+            var selectedPhongBan = document.querySelector('input[name="selectedPhongBan"]').value;
 
-        //     // Gửi yêu cầu POST đến action AddEmployeeToPhongBan
-        //     fetch(`/Home/AddEmployeeToPhongBan`, {
-        //         method: 'POST',
-        //         headers: {
-        //             'Content-Type': 'application/x-www-form-urlencoded'
-        //         },
-        //         body: `maNv=${encodeURIComponent(maNv)}&selectedPhongBan=${encodeURIComponent(selectedPhongBan)}`
-        //     })
-        //         .then(response => {
-        //             if (response.status === 200) {
-        //                 // Hiển thị thông báo thành công khi chỉ nhận được phản hồi 200 OK
-        //                 alert('Thêm nhân viên thành công!');
-        //                 window.location.reload();
-        //             } else {
-        //                 // Xử lý khi có lỗi trả về từ action
-        //                 console.error('Có lỗi khi thêm nhân viên:', response.statusText);
-        //                 alert('Có lỗi khi thêm nhân viên.');
-        //             }
-        //         })
-        //         .catch(error => {
-        //             console.error('Lỗi:', error);
-        //             alert('Có lỗi khi gửi yêu cầu.');
-        //         });
-        // }
+            // Gửi yêu cầu POST đến action AddEmployeeToPhongBan
+            fetch(`/Quanly/AddEmployeeToPhongBan`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+                body: `maNv=${encodeURIComponent(maNv)}&selectedPhongBan=${encodeURIComponent(selectedPhongBan)}`
+            })
+                .then(response => {
+                    if (response.status === 200) {
+                        // Hiển thị thông báo thành công khi chỉ nhận được phản hồi 200 OK
+                        alert('Thêm nhân viên thành công!');
+                        window.location.reload();
+                    } else {
+                        // Xử lý khi có lỗi trả về từ action
+                        console.error('Có lỗi khi thêm nhân viên:', response.statusText);
+                        alert('Có lỗi khi thêm nhân viên.');
+                    }
+                })
+                .catch(error => {
+                    console.error('Lỗi:', error);
+                    alert('Có lỗi khi gửi yêu cầu.');
+                });
+        }
+        /*scrip của thêm phong ban */
+        document.getElementById('addPhongBanForm').addEventListener('submit', function (event) {
+            event.preventDefault(); // Ngăn chặn form tự động submit
+
+            var maPhongBan = document.getElementById('maPhongBan').value;
+            var tenPhongBan = document.getElementById('tenPhongBan').value;
+
+            // Gửi yêu cầu POST để thêm phòng ban mới
+            fetch('/Quanly/AddPhongBan', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+                body: `maPhongBan=${encodeURIComponent(maPhongBan)}&tenPhongBan=${encodeURIComponent(tenPhongBan)}`
+            })
+                .then(response => {
+                    if (response.ok) {
+                        // Xử lý khi thêm phòng ban mới thành công
+                        alert('Thêm phòng ban mới thành công!');
+                        window.location.reload(); // Tải lại trang để cập nhật danh sách phòng ban
+                    } else {
+                        // Xử lý khi có lỗi khi thêm phòng ban mới
+                        alert('Có lỗi khi thêm phòng ban mới.');
+                    }
+                })
+                .catch(error => {
+                    console.error('Lỗi:', error);
+                    alert('Có lỗi khi gửi yêu cầu.');
+                });
+        });
+
     </script>
 
 
     <style>
+        /* tọa độ tên phòng ban*/
         #phongBanSelect {
             font-size: 28px;
             position: relative;
             top: 130px;
             left: 350px;
         }
-
+        /* tọa độ của bảng */
         .btn-primary {
             padding: 10px 10px;
             font-size: 14px;
@@ -528,11 +610,10 @@ display: inline-block; top: 13px; right: 45px;">Đăng xuất</a>
 
         .table-container {
             position: absolute;
-            top: 45%; /* Đưa phần tử lên trên 50% của trang */
-            left: 58%; /* Đưa phần tử sang trái 50% của trang */
-            transform: translate(-50%, -50%); /* Dịch chuyển phần tử đi lùi 50% của nó */
-            width: 80%; /* Độ rộng của bảng */
-            max-width: 1000px; /* Giới hạn chiều rộng tối đa của bảng */
+            top: 410px;
+            left: 370px;
+            width: 80%;
+            max-width: 1000px;
         }
 
         .table {
@@ -561,8 +642,83 @@ display: inline-block; top: 13px; right: 45px;">Đăng xuất</a>
             .table tbody tr:hover {
                 background-color: #e2e6ea;
             }
+
+
+        /* tọa độ của thêm nhân viên */
+        #addEmployeeForm {
+            position: absolute;
+            top: 320px;
+            left: 1170px;
+            width: 200px;
+            padding: 10px;
+        }
+
+            #addEmployeeForm button {
+                top: -27px;
+                left: -135px;
+                width: 65%;
+                padding: 6px;
+                / border: none;
+                border-radius: 5px;
+                background-color: #007bff;
+                color: white;
+                cursor: pointer;
+            }
+
+            #addEmployeeForm label {
+                color: black;
+                font-size: 12px;
+            }
+
+        /* Toạo độ của thêm phong ban */
+        .modal-body {
+            position: relative;
+        }
+
+        .label-maPhongBan {
+            position: absolute;
+            top: -50px;
+            left: 1040px;
+            color: black;
+            font-size: 14px;
+        }
+
+        .form-control1 {
+            position: absolute;
+            top: -30px;
+            left: 1040px;
+            width: 150px;
+            padding: 3px;
+        }
+
+        .label-tenPhongBan {
+            position: absolute;
+            top: -50px;
+            left: 1240px;
+            color: black;
+            font-size: 14px;
+        }
+
+        .form-control2 {
+            position: absolute;
+            top: -30px;
+            left: 1240px;
+            width: 150px;
+            padding: 3px
+        }
+
+        .btn-themPHG {
+            position: absolute; /* Đặt vị trí tuyệt đối cho nút thêm */
+            top: 0px; /* Điều chỉnh vị trí top */
+            left: 1040px; /* Điều chỉnh vị trí left */
+            width: 120px; /* Chiều rộng của button */
+            padding: 8px; /* Khoảng cách lề bên trong button */
+            border: none; /* Loại bỏ viền của button */
+            border-radius: 5px; /* Bo tròn góc của button */
+            background-color: #007bff; /* Màu nền của button */
+            color: white; /* Màu chữ của button */
+            cursor: pointer; /* Đổi con trỏ chuột khi di chuột qua button */
+        }
     </style>
-
-
 </body>
 </html>
