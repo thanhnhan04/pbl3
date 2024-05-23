@@ -396,6 +396,23 @@
         text-align: center; /* Căn giữa chữ */
     }
 
+    .btxep {
+        position: absolute;
+        top: 190px;
+        left: 1000px;
+        width: 200px;
+        height: 30px;
+        font-size: 24px;
+        border-radius: 5px;
+        background-color: var(--color-white);
+        text-decoration: none; /* Loại bỏ gạch chân */
+        font-family: Arial, sans-serif; /* Chọn font chữ */
+        color: black;
+        border: 2px solid var(--color-black); /* Viền nút */
+        padding: 10px 10px; /* Khoảng cách giữa nội dung và viền */
+        cursor: pointer; /* Hiển thị con trỏ khi di chuột vào nút */
+        text-align: center; /* Căn giữa chữ */
+    }
     body {
         margin: 0;
         line-height: normal;
@@ -446,6 +463,7 @@
              src="https://scontent.fdad3-1.fna.fbcdn.net/v/t1.15752-9/434534001_1448732405736076_2728451762103298305_n.png?_nc_cat=108&ccb=1-7&_nc_sid=5f2048&_nc_eui2=AeELIMxQW_20PbqvrN_Laesa3i0KWcVikJ_eLQpZxWKQn5ANGfV59GLmC_gCpYHKR6n1pkGFUOFXN7xtrfKYOuxS&_nc_ohc=omjHx4n50lYQ7kNvgEGrgiN&_nc_ht=scontent.fdad3-1.fna&oh=03_Q7cD1QGE8QM12JKsRYENqDdje-3szUmO1E_h_Y4YHuOU5d5AMA&oe=665B1E3E" />
         <div>
             <a asp-controller="Quanly" asp-action="themcongviec" class="btAdd" ;">Thêm mới</a>
+            <a asp-controller="Quanly" asp-action="Sapxepcongviec" class="btxep" ;">Xếp lịch làm việc</a>
             @* <button class="btAdd" id="btAdd">Thêm hồ sơ</button> *@
         </div>
 
@@ -502,7 +520,8 @@
                                 <td>
                                     @Html.ActionLink("Chỉnh sửa", "Chinhsuacongviec", new { id = congViec.MaCongViec });
                                     @Html.ActionLink("  Xóa", "Xoacongviec", new { id = congViec.MaCongViec });
-                                    @Html.ActionLink("  Xếp lịch", "Sapxepcongviec", new { id = congViec.MaCongViec });
+                                    @Html.ActionLink("  Xếp lịch", "Sapxepcongviec", new { id = congViec.MaCongViec },null);
+                                  
                                 </td>
                           
                             </tr>

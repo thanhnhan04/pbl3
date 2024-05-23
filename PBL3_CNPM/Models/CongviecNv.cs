@@ -1,12 +1,13 @@
-﻿
-using System;
+﻿using System;
 using System.Collections.Generic;
 
 namespace PBL3_CNPM.Models;
 
 public partial class CongviecNv
 {
-    public int? MaCongViec { get; set; } 
+    public int MaCongViecNv { get; set; }
+
+    public int MaCongViec { get; set; }
 
     public string? MaNv { get; set; }
 

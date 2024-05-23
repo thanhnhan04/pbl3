@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\pbl3\\PBL3_CNPM\\PBL3_CNPM.csproj": {}
+    "D:\\LTNet\\PBL3_CNPM\\PBL3_CNPM.csproj": {}
   },
   "projects": {
-    "D:\\pbl3\\PBL3_CNPM\\PBL3_CNPM.csproj": {
+    "D:\\LTNet\\PBL3_CNPM\\PBL3_CNPM.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\pbl3\\PBL3_CNPM\\PBL3_CNPM.csproj",
+        "projectUniqueName": "D:\\LTNet\\PBL3_CNPM\\PBL3_CNPM.csproj",
         "projectName": "PBL3_CNPM",
-        "projectPath": "D:\\pbl3\\PBL3_CNPM\\PBL3_CNPM.csproj",
+        "projectPath": "D:\\LTNet\\PBL3_CNPM\\PBL3_CNPM.csproj",
         "packagesPath": "C:\\Users\\ADMIN\\.nuget\\packages\\",
-        "outputPath": "D:\\pbl3\\PBL3_CNPM\\obj\\",
+        "outputPath": "D:\\LTNet\\PBL3_CNPM\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\ADMIN\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -63,10 +63,6 @@
               "suppressParent": "All",
               "target": "Package",
               "version": "[9.0.0-preview.3.24172.4, )"
-            },
-            "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
-              "target": "Package",
-              "version": "[8.0.2, )"
             }
           },
           "imports": [
@@ -88,7 +84,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.202/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.205/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

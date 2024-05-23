@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
 
-
 namespace PBL3_CNPM.Models;
 
 public partial class QuanlynhanvienkhachsanContext : DbContext
@@ -34,7 +33,7 @@ public partial class QuanlynhanvienkhachsanContext : DbContext
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
-        => optionsBuilder.UseSqlServer("Data Source=DESKTOP-SP2HFDB;Initial Catalog=QUANLYNHANVIENKHACHSAN;Integrated Security=True;Connect Timeout=30;Encrypt=False;Trust Server Certificate=False;Application Intent=ReadWrite;Multi Subnet Failover=False");
+        => optionsBuilder.UseSqlServer("Data Source=DESKTOP-SP2HFDB;Initial Catalog=QUANLYNHANVIENKHACHSAN;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -47,7 +46,7 @@ public partial class QuanlynhanvienkhachsanContext : DbContext
             entity.Property(e => e.MaChucVu)
                 .HasMaxLength(10)
                 .HasColumnName("Ma ChucVu");
-            entity.Property(e => e.ChucVu1)
+            entity.Property(e => e.ChucVu)
                 .HasMaxLength(50)
                 .HasColumnName("Chuc Vu");
         });
@@ -58,10 +57,10 @@ public partial class QuanlynhanvienkhachsanContext : DbContext
 
             entity.ToTable("Congviec");
 
-            entity.Property(e => e.MaCongViec)
-                .HasMaxLength(10)
-                .HasColumnName("Ma CongViec");
-            entity.Property(e => e.CaLam).HasColumnName("Ca Lam");
+            entity.Property(e => e.MaCongViec).HasColumnName("Ma CongViec");
+            entity.Property(e => e.CaLam)
+                .HasMaxLength(50)
+                .HasColumnName("Ca Lam");
             entity.Property(e => e.ChiTietCongViec)
                 .HasMaxLength(50)
                 .IsFixedLength()
@@ -70,26 +69,27 @@ public partial class QuanlynhanvienkhachsanContext : DbContext
 
         modelBuilder.Entity<CongviecNv>(entity =>
         {
-            entity
-                .HasNoKey()
-                .ToTable("CongviecNV");
+            entity.HasKey(e => e.MaCongViecNv).HasName("PK_CongviecNV_1");
 
+            entity.ToTable("CongviecNV");
+
+            entity.Property(e => e.MaCongViecNv).HasColumnName("Ma CongViecNV");
             entity.Property(e => e.ChamCong).HasColumnName("Cham Cong");
-            entity.Property(e => e.MaCongViec)
-                .HasMaxLength(10)
-                .HasColumnName("Ma CongViec");
+            entity.Property(e => e.MaCongViec).HasColumnName("Ma CongViec");
             entity.Property(e => e.MaNv)
                 .HasMaxLength(10)
                 .HasColumnName("Ma NV");
-            entity.Property(e => e.NgayLam).HasColumnType("datetime").HasColumnName("Ngay Lam");
+            entity.Property(e => e.NgayLam)
+                .HasColumnType("datetime")
+                .HasColumnName("Ngay Lam");
             entity.Property(e => e.NghiPhep).HasColumnName("Nghi Phep");
 
-            entity.HasOne(d => d.MaCongViecNavigation).WithMany()
+            entity.HasOne(d => d.MaCongViecNavigation).WithMany(p => p.CongviecNvs)
                 .HasForeignKey(d => d.MaCongViec)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK_CongviecNV_Congviec");
 
-            entity.HasOne(d => d.MaNvNavigation).WithMany()
+            entity.HasOne(d => d.MaNvNavigation).WithMany(p => p.CongviecNvs)
                 .HasForeignKey(d => d.MaNv)
                 .HasConstraintName("FK_CongviecNV_Nhanvien");
         });
@@ -235,7 +235,9 @@ public partial class QuanlynhanvienkhachsanContext : DbContext
             entity.Property(e => e.MaPhongBan)
                 .HasMaxLength(10)
                 .HasColumnName("Ma PhongBan");
-            entity.Property(e => e.MaTruongPhong).HasColumnName("Ma TruongPhong");
+            entity.Property(e => e.MaTruongPhong)
+                .HasMaxLength(50)
+                .HasColumnName("Ma TruongPhong");
             entity.Property(e => e.TenPhongBan)
                 .HasMaxLength(50)
                 .HasColumnName("Ten PhongBan");

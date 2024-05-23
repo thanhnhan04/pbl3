@@ -1,4 +1,4 @@
-﻿using Elfie.Serialization;
+﻿//using Elfie.Serialization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
@@ -194,7 +194,7 @@ namespace PBL3_CNPM.Controllers
                 throw;
             }
         }
-        [Authentication]
+      //  [Authentication]
         public IActionResult Lichlamviec(DateTime? strSearch)
         {
             try
@@ -294,7 +294,7 @@ namespace PBL3_CNPM.Controllers
             return RedirectToAction("quanlyhoso");
 
         }
-       // [Authentication]
+        // [Authentication]
         public IActionResult CongViec()
         {
             var cv = db.Congviecs.ToList();
@@ -356,70 +356,69 @@ namespace PBL3_CNPM.Controllers
             return View(cv);
 
         }
-         
+
         [HttpPost]
-       
+
         public IActionResult themcongviec(int macv, string calam, string chitietcongviec)
         {
-           
+
             Congviec congviec = new Congviec();
-           
+
             congviec.CaLam = calam;
             congviec.ChiTietCongViec = chitietcongviec;
             db.Congviecs.Add(congviec);
             db.SaveChanges();
 
-          
+
             return RedirectToAction("CongViec");
         }
 
-
-        public IActionResult Sapxepcongviec(string maNv)
+      
+        public IActionResult Sapxepcongviec()
         {
 
-
+            var cv = db.Congviecs.ToList();
+           
             var nv = db.Nhanviens.ToList();
+           
+            ViewBag.Congviecs = cv;
             ViewBag.NhanViens = nv;
             return View();
-            
+
 
         }
         [HttpPost]
-        public IActionResult Sapxepcongviec(int macv,string maNv, DateTime ngayLam)
+        public ActionResult Sapxepcongviec(CongviecNv congviecnv)
         {
             try
             {
+                bool isAssigned = db.CongviecNvs.Any(cv => cv.MaCongViec == congviecnv.MaCongViec && cv.MaNv == congviecnv.MaNv && cv.NgayLam == congviecnv.NgayLam);
+                if (isAssigned)
+                {
+                    // Trả về JSON với thông báo lỗi nếu công việc đã được giao
+                    return Json(new { success = false, message = "Công việc này đã được giao cho người này rồi." });
+                }
 
-                CongviecNv congviecNv = new CongviecNv
-                {    MaCongViec = macv,
-                    MaNv = maNv,
-                    NgayLam = ngayLam,
-                   // MaCongViec = maCongViec
-                };
+                CongviecNv congviecNv = new CongviecNv();
+                congviecNv.MaCongViec = congviecnv.MaCongViec;
+                congviecNv.MaNv = congviecnv.MaNv;
+                congviecNv.NgayLam = congviecnv.NgayLam;
 
-                
-                db.CongviecNvs.Add(congviecNv);
+                db.CongviecNvs.Add(congviecNv); // Thêm congviecNv, không phải congviecnv
                 db.SaveChanges();
 
-              
-                return RedirectToAction("CongViec", "Quanly"); 
+                return RedirectToAction("Lichlamviec", "Quanly"); // Chuyển hướng đến action khác nếu không có lỗi
             }
             catch (Exception ex)
             {
-              
-                ViewBag.ErrorMessage = "Có lỗi xảy ra khi xếp lịch làm việc: " + ex.Message;
-
-                
-                ViewBag.CongViecs = db.Congviecs.ToList();
-                ViewBag.NhanViens = db.Nhanviens.ToList();
-
-                return View();
+                // Trả về JSON với thông báo lỗi nếu có lỗi xảy ra
+                return Json(new { success = false, message = "Có lỗi xảy ra khi xếp lịch làm việc: " + ex.Message });
             }
         }
 
 
 
-    } 
+    }
 
-    
+
 }

@@ -1,4 +1,4 @@
-﻿namespace PBL3_CNPM.Models
+namespace PBL3_CNPM.Models
 {
     public class ErrorViewModel
     {

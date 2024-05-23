@@ -1,13 +1,23 @@
 ﻿﻿@{
     Layout = null;
 }
-@model PBL3_CNPM.Models.Nhanvien
 
+@{
+    var congviec = ViewBag.Congviec;
+    var nhanviens = ViewBag.Nhanviens;
+}
 
 <!DOCTYPE html>
 <html>
 <head>
+    <!-- CSS Toastify -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+
+    <!-- JavaScript Toastify -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" rel="stylesheet" />
 </head>
 <style>
     .qun-l-cng-vic-xem-lch-l-child {
@@ -441,10 +451,50 @@
         text-decoration: none; /* Loại bỏ gạch chân */
     }
 
+    .table-container {
+        position: absolute;
+        top: 200px; /* Đưa phần tử lên trên 50% của trang */
+        left: 700px; /* Đưa phần tử sang trái 50% của trang */
+        transform: translate(-50%, -50%); /* Dịch chuyển phần tử đi lùi 50% của nó */
+        width: 100%; /* Độ rộng của bảng */
+        max-width: 800px; /* Giới hạn chiều rộng tối đa của bảng */
+        color: black;
+    }
+
+    .table th, .table td {
+        padding: 8px 10px; /* Điều chỉnh khoảng cách lề của các ô */
+        font-size: 16px; /* Điều chỉnh kích thước chữ */
+    }
+
+    .table {
+        width: 80%;
+        border-collapse: collapse;
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    }
+
+        .table th, .table td {
+            padding: 12px 15px;
+            text-align: left;
+        }
+
+        .table thead th {
+            background-color: rgba(39, 162, 58, 0.8);
+        }
+
+        .table tbody tr:nth-child(even) {
+            background-color: #f3f4f6;
+        }
+
+        .table tbody tr:hover {
+            background-color: #e2e6ea;
+        }
+
    
     .form-control {
-        width: 100%; /* Tăng độ rộng của combobox */
-        height:100%;
+        width: 50%; /* Tăng độ rộng của combobox */
+        height:50%;
     }
 
     .btn {
@@ -452,6 +502,10 @@
           height: 100%;
     }
 
+    input[type="checkbox"] {
+        width: 20px; 
+        height: 20px; 
+    }
     body {
         margin: 0;
         line-height: normal;
@@ -518,52 +572,105 @@
             <div class="qun-l-cng4" id="qunLCng">Quản lý công việc</div>
             <div class="xem-lch-lm1">&gt; Xem lịch làm việc</div>
         </div>
-        @* @using (Html.BeginForm("Lichlamviec", "Quanly", FormMethod.Post))
-        {
-
-        <div class="ngay">Chọn ngày</div>
-        <div> <input class="ngaylamviec" id="myID" name="strSearch" placeholder="Chọn ngày"> </div>
-        <div><button class="submit" type="submit">Tìm kiếm</button></div>
-
-        }
-        *@
+      
 
         <img class="qun-l-cng-vic-xem-lch-l-inner"
              alt=""
              src="https://d1xzdqg8s8ggsr.cloudfront.net/6634b231c9ce15e41a24b47b/f1dd8684-a9a0-44da-b785-c8904b6e1f78_1715279412456676883?Expires=-62135596800&Signature=PghHyDNLDWZbHVu7vo4ggpIJ9v-0Ix-eGdmYkBnHhcoduYe4jmIsN1AECaROA-Ct1NMem6Mp6DbNaX3YHXsmFHsy4Nu1ohvwDElSU10UA4UFnYNC7xhrmFW9wHEu10VgfJTNdFbPaU05MIGlsvmTE7liMVwJKuiWNYumhhAwiycrBPDzPuD9SbdKhG8Tq43XccnsJju1lmLWc-WS4pyHgnU3JnATWRMLg2IH0SfLxbIc6P3B8bpGAQA6wLCFsyfTkPQ2O7s6tKrBV2YsHzZ-g~zM8Y1bgL1xqM3wCVl58RTbzFggg70nfbeS0dkkQP1vDMXYFaQA9TgnX-b4nzwJTQ__&Key-Pair-Id=K1P54FZWCHCL6J" />
-        </input>
-        <div class="form-group" style="position: absolute; top: 400px; left: 500px;color:black; width:500px; font-family: Arial, sans-serif;font-size: 30px;hight:70px;">
-            <label for="maNv">Chọn nhân viên:</label>
-            <select class="form-control" id="maNv" name="maNv" required>
-                <!-- Dùng vòng lặp để hiển thị danh sách nhân viên và gán mã nhân viên làm giá trị cho mỗi option -->
-                @foreach (var nv in ViewBag.NhanViens)
-                {
-                    <option value="@nv.MaNv">@nv.TenNhanVien</option>
-                }
-            </select>
-        </div>
-    
-        </div>
-        <div class="form-group" style="position: absolute; top: 500px; left: 500px;color:black;width:500px;font-family: Arial, sans-serif;font-size: 30px;hight:70px">
-            <label for="ngayLam">Ngày làm:</label>
-            <input type="date" class="form-control" id="ngayLam" name="ngayLam" required />
-        </div>
+     
+        <!-- Notification Message -->
+        @if (ViewBag.NotificationMessage != null)
+        {
+            <div class="alert alert-info">
+                @ViewBag.NotificationMessage
+            </div>
+        }
 
-        <div class="form-group" style="position: absolute; top: 600px; left: 500px;color:black;width:450px;font-family: Arial, sans-serif;font-size: 30px;hight:70px">
-            <button id="xeplichBtn" class="btn btn-primary">Xếp lịch</button>
-        </div>
-
-
-
-
-
+        <!-- Error Message -->
         @if (ViewBag.ErrorMessage != null)
-{
-    <div class="alert alert-danger">
-        @ViewBag.ErrorMessage
-    </div>
-}
-       
+        {
+            <div class="alert alert-danger">
+                @ViewBag.ErrorMessage
+            </div>
+        }
+
+        <form id="myForm" action="/Quanly/Sapxepcongviec" method="post">
+            <div class="form-group" style="position: absolute; top: 400px; left: 400px; color: black; width: 500px; font-family: Arial, sans-serif; font-size: 30px; height: 70px;">
+
+
+                <div class="table-container">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Mã nhân viên</th>
+                                <th>Tên nhân viên</th>
+                                <th>Chọn</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @if (nhanviens != null)
+                            {
+                                foreach (var nv in nhanviens)
+                                {
+                                    <tr>
+                                        <td>@nv.MaNv</td>
+                                        <td>@nv.TenNhanVien</td>
+                                        <td>
+                                            <input type="checkbox" id="MaNv_@nv.MaNv" name="MaNv" value="@nv.MaNv">
+                                        </td>
+                                    </tr>
+                                }
+                            }
+                        </tbody>
+                    </table>
+                </div>
+
+              @*   <label for="maNv">Chọn nhân viên:</label> *@
+              @*   <select class="form-control" id="MaNv" name="MaNv">
+                    @if (nhanviens != null)
+                    {
+                        @foreach (var nv in nhanviens)
+                        {
+                            <option value="@nv.MaNv">@nv.TenNhanVien</option>
+                        }
+                    }
+                </select>
+ *@@* 
+                <div id="MaNv">
+                    @if (nhanviens != null)
+                    {
+                        @foreach (var nv in nhanviens)
+                        {
+                            <div>
+                                <input type="checkbox" id="MaNv_@nv.MaNv" name="MaNv" value="@nv.MaNv">
+                                <label for="MaNv_@nv.MaNv">@nv.TenNhanVien</label>
+                            </div>
+                        }
+                    }
+                </div> *@
+                <label for="ngayLam" style="top:300px">Ngày làm:</label>
+                <input type="date" class="form-control" id="NgayLam" name="NgayLam" />
+
+                <label for="congviec">Chọn công việc:</label>
+                <select class="form-control" id="MaCongViec" name="MaCongViec">
+                    @if (ViewBag.Congviecs != null)
+                    {
+                        foreach (var cv in ViewBag.Congviecs)
+                        {
+                            if (cv != null)
+                            {
+                                <option value="@cv.MaCongViec">@cv.ChiTietCongViec - @cv.CaLam</option>
+                            }
+                        }
+                    }
+                </select>
+
+
+
+                <button type="submit" class="btn btn-primary">Xếp lịch</button>
+
+            </div>
+        </form>
         <div class="thng-tin-c-nhn11">
             <div class="thng-tin-c-nhn-child9"></div>
         </div>
@@ -575,51 +682,44 @@
         <b class="user021">User02</b>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 
     <script>
+        $(document).ready(function () {
+            $('#myForm').submit(function (event) {
+                event.preventDefault(); // Ngăn chặn việc gửi yêu cầu mặc định
+
+                // Gửi yêu cầu Ajax
+                $.ajax({
+                    url: '/Quanly/Sapxepcongviec', // Đường dẫn đến controller action
+                    type: 'POST',
+                    data: $(this).serialize(), // Dữ liệu gửi đi từ form
+                    success: function (response) {
+                        if (response.success) {
+                            // Hiển thị thông báo thành công nếu thành công
+                            alert(response.message);
+                            window.location.reload(); // Tải lại trang (tùy chọn)
+                        } else {
+                            // Hiển thị thông báo lỗi nếu có lỗi
+                            alert(response.message);
+                        }
+                    },
+                    error: function (xhr, status, error) {
+                        // Xử lý lỗi nếu không thể gửi yêu cầu
+                        console.error('Lỗi:', error);
+                        alert('Có lỗi khi gửi yêu cầu.');
+                    }
+                });
+            });
+        });
         var iMtKhu = document.getElementById("iMtKhu");
         if (iMtKhu) {
             iMtKhu.addEventListener("click", function (e) {
                 // Please sync "Đổi mật khẩu - ql" to the project
             });
         }
-        document.getElementById("xeplichBtn").addEventListener("click", function () {
-            sendData(); // Gọi hàm gửi dữ liệu
-        });
-
-        function sendData() {
-            var maNv = document.getElementById("maNv").value;
-            var ngayLam = document.getElementById("ngayLam").value;
-            var data = {
-                maNv: maNv,
-                ngayLam: ngayLam
-            };
-
-            fetch("/Quanly/Sapxepcongviec", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify(data)
-            })
-                .then(response => {
-                    if (!response.ok) {
-                        throw new Error("Có lỗi xảy ra khi xếp lịch công việc");
-                    }
-                    return response.json();
-                })
-                .then(data => {
-                    // Xử lý phản hồi từ máy chủ nếu cần
-                    console.log(data);
-                    // Chuyển hướng hoặc cập nhật giao diện sau khi xử lý
-                })
-                .catch(error => {
-                    // Xử lý lỗi nếu có
-                    console.error("Lỗi:", error);
-                    // Hiển thị thông báo lỗi cho người dùng hoặc xử lý lỗi khác
-                });
-        }
-
+   
 
         var qunLH = document.getElementById("qunLH");
         if (qunLH) {
