@@ -210,6 +210,7 @@ namespace PBL3_CNPM.Controllers
                                        where cnv.NgayLam.Date == strSearch.Value.Date
                                        select new
                                        {
+                                           MaCongViecNv= cnv.MaCongViecNv,
                                            MaNv = cnv.MaNv,
                                            TenNhanVien = nv.TenNhanVien,
                                            MaCongViec = cv.MaCongViec,
@@ -226,6 +227,7 @@ namespace PBL3_CNPM.Controllers
                                        join nv in _masterContext.Nhanviens on cnv.MaNv equals nv.MaNv
                                        select new
                                        {
+                                           MaCongViecNv = cnv.MaCongViecNv,
                                            MaNv = cnv.MaNv,
                                            TenNhanVien = nv.TenNhanVien,
                                            MaCongViec = cv.MaCongViec,
@@ -359,13 +361,13 @@ namespace PBL3_CNPM.Controllers
 
         [HttpPost]
 
-        public IActionResult themcongviec(int macv, string calam, string chitietcongviec)
+        public IActionResult themcongviec(int macv, string CaLam, string ChiTietCongViec)
         {
 
             Congviec congviec = new Congviec();
 
-            congviec.CaLam = calam;
-            congviec.ChiTietCongViec = chitietcongviec;
+            congviec.CaLam = CaLam;
+            congviec.ChiTietCongViec = ChiTietCongViec;
             db.Congviecs.Add(congviec);
             db.SaveChanges();
 
@@ -388,26 +390,34 @@ namespace PBL3_CNPM.Controllers
 
         }
         [HttpPost]
-        public ActionResult Sapxepcongviec(CongviecNv congviecnv)
+       
+       public ActionResult Sapxepcongviec(List<CongviecNv> congviecnvs)
         {
             try
             {
-                bool isAssigned = db.CongviecNvs.Any(cv => cv.MaCongViec == congviecnv.MaCongViec && cv.MaNv == congviecnv.MaNv && cv.NgayLam == congviecnv.NgayLam);
-                if (isAssigned)
+                foreach (var congviecnv in congviecnvs)
                 {
-                    // Trả về JSON với thông báo lỗi nếu công việc đã được giao
-                    return Json(new { success = false, message = "Công việc này đã được giao cho người này rồi." });
+                    bool isAssigned = db.CongviecNvs.Any(cv => cv.MaCongViec == congviecnv.MaCongViec && cv.MaNv == congviecnv.MaNv && cv.NgayLam == congviecnv.NgayLam);
+                    if (isAssigned)
+                    {
+                        // Nếu công việc đã tồn tại cho nhân viên vào ngày đó, bỏ qua và tiếp tục với nhân viên tiếp theo
+                        continue;
+                    }
+
+                    CongviecNv congviecNv = new CongviecNv();
+                    congviecNv.MaCongViec = congviecnv.MaCongViec;
+                    congviecNv.MaNv = congviecnv.MaNv;
+                    congviecNv.NgayLam = congviecnv.NgayLam;
+
+                    db.CongviecNvs.Add(congviecNv); // Thêm congviecNv, không phải congviecnv
+                  
                 }
 
-                CongviecNv congviecNv = new CongviecNv();
-                congviecNv.MaCongViec = congviecnv.MaCongViec;
-                congviecNv.MaNv = congviecnv.MaNv;
-                congviecNv.NgayLam = congviecnv.NgayLam;
-
-                db.CongviecNvs.Add(congviecNv); // Thêm congviecNv, không phải congviecnv
+                // Lưu thay đổi vào cơ sở dữ liệu
                 db.SaveChanges();
 
-                return RedirectToAction("Lichlamviec", "Quanly"); // Chuyển hướng đến action khác nếu không có lỗi
+                // Chuyển hướng người dùng đến trang hiển thị lịch làm việc
+                return RedirectToAction("Lichlamviec", "Quanly");
             }
             catch (Exception ex)
             {
@@ -415,7 +425,6 @@ namespace PBL3_CNPM.Controllers
                 return Json(new { success = false, message = "Có lỗi xảy ra khi xếp lịch làm việc: " + ex.Message });
             }
         }
-
 
 
     }

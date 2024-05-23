@@ -317,18 +317,38 @@
         font-family: var(--font-inter);
     }
 
-    .btLuu {
+    .btn-primary {
         position: absolute;
-        top: 600px;
-        left: 700px;
-        width: 200px;
-        height: 30px;
-        padding: 5px;
-        border-radius: 10px;
-        font-size: 24px;
-        font-family: var(--font-inter);
+        top: 750px; /* Adjust the top value to move the button up or down */
+        left: 900px; /* Adjust the left value to move the button left or right */
+        width: 200px; /* Width of the button */
+        height: 50px; /* Height of the button */
+        background-color: rgba(39, 162, 58, 0.8); /* Background color */
+        color: white; /* Text color */
+        border: 2px solid rgba(39, 162, 58, 0.8); /* Border color */
+        padding: 10px 20px; /* Padding */
+        text-align: center; /* Text alignment */
+        font-size: 16px; /* Font size */
+        border-radius: 5px; /* Border radius */
+        cursor: pointer; /* Cursor style */
     }
 
+    .huy {
+        position: absolute;
+        top: 750px; /* Adjust the top value to move the button up or down */
+        left: 600px; /* Adjust the left value to move the button left or right */
+        width: 200px; /* Width of the button */
+        height: 50px; /* Height of the button */
+        background-color: rgba(39, 162, 58, 0.8);
+         /* Background color */
+        color: white; /* Text color */
+        border: 2px solid rgba(39, 162, 58, 0.8); /* Border color */
+        padding: 10px 20px; /* Padding */
+        text-align: center; /* Text alignment */
+        font-size: 16px; /* Font size */
+        border-radius: 5px; /* Border radius */
+        cursor: pointer; /* Cursor style */
+    }
     .macv {
         position: absolute;
         top: 400px;
@@ -341,79 +361,12 @@
         font-family: var(--font-inter);
     }
 
-    .chitiet {
-        position: absolute;
-        top: 500px;
-        left: 600px;
-        width: 300px;
-        height: 30px;
-        padding: 5px;
-        border-radius: 10px;
-        font-size: 24px;
-        font-family: var(--font-inter);
-    }
+   
 
-    .calam {
-        position: absolute;
-        top: 450px;
-        left: 600px;
-        width: 300px;
-        height: 30px;
-        padding: 5px;
-        border-radius: 10px;
-        font-size: 24px;
-        font-family: var(--font-inter);
-    }
+  
+  
 
-    .ten {
-        position: absolute;
-        top: 400px;
-        left: 400px;
-        width: 300px;
-        height: 30px;
-        padding: 5px;
-        border-radius: 10px;
-        font-size: 24px;
-        font-family: var(--font-inter);
-        color: black;
-    }
-
-    .CaLam {
-        position: absolute;
-        top: 450px;
-        left: 400px;
-        width: 300px;
-        height: 30px;
-        padding: 5px;
-        border-radius: 10px;
-        font-size: 24px;
-        font-family: var(--font-inter);
-        color: black;
-    }
-
-    .Chitiet {
-        position: absolute;
-        top: 500px;
-        left: 400px;
-        width: 300px;
-        height: 30px;
-        padding: 5px;
-        border-radius: 10px;
-        font-size: 24px;
-        font-family: var(--font-inter);
-        color: black;
-    }
-
-    .submit {
-        position: absolute;
-        top: 200px;
-        left: 1200px;
-        width: 150px;
-        height: 30px; /* Chiều cao phải đủ lớn để hiển thị placeholder */
-        overflow: hidden; /* Ẩn bất kỳ nội dung nào vượt quá phần tử */
-        white-space: nowrap; /* Ngăn placeholder bị xuống dòng */
-    }
-
+  
     .ngay {
         position: absolute;
         top: 200px;
@@ -451,54 +404,96 @@
         text-decoration: none; /* Loại bỏ gạch chân */
     }
 
-    .table-container {
+  
+    .mytable {
         position: absolute;
-        top: 200px; /* Đưa phần tử lên trên 50% của trang */
-        left: 700px; /* Đưa phần tử sang trái 50% của trang */
-        transform: translate(-50%, -50%); /* Dịch chuyển phần tử đi lùi 50% của nó */
-        width: 100%; /* Độ rộng của bảng */
-        max-width: 800px; /* Giới hạn chiều rộng tối đa của bảng */
-        color: black;
+        top: 200px;
+        left: 0px;
+        max-width: 100%; /* Độ rộng tối đa của bảng */
+        overflow-x: auto; /* Tạo thanh cuộn ngang nếu bảng vượt quá chiều rộng */
+        max-height: 1500px; /* Chiều cao tối đa của bảng (điều chỉnh theo nhu cầu của bạn) */
+        overflow-y: auto; /* Tạo thanh cuộn dọc nếu bảng vượt quá chiều cao */
     }
 
-    .table th, .table td {
-        padding: 8px 10px; /* Điều chỉnh khoảng cách lề của các ô */
-        font-size: 16px; /* Điều chỉnh kích thước chữ */
-    }
-
-    .table {
-        width: 80%;
+    .custom-table {
         border-collapse: collapse;
-        border-radius: 8px;
-        overflow: hidden;
-        box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        width: 800px;
     }
 
-        .table th, .table td {
-            padding: 12px 15px;
-            text-align: left;
+    .mytable thead {
+        position: sticky;
+        top: 0; /* Giữ phần head ở vị trí đầu tiên */
+        z-index: 1; /* Đảm bảo phần head hiển thị trên cùng */
+        background-color: #f2f2f2; /* Màu nền cho phần head */
+    }
+
+    th, td {
+        border: 1px solid black;
+        padding: 8px;
+        text-align: left;
+        height: 20px;
+        color: var(--color-black);
+        font-size: 16px;
+        background-color: var(--color-white);
+    }
+
+        th:nth-child(1), td:nth-child(1) {
+            width: 20px; /* Cột đầu tiên */
         }
 
-        .table thead th {
-            background-color: rgba(39, 162, 58, 0.8);
+        th:nth-child(2), td:nth-child(2) {
+            width: 130px; /* Cột thứ hai */
         }
 
-        .table tbody tr:nth-child(even) {
-            background-color: #f3f4f6;
+        th:nth-child(3), td:nth-child(3) {
+            width: 5px; /* Cột thứ ba */
         }
 
-        .table tbody tr:hover {
-            background-color: #e2e6ea;
-        }
+    th {
+        background-color: rgba(39, 162, 58, 0.8);
+    }
 
    
+    .congviec {
+        position: absolute;
+        top: 120px; /* Adjust the top value to move the label up or down */
+        left: 0px; /* Adjust the left value to move the label left or right */
+    }
+    .date{
+        position: absolute;
+        height: 60px;
+        width: 300px;
+        top: 5px; /* Adjust the top value to match the label position */
+        left: 300px; /* Adjust the left value to align with the label */
+        font-size: 20px;
+    }
+    .ngaylam{
+        position: absolute;
+        top: 10px; /* Adjust the top value to match the label position */
+        left: 0px; /* Adjust the left value to align with the label */
+    }
+    #MaCongViec {
+        position: absolute;
+        top: 100px; /* Adjust the top value to match the label position */
+        left: 300px;
+        /* Adjust the left value to align with the label */
+        height: 60px;
+        font-size: 20px;
+    }
     .form-control {
         width: 50%; /* Tăng độ rộng của combobox */
         height:50%;
     }
 
+    .form-group .form-element {
+        padding: 10px; /* Khoảng cách bên trong phần tử */
+        margin: 5px 0; /* Khoảng cách bên ngoài phần tử */
+        background-color: #f0f0f0;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
     .btn {
-        width: 50%;
+        width: 100%;
           height: 100%;
     }
 
@@ -555,7 +550,6 @@
              alt=""
              src="https://scontent.fdad3-1.fna.fbcdn.net/v/t1.15752-9/434534001_1448732405736076_2728451762103298305_n.png?_nc_cat=108&ccb=1-7&_nc_sid=5f2048&_nc_eui2=AeELIMxQW_20PbqvrN_Laesa3i0KWcVikJ_eLQpZxWKQn5ANGfV59GLmC_gCpYHKR6n1pkGFUOFXN7xtrfKYOuxS&_nc_ohc=omjHx4n50lYQ7kNvgEGrgiN&_nc_ht=scontent.fdad3-1.fna&oh=03_Q7cD1QGE8QM12JKsRYENqDdje-3szUmO1E_h_Y4YHuOU5d5AMA&oe=665B1E3E" />
 
-
         <div class="thng-tin-c-nhn10">
             <div class="thng-tin-c-nhn-child8"></div>
             <div class="qun-l-h2" id="qunLH">Quản lý hồ sơ</div>
@@ -570,14 +564,14 @@
         </div>
         <div class="qun-l-cng-vic-parent">
             <div class="qun-l-cng4" id="qunLCng">Quản lý công việc</div>
-            <div class="xem-lch-lm1">&gt; Xem lịch làm việc</div>
+            <div class="xem-lch-lm1">&gt; Xếp lịch làm việc</div>
         </div>
       
 
-        <img class="qun-l-cng-vic-xem-lch-l-inner"
+       @*  <img class="qun-l-cng-vic-xem-lch-l-inner"
              alt=""
              src="https://d1xzdqg8s8ggsr.cloudfront.net/6634b231c9ce15e41a24b47b/f1dd8684-a9a0-44da-b785-c8904b6e1f78_1715279412456676883?Expires=-62135596800&Signature=PghHyDNLDWZbHVu7vo4ggpIJ9v-0Ix-eGdmYkBnHhcoduYe4jmIsN1AECaROA-Ct1NMem6Mp6DbNaX3YHXsmFHsy4Nu1ohvwDElSU10UA4UFnYNC7xhrmFW9wHEu10VgfJTNdFbPaU05MIGlsvmTE7liMVwJKuiWNYumhhAwiycrBPDzPuD9SbdKhG8Tq43XccnsJju1lmLWc-WS4pyHgnU3JnATWRMLg2IH0SfLxbIc6P3B8bpGAQA6wLCFsyfTkPQ2O7s6tKrBV2YsHzZ-g~zM8Y1bgL1xqM3wCVl58RTbzFggg70nfbeS0dkkQP1vDMXYFaQA9TgnX-b4nzwJTQ__&Key-Pair-Id=K1P54FZWCHCL6J" />
-     
+      *@
         <!-- Notification Message -->
         @if (ViewBag.NotificationMessage != null)
         {
@@ -594,12 +588,12 @@
             </div>
         }
 
+      
         <form id="myForm" action="/Quanly/Sapxepcongviec" method="post">
-            <div class="form-group" style="position: absolute; top: 400px; left: 400px; color: black; width: 500px; font-family: Arial, sans-serif; font-size: 30px; height: 70px;">
+            <div class="form-group" style="position: absolute; top: 250px; left: 400px; color: black; width: 800px; font-family: Arial, sans-serif; font-size: 30px; height: 70px;gap: 100px;">
 
-
-                <div class="table-container">
-                    <table class="table">
+                <div class="mytable">
+                    <table class="custom-table">
                         <thead>
                             <tr>
                                 <th>Mã nhân viên</th>
@@ -624,34 +618,11 @@
                         </tbody>
                     </table>
                 </div>
+               
+                <label for="ngayLam" class="ngaylam">Ngày làm:</label>
+                <input type="date" class="date" id="NgayLam" name="NgayLam" />
 
-              @*   <label for="maNv">Chọn nhân viên:</label> *@
-              @*   <select class="form-control" id="MaNv" name="MaNv">
-                    @if (nhanviens != null)
-                    {
-                        @foreach (var nv in nhanviens)
-                        {
-                            <option value="@nv.MaNv">@nv.TenNhanVien</option>
-                        }
-                    }
-                </select>
- *@@* 
-                <div id="MaNv">
-                    @if (nhanviens != null)
-                    {
-                        @foreach (var nv in nhanviens)
-                        {
-                            <div>
-                                <input type="checkbox" id="MaNv_@nv.MaNv" name="MaNv" value="@nv.MaNv">
-                                <label for="MaNv_@nv.MaNv">@nv.TenNhanVien</label>
-                            </div>
-                        }
-                    }
-                </div> *@
-                <label for="ngayLam" style="top:300px">Ngày làm:</label>
-                <input type="date" class="form-control" id="NgayLam" name="NgayLam" />
-
-                <label for="congviec">Chọn công việc:</label>
+                <label for="congviec" class="congviec">Chọn công việc:</label>
                 <select class="form-control" id="MaCongViec" name="MaCongViec">
                     @if (ViewBag.Congviecs != null)
                     {
@@ -666,10 +637,12 @@
                 </select>
 
 
-
-                <button type="submit" class="btn btn-primary">Xếp lịch</button>
+            
+              
 
             </div>
+            <button type="submit" class="btn-primary" > Xếp lịch</button>
+            <button type="submit" class="huy"> Hủy</button>
         </form>
         <div class="thng-tin-c-nhn11">
             <div class="thng-tin-c-nhn-child9"></div>
