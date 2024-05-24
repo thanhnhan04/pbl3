@@ -33,7 +33,7 @@ public partial class QuanlynhanvienkhachsanContext : DbContext
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
-        => optionsBuilder.UseSqlServer("Data Source=DESKTOP-SP2HFDB;Initial Catalog=QUANLYNHANVIENKHACHSAN;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
+        => optionsBuilder.UseSqlServer("Data Source=DESKTOP-SP2HFDB;Initial Catalog=QUANLYNHANVIENKHACHSAN;Integrated Security=True;Connect Timeout=30;Encrypt=False;Trust Server Certificate=False;Application Intent=ReadWrite;Multi Subnet Failover=False");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -100,9 +100,7 @@ public partial class QuanlynhanvienkhachsanContext : DbContext
 
             entity.ToTable("Luong");
 
-            entity.Property(e => e.MaLuong)
-                .HasMaxLength(10)
-                .HasColumnName("Ma Luong");
+            entity.Property(e => e.MaLuong).HasColumnName("Ma Luong");
             entity.Property(e => e.LuongCoBan)
                 .HasColumnType("decimal(12, 3)")
                 .HasColumnName("Luong Co Ban");
@@ -123,9 +121,10 @@ public partial class QuanlynhanvienkhachsanContext : DbContext
             entity.Property(e => e.LuongTong)
                 .HasColumnType("decimal(12, 0)")
                 .HasColumnName("Luong Tong");
-            entity.Property(e => e.MaLuong)
-                .HasMaxLength(10)
-                .HasColumnName("Ma Luong");
+            entity.Property(e => e.MaLuong).HasColumnName("Ma Luong");
+            entity.Property(e => e.MaLuongNv)
+                .ValueGeneratedOnAdd()
+                .HasColumnName("Ma LuongNV");
             entity.Property(e => e.MaNv)
                 .HasMaxLength(10)
                 .HasColumnName("Ma NV");

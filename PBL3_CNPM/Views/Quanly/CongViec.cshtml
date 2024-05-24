@@ -520,8 +520,10 @@
                                 <td>
                                     @Html.ActionLink("Chỉnh sửa", "Chinhsuacongviec", new { id = congViec.MaCongViec });
                                     @Html.ActionLink("  Xóa", "Xoacongviec", new { id = congViec.MaCongViec });
-                                    @Html.ActionLink("  Xếp lịch", "Sapxepcongviec", new { id = congViec.MaCongViec },null);
-                                  
+
+                                    <button type="button" class=" btn-danger" onclick="window.location.href='@Url.Action( "Chinhsuacongviec", "Quanly", new { id = congViec.MaCongViec })'">Chỉnh sửa</button>
+                                    <button type="button" class=" btn-danger" onclick="window.location.href='@Url.Action("xoacongviec", "Quanly", new { id = congViec.MaCongViec })'">Xóa</button>
+
                                 </td>
                           
                             </tr>

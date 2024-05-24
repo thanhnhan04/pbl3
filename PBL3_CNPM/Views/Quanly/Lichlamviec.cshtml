@@ -354,7 +354,7 @@
 
     .custom-table {
         border-collapse: collapse;
-        width: 1100px;
+        width: 1150px;
     }
 
     .mytable thead {
@@ -391,10 +391,14 @@
         }
 
         th:nth-child(5), td:nth-child(5) {
-            width: 10px; /* Cột thứ hai */
+            width: 5px; /* Cột thứ hai */
         }
 
         th:nth-child(6), td:nth-child(6) {
+            width: 20px; /* Cột thứ ba */
+        }
+
+        th:nth-child(7), td:nth-child(7) {
             width: 20px; /* Cột thứ ba */
         }
     th {
@@ -493,6 +497,7 @@
                             <th>Ca làm</th>
                             <th>Ngày làm</th>
                             <th>Chi tiết công việc</th>
+                            <th> Tác vụ </th>
                         </tr>
                     </thead>
                     <tbody>
@@ -506,6 +511,11 @@
                                 <td>@congViec.NgayLam.ToString("dd/MM/yyyy")</td>
                                 @* <td> @string.Format("{0:dd/MM/yyyy}", congViec.NgayLam)</td> *@
                                 <td>@congViec.ChiTietCongViec</td>
+                                <td>
+                                    <button type="button" class="btn-primary" onclick="window.location.href='@Url.Action("Chinhsuacongviec", "Quanly", new { id = congViec.MaCongViecNv })'">Chỉnh sửa</button>
+
+                                    <button type="button" class=" btn-danger" onclick="window.location.href='@Url.Action("xoalichlamviec", "Quanly", new { id = congViec.MaCongViecNv })'">Xóa</button>
+                                </td>
                             </tr>
                         }
                     </tbody>

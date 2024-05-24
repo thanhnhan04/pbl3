@@ -497,6 +497,10 @@
           height: 100%;
     }
 
+    .alert-success {
+        top: 1000px;
+        left:700px;
+    }
     input[type="checkbox"] {
         width: 20px; 
         height: 20px; 
@@ -644,6 +648,19 @@
             <button type="submit" class="btn-primary" > Xếp lịch</button>
             <button type="submit" class="huy"> Hủy</button>
         </form>
+        @if (TempData["SuccessMessage"] != null)
+        {
+            <div class="alert-success" role="alert">
+                @TempData["SuccessMessage"]
+            </div>
+        }
+
+        @if (TempData["ErrorMessage"] != null)
+        {
+            <div class="alert-danger" role="alert">
+                @TempData["ErrorMessage"]
+            </div>
+        }
         <div class="thng-tin-c-nhn11">
             <div class="thng-tin-c-nhn-child9"></div>
         </div>
@@ -658,42 +675,16 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 
-    <script>
-        $(document).ready(function () {
-            $('#myForm').submit(function (event) {
-                event.preventDefault(); // Ngăn chặn việc gửi yêu cầu mặc định
-
-                // Gửi yêu cầu Ajax
-                $.ajax({
-                    url: '/Quanly/Sapxepcongviec', // Đường dẫn đến controller action
-                    type: 'POST',
-                    data: $(this).serialize(), // Dữ liệu gửi đi từ form
-                    success: function (response) {
-                        if (response.success) {
-                            // Hiển thị thông báo thành công nếu thành công
-                            alert(response.message);
-                            window.location.reload(); // Tải lại trang (tùy chọn)
-                        } else {
-                            // Hiển thị thông báo lỗi nếu có lỗi
-                            alert(response.message);
-                        }
-                    },
-                    error: function (xhr, status, error) {
-                        // Xử lý lỗi nếu không thể gửi yêu cầu
-                        console.error('Lỗi:', error);
-                        alert('Có lỗi khi gửi yêu cầu.');
-                    }
-                });
-            });
-        });
-        var iMtKhu = document.getElementById("iMtKhu");
+   
+     <script>   
+         var iMtKhu = document.getElementById("iMtKhu");
         if (iMtKhu) {
             iMtKhu.addEventListener("click", function (e) {
                 // Please sync "Đổi mật khẩu - ql" to the project
             });
         }
    
-
+     
         var qunLH = document.getElementById("qunLH");
         if (qunLH) {
             qunLH.addEventListener("click", function (e) {

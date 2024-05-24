@@ -5,7 +5,9 @@ namespace PBL3_CNPM.Models;
 
 public partial class LuongNv
 {
-    public string? MaLuong { get; set; }
+    public int MaLuongNv { get; set; }
+
+    public int? MaLuong { get; set; }
 
     public string? MaNv { get; set; }
 

@@ -5,7 +5,7 @@ namespace PBL3_CNPM.Models;
 
 public partial class Luong
 {
-    public string MaLuong { get; set; } = null!;
+    public int MaLuong { get; set; }
 
     public string? TenMaLuong { get; set; }
 

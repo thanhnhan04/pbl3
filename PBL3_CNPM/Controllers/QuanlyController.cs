@@ -248,6 +248,20 @@ namespace PBL3_CNPM.Controllers
                 throw;
             }
         }
+        public IActionResult xoalichlamviec(int id)
+        {
+            var cv = db.CongviecNvs.Find(id);
+
+            if (cv == null)
+            {
+                
+                return RedirectToAction("Error");
+            }
+           // var cv = db.CongviecNvs.Find(id);
+            db.CongviecNvs.Remove(cv);
+            db.SaveChanges();
+            return RedirectToAction("Lichlamviec");
+        }
         [Authentication]
         public IActionResult Chinhsua(string id)
         {
@@ -319,15 +333,15 @@ namespace PBL3_CNPM.Controllers
         }
         [HttpPost]
 
-        public IActionResult Chinhsuacongviec(int macv, string calam, string chitietcongviec)
+        public IActionResult Chinhsuacongviec(int macv, string CaLam, string ChiTietCongViec)
         {
             if (ModelState.IsValid)
             {
                 var congviec = db.Congviecs.FirstOrDefault(x => x.MaCongViec == macv);
                 if (congviec != null)
                 {
-                    congviec.ChiTietCongViec = chitietcongviec;
-                    congviec.CaLam = calam;
+                    congviec.ChiTietCongViec = ChiTietCongViec;
+                    congviec.CaLam =CaLam;
                     db.SaveChanges();
                     return RedirectToAction("CongViec");
                 }
@@ -341,6 +355,7 @@ namespace PBL3_CNPM.Controllers
             var viewModel = db.Congviecs.FirstOrDefault(x => x.MaCongViec == macv);
             return View(viewModel);
         }
+
 
 
 
@@ -400,7 +415,7 @@ namespace PBL3_CNPM.Controllers
                     bool isAssigned = db.CongviecNvs.Any(cv => cv.MaCongViec == congviecnv.MaCongViec && cv.MaNv == congviecnv.MaNv && cv.NgayLam == congviecnv.NgayLam);
                     if (isAssigned)
                     {
-                        // Nếu công việc đã tồn tại cho nhân viên vào ngày đó, bỏ qua và tiếp tục với nhân viên tiếp theo
+                       
                         continue;
                     }
 
@@ -409,20 +424,19 @@ namespace PBL3_CNPM.Controllers
                     congviecNv.MaNv = congviecnv.MaNv;
                     congviecNv.NgayLam = congviecnv.NgayLam;
 
-                    db.CongviecNvs.Add(congviecNv); // Thêm congviecNv, không phải congviecnv
+                    db.CongviecNvs.Add(congviecNv); 
                   
                 }
 
-                // Lưu thay đổi vào cơ sở dữ liệu
+               
                 db.SaveChanges();
-
-                // Chuyển hướng người dùng đến trang hiển thị lịch làm việc
-                return RedirectToAction("Lichlamviec", "Quanly");
+                TempData["SuccessMessage"] = "Thêm công việc thành công";
+                return RedirectToAction("Sapxepcongviec", "Quanly");
             }
             catch (Exception ex)
             {
-                // Trả về JSON với thông báo lỗi nếu có lỗi xảy ra
-                return Json(new { success = false, message = "Có lỗi xảy ra khi xếp lịch làm việc: " + ex.Message });
+                TempData["ErrorMessage"] = "Thêm công việc thất bại";
+                return RedirectToAction("Sapxepcongviec", "Quanly");
             }
         }
 

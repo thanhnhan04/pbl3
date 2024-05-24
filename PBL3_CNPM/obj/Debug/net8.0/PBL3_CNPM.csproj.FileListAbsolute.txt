@@ -297,3 +297,4 @@ D:\pbl3\PBL3_CNPM\obj\Debug\net8.0\refint\PBL3_CNPM.dll
 D:\pbl3\PBL3_CNPM\obj\Debug\net8.0\PBL3_CNPM.pdb
 D:\pbl3\PBL3_CNPM\obj\Debug\net8.0\PBL3_CNPM.genruntimeconfig.cache
 D:\pbl3\PBL3_CNPM\obj\Debug\net8.0\ref\PBL3_CNPM.dll
+D:\pbl3\PBL3_CNPM\bin\Debug\net8.0\SweetAlert2.dll
