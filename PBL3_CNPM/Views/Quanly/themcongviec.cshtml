@@ -516,9 +516,10 @@
             <div class="rectangle-parent1">
                 <div class="group-child9"></div>
                 <div class="group-child10"></div>
-                <div class="i-mt-khu5" id="iMtKhu">Đổi mật khẩu</div>
+                <a asp-controller="Doimatkhau" asp-action="Doimatkhau" class="doimatkhau" style="position: absolute; font-weight: 500;
+            display: inline-block; top: 13px; right: 190px;">Đổi mật khẩu</a>
                 <a asp-controller="Login" asp-action="Logout" class="dang-xuat-link" style="position: absolute; font-weight: 500;
-            display: inline-block; top: 13px; right: 45px;">Đăng xuất</a>
+            display: inline-block; top: 13px; right: 30px;">Đăng xuất</a>
             </div>
         </div>
         <img class="istockphoto-1420738401-170667a-icon5"
@@ -542,15 +543,7 @@
             <div class="qun-l-cng4" id="qunLCng">Quản lý công việc</div>
             <div class="xem-lch-lm1">&gt; Xem lịch làm việc</div>
         </div>
-        @* @using (Html.BeginForm("Lichlamviec", "Quanly", FormMethod.Post))
-        {
-
-        <div class="ngay">Chọn ngày</div>
-        <div> <input class="ngaylamviec" id="myID" name="strSearch" placeholder="Chọn ngày"> </div>
-        <div><button class="submit" type="submit">Tìm kiếm</button></div>
-
-        }
-        *@
+       
 
         <img class="qun-l-cng-vic-xem-lch-l-inner"
              alt=""

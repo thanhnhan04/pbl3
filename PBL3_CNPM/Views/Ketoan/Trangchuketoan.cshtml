@@ -13,6 +13,7 @@
           href="https://fonts.googleapis.com/css2?family=Irish Grover:wght@400&display=swap" />
     <link rel="stylesheet"
           href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
         .trang-ch-k-ton-child {
             position: absolute;
@@ -54,6 +55,7 @@
 
         .group-inner {
             left: 340px;
+            width:135px;
         }
 
         .i-mt-khu,
@@ -102,7 +104,7 @@
             top: 0;
             left: 0;
             background-color: rgba(49, 162, 39, 0.8);
-            width: 1500px;
+            width: 1550px;
             height: 120px;
             overflow: hidden;
             font-size: 50px;
@@ -149,15 +151,6 @@
             box-sizing: border-box;
             width: 460px;
             height: 54px;
-        }
-
-        .trng-thi-chm {
-            position: absolute;
-            top: 247px;
-            left: 770px;
-            display: inline-block;
-            width: 418px;
-            height: 44px;
         }
 
         .rectangle-div {
@@ -236,48 +229,7 @@
             font-size: var(--font-size-3xl);
         }
 
-        .trang-ch-k-ton-child1 {
-            position: absolute;
-            top: 229px;
-            left: 344px;
-            border-radius: var(--br-xl);
-            background-color: var(--text-2);
-            width: 320px;
-            height: 150px;
-        }
-
-        .trang-ch-k-ton-child2 {
-            position: absolute;
-            top: 246px;
-            left: 364px;
-            border-radius: var(--br-8xs);
-            background-color: var(--color-limegreen);
-            border: 1px solid var(--color-black);
-            box-sizing: border-box;
-            width: 280px;
-            height: 54px;
-        }
-
-        .phn-quyn {
-            position: absolute;
-            top: 247px;
-            left: 398px;
-            display: inline-block;
-            width: 225px;
-            height: 44px;
-        }
-
-        .trang-ch-k-ton-child3 {
-            position: absolute;
-            top: 308px;
-            left: 364px;
-            border-radius: var(--br-8xs);
-            background-color: var(--text-2);
-            border: 1px solid var(--color-black);
-            box-sizing: border-box;
-            width: 280px;
-            height: 54px;
-        }
+      
 
         .k-ton {
             position: absolute;
@@ -378,6 +330,20 @@
             --br-xl: 20px;
             --br-3xs: 10px;
         }
+
+        .chart-container {
+            position: absolute;
+            top: 250px;
+            left: 300px;
+            width: 1000px;
+            height: 500px;
+            background-color: white;
+        }
+
+        canvas {
+            width: 100% !important;
+            height: 100% !important;
+        }
     </style>
 </head>
 <body>
@@ -391,7 +357,8 @@
                     <div class="group-item"></div>
                     <div class="group-inner"></div>
                     <div class="trang-ch">Trang chủ</div>
-                    <div class="i-mt-khu" id="iMtKhu">Đổi mật khẩu</div>
+                    <a asp-controller="Doimatkhau" asp-action="Doimatkhau" class="doimatkhau" style="position: absolute; font-weight: 500;
+            display: inline-block; top: 13px; right: 190px;text-decoration: none; color:black;">Đổi mật khẩu</a>
                     <a asp-controller="Login" asp-action="Logout" class="dang-xuat-link" style="position: absolute; font-weight: 500;
             display: inline-block; top: 13px; right: 45px;">Đăng xuất</a>
                 </div>
@@ -401,12 +368,6 @@
              alt=""
              src="https://scontent.fdad3-1.fna.fbcdn.net/v/t1.15752-9/434534001_1448732405736076_2728451762103298305_n.png?_nc_cat=108&ccb=1-7&_nc_sid=5f2048&_nc_eui2=AeELIMxQW_20PbqvrN_Laesa3i0KWcVikJ_eLQpZxWKQn5ANGfV59GLmC_gCpYHKR6n1pkGFUOFXN7xtrfKYOuxS&_nc_ohc=omjHx4n50lYQ7kNvgEGrgiN&_nc_ht=scontent.fdad3-1.fna&oh=03_Q7cD1QGE8QM12JKsRYENqDdje-3szUmO1E_h_Y4YHuOU5d5AMA&oe=665B1E3E" />
 
-        <div class="cho-mng-bn">Chào mừng bạn trở lại, User03!</div>
-        <div class="trang-ch-k-ton-item"></div>
-        <div class="trang-ch-k-ton-inner"></div>
-        <div class="trng-thi-chm">Trạng thái chấm công</div>
-        <div class="rectangle-div"></div>
-        <div class="chm-cng">Đã chấm công</div>
         <div class="thng-tin-c-nhn">
             <div class="thng-tin-c-nhn-child"></div>
             <div class="xem-thng-tin" id="xemThngTin">
@@ -419,20 +380,55 @@
                 <p class="bng-lng1">Bảng lương</p>
             </div>
         </div>
-        <div class="trang-ch-k-ton-child1"></div>
-        <div class="trang-ch-k-ton-child2"></div>
-        <div class="phn-quyn">Phân quyền</div>
-        <div class="trang-ch-k-ton-child3"></div>
-        <div class="k-ton">Kế toán</div>
+       
         <div class="thng-tin-c-nhn1" id="thngTinCNhn1">
             <div class="thng-tin-c-nhn-item"></div>
         </div>
-        <b class="user03">User03</b>
+        <b class="user03">@ViewData["Message"]</b>
         <img class="n-1-icon"
              alt=""
              src="https://scontent.fdad3-6.fna.fbcdn.net/v/t1.15752-9/435130161_653072980295404_4271028034475173711_n.png?_nc_cat=105&ccb=1-7&_nc_sid=5f2048&_nc_eui2=AeG8tk7KTjd7wcwF73zG-ynne93imBE8o2Z73eKYETyjZo30U7apSA5kMEvsTjqngkAAgoe4i1Cp2ORyFPureElV&_nc_ohc=-iM-PodUooYQ7kNvgH1xpYI&_nc_ht=scontent.fdad3-6.fna&oh=03_Q7cD1QGt1yGXxBJ2aN6rnikrioL4A70c21EVcZ7azsHq3fbtgg&oe=665B1BA9" />
     </div>
-
+    <div class="chart-container">
+        <canvas id="myChart"></canvas>
+    </div>
+    <script>
+        var ctx = document.getElementById('myChart').getContext('2d');
+        var myChart = new Chart(ctx, {
+            type: 'bar', // loại biểu đồ: bar, line, pie, etc.
+            data: {
+                labels: ['Lương cơ bản', 'Phụ cấp', 'Thưởng', 'Phạt'],
+                datasets: [{
+                    label: '# of Votes',
+                    data: [400, 500, 200, 500],
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(255, 206, 86, 0.2)',
+                        'rgba(75, 192, 192, 0.2)'
+                        
+                    ],
+                    borderColor: [
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(75, 192, 192, 1)'
+                        
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    </script>
     <script>
         var iMtKhu = document.getElementById("iMtKhu");
         if (iMtKhu) {
@@ -440,32 +436,24 @@
                 // Please sync "Đổi mật khẩu - kt" to the project
             });
         }
-
-        @* var ngXutText = document.getElementById("ngXutText");
-            if (ngXutText) {
-            ngXutText.addEventListener("click", function (e) {
-            window.location.href = "https://localhost:7221/"
-            });
-            }*@
-
                 var xemThngTin = document.getElementById("xemThngTin");
         if (xemThngTin) {
             xemThngTin.addEventListener("click", function (e) {
-                window.location.href = "https://localhost:7221/Ketoan/xemthongtinluong"
+                window.location.href = "/Ketoan/xemthongtinluong"
             });
         }
 
         var bngLngText = document.getElementById("bngLngText");
         if (bngLngText) {
             bngLngText.addEventListener("click", function (e) {
-                window.location.href = "https://localhost:7221/Ketoan/bangluong"
+                window.location.href = "/Ketoan/bangluong"
             });
         }
 
         var thngTinCNhn1 = document.getElementById("thngTinCNhn1");
         if (thngTinCNhn1) {
             thngTinCNhn1.addEventListener("click", function (e) {
-                window.location.href = "https://localhost:7221/bangluong"
+                window.location.href = "/Ketoan/bangluong"
             });
         }
     </script>

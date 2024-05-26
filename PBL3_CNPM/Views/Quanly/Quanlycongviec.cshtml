@@ -112,7 +112,7 @@
     .qun-l-h1 {
         position: absolute;
         top: 32px;
-        left: 69.3px;
+        left: 55px;
         font-weight: 500;
         display: inline-block;
         width: 218.7px;
@@ -358,8 +358,10 @@
             <div class="group-div">
                 <div class="group-child7"></div>
                 <div class="group-child8"></div>
-                <div class="i-mt-khu4" id="iMtKhu">Đổi mật khẩu</div>
-                <div class="ng-xut4" id="ngXutText">Đăng xuất</div>
+                <a asp-controller="Doimatkhau" asp-action="Doimatkhau" class="doimatkhau" style="position: absolute; font-weight: 500;
+            display: inline-block; top: 13px; right: 190px;text-decoration: none; color:black;">Đổi mật khẩu</a>
+                <a asp-controller="Login" asp-action="Logout" class="dang-xuat-link" style="position: absolute; font-weight: 500;
+            display: inline-block; top: 13px; right: 30px;text-decoration: none; color:black;">Đăng xuất</a>
             </div>
         </div>
         <img class="istockphoto-1420738401-170667a-icon4"
@@ -368,11 +370,13 @@
 
         <div class="thng-tin-c-nhn8">
             <div class="thng-tin-c-nhn-child6"></div>
-            <div class="qun-l-h1" id="qunLH">Quản lý hồ sơ</div>
+            <a asp-controller="Quanly" asp-action="quanlyhoso" style="text-decoration: none; color:white;" class="qun-l-h1">Quản lý hồ sơ</a>
+           
         </div>
         <div class="lch-lm-vic7">
             <div class="lch-lm-vic-child2"></div>
-            <div class="qun-l-phng1" id="qunLPhng">Quản lý phòng ban</div>
+            <a asp-controller="Quanly" asp-action="Phongban" style="text-decoration: none; color:white;" class="qun-l-phng1">Quản lý phòng ban</a>
+            
         </div>
         <div class="qun-l-cng-vic-item"></div>
         <div class="qun-l-cng-container1">

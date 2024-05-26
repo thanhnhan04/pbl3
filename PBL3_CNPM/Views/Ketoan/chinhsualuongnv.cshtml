@@ -17,9 +17,7 @@
 <body>
     <div class="qun-l-thng-tin-lng">
         <div class="vector-parent">
-            <div class="khung"></div>
-
-            <b class="user03">@ViewData["Message1"]</b>
+            <b class="user03">@ViewData["Message"]</b>
             <img class="n-1-icon1"
                  alt=""
                  src="https://scontent.xx.fbcdn.net/v/t1.15752-9/435264282_1107310530502381_1832007922840023753_n.png?stp=cp0_dst-png&_nc_cat=105&ccb=1-7&_nc_sid=5f2048&_nc_eui2=AeEWw0jKlDzYG29vauLC2BRxJg-_qGl2dC4mD7-oaXZ0LmRBLhQT3PNGmmJczUgrzhH9vauygVsNzDWGfIeTVasP&_nc_ohc=7QbO5VWGLZcQ7kNvgGQ9hti&_nc_ad=z-m&_nc_cid=0&_nc_ht=scontent.xx&oh=03_Q7cD1QHuCahA-BZu5QRB0XzUuAmzHwPKWp8nrXBqtJI9nLtY8Q&oe=666F0A10" />
@@ -30,12 +28,11 @@
             <div class="group-wrapper">
                 <div class="rectangle-group">
                     <div class="rectangle-div" id="rectangle"></div>
-                    <div class="group-child1" ></div>
+                    <div class="group-child1" id="rectangle1"></div>
                     <div class="group-child2" id="rectangle2"></div>
                     <div class="trang-ch1">Trang chủ</div>
                     <a asp-controller="Doimatkhau" asp-action="Doimatkhau" class="doimatkhau" style="position: absolute; font-weight: 500;
             display: inline-block; top: 13px; right: 190px;text-decoration: none; color:black;">Đổi mật khẩu</a>
-                    
                     <a asp-controller="Login" asp-action="Logout" class="dang-xuat-link" style="position: absolute; font-weight: 500;
             display: inline-block; top: 13px; right: 45px;">Đăng xuất</a>
                 </div>
@@ -57,72 +54,61 @@
         </div>
         <div class="xem-thng-tin-lng-c-bn-wrapper">
             <div class="xem-thng-tin1">Bảng lương</div>
+            <div class="thm-m-lng">&gt;    Tạo bảng lương</div>
+            <div class="thm-m-lng1">&gt;    Tính lương</div>
         </div>
         <img class="subtract-icon" alt="" />
+        <div class="form-container">
+            <form method="post" action="@Url.Action("chinhsualuongnv1")">
+                <label for="manv">Mã nhân viên</label><br>
+                <input type="text" id="manv" name="manv" value="@ViewBag.nv?.MaNv" readonly><br>
+                <label for="tennv">Tên nhân viên</label><br>
+                <input type="text" id="tennv" name="tennv" value="@ViewBag.nv?.TenNhanVien" readonly><br>
+                <input type="hidden" name="maluong" id="maluong" value="@Model.MaLuongNv" />
+                <input type="hidden" name="thang" id="thang" value="@Model.Thang" />
+                <label for="cv">Chức vụ</label><br>
+                <input type="text" id="cv" name="cv" value="@ViewBag.nv?.MaChucVuNavigation.ChucVu" readonly><br>
+                <label class="Tenluong">Chọn tên mã lương</label><br>
+                <select name="tenluong" class="tenluong" id="tenluong" onchange="populateInputs()">
+                    @foreach (var luon in ViewBag.luong)
+                    {
+                        <option value="@luon.MaLuong" selected="@(Model.MaLuong == luon.MaLuong ? "selected" : null)" data-lcb="@luon.LuongCoBan" data-pc="@luon.PhuCap">@luon.TenMaLuong</option>
+                    }
+                </select><br>
+                <label for="lcb">Lương cơ bản</label><br>
+                <input type="number" id="lcb" name="lcb" readonly><br>
+                <label for="pc">Phụ cấp</label><br>
+                <input type="number" id="pc" name="pc" readonly><br>
+                <label for="nc">Ngày công</label><br>
+                <input type="number" id="nc" name="nc" value="@Model.NgayCong"><br>
+                <label for="thuong">Thưởng</label><br>
+                <input type="number" id="thuong" name="thuong" value="@Model.Thuong"><br>
+                <label for="phat">Phạt</label><br>
+                <input type="number" id="phat" name="phat" value="@Model.Phat"><br>
+                <input type="submit" value="Chỉnh sửa">
+                <input type="button" value="Hủy" onclick="window.location.href='/Ketoan/bangluong'">
+            </form>
+        </div>
     </div>
-    <div> 
-        <form method="get" action="@Url.Action("bangluong")">
-            <p>
-                <label class="Thang">Chọn tháng</label>
-                <select name="thang" class="thang" id="thang" >
-                      @for (int i = 1; i <= 12; i++)
-            {
-                        <option value="@i">@i</option>
-            }
-                </select>
-                <input type="submit" class="bttim" value="OK" />
-                <label class="dsluong">Danh sách lương tháng @ViewData["Message2"] </label>
-            </p>
-        </form>
-        <a asp-controller="Ketoan" asp-action="taobangluong" class="btAdd" ;">Tạo bảng lương</a>
-        <button class="xoaall" onclick="location.href='@Url.Action("xoatatca", "Ketoan", new { id = ViewData["Message2"] })'">Xóa tất cả lương trong tháng</button>
-    </div>
-    <div class="mytable">
-        <table class="custom-table">
-            <thead>
-                <tr>
-                    <th>Mã nhân viên</th>
-                    <th>Tên Nhân Viên</th>
-                    <th>Lương Cơ Bản</th>
-                    <th>Phụ cấp</th>
-                    <th>Số ngày công</th>
-                    <th>Thưởng</th>
-                    <th>Phạt</th>
-                    <th>Lương tổng</th>
-                    <th>Tác vụ</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach (var luong in Model)
-                {
-                    <tr>
-                        <td>@luong.MaNv</td>
-                        <td>@luong.TenNhanVien</td>
-                        <td>@luong.LuongCoBan VND</td>
-                        <td>@luong.PhuCap VND</td>
-                        <td>@luong.NgayCong</td>
-                        <td>@luong.Thuong VND</td>
-                        <td>@luong.Phat VND</td>
-                        <td>@luong.LuongTong VND</td>
-                        <td>
-                            <button type="button" class="btn btn-danger"
-                                    onclick="window.location.href='@Url.Action("Chinhsualuongnv", "Ketoan", new { id = luong.MaLuongNv })'">
-                                Chỉnh sửa
-                            </button>
-                            <button type="button" class="btn btn-danger"
-                                    onclick="window.location.href='@Url.Action("xoaluongnv", "Ketoan",new { id = luong.MaLuongNv })'">
-                                Xóa
-                            </button>
-                           
-                        </td>
-                    </tr>
-                }
-            </tbody>
-        </table>
-    </div>
-  
-
     <script>
+        window.onload = function () {
+            // Gọi hàm populateInputs() khi trang được tải lại
+            populateInputs();
+        };
+        function populateInputs() {
+            var selectedOption = document.querySelector('#tenluong option:checked');
+
+            if (selectedOption.value) {
+                var lcb = selectedOption.getAttribute('data-lcb');
+                var pc = selectedOption.getAttribute('data-pc');
+
+                document.getElementById('lcb').value = lcb;
+                document.getElementById('pc').value = pc;
+            } else {
+                document.getElementById('lcb').value = '';
+                document.getElementById('pc').value = '';
+            }
+        }
         var rectangle = document.getElementById("rectangle");
         if (rectangle) {
             rectangle.addEventListener("click", function (e) {
@@ -134,13 +120,6 @@
         if (rectangle1) {
             rectangle1.addEventListener("click", function (e) {
                 // Please sync "Đổi mật khẩu - kt" to the project
-            });
-        }
-
-        var rectangle2 = document.getElementById("rectangle2");
-        if (rectangle2) {
-            rectangle2.addEventListener("click", function (e) {
-                // Please sync "đăng nhập kt" to the project
             });
         }
 
@@ -157,7 +136,7 @@
         var thngTinCNhn = document.getElementById("thngTinCNhn");
         if (thngTinCNhn) {
             thngTinCNhn.addEventListener("click", function (e) {
-                window.location.href = "https://localhost:7276/Ketoan/xemthongtinluong"
+                window.location.href = "/Ketoan/xemthongtinluong"
             });
         }
 
@@ -171,92 +150,71 @@
 </body>
 </html>
 <style>
-    .xoaall
-    {
-        position: absolute;
-        top: 987px;
-        left: 1150px;
-        font-size: 22px;
-        height: 30px;
-        width: 320px;
-    }
-    .dsluong
-    {
-        position: absolute;
-        top: 235px;
-        left: 330px;
-        font-size: 30px;
+
+
+    .tenluong {
+        width: 500px;
+        padding: 10px;
+        margin-top: 5px;
+        margin-bottom: 10px;
+        box-sizing: border-box;
+        font-size: 20px;
         border-color: black;
-    }
-    .bttim {
-        position: absolute;
-        top: 190px;
-        left: 560px;
-        width: 50px;
-        height: 30px;
-        font-size: 20px;
-        border-radius: 5px;
-        background-color: rgba(39, 162, 58, 0.8);
-    }
-
-    .btAdd {
-        text-decoration: none;
-        position: absolute;
-        top: 200px;
-        left: 1150px;
-        font-size: 22px;
-        border-radius: 5px;
-        border: 2px solid black; 
-        background-color: #4CAF50;
-        color: black; 
-        padding: 10px 20px; 
-        cursor: pointer; 
-    }
-
-       
-        .btAdd:hover {
-            background-color: #45a049; 
-            border-color: #3e8e41; 
-        }
-
-    .Thang {
-        position: absolute;
-        top: 195px;
-        left: 350px;
-        color: var(--color-black);
-        font-size: 20px;
-    }
-
-    .thang {
-        position: absolute;
-        top: 188px;
-        left: 450px;
-        width: 100px;
-        height: 35px;
-        padding: 5px;
         border-radius: 10px;
-        font-size: 20px;
-        font-family: var(--font-inter);
+        height: 45px;
     }
 
-    .btn-danger {
-        background-color: rgba(39, 162, 58, 0.8);
-        border-color: rgba(39, 162, 58, 0.8);
+    .form-container {
+        position: absolute;
+        top: 600px;
+        left: 870px;
+        transform: translate(-50%, -50%);
+        width: 500px;
+        height: 800px;
+        padding: 20px;
+        background-color: white;
+        border-radius: 10px;
     }
 
-        .btn-danger:hover {
-            background-color: rgba(39, 162, 58, 0.8);
-            border-color: rgba(39, 162, 58, 0.8);
+        .form-container input[type="text"],
+        .form-container input[type="number"] {
+            width: 500px;
+            padding: 10px;
+            margin-top: 5px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+            font-size: 20px;
+            border-color: black;
+            border-radius: 10px;
+            height: 40px;
         }
+
+        .form-container input[type="submit"],
+        .form-container input[type="button"] {
+            width: 245px;
+            padding: 10px;
+            margin-top: 5px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+            font-size: 20px;
+            border-color: black;
+            border-radius: 10px;
+        }
+
+        .form-container label {
+            color: black;
+        }
+
     .khung {
         position: absolute;
-        top: 60px;
-        left: 300px;
-        height: 800px;
-        width: 1200px;
+        top: 70px;
+        left: 350px;
+        height: 825px;
+        width: 1040px;
         background-color: white;
         border-radius: 5px;
     }
+
     .dang-xuat-link {
         position: absolute;
         top: 45px;
@@ -269,80 +227,43 @@
         text-decoration: none; /* Loại bỏ gạch chân */
     }
 
-    .mytable {
+    .table-container {
         position: absolute;
-        top: 280px;
-        left: 310px;
-        max-width: 100%; /* Độ rộng tối đa của bảng */
-        overflow-x: auto; /* Tạo thanh cuộn ngang nếu bảng vượt quá chiều rộng */
-        max-height: 800px; /* Chiều cao tối đa của bảng (điều chỉnh theo nhu cầu của bạn) */
-        overflow-y: auto; /* Tạo thanh cuộn dọc nếu bảng vượt quá chiều cao */
+        top: 290px;
+        left: 420px;
+        width: 900px;
+        max-width: 900px;
+        overflow-x: auto;
+        max-height: 800px;
+        overflow-y: auto;
     }
 
-    .custom-table {
+    .table {
+        width: 900px;
         border-collapse: collapse;
-        width: 1180px;
+        color: black;
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
     }
 
-    .mytable thead {
-        position: sticky;
-        top: 0; /* Giữ phần head ở vị trí đầu tiên */
-        z-index: 1; /* Đảm bảo phần head hiển thị trên cùng */
-        background-color: #f2f2f2; /* Màu nền cho phần head */
-    }
-
-    th, td {
-        border: 1px solid black;
-        padding: 8px;
-        text-align: left;
-        height: 20px;
-        color: var(--color-black);
-        font-size: 16px;
-        background-color: var(--color-white);
-    }
-
-        th:nth-child(1), td:nth-child(1) {
-            width: 10px; /* Cột đầu tiên */
+        .table th, .table td {
+            padding: 12px 15px;
+            text-align: left;
         }
 
-        th:nth-child(2), td:nth-child(2) {
-            width: 35px; /* Cột thứ hai */
+        .table thead th {
+            background-color: antiquewhite;
+            border-bottom: 2px solid #dee2e6;
         }
 
-        th:nth-child(3), td:nth-child(3) {
-            width: 20px; /* Cột thứ ba */
+        .table tbody tr:nth-child(even) {
+            background-color: #f3f4f6;
         }
 
-        th:nth-child(4), td:nth-child(4) {
-            width: 20px; /* Cột đầu tiên */
+        .table tbody tr:hover {
+            background-color: #e2e6ea;
         }
-
-        th:nth-child(5), td:nth-child(5) {
-            width: 20px; /* Cột đầu tiên */
-        }
-
-        th:nth-child(6), td:nth-child(6) {
-            width: 20px; /* Cột thứ hai */
-        }
-
-        th:nth-child(7), td:nth-child(7) {
-            width: 20px; /* Cột thứ ba */
-        }
-
-        th:nth-child(8), td:nth-child(8) {
-            width: 20px; /* Cột đầu tiên */
-        }
-
-        th:nth-child(9), td:nth-child(9) {
-            width: 20px; /* Cột đầu tiên */
-        }
-
-
-
-    th {
-        background-color: rgba(39, 162, 58, 0.8);
-    }
-   
 
     .rectangle-icon,
     .user03 {
@@ -495,6 +416,7 @@
         height: 90px;
     }
 
+
     .xem-thng-tin {
         position: absolute;
         top: 20px;
@@ -547,6 +469,8 @@
         cursor: pointer;
     }
 
+    .thm-m-lng,
+    .thm-m-lng1,
     .xem-thng-tin1 {
         position: absolute;
         top: -1px;
@@ -557,6 +481,24 @@
         justify-content: center;
         width: 150px;
         height: 30px;
+    }
+
+    .thm-m-lng {
+        top: 6px;
+        left: 158px;
+        font-weight: 500;
+        white-space: pre-wrap;
+        width: 224px;
+        height: 23px;
+    }
+
+    .thm-m-lng1 {
+        top: 6px;
+        left: 358px;
+        font-weight: 500;
+        white-space: pre-wrap;
+        width: 224px;
+        height: 23px;
     }
 
     .xem-thng-tin-lng-c-bn-wrapper {

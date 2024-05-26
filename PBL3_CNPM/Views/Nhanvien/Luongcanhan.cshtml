@@ -1,6 +1,9 @@
 ﻿@{
     Layout = null;
 }
+@{
+    var luongCanhan = ViewBag.LuongCanhan;
+}
 <!DOCTYPE html>
 <html>
 <style>
@@ -14,9 +17,11 @@
     }
 
     .thng-tin-c {
+        text-decoration: none; /* Loại bỏ gạch chân */
+        color: white;
         position: absolute;
         top: 33px;
-        left: 55px;
+        left: 60px;
         font-weight: 500;
         display: inline-block;
         width: 222px;
@@ -139,9 +144,11 @@
     }
 
     .lch-lm-vic1 {
+        text-decoration: none; /* Loại bỏ gạch chân */
+        color: white;
         position: absolute;
         top: 30px;
-        left: 77px;
+        left: 60px;
         font-weight: 500;
         display: inline-block;
         width: 147.9px;
@@ -490,6 +497,48 @@
         font-family: var(--font-inter);
     }
 
+    .centered-content {
+    position: absolute;
+    top: 200px; /* Điều chỉnh khoảng cách top theo nhu cầu */
+    left: 500px; /* Điều chỉnh khoảng cách left theo nhu cầu */
+    font-size: 20px;
+    text-align: center;
+    width: 50%; /* Điều chỉnh độ rộng theo nhu cầu */
+}
+
+
+        .centered-content table {
+            
+            font-size:20px;
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+       
+
+        .centered-content th {
+            background-color: rgba(49, 162, 39, 0.8);
+            font-weight: bold;
+
+        }
+
+        .centered-content th,
+        .centered-content td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left; /* Điều chỉnh căn lề của văn bản trong cột */
+              width:40%;
+        }
+        .centered-content td {
+            width:40%;
+            background-color: white;
+            text-align:left;
+        }
+
+        .centered-content h2 {
+            margin-bottom: 20px;
+        }
     body {
         margin: 0;
         line-height: normal;
@@ -520,19 +569,21 @@
     <div class="lng-c-nhn">
         <div class="thng-tin-c-nhn">
             <div class="thng-tin-c-nhn-child"></div>
-            <div class="thng-tin-c" id="thngTinC">Thông tin cá nhân</div>
+            <a asp-controller="Nhanvien" asp-action="Lichlamvieccanhan" class="thng-tin-c">Thông tin cá nhân</a>
+           
         </div>
         <div class="lng-c-nhn-child"></div>
         <div class="binh-minh-hotel-parent">
             <div class="binh-minh-hotel">BINH MINH HOTEL</div>
             <div class="rectangle-parent">
-                <div class="group-child" id="rectangle"></div>
+              @*   <div class="group-child" id="rectangle"></div> *@
                 <div class="group-item" id="rectangle1"></div>
                 <div class="group-inner"></div>
-                <div class="trang-ch">Trang chủ</div>
-                <div class="i-mt-khu">Đổi mật khẩu</div>
+               @*  <div class="trang-ch">Trang chủ</div> *@
+                <a asp-controller="Doimatkhau" asp-action="Doimatkhau" class="doimatkhau" style="position: absolute; font-weight: 500;
+                   display: inline-block; top: 13px; right: 190px;text-decoration: none; color:black;">Đổi mật khẩu</a>
                 <a asp-controller="Login" asp-action="Logout" class="dang-xuat-link" style="position: absolute; font-weight: 500;
-display: inline-block; top: 13px; right: 45px;">Đăng xuất</a>
+            display: inline-block; top: 13px; right: 35px;">Đăng xuất</a>
             </div>
         </div>
         <img class="istockphoto-1420738401-170667a-icon"
@@ -541,7 +592,7 @@ display: inline-block; top: 13px; right: 45px;">Đăng xuất</a>
 
         <div class="lch-lm-vic">
             <div class="thng-tin-c-nhn-child"></div>
-            <div class="lch-lm-vic1" id="lchLmVic">Lịch làm việc</div>
+            <a asp-controller="Nhanvien" asp-action="Lichlamvieccanhan" class="lch-lm-vic1">Lịch làm việc</a>
         </div>
         <div class="lng-c-nhn-item"></div>
         <div class="lng-c-nhn1">Lương cá nhân</div>
@@ -551,21 +602,57 @@ display: inline-block; top: 13px; right: 45px;">Đăng xuất</a>
             </div>
         </div>
         <div class="lng-c-nhn3">Lương cá nhân</div>
-        <div class="rectangle-div"></div>
-        
+       @*  <div class="rectangle-div"></div> *@
+      
+            
 
-        <b class="lng-thng">Lương tháng : 3/2024</b>
-        <div class="div">5000000</div>
-        <div class="div1"> @Model.Thuong</div>
-        <b class="tng-lng">Tổng lương:</b>
-        <div class="div2"> @Model.Phat</div>
-        <div class="div3"> 001</div>
-        <div class="div4"> @Model.NgayCong</div>
-        <div class="div5"> @Model.LuongTong</div>
-        <div class="vnd">VND</div>
-        <div class="vnd1">VND</div>
-        <div class="vnd2">VND</div>
-        <div class="vnd3">VND</div>
+            <div class="centered-content">
+            <h2>Thông tin lương cá nhân</h2>
+
+                @if (luongCanhan != null)
+                {
+
+                    <table>
+                        <tr>
+                            <th>Tháng</th>
+                            <td>@luongCanhan.Thang</td>
+                        </tr>
+                        <tr>
+                            <th>Phạt</th>
+                            <td>@luongCanhan.Phat VND</td>
+                        </tr>
+                        <tr>
+                            <th>Ngày công</th>
+                            <td>@luongCanhan.NgayCong</td>
+                        </tr>
+                        <tr>
+                            <th>Mã nhân viên</th>
+                            <td>@luongCanhan.MaNv</td>
+                        </tr>
+                        <tr>
+                            <th>Tên nhân viên</th>
+                            <td>@luongCanhan.TenNhanVien</td>
+                        </tr>
+                        <tr>
+                            <th>Lương cơ bản</th>
+                            <td>@luongCanhan.LuongCoBan VND</td>
+                        </tr>
+                        <tr>
+                            <th>Thưởng</th>
+                            <td>@luongCanhan.Thuong VND</td>
+                        </tr>
+                        <tr>
+                            <th>Tổng lương</th>
+                            <td>@luongCanhan.TongLuong VND</td>
+                        </tr>
+                    </table>
+                }
+                else
+                {
+                    <p>Không có thông tin lương.</p>
+                }
+            </div>
+      
         <div class="thng-tin-c-nhn1" id="thngTinCNhn1">
             <div class="thng-tin-c-nhn-item"></div>
         </div>
@@ -574,15 +661,15 @@ display: inline-block; top: 13px; right: 45px;">Đăng xuất</a>
              alt=""
              src="https://scontent.fdad3-4.fna.fbcdn.net/v/t1.15752-9/435264282_1107310530502381_1832007922840023753_n.png?stp=cp0_dst-png&_nc_cat=105&ccb=1-7&_nc_sid=5f2048&_nc_eui2=AeHOUg5KIOU8mEknvYP0PRBjJg-_qGl2dC4mD7-oaXZ0Lu7JgLZwZuUTIvjIjdhKMXg8mpFYWyZCIHjES7Z3xD73&_nc_ohc=wZdHW7XxITUQ7kNvgG7yOs7&_nc_ht=scontent.fdad3-4.fna&oh=03_Q7cD1QFyNb1yA9EeE8qV7USGKe8_Xx3IFx_9ReukRIFtrZioCw&oe=665D0590" />
 
-        <div class="div6">1500000</div>
-        <div class="vnd4">VND</div>
+       @*  <div class="div6">1500000</div>
+        <div class="vnd4">VND</div> *@
         <div class="m-lng-parent">
-            <div class="m-lng">Mã lương:</div>
+           @*  <div class="m-lng">Mã lương:</div>
             <div class="lng-c-bn">Lương cơ bản:</div>
             <div class="thng">Thưởng:</div>
             <div class="pht">Phạt:</div>
             <div class="s-ngy-lm">Số ngày làm:</div>
-            <div class="ph-cp">Phụ cấp:</div>
+            <div class="ph-cp">Phụ cấp:</div> *@
         </div>
     </div>
 

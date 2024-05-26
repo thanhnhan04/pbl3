@@ -17,12 +17,10 @@
 <body>
     <div class="qun-l-thng-tin-lng">
         <div class="vector-parent">
-            <div class="khung"></div>
-
-            <b class="user03">@ViewData["Message1"]</b>
+            <b class="user03">@ViewData["Message"]</b>
             <img class="n-1-icon1"
                  alt=""
-                 src="https://scontent.xx.fbcdn.net/v/t1.15752-9/435264282_1107310530502381_1832007922840023753_n.png?stp=cp0_dst-png&_nc_cat=105&ccb=1-7&_nc_sid=5f2048&_nc_eui2=AeEWw0jKlDzYG29vauLC2BRxJg-_qGl2dC4mD7-oaXZ0LmRBLhQT3PNGmmJczUgrzhH9vauygVsNzDWGfIeTVasP&_nc_ohc=7QbO5VWGLZcQ7kNvgGQ9hti&_nc_ad=z-m&_nc_cid=0&_nc_ht=scontent.xx&oh=03_Q7cD1QHuCahA-BZu5QRB0XzUuAmzHwPKWp8nrXBqtJI9nLtY8Q&oe=666F0A10" />
+                 src="https://scontent.xx.fbcdn.net/v/t1.15752-9/435264282_1107310530502381_1832007922840023753_n.png?stp=cp0_dst-png&_nc_cat=105&ccb=1-7&_nc_sid=5f2048&_nc_eui2=AeEWw0jKlDzYG29vauLC2BRxJg-_qGl2dC4mD7-oaXZ0LmRBLhQT3PNGmmJczUgrzhH9vauygVsNzDWGfIeTVasP&_nc_ohc=3O-cjTaRrXEQ7kNvgGLKglI&_nc_ad=z-m&_nc_cid=0&_nc_ht=scontent.xx&oh=03_Q7cD1QGvtTxPgTn9AXY8mZ8WhrlbRydisrcYnrK3oVjc0bZo4A&oe=66780C50" />
         </div>
         <div class="qun-l-thng-tin-lng-child"></div>
         <div class="binh-minh-hotel-group" id="frameContainer">
@@ -30,12 +28,11 @@
             <div class="group-wrapper">
                 <div class="rectangle-group">
                     <div class="rectangle-div" id="rectangle"></div>
-                    <div class="group-child1" ></div>
+                    <div class="group-child1" id="rectangle1"></div>
                     <div class="group-child2" id="rectangle2"></div>
                     <div class="trang-ch1">Trang chủ</div>
                     <a asp-controller="Doimatkhau" asp-action="Doimatkhau" class="doimatkhau" style="position: absolute; font-weight: 500;
             display: inline-block; top: 13px; right: 190px;text-decoration: none; color:black;">Đổi mật khẩu</a>
-                    
                     <a asp-controller="Login" asp-action="Logout" class="dang-xuat-link" style="position: absolute; font-weight: 500;
             display: inline-block; top: 13px; right: 45px;">Đăng xuất</a>
                 </div>
@@ -43,7 +40,7 @@
         </div>
         <img class="istockphoto-1420738401-170667a-icon1"
              alt=""
-             src="https://scontent.xx.fbcdn.net/v/t1.15752-9/434534001_1448732405736076_2728451762103298305_n.png?_nc_cat=108&ccb=1-7&_nc_sid=5f2048&_nc_eui2=AeE2P5sA1mJK9p7yZAhnHbdR3i0KWcVikJ_eLQpZxWKQn2eF8rUbJCrgvsFmWc-PcaF3QNeTMGaAO-LHN5k9EqKX&_nc_ohc=y7ljPR0JchcQ7kNvgE03-wU&_nc_ad=z-m&_nc_cid=0&_nc_ht=scontent.xx&oh=03_Q7cD1QG9qre1FGLtoQKCts7TZOT8HTrfrbjC9JweMbkUsVettA&oe=666F1CFE" />
+             src="https://scontent.xx.fbcdn.net/v/t1.15752-9/434534001_1448732405736076_2728451762103298305_n.png?_nc_cat=108&ccb=1-7&_nc_sid=5f2048&_nc_eui2=AeE2P5sA1mJK9p7yZAhnHbdR3i0KWcVikJ_eLQpZxWKQn2eF8rUbJCrgvsFmWc-PcaF3QNeTMGaAO-LHN5k9EqKX&_nc_ohc=se0OPtlXsccQ7kNvgGTGPCK&_nc_ad=z-m&_nc_cid=0&_nc_ht=scontent.xx&oh=03_Q7cD1QHWViDuxH97wZEaywbyykDoq583H6FeERJ0dfIzHwsNUw&oe=66781F3E" />
 
         <div class="thng-tin-c-nhn2" id="thngTinCNhn">
             <div class="thng-tin-c-nhn-inner"></div>
@@ -55,78 +52,45 @@
                 <p class="bng-lng1">Bảng lương</p>
             </div>
         </div>
-        <div class="xem-thng-tin-lng-c-bn-wrapper">
-            <div class="xem-thng-tin1">Bảng lương</div>
+        <div class="xem-thng-tin-lng-c-bn-parent">
+            <div class="xem-thng-tin1">Xem thông tin lương cơ bản</div>
+            <div class="thm-m-lng">&gt; Thêm mã lương mới</div>
         </div>
         <img class="subtract-icon" alt="" />
+        <div class="form-container">
+            <form id="addForm" action="/Ketoan/themmaluongmoi" method="post">
+                <label for="name" >Tên mã lương</label><br>
+                <input type="text" id="name" name="name"><br>
+                <label for="salary">Lương Cơ Bản:</label><br>
+                <input type="number" id="salary" name="salary"><br>
+                <label for="allowance">Phụ Cấp:</label><br>
+                <input type="number" id="allowance" name="allowance"><br><br>
+                <input type="submit" value="Thêm" onclick="sendData()">
+                <input type="button" value="Hủy" onclick="window.location.href='/Ketoan/xemthongtinluong'">
+            </form>
     </div>
-    <div> 
-        <form method="get" action="@Url.Action("bangluong")">
-            <p>
-                <label class="Thang">Chọn tháng</label>
-                <select name="thang" class="thang" id="thang" >
-                      @for (int i = 1; i <= 12; i++)
-            {
-                        <option value="@i">@i</option>
-            }
-                </select>
-                <input type="submit" class="bttim" value="OK" />
-                <label class="dsluong">Danh sách lương tháng @ViewData["Message2"] </label>
-            </p>
-        </form>
-        <a asp-controller="Ketoan" asp-action="taobangluong" class="btAdd" ;">Tạo bảng lương</a>
-        <button class="xoaall" onclick="location.href='@Url.Action("xoatatca", "Ketoan", new { id = ViewData["Message2"] })'">Xóa tất cả lương trong tháng</button>
-    </div>
-    <div class="mytable">
-        <table class="custom-table">
-            <thead>
-                <tr>
-                    <th>Mã nhân viên</th>
-                    <th>Tên Nhân Viên</th>
-                    <th>Lương Cơ Bản</th>
-                    <th>Phụ cấp</th>
-                    <th>Số ngày công</th>
-                    <th>Thưởng</th>
-                    <th>Phạt</th>
-                    <th>Lương tổng</th>
-                    <th>Tác vụ</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach (var luong in Model)
-                {
-                    <tr>
-                        <td>@luong.MaNv</td>
-                        <td>@luong.TenNhanVien</td>
-                        <td>@luong.LuongCoBan VND</td>
-                        <td>@luong.PhuCap VND</td>
-                        <td>@luong.NgayCong</td>
-                        <td>@luong.Thuong VND</td>
-                        <td>@luong.Phat VND</td>
-                        <td>@luong.LuongTong VND</td>
-                        <td>
-                            <button type="button" class="btn btn-danger"
-                                    onclick="window.location.href='@Url.Action("Chinhsualuongnv", "Ketoan", new { id = luong.MaLuongNv })'">
-                                Chỉnh sửa
-                            </button>
-                            <button type="button" class="btn btn-danger"
-                                    onclick="window.location.href='@Url.Action("xoaluongnv", "Ketoan",new { id = luong.MaLuongNv })'">
-                                Xóa
-                            </button>
-                           
-                        </td>
-                    </tr>
-                }
-            </tbody>
-        </table>
-    </div>
-  
 
     <script>
+         
+            function sendData() {
+                var xhr = new XMLHttpRequest();
+                var formData = new FormData(document.getElementById("addForm"));
+                formData.append("name", name);
+                formData.append("salary", salary);
+                formData.append("allowance", allowance);
+                xhr.open("POST", "/KetoanController/themmaluongmoi", true);
+                xhr.onload = function () {
+                    if (xhr.status === 200) {
+                        // Xử lý phản hồi từ server nếu cần
+                        console.log(xhr.responseText);
+                    }
+                };
+                xhr.send(formData);
+            }
         var rectangle = document.getElementById("rectangle");
         if (rectangle) {
             rectangle.addEventListener("click", function (e) {
-                window.location.href = "/Ketoan/Trangchuketoan"
+                window.location.href = "/Ketoan/Trangchuketoan";
             });
         }
 
@@ -157,193 +121,66 @@
         var thngTinCNhn = document.getElementById("thngTinCNhn");
         if (thngTinCNhn) {
             thngTinCNhn.addEventListener("click", function (e) {
-                window.location.href = "https://localhost:7276/Ketoan/xemthongtinluong"
+                // Please sync "Quản lý bảng lương" to the project
             });
         }
 
         var lchLmVic = document.getElementById("lchLmVic");
         if (lchLmVic) {
             lchLmVic.addEventListener("click", function (e) {
-                // Please sync "Quản lý bảng lương" to the project
-            });
+                    window.location.href = "/Ketoan/bangluong";
+                });
         }
     </script>
 </body>
 </html>
 <style>
-    .xoaall
+    .mess
     {
         position: absolute;
-        top: 987px;
-        left: 1150px;
-        font-size: 22px;
-        height: 30px;
-        width: 320px;
+        top: 450px;
+        left: 880px;
     }
-    .dsluong
-    {
+    .form-container {
         position: absolute;
-        top: 235px;
-        left: 330px;
-        font-size: 30px;
-        border-color: black;
-    }
-    .bttim {
-        position: absolute;
-        top: 190px;
-        left: 560px;
-        width: 50px;
-        height: 30px;
-        font-size: 20px;
-        border-radius: 5px;
-        background-color: rgba(39, 162, 58, 0.8);
-    }
-
-    .btAdd {
-        text-decoration: none;
-        position: absolute;
-        top: 200px;
-        left: 1150px;
-        font-size: 22px;
-        border-radius: 5px;
-        border: 2px solid black; 
-        background-color: #4CAF50;
-        color: black; 
-        padding: 10px 20px; 
-        cursor: pointer; 
-    }
-
-       
-        .btAdd:hover {
-            background-color: #45a049; 
-            border-color: #3e8e41; 
-        }
-
-    .Thang {
-        position: absolute;
-        top: 195px;
-        left: 350px;
-        color: var(--color-black);
-        font-size: 20px;
-    }
-
-    .thang {
-        position: absolute;
-        top: 188px;
-        left: 450px;
-        width: 100px;
-        height: 35px;
-        padding: 5px;
-        border-radius: 10px;
-        font-size: 20px;
-        font-family: var(--font-inter);
-    }
-
-    .btn-danger {
-        background-color: rgba(39, 162, 58, 0.8);
-        border-color: rgba(39, 162, 58, 0.8);
-    }
-
-        .btn-danger:hover {
-            background-color: rgba(39, 162, 58, 0.8);
-            border-color: rgba(39, 162, 58, 0.8);
-        }
-    .khung {
-        position: absolute;
-        top: 60px;
-        left: 300px;
-        height: 800px;
-        width: 1200px;
+        top: 450px;
+        left: 880px;
+        transform: translate(-50%, -50%);
+        width: 500px;
+        padding: 20px;
         background-color: white;
-        border-radius: 5px;
-    }
-    .dang-xuat-link {
-        position: absolute;
-        top: 45px;
-        right: 140px;
-        font-weight: 500;
-        display: inline-block;
-        font-size: var(--font-size-xl); /* Điều chỉnh kích thước chữ */
-        color: black; /* Màu chữ */
-        font-family: var(--font-inter); /* Kiểu font chữ */
-        text-decoration: none; /* Loại bỏ gạch chân */
+  
     }
 
-    .mytable {
-        position: absolute;
-        top: 280px;
-        left: 310px;
-        max-width: 100%; /* Độ rộng tối đa của bảng */
-        overflow-x: auto; /* Tạo thanh cuộn ngang nếu bảng vượt quá chiều rộng */
-        max-height: 800px; /* Chiều cao tối đa của bảng (điều chỉnh theo nhu cầu của bạn) */
-        overflow-y: auto; /* Tạo thanh cuộn dọc nếu bảng vượt quá chiều cao */
-    }
-
-    .custom-table {
-        border-collapse: collapse;
-        width: 1180px;
-    }
-
-    .mytable thead {
-        position: sticky;
-        top: 0; /* Giữ phần head ở vị trí đầu tiên */
-        z-index: 1; /* Đảm bảo phần head hiển thị trên cùng */
-        background-color: #f2f2f2; /* Màu nền cho phần head */
-    }
-
-    th, td {
-        border: 1px solid black;
-        padding: 8px;
-        text-align: left;
-        height: 20px;
-        color: var(--color-black);
-        font-size: 16px;
-        background-color: var(--color-white);
-    }
-
-        th:nth-child(1), td:nth-child(1) {
-            width: 10px; /* Cột đầu tiên */
+        .form-container input[type="text"],
+        .form-container input[type="number"]
+         {
+            width: 500px;
+            padding: 10px;
+            margin-top: 5px;
+            margin-bottom: 10px;
+            box-sizing: border-box; 
+            font-size:20px;
+            border-color: black;
+            border-radius: 10px;
         }
 
-        th:nth-child(2), td:nth-child(2) {
-            width: 35px; /* Cột thứ hai */
+        .form-container input[type="submit"],
+        .form-container input[type="button"]
+        {
+            width: 245px;
+            padding: 10px;
+            margin-top: 5px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+            font-size: 20px;
+            border-color: black;
+            border-radius: 10px;
         }
-
-        th:nth-child(3), td:nth-child(3) {
-            width: 20px; /* Cột thứ ba */
+        .form-container label {
+            color: black; 
         }
-
-        th:nth-child(4), td:nth-child(4) {
-            width: 20px; /* Cột đầu tiên */
-        }
-
-        th:nth-child(5), td:nth-child(5) {
-            width: 20px; /* Cột đầu tiên */
-        }
-
-        th:nth-child(6), td:nth-child(6) {
-            width: 20px; /* Cột thứ hai */
-        }
-
-        th:nth-child(7), td:nth-child(7) {
-            width: 20px; /* Cột thứ ba */
-        }
-
-        th:nth-child(8), td:nth-child(8) {
-            width: 20px; /* Cột đầu tiên */
-        }
-
-        th:nth-child(9), td:nth-child(9) {
-            width: 20px; /* Cột đầu tiên */
-        }
-
-
-
-    th {
-        background-color: rgba(39, 162, 58, 0.8);
-    }
-   
-
+  
     .rectangle-icon,
     .user03 {
         position: absolute;
@@ -424,6 +261,17 @@
         width: 135px;
     }
 
+    .dang-xuat-link {
+        position: absolute;
+        top: 45px;
+        right: 140px;
+        font-weight: 500;
+        display: inline-block;
+        font-size: var(--font-size-xl); /* Điều chỉnh kích thước chữ */
+        color: black; /* Màu chữ */
+        font-family: var(--font-inter); /* Kiểu font chữ */
+        text-decoration: none; /* Loại bỏ gạch chân */
+    }
     .i-mt-khu1,
     .ng-xut1,
     .trang-ch1 {
@@ -490,7 +338,7 @@
         position: absolute;
         top: 0;
         left: 0;
-        background-color: var(--color-darkslategray);
+        background-color: var(--color-black);
         width: 289px;
         height: 90px;
     }
@@ -521,7 +369,7 @@
 
     .lch-lm-vic-item {
         top: 0;
-        background-color: var(--color-black);
+        background-color: var(--color-darkslategray);
     }
 
     .bng-lng1 {
@@ -547,19 +395,29 @@
         cursor: pointer;
     }
 
+    .thm-m-lng,
     .xem-thng-tin1 {
         position: absolute;
         top: -1px;
-        left: 0px;
+        left: 15px;
         font-weight: 600;
         display: flex;
         align-items: flex-end;
         justify-content: center;
-        width: 150px;
+        width: 290px;
         height: 30px;
     }
 
-    .xem-thng-tin-lng-c-bn-wrapper {
+    .thm-m-lng {
+        top: 6px;
+        left: 318px;
+        font-weight: 500;
+        white-space: pre-wrap;
+        width: 224px;
+        height: 23px;
+    }
+
+    .xem-thng-tin-lng-c-bn-parent {
         position: absolute;
         top: 140px;
         left: 311px;
@@ -583,7 +441,7 @@
         position: relative;
         height: 1024px;
         overflow: hidden;
-        background-image: url(https://scontent.xx.fbcdn.net/v/t1.15752-9/435229924_1387605835555899_1676943816951711557_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=5f2048&_nc_eui2=AeFJMnRkpBX4VXFUqgQe8t4MAnEj3tDXrhwCcSPe0NeuHBfYQCRlTLYqRSzjZcYLanAmYfZQt1qLkkGk46N3Lk1j&_nc_ohc=4qGMy2x1nkAQ7kNvgF8QXEK&_nc_ad=z-m&_nc_cid=0&_nc_ht=scontent.xx&oh=03_Q7cD1QFmiijBIT5AWF2AnVv8f4IrwN93aRQe726l3hCJrs0eXg&oe=666F181D);
+        background-image: url(https://scontent.xx.fbcdn.net/v/t1.15752-9/435229924_1387605835555899_1676943816951711557_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=5f2048&_nc_eui2=AeFJMnRkpBX4VXFUqgQe8t4MAnEj3tDXrhwCcSPe0NeuHBfYQCRlTLYqRSzjZcYLanAmYfZQt1qLkkGk46N3Lk1j&_nc_ohc=TVWeThWHVZYQ7kNvgGSaUp7&_nc_ad=z-m&_nc_cid=0&_nc_ht=scontent.xx&oh=03_Q7cD1QFQMNbDnoyWTzN6fYKTZE2Ud1UmBv6_AVvLWi-S-1RfnQ&oe=66781A5D);
         background-size: cover;
         background-repeat: no-repeat;
         background-position: top;

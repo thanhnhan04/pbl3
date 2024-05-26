@@ -21,9 +21,10 @@
             <div class="rectangle-parent" id="groupContainer">
                 <div class="group-item" id="rectangle1"></div>
                 <div class="group-inner" id="rectangle2"></div>
-                <div class="i-mt-khu">Đổi mật khẩu</div>
+                <a asp-controller="Doimatkhau" asp-action="Doimatkhau" class="doimatkhau" style="position: absolute; font-weight: 500;
+            display: inline-block; top: 13px; right: 190px;text-decoration: none; color:black;">Đổi mật khẩu</a>
                 <a asp-controller="Login" asp-action="Logout" class="dang-xuat-link" style="position: absolute; font-weight: 500;
-display: inline-block; top: 13px; right: 45px;">Đăng xuất</a>
+            display: inline-block; top: 13px; right: 30px;">Đăng xuất</a>
             </div>
         </div>
         <img class="istockphoto-1420738401-170667a-icon"
@@ -36,11 +37,13 @@ display: inline-block; top: 13px; right: 45px;">Đăng xuất</a>
         </div>
         <div class="lch-lm-vic" id="lchLmVic">
             <div class="lch-lm-vic-child"></div>
-            <div class="qun-l-phng">Quản lý phòng ban</div>
+            <a asp-controller="Quanly" asp-action="Phongban" style="text-decoration: none; color:white;" class="qun-l-phng">Quản lý phòng ban</a>
+           
         </div>
         <div class="qun-l-h-s-thm-h-s-child" id="rectangle"></div>
         <div class="qun-l-cng-container">
-            <p class="qun-l-cng">Quản lý công việc</p>
+            <a asp-controller="Quanly" asp-action="Quanlycongviec" style="text-decoration: none; color:white;" class="qun-l-cng">Quản lý công việc</a>
+           
         </div>
         <div class="qun-l-h-s-parent">
             <div class="qun-l-h1">Quản lý hồ sơ</div>
@@ -91,7 +94,7 @@ display: inline-block; top: 13px; right: 45px;">Đăng xuất</a>
 
                     @foreach (var cv in ViewBag.chucvulist)
                     {
-                        <option value="@cv.MaChucVu" selected="@(Model.MaChucVu == @cv.MaChucVu ? "selected" : null)">@cv.ChucVu1</option>
+                        <option value="@cv.MaChucVu" selected="@(Model.MaChucVu == @cv.MaChucVu ? "selected" : null)">@cv.ChucVu</option>
                     }
 
                 </select>
@@ -118,28 +121,15 @@ display: inline-block; top: 13px; right: 45px;">Đăng xuất</a>
         }
 
 
-
-        var lchLmVic = document.getElementById("lchLmVic");
-        if (lchLmVic) {
-            lchLmVic.addEventListener("click", function (e) {
-                window.location.href = "https://localhost:7221/Quanly/Phongban";
-            });
-        }
-
-        var rectangle = document.getElementById("rectangle");
-        if (rectangle) {
-            rectangle.addEventListener("click", function (e) {
-                window.location.href = "https://localhost:7221/Quanly/Quanlycongviec";
-            });
-        }
+        document.getElementById("btHuy").addEventListener("click", function () {
+            window.history.back();
+        });
 
 
-        var huy = document.getElementById("btHuy");
-        if (huy) {
-            huy.addEventListener("click", function (e) {
-                window.location.href = "https://localhost:7221/Quanly/quanlyhoso";
-            });
-        }
+       
+
+
+       
         document.getElementById("btAdd").addEventListener("click", function () {
             sendData(); // Gọi hàm gửi dữ liệu
         });
@@ -590,8 +580,8 @@ display: inline-block; top: 13px; right: 45px;">Đăng xuất</a>
     }
 
     .i-mt-khu,
-    .ng-xut,
-    .trang-ch {
+    .ng-xut
+     {
         position: absolute;
         top: 13px;
         left: 33px;

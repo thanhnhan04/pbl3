@@ -32,11 +32,7 @@ namespace PBL3_CNPM.Controllers
 
 
 
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
-        {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
-        }
+       
         [Authentication]
 
         public IActionResult thongtin()
@@ -54,25 +50,45 @@ namespace PBL3_CNPM.Controllers
         [Authentication]
         public IActionResult Luongcanhan()
         {
-            string currentUserId = HttpContext.Session.GetString("MaNv");
-
-            if (string.IsNullOrEmpty(currentUserId))
+            try
             {
+                string currentUserId = HttpContext.Session.GetString("MaNv");
 
-                return RedirectToAction("Login", "Login");
+                if (string.IsNullOrEmpty(currentUserId))
+                {
+                    return RedirectToAction("Login", "Login");
+                }
+
+                var luongcanhanList = from ln in _masterContext.LuongNvs
+                                      join nv in _masterContext.Nhanviens on ln.MaNv equals nv.MaNv
+                                      join l in _masterContext.Luongs on ln.MaLuong equals l.MaLuong
+                                      where ln.MaNv == currentUserId
+                                      select new
+                                      {
+                                          Thang = ln.Thang,
+                                          Phat = ln.Phat,
+                                          NgayCong = ln.NgayCong,
+                                          MaNv = ln.MaNv,
+                                          TenNhanVien = nv.TenNhanVien,
+                                          LuongCoBan = l.LuongCoBan,
+                                          Thuong = ln.Thuong,
+                                          TongLuong = ln.LuongTong,
+                                      };
+
+                ViewBag.LuongCanhan = luongcanhanList.FirstOrDefault(); // Lấy bản ghi đầu tiên hoặc null nếu không tìm thấy
+
+                return View();
             }
-             /*UserService user = new UserService("Data Source=LAPTOP-0P18FSJ6\\MYSQL;Initial Catalog=QUANLYNHANVIENKHACHSAN;Integrated Security=True;Encrypt=False");
-             LuongNv luong = user.GetLuongNv(currentUserId);*/
-             LuongNv luong = db.LuongNvs.Include(p => p.MaLuongNavigation).FirstOrDefault(p => p.MaNv == currentUserId);
-            var luongnv = new LuongIfo
+            catch (Exception ex)
             {
-                LuongNv = luong,
-                Luong = luong.MaLuongNavigation
-            };
-
-            return View(luongnv);
-
+                _logger.LogError($"Lỗi khi lấy thông tin lương cá nhân: {ex.Message}");
+                // Optionally, return an error view or message
+                return View("Error", new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+            }
         }
+
+
+
         [HttpPost]
         public ActionResult chinhsua( string tennv, DateTime ns, string gt, string dc, string sdt, string em, string stk, string bank)
         {

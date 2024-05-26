@@ -43,6 +43,8 @@ public partial class Nhanvien
 
     public virtual ICollection<CongviecNv> CongviecNvs { get; set; } = new List<CongviecNv>();
 
+    public virtual ICollection<LuongNv> LuongNvs { get; set; } = new List<LuongNv>();
+
     public virtual Chucvu? MaChucVuNavigation { get; set; }
 
     public virtual Phanquyen? MaPhanQuyenNavigation { get; set; }

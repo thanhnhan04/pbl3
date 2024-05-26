@@ -26,8 +26,32 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = D:\pbl3\PBL3_CNPM
 build_property._RazorSourceGeneratorDebug = 
 
+[D:/pbl3/PBL3_CNPM/Views/Doimatkhau/Doimatkhau.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRG9pbWF0a2hhdVxEb2ltYXRraGF1LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/pbl3/PBL3_CNPM/Views/Ketoan/bangluong.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcS2V0b2FuXGJhbmdsdW9uZy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/pbl3/PBL3_CNPM/Views/Ketoan/chinhsua.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcS2V0b2FuXGNoaW5oc3VhLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/pbl3/PBL3_CNPM/Views/Ketoan/chinhsualuongnv.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcS2V0b2FuXGNoaW5oc3VhbHVvbmdudi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/pbl3/PBL3_CNPM/Views/Ketoan/taobangluong.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcS2V0b2FuXHRhb2JhbmdsdW9uZy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/pbl3/PBL3_CNPM/Views/Ketoan/themluong.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcS2V0b2FuXHRoZW1sdW9uZy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/pbl3/PBL3_CNPM/Views/Ketoan/themmaluong.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcS2V0b2FuXHRoZW1tYWx1b25nLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/pbl3/PBL3_CNPM/Views/Ketoan/Trangchuketoan.cshtml]
@@ -42,20 +66,8 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9naW5cTG9naW4uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/pbl3/PBL3_CNPM/Views/Login/Phanquyenketoan.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9naW5cUGhhbnF1eWVua2V0b2FuLmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
-[D:/pbl3/PBL3_CNPM/Views/Login/Phanquyenquanly.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9naW5cUGhhbnF1eWVucXVhbmx5LmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
 [D:/pbl3/PBL3_CNPM/Views/Nhanvien/chinhsua.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTmhhbnZpZW5cY2hpbmhzdWEuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
-[D:/pbl3/PBL3_CNPM/Views/Nhanvien/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTmhhbnZpZW5cSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/pbl3/PBL3_CNPM/Views/Nhanvien/Lichlamvieccanhan.cshtml]
@@ -108,10 +120,6 @@ build_metadata.AdditionalFiles.CssScope =
 
 [D:/pbl3/PBL3_CNPM/Views/Quanly/themhoso.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUXVhbmx5XHRoZW1ob3NvLmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
-[D:/pbl3/PBL3_CNPM/Views/Quanly/Trangchuquanly.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUXVhbmx5XFRyYW5nY2h1cXVhbmx5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/pbl3/PBL3_CNPM/Views/Shared/Error.cshtml]

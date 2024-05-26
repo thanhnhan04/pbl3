@@ -512,9 +512,10 @@
             <div class="rectangle-parent1">
                 <div class="group-child9"></div>
                 <div class="group-child10"></div>
-                <div class="i-mt-khu5" id="iMtKhu">Đổi mật khẩu</div>
+                <a asp-controller="Doimatkhau" asp-action="Doimatkhau" class="doimatkhau" style="position: absolute; font-weight: 500;
+            display: inline-block; top: 13px; right: 190px;text-decoration: none; color:black;">Đổi mật khẩu</a>
                 <a asp-controller="Login" asp-action="Logout" class="dang-xuat-link" style="position: absolute; font-weight: 500;
-            display: inline-block; top: 13px; right: 45px;">Đăng xuất</a>
+            display: inline-block; top: 13px; right: 30px;">Đăng xuất</a>
             </div>
         </div>
         <img class="istockphoto-1420738401-170667a-icon5"
@@ -538,15 +539,7 @@
             <div class="qun-l-cng4" id="qunLCng">Quản lý công việc</div>
             <div class="xem-lch-lm1">&gt; Xem lịch làm việc</div>
         </div>
-        @* @using (Html.BeginForm("Lichlamviec", "Quanly", FormMethod.Post))
-        {
-
-        <div class="ngay">Chọn ngày</div>
-        <div> <input class="ngaylamviec" id="myID" name="strSearch" placeholder="Chọn ngày"> </div>
-        <div><button class="submit" type="submit">Tìm kiếm</button></div>
-
-        }
-        *@
+      
 
         <img class="qun-l-cng-vic-xem-lch-l-inner"
              alt=""
@@ -554,55 +547,20 @@
 @*         </input> *@
         <form id="myForm" action="/Quanly/Chinhsuacongviec" method="post">
             <div class="chnh-sa-thng-tin-c-nhn-child1">
-                @* <div class="ten">Mã công việc</div>
-                <input type="text" class="macv" name="macv" value="@Model.MaCongViec"> *@
+@*                 <div class="ten">Mã công việc</div> *@
+                <input type="hidden" class="macv" name="macv" value="@Model.MaCongViec">
                 <div class="CaLam">Ca làm</div>
-                <input type="text" class="calam" name="CaLam" value="@Model?.CaLam">
+                <input type="text" class="calam" name="CaLam" value="@Model.CaLam">
                 
                 <div class="Chitiet">Chi tiết công việc</div>
-                <input type="text" class="chitiet" name="ChiTietCongViec" value="@Model?.ChiTietCongViec">
+                <input type="text" class="chitiet" name="ChiTietCongViec" value="@Model.ChiTietCongViec">
               
                 <button class="btLuu" id="btLuu">Lưu lại</button>
                 <button class="btHuy" id="btHuy">Hủy</button>
              
             </div>
         </form>
-      @*   @if (ViewBag.cv != null && ViewBag.cv.Count > 0)
-        {
-            <div class="table-container">
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th>Mã công việc</th>
-                            <th> Chi tiết công việc</th>
-                            <th> Ca làm</th>
-                            <th> Tác vụ </th>
-
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach (var congViec in ViewBag.cv)
-                        {
-                            <tr>
-                                <td>@congViec.MaCongViec</td>
-                                <td>@congViec.ChiTietCongViec</td>
-                                <td>@congViec.CaLam</td>
-                                <td>
-                                    @Html.ActionLink("Chỉnh sửa", "Chinhsuacongviec", new { id = congViec.MaCongViec });
-                                    @Html.ActionLink("Xóa", "Xoacongviec", new { id = congViec.MaCongViec });
-                                </td>
-
-                            </tr>
-                        }
-                    </tbody>
-                </table>
-            </div>
-        }
-        else
-        {
-            <p>Danh sách công việc trống.</p>
-        }
- *@
+  
         <div class="thng-tin-c-nhn11">
             <div class="thng-tin-c-nhn-child9"></div>
         </div>
@@ -616,30 +574,8 @@
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 
     <script>
-        var iMtKhu = document.getElementById("iMtKhu");
-        if (iMtKhu) {
-            iMtKhu.addEventListener("click", function (e) {
-                // Please sync "Đổi mật khẩu - ql" to the project
-            });
-        }
+       
 
-        document.getElementById("btLuu").addEventListener("click", function () {
-            sendData(); // Gọi hàm gửi dữ liệu
-        });
-
-        function sendData() {
-            var xhr = new XMLHttpRequest();
-            var formData = new FormData(document.getElementById("myForm"));
-            // formData.append("gt", gt);
-            xhr.open("POST", "/Quanly/Chinhsuacongviec", true);
-            xhr.onload = function () {
-                if (xhr.status === 200) {
-                    // Xử lý phản hồi từ server nếu cần
-                    console.log(xhr.responseText);
-                }
-            };
-            xhr.send(formData);
-        }
         var qunLH = document.getElementById("qunLH");
         if (qunLH) {
             qunLH.addEventListener("click", function (e) {

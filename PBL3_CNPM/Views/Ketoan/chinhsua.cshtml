@@ -1,5 +1,4 @@
-﻿@model List<PBL3_CNPM.Models.Luong>
-@{
+﻿@{
     Layout = null;
 }
 <!DOCTYPE html>
@@ -18,12 +17,10 @@
 <body>
     <div class="qun-l-thng-tin-lng">
         <div class="vector-parent">
-        <div class="khung"></div>
-
             <b class="user03">@ViewData["Message"]</b>
             <img class="n-1-icon1"
                  alt=""
-                 src="https://scontent.xx.fbcdn.net/v/t1.15752-9/435264282_1107310530502381_1832007922840023753_n.png?stp=cp0_dst-png&_nc_cat=105&ccb=1-7&_nc_sid=5f2048&_nc_eui2=AeEWw0jKlDzYG29vauLC2BRxJg-_qGl2dC4mD7-oaXZ0LmRBLhQT3PNGmmJczUgrzhH9vauygVsNzDWGfIeTVasP&_nc_ohc=7QbO5VWGLZcQ7kNvgGQ9hti&_nc_ad=z-m&_nc_cid=0&_nc_ht=scontent.xx&oh=03_Q7cD1QHuCahA-BZu5QRB0XzUuAmzHwPKWp8nrXBqtJI9nLtY8Q&oe=666F0A10" />
+                 src="https://scontent.xx.fbcdn.net/v/t1.15752-9/435264282_1107310530502381_1832007922840023753_n.png?stp=cp0_dst-png&_nc_cat=105&ccb=1-7&_nc_sid=5f2048&_nc_eui2=AeEWw0jKlDzYG29vauLC2BRxJg-_qGl2dC4mD7-oaXZ0LmRBLhQT3PNGmmJczUgrzhH9vauygVsNzDWGfIeTVasP&_nc_ohc=3O-cjTaRrXEQ7kNvgGLKglI&_nc_ad=z-m&_nc_cid=0&_nc_ht=scontent.xx&oh=03_Q7cD1QGvtTxPgTn9AXY8mZ8WhrlbRydisrcYnrK3oVjc0bZo4A&oe=66780C50" />
         </div>
         <div class="qun-l-thng-tin-lng-child"></div>
         <div class="binh-minh-hotel-group" id="frameContainer">
@@ -43,7 +40,7 @@
         </div>
         <img class="istockphoto-1420738401-170667a-icon1"
              alt=""
-             src="https://scontent.xx.fbcdn.net/v/t1.15752-9/434534001_1448732405736076_2728451762103298305_n.png?_nc_cat=108&ccb=1-7&_nc_sid=5f2048&_nc_eui2=AeE2P5sA1mJK9p7yZAhnHbdR3i0KWcVikJ_eLQpZxWKQn2eF8rUbJCrgvsFmWc-PcaF3QNeTMGaAO-LHN5k9EqKX&_nc_ohc=y7ljPR0JchcQ7kNvgE03-wU&_nc_ad=z-m&_nc_cid=0&_nc_ht=scontent.xx&oh=03_Q7cD1QG9qre1FGLtoQKCts7TZOT8HTrfrbjC9JweMbkUsVettA&oe=666F1CFE" />
+             src="https://scontent.xx.fbcdn.net/v/t1.15752-9/434534001_1448732405736076_2728451762103298305_n.png?_nc_cat=108&ccb=1-7&_nc_sid=5f2048&_nc_eui2=AeE2P5sA1mJK9p7yZAhnHbdR3i0KWcVikJ_eLQpZxWKQn2eF8rUbJCrgvsFmWc-PcaF3QNeTMGaAO-LHN5k9EqKX&_nc_ohc=se0OPtlXsccQ7kNvgGTGPCK&_nc_ad=z-m&_nc_cid=0&_nc_ht=scontent.xx&oh=03_Q7cD1QHWViDuxH97wZEaywbyykDoq583H6FeERJ0dfIzHwsNUw&oe=66781F3E" />
 
         <div class="thng-tin-c-nhn2" id="thngTinCNhn">
             <div class="thng-tin-c-nhn-inner"></div>
@@ -55,256 +52,135 @@
                 <p class="bng-lng1">Bảng lương</p>
             </div>
         </div>
-        <div class="xem-thng-tin-lng-c-bn-wrapper">
+        <div class="xem-thng-tin-lng-c-bn-parent">
             <div class="xem-thng-tin1">Xem thông tin lương cơ bản</div>
+            <div class="thm-m-lng">&gt;  Chỉnh sửa mã lương</div>
         </div>
         <img class="subtract-icon" alt="" />
-    </div>
-    <form method="get" action="@Url.Action("xemthongtinluong")">
-        <p>
-            <div class="tkml">Tìm kiếm tên mã lương: </div>
-            <input type="text" class="tim" name="searchString" value="@ViewBag.SearchString" />
-            <input type="submit" class="bttim" value="Tìm" />
-        </p>
-    </form>
-    <a asp-controller="Ketoan" asp-action="themmaluong" class="btAdd" ;">Thêm mã lương mới</a>
-   
-    <div class="mytable">
-        <table class="custom-table">
-            <thead>
-                <tr>
-                    <th>Mã Lương</th>
-                    <th>Tên Mã Lương</th>
-                    <th>Lương Cơ Bản</th>
-                    <th>Phụ cấp</th>
-                    <th>Tác vụ</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach (var luong in Model)
-                {
-                    <tr>
-                        <td>@luong.MaLuong</td>
-                        <td>@luong.TenMaLuong</td>
-                        <td>@luong.LuongCoBan VND</td>
-                        <td>@luong.PhuCap VND</td>
-                        <td>
-                            <button type="button" class="btn btn-danger"
-                                    onclick="window.location.href='@Url.Action("Chinhsua", "Ketoan",  new { id = luong.MaLuong })'">
-                                Chỉnh sửa
-                            </button>
-                            <button type="button" class="btn btn-danger"
-                                    onclick="window.location.href='@Url.Action("xoaluong", "Ketoan",  new { id = luong.MaLuong })'">
-                                Xóa
-                            </button>
+        <div class="form-container">
+            <form id="addForm" action="/Ketoan/chinhsualuong" method="post">
+                <label for="name">Mã lương</label><br>
+                <input type="text" id="maluong" name="maluong" value="@Model.MaLuong" readonly><br>
+                <label for="name">Tên mã lương</label><br>
+                <input type="text" id="name" name="name" value="@Model.TenMaLuong"><br>
+                <label for="salary">Lương Cơ Bản:</label><br>
+                <input type="number" id="salary" name="salary" value="@Model.LuongCoBan"><br>
+                <label for="allowance">Phụ Cấp:</label><br>
+                <input type="number" id="allowance" name="allowance" value="@Model.PhuCap"><br><br>
+                <input type="submit" value="Chỉnh sửa" onclick="sendData()">
+                <input type="button" value="Hủy" onclick="window.location.href='/Ketoan/xemthongtinluong'">
+            </form>
+        </div>
 
-                        </td>
-                    </tr>
-                }
-            </tbody>
-        </table>
-    </div>
-    <script>
-        let Add = document.querySelector(".btAdd");
-        Add.addEventListener("click", () => {
-            window.location.href = "/Ketoan/themmaluong";
-        });
-        var rectangle = document.getElementById("rectangle");
-        if (rectangle) {
-            rectangle.addEventListener("click", function (e) {
-                window.location.href = "/Ketoan/Trangchuketoan"
-            });
-        }
+        <script>
 
-        
+            function sendData() {
+                var xhr = new XMLHttpRequest();
+                var formData = new FormData(document.getElementById("addForm"));
+                formData.append("maluong", maluong);
+                formData.append("name", name);
+                formData.append("salary", salary);
+                formData.append("allowance", allowance);
+                xhr.open("POST", "/KetoanController/chinhsualuong", true);
+                xhr.onload = function () {
+                    if (xhr.status === 200) {
+                        // Xử lý phản hồi từ server nếu cần
+                        console.log(xhr.responseText);
+                    }
+                };
+                xhr.send(formData);
+            }
+            var rectangle = document.getElementById("rectangle");
+            if (rectangle) {
+                rectangle.addEventListener("click", function (e) {
+                    window.location.href = "/Ketoan/Trangchuketoan";
+                });
+            }
 
-        var frameContainer = document.getElementById("frameContainer");
-        if (frameContainer) {
-            frameContainer.addEventListener("click", function () {
-                var anchor = document.querySelector("[data-scroll-to='ngXutText']");
-                if (anchor) {
-                    anchor.scrollIntoView({ block: "start", behavior: "smooth" });
-                }
-            });
-        }
+            var rectangle1 = document.getElementById("rectangle1");
+            if (rectangle1) {
+                rectangle1.addEventListener("click", function (e) {
+                    // Please sync "Đổi mật khẩu - kt" to the project
+                });
+            }
 
-        var thngTinCNhn = document.getElementById("thngTinCNhn");
-        if (thngTinCNhn) {
-            thngTinCNhn.addEventListener("click", function (e) {
-                window.location.href = "/Ketoan/bangluong"
-            });
-        }
+            // var rectangle2 = document.getElementById("rectangle2");
+            // if (rectangle2) {
+            //     rectangle2.addEventListener("click", function (e) {
+            //         // Please sync "đăng nhập kt" to the project
+            //     });
+            // }
 
-        var lchLmVic = document.getElementById("lchLmVic");
-        if (lchLmVic) {
-            lchLmVic.addEventListener("click", function (e) {
-                window.location.href = "/Ketoan/bangluong"
-            });
-        }
-    </script>
+            var frameContainer = document.getElementById("frameContainer");
+            if (frameContainer) {
+                frameContainer.addEventListener("click", function () {
+                    var anchor = document.querySelector("[data-scroll-to='ngXutText']");
+                    if (anchor) {
+                        anchor.scrollIntoView({ block: "start", behavior: "smooth" });
+                    }
+                });
+            }
+
+            var thngTinCNhn = document.getElementById("thngTinCNhn");
+            if (thngTinCNhn) {
+                thngTinCNhn.addEventListener("click", function (e) {
+                    // Please sync "Quản lý bảng lương" to the project
+                });
+            }
+
+            var lchLmVic = document.getElementById("lchLmVic");
+            if (lchLmVic) {
+                lchLmVic.addEventListener("click", function (e) {
+                    window.location.href = "/Ketoan/bangluong";
+                });
+            }
+        </script>
 </body>
 </html>
 <style>
-    .btAdd {
+    .mess {
         position: absolute;
-        top: 220px;
-        left: 1150px;
-        font-size: 22px;
-        border-radius: 5px;
-        border: 2px solid black; 
-        background-color: #4CAF50; 
-        color: black; 
-        padding: 10px 20px; 
-        cursor: pointer;
-        text-decoration: none;
+        top: 450px;
+        left: 880px;
     }
 
-        /* Thêm hiệu ứng hover cho button */
-        .btAdd:hover {
-            background-color: #45a049; /* Thay đổi màu nền khi hover */
-            border-color: #3e8e41; /* Thay đổi màu viền khi hover */
-        }
-
-    .tkml {
+    .form-container {
         position: absolute;
-        top: 200px;
-        left: 360px;
-        font-size: 20px;
-        border-color: black;
-    }
-
-    .bttim {
-        position: absolute;
-        top: 230px;
-        left: 690px;
-        width: 100px;
-        height: 35px;
-        font-size: 24px;
-        border-radius: 5px;
-        background-color: rgba(39, 162, 58, 0.8);
-    }
-
-    .btn-danger {
-        background-color: rgba(39, 162, 58, 0.8);
-        border-color: rgba(39, 162, 58, 0.8);
-    }
-
-        .btn-danger:hover {
-            background-color: rgba(39, 162, 58, 0.8);
-            border-color: rgba(39, 162, 58, 0.8);
-        }
-    .tim {
-        position: absolute;
-        top: 230px;
-        left: 360px;
-        width: 300px;
-        height: 30px;
-        font-size: 20px;
-        border-radius: 5px;
-    }
-    .khung
-    {
-        position:absolute;
-        top: 70px;
-        left: 350px;
-        height: 700px;
-        width: 1040px;
+        top: 450px;
+        left: 880px;
+        transform: translate(-50%, -50%);
+        width: 500px;
+        padding: 20px;
         background-color: white;
-        border-radius: 5px;
     }
 
-    .mytable {
-        position: absolute;
-        top: 280px;
-        left: 370px;
-        max-width: 100%; /* Độ rộng tối đa của bảng */
-        overflow-x: auto; /* Tạo thanh cuộn ngang nếu bảng vượt quá chiều rộng */
-        max-height: 800px; /* Chiều cao tối đa của bảng (điều chỉnh theo nhu cầu của bạn) */
-        overflow-y: auto; /* Tạo thanh cuộn dọc nếu bảng vượt quá chiều cao */
-    }
-
-    .custom-table {
-        border-collapse: collapse;
-        width: 1000px;
-    }
-
-    .mytable thead {
-        position: sticky;
-        top: 0; /* Giữ phần head ở vị trí đầu tiên */
-        z-index: 1; /* Đảm bảo phần head hiển thị trên cùng */
-        background-color: #f2f2f2; /* Màu nền cho phần head */
-    }
-
-    th, td {
-        border: 1px solid black;
-        padding: 8px;
-        text-align: left;
-        height: 20px;
-        color: var(--color-black);
-        font-size: 16px;
-        background-color: var(--color-white);
-    }
-
-        th:nth-child(1), td:nth-child(1) {
-            width: 5px; /* Cột đầu tiên */
+        .form-container input[type="text"],
+        .form-container input[type="number"] {
+            width: 500px;
+            padding: 10px;
+            margin-top: 5px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+            font-size: 20px;
+            border-color: black;
+            border-radius: 10px;
         }
 
-        th:nth-child(2), td:nth-child(2) {
-            width: 10px; /* Cột thứ hai */
+        .form-container input[type="submit"],
+        .form-container input[type="button"] {
+            width: 245px;
+            padding: 10px;
+            margin-top: 5px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+            font-size: 20px;
+            border-color: black;
+            border-radius: 10px;
         }
 
-        th:nth-child(3), td:nth-child(3) {
-            width: 10px; /* Cột thứ ba */
+        .form-container label {
+            color: black;
         }
-
-        th:nth-child(4), td:nth-child(4) {
-            width: 10px; /* Cột đầu tiên */
-        }
-
-        th:nth-child(5), td:nth-child(5) {
-            width: 10px; /* Cột đầu tiên */
-        }
-
-    th {
-        background-color: rgba(39, 162, 58, 0.8);
-    }
-    /* .table-container {
-        position: absolute;
-        top: 280px;
-        left: 370px;
-        width: 80%;
-        max-width: 1000px;
-        overflow-x: auto;
-        max-height: 800px; 
-        overflow-y: auto; 
-    }
-
-    .table {
-        width: 100%;
-        border-collapse: collapse;
-        color: black;
-        border-radius: 8px;
-        overflow: hidden;
-        box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
-    }
-
-        .table th, .table td {
-            padding: 12px 15px;
-            text-align: left;
-        }
-
-        .table thead th {
-            background-color: antiquewhite;
-            border-bottom: 2px solid #dee2e6;
-        }
-
-        .table tbody tr:nth-child(even) {
-            background-color: #f3f4f6;
-        }
-
-        .table tbody tr:hover {
-            background-color: #e2e6ea;
-        } */
 
     .rectangle-icon,
     .user03 {
@@ -442,7 +318,7 @@
         top: 0;
         left: 0;
         background-color: var(--color-forestgreen-100);
-        width: 1550px;
+        width: 1440px;
         height: 120px;
         overflow: hidden;
         cursor: pointer;
@@ -520,6 +396,7 @@
         cursor: pointer;
     }
 
+    .thm-m-lng,
     .xem-thng-tin1 {
         position: absolute;
         top: -1px;
@@ -532,7 +409,16 @@
         height: 30px;
     }
 
-    .xem-thng-tin-lng-c-bn-wrapper {
+    .thm-m-lng {
+        top: 6px;
+        left: 318px;
+        font-weight: 500;
+        white-space: pre-wrap;
+        width: 224px;
+        height: 23px;
+    }
+
+    .xem-thng-tin-lng-c-bn-parent {
         position: absolute;
         top: 140px;
         left: 311px;
@@ -556,7 +442,7 @@
         position: relative;
         height: 1024px;
         overflow: hidden;
-        background-image: url(https://scontent.xx.fbcdn.net/v/t1.15752-9/435229924_1387605835555899_1676943816951711557_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=5f2048&_nc_eui2=AeFJMnRkpBX4VXFUqgQe8t4MAnEj3tDXrhwCcSPe0NeuHBfYQCRlTLYqRSzjZcYLanAmYfZQt1qLkkGk46N3Lk1j&_nc_ohc=4qGMy2x1nkAQ7kNvgF8QXEK&_nc_ad=z-m&_nc_cid=0&_nc_ht=scontent.xx&oh=03_Q7cD1QFmiijBIT5AWF2AnVv8f4IrwN93aRQe726l3hCJrs0eXg&oe=666F181D);
+        background-image: url(https://scontent.xx.fbcdn.net/v/t1.15752-9/435229924_1387605835555899_1676943816951711557_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=5f2048&_nc_eui2=AeFJMnRkpBX4VXFUqgQe8t4MAnEj3tDXrhwCcSPe0NeuHBfYQCRlTLYqRSzjZcYLanAmYfZQt1qLkkGk46N3Lk1j&_nc_ohc=TVWeThWHVZYQ7kNvgGSaUp7&_nc_ad=z-m&_nc_cid=0&_nc_ht=scontent.xx&oh=03_Q7cD1QFQMNbDnoyWTzN6fYKTZE2Ud1UmBv6_AVvLWi-S-1RfnQ&oe=66781A5D);
         background-size: cover;
         background-repeat: no-repeat;
         background-position: top;

@@ -28,8 +28,10 @@
                 <div class="group-child2" id="rectangle1"></div>
                 <div class="group-child3" id="rectangle2"></div>
                 <div class="trang-ch1">Trang chủ</div>
-                <div class="i-mt-khu1">Đổi mật khẩu</div>
-                <div class="ng-xut1">Đăng xuất</div>
+                <a asp-controller="Doimatkhau" asp-action="Doimatkhau" class="doimatkhau" style="position: absolute; font-weight: 500;
+            display: inline-block; top: 13px; right: 190px;text-decoration: none; color:black;">Đổi mật khẩu</a>
+                <a asp-controller="Login" asp-action="Logout" class="dang-xuat-link" style="position: absolute; font-weight: 500;
+            display: inline-block; top: 13px; right: 30px;text-decoration: none; color:black;">Đăng xuất</a>
             </div>
         </div>
         <div class="chnh-sa-thng-tin-c-nhn-inner">
@@ -44,10 +46,12 @@
 
         <div class="lch-lm-vic2" id="lchLmVic">
             <div class="lch-lm-vic-item"></div>
-            <div class="lch-lm-vic3">Lịch làm việc</div>
+            <a asp-controller="Nhanvien" asp-action="Lichlamvieccanhan" style="text-decoration: none; color:white;" class="lch-lm-vic3">Lịch làm việc</a>
+           @*  <div class="lch-lm-vic3">Lịch làm việc</div> *@
         </div>
         <div class="chnh-sa-thng-tin-c-nhn-item"></div>
-        <div class="lng-c-nhn4" id="lngCNhn">Lương cá nhân</div>
+        <a asp-controller="Nhanvien" asp-action="Luongcanhan" style="text-decoration: none; color:white;" class="lng-c-nhn4">Lương cá nhân</a>
+        
         <div class="thng-tin-c-nhn3" id="thngTinCNhn1">
             <div class="thng-tin-c-nhn-child1"></div>
         </div>
@@ -58,7 +62,7 @@
 
         <div class="chnh-sa-thng-tin-c-nhn-child1">
             <div class="ten">Họ và tên</div>
-            <input type="text" class="tennv" id="tennv" value="@Model.TenNhanVien" > 
+            <input type="text" class="tennv" id="tennv"  value="@Model.TenNhanVien" > 
             <div class="Ns">Ngày sinh</div>
             <input type="date" class="ns" value="@Model.NgaySinh.ToString("yyyy-MM-dd")">
             <div class="Gt">Giới tính</div>
@@ -95,47 +99,9 @@
             });
         }
 
-        var rectangle = document.getElementById("rectangle");
-        if (rectangle) {
-            rectangle.addEventListener("click", function (e) {
-                // Please sync "trang chủ nhân viên" to the project
-            });
-        }
+        
 
-        var rectangle1 = document.getElementById("rectangle1");
-        if (rectangle1) {
-            rectangle1.addEventListener("click", function (e) {
-                // Please sync "Đổi mật khẩu - nv" to the project
-            });
-        }
-
-        var rectangle2 = document.getElementById("rectangle2");
-        if (rectangle2) {
-            rectangle2.addEventListener("click", function (e) {
-                // Please sync "đăng nhập nv" to the project
-            });
-        }
-
-        var lchLmVic = document.getElementById("lchLmVic");
-        if (lchLmVic) {
-            lchLmVic.addEventListener("click", function (e) {
-                // Please sync "lịch làm việc cá nhân" to the project
-            });
-        }
-
-        var lngCNhn = document.getElementById("lngCNhn");
-        if (lngCNhn) {
-            lngCNhn.addEventListener("click", function (e) {
-                window.location.href = " https://localhost:7221/Nhanvien/Luongcanhan";
-            });
-        }
-
-        var thngTinCNhn1 = document.getElementById("thngTinCNhn1");
-        if (thngTinCNhn1) {
-            thngTinCNhn1.addEventListener("click", function (e) {
-                window.location.href = " https://localhost:7221/Nhanvien/thongtin";
-            });
-        }
+       
     </script>
 </body>
 </html>

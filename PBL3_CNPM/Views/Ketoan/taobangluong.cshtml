@@ -30,12 +30,11 @@
             <div class="group-wrapper">
                 <div class="rectangle-group">
                     <div class="rectangle-div" id="rectangle"></div>
-                    <div class="group-child1" ></div>
+                    <div class="group-child1" id="rectangle1"></div>
                     <div class="group-child2" id="rectangle2"></div>
                     <div class="trang-ch1">Trang chủ</div>
                     <a asp-controller="Doimatkhau" asp-action="Doimatkhau" class="doimatkhau" style="position: absolute; font-weight: 500;
             display: inline-block; top: 13px; right: 190px;text-decoration: none; color:black;">Đổi mật khẩu</a>
-                    
                     <a asp-controller="Login" asp-action="Logout" class="dang-xuat-link" style="position: absolute; font-weight: 500;
             display: inline-block; top: 13px; right: 45px;">Đăng xuất</a>
                 </div>
@@ -57,62 +56,49 @@
         </div>
         <div class="xem-thng-tin-lng-c-bn-wrapper">
             <div class="xem-thng-tin1">Bảng lương</div>
+            <div class="thm-m-lng">&gt;    Tạo bảng lương</div>
         </div>
         <img class="subtract-icon" alt="" />
     </div>
-    <div> 
-        <form method="get" action="@Url.Action("bangluong")">
+    <div>
+        <form method="get" action="@Url.Action("taobangluong")">
             <p>
                 <label class="Thang">Chọn tháng</label>
-                <select name="thang" class="thang" id="thang" >
-                      @for (int i = 1; i <= 12; i++)
-            {
+                <select name="thang" class="thang" id="thang">
+                    @for (int i = 1; i <= 12; i++)
+                    {
                         <option value="@i">@i</option>
-            }
+                    }
                 </select>
                 <input type="submit" class="bttim" value="OK" />
-                <label class="dsluong">Danh sách lương tháng @ViewData["Message2"] </label>
+                <label class="dsluong">Danh sách nhân viên chưa có lương tháng @ViewData["Message2"] </label>
             </p>
         </form>
-        <a asp-controller="Ketoan" asp-action="taobangluong" class="btAdd" ;">Tạo bảng lương</a>
-        <button class="xoaall" onclick="location.href='@Url.Action("xoatatca", "Ketoan", new { id = ViewData["Message2"] })'">Xóa tất cả lương trong tháng</button>
     </div>
+  
     <div class="mytable">
         <table class="custom-table">
             <thead>
                 <tr>
                     <th>Mã nhân viên</th>
                     <th>Tên Nhân Viên</th>
-                    <th>Lương Cơ Bản</th>
-                    <th>Phụ cấp</th>
-                    <th>Số ngày công</th>
-                    <th>Thưởng</th>
-                    <th>Phạt</th>
-                    <th>Lương tổng</th>
+                    <th>Chức vụ</th>
                     <th>Tác vụ</th>
                 </tr>
             </thead>
             <tbody>
-                @foreach (var luong in Model)
+                @foreach (var nv in Model)
                 {
                     <tr>
-                        <td>@luong.MaNv</td>
-                        <td>@luong.TenNhanVien</td>
-                        <td>@luong.LuongCoBan VND</td>
-                        <td>@luong.PhuCap VND</td>
-                        <td>@luong.NgayCong</td>
-                        <td>@luong.Thuong VND</td>
-                        <td>@luong.Phat VND</td>
-                        <td>@luong.LuongTong VND</td>
+                        <td>@nv.MaNv</td>
+                        <td>@nv.TenNhanVien</td>
+                        <td>@nv.ChucVu</td>
                         <td>
                             <button type="button" class="btn btn-danger"
-                                    onclick="window.location.href='@Url.Action("Chinhsualuongnv", "Ketoan", new { id = luong.MaLuongNv })'">
-                                Chỉnh sửa
+                                    onclick="window.location.href='@Url.Action("themluong", "Ketoan",  new { id = @ViewData["Message2"], manv = @nv.MaNv })'">
+                                Tính lương
                             </button>
-                            <button type="button" class="btn btn-danger"
-                                    onclick="window.location.href='@Url.Action("xoaluongnv", "Ketoan",new { id = luong.MaLuongNv })'">
-                                Xóa
-                            </button>
+                            
                            
                         </td>
                     </tr>
@@ -120,8 +106,6 @@
             </tbody>
         </table>
     </div>
-  
-
     <script>
         var rectangle = document.getElementById("rectangle");
         if (rectangle) {
@@ -134,13 +118,6 @@
         if (rectangle1) {
             rectangle1.addEventListener("click", function (e) {
                 // Please sync "Đổi mật khẩu - kt" to the project
-            });
-        }
-
-        var rectangle2 = document.getElementById("rectangle2");
-        if (rectangle2) {
-            rectangle2.addEventListener("click", function (e) {
-                // Please sync "đăng nhập kt" to the project
             });
         }
 
@@ -157,7 +134,7 @@
         var thngTinCNhn = document.getElementById("thngTinCNhn");
         if (thngTinCNhn) {
             thngTinCNhn.addEventListener("click", function (e) {
-                window.location.href = "https://localhost:7276/Ketoan/xemthongtinluong"
+                window.location.href = "/Ketoan/xemthongtinluong"
             });
         }
 
@@ -171,66 +148,36 @@
 </body>
 </html>
 <style>
-    .xoaall
-    {
+    .dsluong {
         position: absolute;
-        top: 987px;
-        left: 1150px;
-        font-size: 22px;
-        height: 30px;
-        width: 320px;
-    }
-    .dsluong
-    {
-        position: absolute;
-        top: 235px;
-        left: 330px;
-        font-size: 30px;
+        top: 250px;
+        left: 420px;
+        font-size: 28px;
         border-color: black;
     }
+
     .bttim {
         position: absolute;
-        top: 190px;
-        left: 560px;
+        top: 205px;
+        left: 590px;
         width: 50px;
         height: 30px;
         font-size: 20px;
         border-radius: 5px;
         background-color: rgba(39, 162, 58, 0.8);
     }
-
-    .btAdd {
-        text-decoration: none;
-        position: absolute;
-        top: 200px;
-        left: 1150px;
-        font-size: 22px;
-        border-radius: 5px;
-        border: 2px solid black; 
-        background-color: #4CAF50;
-        color: black; 
-        padding: 10px 20px; 
-        cursor: pointer; 
-    }
-
-       
-        .btAdd:hover {
-            background-color: #45a049; 
-            border-color: #3e8e41; 
-        }
-
     .Thang {
         position: absolute;
-        top: 195px;
-        left: 350px;
+        top: 210px;
+        left: 380px;
         color: var(--color-black);
         font-size: 20px;
     }
 
     .thang {
         position: absolute;
-        top: 188px;
-        left: 450px;
+        top: 203px;
+        left: 480px;
         width: 100px;
         height: 35px;
         padding: 5px;
@@ -239,24 +186,16 @@
         font-family: var(--font-inter);
     }
 
-    .btn-danger {
-        background-color: rgba(39, 162, 58, 0.8);
-        border-color: rgba(39, 162, 58, 0.8);
-    }
-
-        .btn-danger:hover {
-            background-color: rgba(39, 162, 58, 0.8);
-            border-color: rgba(39, 162, 58, 0.8);
-        }
     .khung {
         position: absolute;
-        top: 60px;
-        left: 300px;
-        height: 800px;
-        width: 1200px;
+        top: 70px;
+        left: 350px;
+        height: 700px;
+        width: 1040px;
         background-color: white;
         border-radius: 5px;
     }
+
     .dang-xuat-link {
         position: absolute;
         top: 45px;
@@ -271,8 +210,8 @@
 
     .mytable {
         position: absolute;
-        top: 280px;
-        left: 310px;
+        top: 290px;
+        left: 420px;
         max-width: 100%; /* Độ rộng tối đa của bảng */
         overflow-x: auto; /* Tạo thanh cuộn ngang nếu bảng vượt quá chiều rộng */
         max-height: 800px; /* Chiều cao tối đa của bảng (điều chỉnh theo nhu cầu của bạn) */
@@ -281,7 +220,7 @@
 
     .custom-table {
         border-collapse: collapse;
-        width: 1180px;
+        width: 800px;
     }
 
     .mytable thead {
@@ -302,39 +241,19 @@
     }
 
         th:nth-child(1), td:nth-child(1) {
-            width: 10px; /* Cột đầu tiên */
+            width: 5px; /* Cột đầu tiên */
         }
 
         th:nth-child(2), td:nth-child(2) {
-            width: 35px; /* Cột thứ hai */
+            width: 10px; /* Cột thứ hai */
         }
 
         th:nth-child(3), td:nth-child(3) {
-            width: 20px; /* Cột thứ ba */
+            width: 10px; /* Cột thứ ba */
         }
 
         th:nth-child(4), td:nth-child(4) {
-            width: 20px; /* Cột đầu tiên */
-        }
-
-        th:nth-child(5), td:nth-child(5) {
-            width: 20px; /* Cột đầu tiên */
-        }
-
-        th:nth-child(6), td:nth-child(6) {
-            width: 20px; /* Cột thứ hai */
-        }
-
-        th:nth-child(7), td:nth-child(7) {
-            width: 20px; /* Cột thứ ba */
-        }
-
-        th:nth-child(8), td:nth-child(8) {
-            width: 20px; /* Cột đầu tiên */
-        }
-
-        th:nth-child(9), td:nth-child(9) {
-            width: 20px; /* Cột đầu tiên */
+            width: 5px; /* Cột đầu tiên */
         }
 
 
@@ -342,7 +261,17 @@
     th {
         background-color: rgba(39, 162, 58, 0.8);
     }
-   
+
+    .btn-danger {
+        background-color: rgba(39, 162, 58, 0.8);
+        border-color: rgba(39, 162, 58, 0.8);
+    }
+
+        .btn-danger:hover {
+            background-color: rgba(39, 162, 58, 0.8);
+            border-color: rgba(39, 162, 58, 0.8);
+        }
+  
 
     .rectangle-icon,
     .user03 {
@@ -495,6 +424,7 @@
         height: 90px;
     }
 
+    
     .xem-thng-tin {
         position: absolute;
         top: 20px;
@@ -547,6 +477,7 @@
         cursor: pointer;
     }
 
+    .thm-m-lng,
     .xem-thng-tin1 {
         position: absolute;
         top: -1px;
@@ -557,6 +488,15 @@
         justify-content: center;
         width: 150px;
         height: 30px;
+    }
+
+    .thm-m-lng {
+        top: 6px;
+        left: 158px;
+        font-weight: 500;
+        white-space: pre-wrap;
+        width: 224px;
+        height: 23px;
     }
 
     .xem-thng-tin-lng-c-bn-wrapper {

@@ -12,4 +12,6 @@ public partial class Luong
     public decimal? LuongCoBan { get; set; }
 
     public decimal? PhuCap { get; set; }
+
+    public virtual ICollection<LuongNv> LuongNvs { get; set; } = new List<LuongNv>();
 }

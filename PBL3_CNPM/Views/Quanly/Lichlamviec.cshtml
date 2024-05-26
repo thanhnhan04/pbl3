@@ -445,7 +445,8 @@
             <div class="rectangle-parent1">
                 <div class="group-child9"></div>
                 <div class="group-child10"></div>
-                <div class="i-mt-khu5" id="iMtKhu">Đổi mật khẩu</div>
+                <a asp-controller="Doimatkhau" asp-action="Doimatkhau" class="doimatkhau" style="position: absolute; font-weight: 500;
+            display: inline-block; top: 13px; right: 200px;text-decoration: none; color:black;">Đổi mật khẩu</a>
                 <a asp-controller="Login" asp-action="Logout" class="dang-xuat-link" style="position: absolute; font-weight: 500;
             display: inline-block; top: 13px; right: 45px;">Đăng xuất</a>
             </div>
@@ -457,18 +458,21 @@
 
         <div class="thng-tin-c-nhn10">
             <div class="thng-tin-c-nhn-child8"></div>
-            <div class="qun-l-h2" id="qunLH">Quản lý hồ sơ</div>
+            <a asp-controller="Quanly" asp-action="quanlyhoso" style="text-decoration: none; color:white;" class="qun-l-h2">Quản lý hồ sơ</a>
+           
         </div>
         <div class="lch-lm-vic8">
             <div class="lch-lm-vic-child3"></div>
-            <div class="qun-l-phng2" id="qunLPhng">Quản lý phòng ban</div>
+            <a asp-controller="Quanly" asp-action="Phongban" style="text-decoration: none; color:white;" class="qun-l-phng2">Quản lý phòng ban</a>
+          
         </div>
         <div class="qun-l-cng-vic-xem-lch-l-item"></div>
         <div class="qun-l-cng-container2">
             <p class="qun-l-cng3">Quản lý công việc</p>
         </div>
         <div class="qun-l-cng-vic-parent">
-            <div class="qun-l-cng4" id="qunLCng">Quản lý công việc</div>
+            <a asp-controller="Quanly" asp-action="Quanlycongviec" style="text-decoration: none; color:black;" class="qun-l-cng4">Quản lý Công việc</a>
+            
             <div class="xem-lch-lm1">&gt; Xem lịch làm việc</div>
         </div>
         @using (Html.BeginForm("Lichlamviec", "Quanly", FormMethod.Post))
@@ -512,9 +516,9 @@
                                 @* <td> @string.Format("{0:dd/MM/yyyy}", congViec.NgayLam)</td> *@
                                 <td>@congViec.ChiTietCongViec</td>
                                 <td>
-                                    <button type="button" class="btn-primary" onclick="window.location.href='@Url.Action("Chinhsuacongviec", "Quanly", new { id = congViec.MaCongViecNv })'">Chỉnh sửa</button>
+                                    <button type="button" style="background-color:rgba(49, 162, 39, 0.8);" class="btn-primary" onclick="window.location.href='@Url.Action("Chinhsuacongviec", "Quanly", new { id = congViec.MaCongViecNv })'">Chỉnh sửa</button>
 
-                                    <button type="button" class=" btn-danger" onclick="window.location.href='@Url.Action("xoalichlamviec", "Quanly", new { id = congViec.MaCongViecNv })'">Xóa</button>
+                                    <button type="button" style="background-color:rgba(49, 162, 39, 0.8);" class=" btn-danger" onclick="window.location.href='@Url.Action("xoalichlamviec", "Quanly", new { id = congViec.MaCongViecNv })'">Xóa</button>
                                 </td>
                             </tr>
                         }
@@ -535,7 +539,7 @@
              alt=""
              src="https://scontent.fdad3-6.fna.fbcdn.net/v/t1.15752-9/435130161_653072980295404_4271028034475173711_n.png?_nc_cat=105&ccb=1-7&_nc_sid=5f2048&_nc_eui2=AeG8tk7KTjd7wcwF73zG-ynne93imBE8o2Z73eKYETyjZo30U7apSA5kMEvsTjqngkAAgoe4i1Cp2ORyFPureElV&_nc_ohc=-iM-PodUooYQ7kNvgH1xpYI&_nc_ht=scontent.fdad3-6.fna&oh=03_Q7cD1QGt1yGXxBJ2aN6rnikrioL4A70c21EVcZ7azsHq3fbtgg&oe=665B1BA9" />
 
-        <a asp-controller="Quanly" asp-action="Chinhsua" class="chinh_sua" ;">Đăng xuất</a>
+      
         <b class="user021">User02</b>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>

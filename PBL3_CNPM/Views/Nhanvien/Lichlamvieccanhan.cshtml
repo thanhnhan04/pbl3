@@ -301,40 +301,62 @@
             left: 307px;
         }
 
-        .table-container {
+        .mytable {
             position: absolute;
-            top: 50%; /* Đưa phần tử lên trên 50% của trang */
-            left: 60%; /* Đưa phần tử sang trái 50% của trang */
-            transform: translate(-50%, -50%); /* Dịch chuyển phần tử đi lùi 50% của nó */
-            width: 80%; /* Độ rộng của bảng */
-            max-width: 1000px; /* Giới hạn chiều rộng tối đa của bảng */
+            top: 35%;
+            left: 60%;
+            transform: translate(-50%, -50%);
+            max-width: 100%; /* Độ rộng tối đa của bảng */
+            overflow-x: auto; /* Tạo thanh cuộn ngang nếu bảng vượt quá chiều rộng */
+            max-height: 800px; /* Chiều cao tối đa của bảng (điều chỉnh theo nhu cầu của bạn) */
+            overflow-y: auto; /* Tạo thanh cuộn dọc nếu bảng vượt quá chiều cao */
         }
 
-        .table {
-            width: 100%;
+
+        .custom-table {
             border-collapse: collapse;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            width: 1000px;
         }
 
-            .table th, .table td {
-                padding: 12px 15px;
-                text-align: left;
+        .mytable thead {
+            position: sticky;
+            top: 0; /* Giữ phần head ở vị trí đầu tiên */
+            z-index: 1; /* Đảm bảo phần head hiển thị trên cùng */
+            background-color: #f2f2f2; /* Màu nền cho phần head */
+        }
+
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: left;
+            height: 20px;
+            color: var(--color-black);
+            font-size: 16px;
+            background-color: var(--color-white);
+        }
+
+            th:nth-child(1), td:nth-child(1) {
+                width: 5px; /* Cột đầu tiên */
             }
 
-            .table thead th {
-                background-color: antiquewhite;
-                border-bottom: 2px solid #dee2e6;
+            th:nth-child(2), td:nth-child(2) {
+                width: 10px; /* Cột thứ hai */
             }
 
-            .table tbody tr:nth-child(even) {
-                background-color: #f3f4f6;
+            th:nth-child(3), td:nth-child(3) {
+                width: 10px; /* Cột thứ ba */
             }
 
-            .table tbody tr:hover {
-                background-color: #e2e6ea;
+            th:nth-child(4), td:nth-child(4) {
+                width: 10px; /* Cột đầu tiên */
             }
+
+
+
+        th {
+            background-color: rgba(39, 162, 58, 0.8);
+        }
+
 
         .dang-xuat-link {
             position: absolute;
@@ -368,7 +390,8 @@
     <div class="lch-lm-vic-c-nhn">
         <div class="thng-tin-c-nhn1" id="thngTinCNhn">
             <div class="thng-tin-c-nhn-item"></div>
-            <div class="thng-tin-c1">Thông tin cá nhân</div>
+            <a asp-controller="Nhanvien" asp-action="thongtin" style="text-decoration: none; color:white;" class="thng-tin-c1">Thông tin cá nhân</a>
+@*             <div class="thng-tin-c1">Thông tin cá nhân</div> *@
         </div>
         <div class="vector-group">
             <img class="rectangle-icon" alt="" src="https://scontent.fhan5-1.fna.fbcdn.net/v/t1.15752-9/440201234_1626054398227659_2339006340770070233_n.png?_nc_cat=106&ccb=1-7&_nc_sid=5f2048&_nc_eui2=AeHXw55fipvNRy3WknPEFHWmFxo5UHAbJpoXGjlQcBsmmkHlO5WaXS1sSGFjhoxVXEgEIXO5VzuJTTZtYaK3hcZf&_nc_ohc=E08ZnYnFgYwQ7kNvgGJ1sul&_nc_ht=scontent.fhan5-1.fna&oh=03_Q7cD1QErQXANdchdsv9CsRthWVCj3hM5dlbQCziGsgyhps1tUw&oe=666296E9" />
@@ -385,9 +408,10 @@
           
                 <div class="group-child3" id="rectangle1"></div>
                 <div class="group-child4" id="rectangle2"></div>
-                <div class="i-mt-khu1">Đổi mật khẩu</div>
+                <a asp-controller="Doimatkhau" asp-action="Doimatkhau" class="doimatkhau" style="position: absolute; font-weight: 500;
+                   display: inline-block; top: 13px; right: 190px;text-decoration: none; color:black;">Đổi mật khẩu</a>
                 <a asp-controller="Login" asp-action="Logout" class="dang-xuat-link" style="position: absolute; font-weight: 500;
-display: inline-block; top: 13px; right: 45px;">Đăng xuất</a>
+            display: inline-block; top: 13px; right: 30px;">Đăng xuất</a>>
             </div>
         </div>
         <img class="istockphoto-1420738401-170667a-icon1"
@@ -399,46 +423,72 @@ display: inline-block; top: 13px; right: 45px;">Đăng xuất</a>
             <div class="lch-lm-vic3">Lịch làm việc</div>
         </div>
         <div class="lch-lm-vic-c-nhn-item" id="rectangle"></div>
-        <div class="lng-c-nhn3" id="lngCNhn">Lương cá nhân</div>
+        <a asp-controller="Nhanvien" asp-action="Luongcanhan" style="text-decoration: none; color:white;" class="lng-c-nhn3">Lương cá nhân</a>
         <div class="lch-lm-vic-c-nhn-inner">
             <div class="lch-lm-vic-c-nhn-wrapper">
+
                 <div class="lch-lm-vic4">Lịch làm việc cá nhân</div>
             </div>
         </div>
         <div class="lch">
             <div class="lch-child"></div>
         </div>
-    </div>
-    @if (ViewBag.Lichlamviec != null && ViewBag.Lichlamviec.Count > 0)
-    {
-        <div class="table-container">
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th>Mã công việc</th>
-                        <th>Ca làm</th>
-                        <th>Ngày làm</th>
-                        <th>Chi tiết công việc</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach (var congViec in ViewBag.Lichlamviec)
-                    {
+        @if (ViewBag.Lichlamviec != null && ViewBag.Lichlamviec.Count > 0)
+        {
+            <div class="mytable">
+                <table class="custom-table">
+                    <thead>
                         <tr>
-                            <td>@congViec.MaCongViec</td>
-                            <td>@congViec.CaLam</td>
-                            <td>@congViec.NgayLam</td>
-                            <td>@congViec.ChiTietCongViec</td>
+                            <th>Mã công việc</th>
+                            <th>Ca làm</th>
+                            <th>Ngày làm</th>
+                            <th>Chi tiết công việc</th>
                         </tr>
-                    }
-                </tbody>
-            </table>
-        </div>
-    }
-    else
-    {
-        <p>Danh sách công việc trống.</p>
-    }
+                    </thead>
+                    <tbody>
+                        @foreach (var congViec in ViewBag.Lichlamviec)
+                        {
+                            <tr>
+                                <td>@congViec.MaCongViec</td>
+                                <td>@congViec.CaLam</td>
+                                <td>@congViec.NgayLam</td>
+                                <td>@congViec.ChiTietCongViec</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+           @*  <div class="table-container">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Mã công việc</th>
+                            <th>Ca làm</th>
+                            <th>Ngày làm</th>
+                            <th>Chi tiết công việc</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var congViec in ViewBag.Lichlamviec)
+                        {
+                            <tr>
+                                <td>@congViec.MaCongViec</td>
+                                <td>@congViec.CaLam</td>
+                                <td>@congViec.NgayLam</td>
+                                <td>@congViec.ChiTietCongViec</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div> *@
+
+        }
+        else
+        {
+            <p>Danh sách công việc trống.</p>
+        }
+    </div>
+   
     
     <script>
         var thngTinCNhn = document.getElementById("thngTinCNhn");
@@ -450,12 +500,7 @@ display: inline-block; top: 13px; right: 45px;">Đăng xuất</a>
 
         
 
-        var rectangle1 = document.getElementById("rectangle1");
-        if (rectangle1) {
-            rectangle1.addEventListener("click", function (e) {
-                // Please sync "Đổi mật khẩu - nv" to the project
-            });
-        }
+        
 
        
 

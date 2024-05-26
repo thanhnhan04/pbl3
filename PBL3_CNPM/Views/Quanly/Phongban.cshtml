@@ -328,12 +328,14 @@
             <div class="binh-minh-hotel1">BINH MINH HOTEL</div>
             <div class="home" id="home"></div>
             <div class="rectangle-parent1" id="groupContainer">
-                <div class="group-child5" id="rectangle"></div>
+             @*    <div class="group-child5" id="rectangle"></div> *@
                 <div class="group-child6" id="rectangle1"></div>
                 <div class="group-child7" id="rectangle2"></div>
-                <div class="trang-ch1">Trang chủ</div>
-                <div class="i-mt-khu1">Đổi mật khẩu</div>
-                <div class="ng-xut1">Đăng xuất</div>
+              @*   <div class="trang-ch1">Trang chủ</div> *@
+                <a asp-controller="Doimatkhau" asp-action="Doimatkhau" class="doimatkhau" style="position: absolute; font-weight: 500;
+            display: inline-block; top: 13px; right: 190px;text-decoration: none; color:black;">Đổi mật khẩu</a>
+                <a asp-controller="Login" asp-action="Logout" class="dang-xuat-link" style="position: absolute; font-weight: 500;
+            display: inline-block; top: 13px; right: 30px;text-decoration: none; color:black;">Đăng xuất</a>
             </div>
         </div>
         <img class="istockphoto-1420738401-170667a-icon1"
@@ -342,7 +344,8 @@
 
         <div class="thng-tin-c-nhn1" id="thngTinCNhn">
             <div class="thng-tin-c-nhn-item"></div>
-            <div class="qun-l-h">Quản lý hồ sơ</div>
+            <a asp-controller="Quanly" asp-action="quanlyhoso" style="text-decoration: none; color:white;" class="qun-l-h">Quản lý hồ sơ</a>
+            
         </div>
         <div class="lch-lm-vic3">
             <div class="lch-lm-vic-item"></div>
@@ -350,7 +353,8 @@
         </div>
         <div class="qun-l-phng-ban-child" id="rectangle"></div>
         <div class="qun-l-cng-container">
-            <p class="qun-l-cng">Quản lý công việc</p>
+            <a asp-controller="Quanly" asp-action="Quanlycongviec" style="text-decoration: none; color:white;" class="qun-l-cng">Quản lý công việc</a>
+            
         </div>
         <div class="bng1"></div>
         <div class="qun-l-phng-ban-wrapper">
@@ -415,7 +419,7 @@
                 <input type="text" class="form-control" id="maNv" name="maNv" required />
             </div>
 
-            <button type="button" class="btn btn-primary" onclick="addEmployee()">Thêm Nhân Viên</button>
+            <button type="button" style="background-color:green"class="btn btn-primary" onclick="addEmployee()">Thêm Nhân Viên</button>
         </form>
 
         <div class="modal fade" id="addPhongBanModal" tabindex="-1" role="dialog" aria-labelledby="addPhongBanModalLabel" aria-hidden="true">
@@ -434,7 +438,7 @@
                                 <label for="tenPhongBan" class="label-tenPhongBan">Tên Phòng Ban:</label>
                                 <input type="text" class="form-control2" id="tenPhongBan" name="tenPhongBan" required />
                             </div>
-                            <button type="submit" class="btn-themPHG">Thêm Phòng Ban</button>
+                            <button type="submit" style="background-color:green" class="btn-themPHG">Thêm Phòng Ban</button>
                         </form>
                     </div>
                 </div>
@@ -445,33 +449,11 @@
 
 
     <script>
-        var home = document.getElementById("home");
-        if (home) {
-            home.addEventListener("click", function (e) {
-                // Please sync "trang chủ quản lý" to the project
-            });
-        }
+       
 
-        var rectangle = document.getElementById("rectangle");
-        if (rectangle) {
-            rectangle.addEventListener("click", function (e) {
-                // Please sync "trang chủ quản lý" to the project
-            });
-        }
+        
 
-        var rectangle1 = document.getElementById("rectangle1");
-        if (rectangle1) {
-            rectangle1.addEventListener("click", function (e) {
-                // Please sync "Đổi mật khẩu - ql" to the project
-            });
-        }
-
-        var rectangle2 = document.getElementById("rectangle2");
-        if (rectangle2) {
-            rectangle2.addEventListener("click", function (e) {
-                // Please sync "đăng nhập ql" to the project
-            });
-        }
+      
 
         var groupContainer = document.getElementById("groupContainer");
         if (groupContainer) {

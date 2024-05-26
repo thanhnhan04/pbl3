@@ -497,10 +497,35 @@
           height: 100%;
     }
 
-    .alert-success {
-        top: 1000px;
-        left:700px;
+    .alert-container {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 9999; /* Đảm bảo thông báo luôn hiển thị phía trên các phần khác của trang */
+        width: 300px; /* Độ rộng của container chứa thông báo */
     }
+
+    .alert {
+        padding: 15px;
+        margin-bottom: 20px;
+        border: 1px solid transparent;
+        border-radius: 4px;
+        width: 100%; /* Đảm bảo thông báo chiếm toàn bộ chiều rộng của container */
+    }
+
+    .alert-success {
+        color: #3c763d;
+        background-color: #dff0d8;
+        border-color: #d6e9c6;
+    }
+
+    .alert-danger {
+        color: #a94442;
+        background-color: #f2dede;
+        border-color: #ebccd1;
+    }
+
     input[type="checkbox"] {
         width: 20px; 
         height: 20px; 
@@ -538,6 +563,20 @@
     }
 </style>
 <body>
+    @{
+        var successMessage = TempData["SuccessMessage"] as string;
+        var errorMessage = TempData["ErrorMessage"] as string;
+    }
+
+    @if (!string.IsNullOrEmpty(successMessage))
+    {
+        <div class="alert alert-success">@successMessage</div>
+    }
+
+    @if (!string.IsNullOrEmpty(errorMessage))
+    {
+        <div class="alert alert-danger">@errorMessage</div>
+    }
     <div class="qun-l-cng-vic-xem-lch-l">
         <div class="qun-l-cng-vic-xem-lch-l-child"></div>
         <div class="binh-minh-hotel-parent2">
@@ -545,9 +584,10 @@
             <div class="rectangle-parent1">
                 <div class="group-child9"></div>
                 <div class="group-child10"></div>
-                <div class="i-mt-khu5" id="iMtKhu">Đổi mật khẩu</div>
+                <a asp-controller="Doimatkhau" asp-action="Doimatkhau" class="doimatkhau" style="position: absolute; font-weight: 500;
+            display: inline-block; top: 13px; right: 195px;text-decoration: none; color:black;">Đổi mật khẩu</a>
                 <a asp-controller="Login" asp-action="Logout" class="dang-xuat-link" style="position: absolute; font-weight: 500;
-            display: inline-block; top: 13px; right: 45px;">Đăng xuất</a>
+            display: inline-block; top: 13px; right: 30px;">Đăng xuất</a>
             </div>
         </div>
         <img class="istockphoto-1420738401-170667a-icon5"
@@ -564,10 +604,12 @@
         </div>
         <div class="qun-l-cng-vic-xem-lch-l-item"></div>
         <div class="qun-l-cng-container2">
-            <p class="qun-l-cng3">Quản lý công việc</p>
+            <a asp-controller="Quanly" asp-action="Quanlycongviec" style="text-decoration: none; color:white;" class="-cngqun-l3">Quản lý công việc</a>
+            
         </div>
         <div class="qun-l-cng-vic-parent">
-            <div class="qun-l-cng4" id="qunLCng">Quản lý công việc</div>
+            <a asp-controller="Quanly" asp-action="Quanlycongviec" style="text-decoration: none; color:black;" class="qun-l-cng4">Quản lý công việc</a>
+         
             <div class="xem-lch-lm1">&gt; Xếp lịch làm việc</div>
         </div>
       
@@ -577,25 +619,11 @@
              src="https://d1xzdqg8s8ggsr.cloudfront.net/6634b231c9ce15e41a24b47b/f1dd8684-a9a0-44da-b785-c8904b6e1f78_1715279412456676883?Expires=-62135596800&Signature=PghHyDNLDWZbHVu7vo4ggpIJ9v-0Ix-eGdmYkBnHhcoduYe4jmIsN1AECaROA-Ct1NMem6Mp6DbNaX3YHXsmFHsy4Nu1ohvwDElSU10UA4UFnYNC7xhrmFW9wHEu10VgfJTNdFbPaU05MIGlsvmTE7liMVwJKuiWNYumhhAwiycrBPDzPuD9SbdKhG8Tq43XccnsJju1lmLWc-WS4pyHgnU3JnATWRMLg2IH0SfLxbIc6P3B8bpGAQA6wLCFsyfTkPQ2O7s6tKrBV2YsHzZ-g~zM8Y1bgL1xqM3wCVl58RTbzFggg70nfbeS0dkkQP1vDMXYFaQA9TgnX-b4nzwJTQ__&Key-Pair-Id=K1P54FZWCHCL6J" />
       *@
         <!-- Notification Message -->
-        @if (ViewBag.NotificationMessage != null)
-        {
-            <div class="alert alert-info">
-                @ViewBag.NotificationMessage
-            </div>
-        }
 
-        <!-- Error Message -->
-        @if (ViewBag.ErrorMessage != null)
-        {
-            <div class="alert alert-danger">
-                @ViewBag.ErrorMessage
-            </div>
-        }
 
-      
+
         <form id="myForm" action="/Quanly/Sapxepcongviec" method="post">
             <div class="form-group" style="position: absolute; top: 250px; left: 400px; color: black; width: 800px; font-family: Arial, sans-serif; font-size: 30px; height: 70px;gap: 100px;">
-
                 <div class="mytable">
                     <table class="custom-table">
                         <thead>
@@ -622,11 +650,9 @@
                         </tbody>
                     </table>
                 </div>
-               
-                <label for="ngayLam" class="ngaylam">Ngày làm:</label>
+                <label for="NgayLam" class="ngaylam">Ngày làm:</label>
                 <input type="date" class="date" id="NgayLam" name="NgayLam" />
-
-                <label for="congviec" class="congviec">Chọn công việc:</label>
+                <label for="MaCongViec" class="congviec">Chọn công việc:</label>
                 <select class="form-control" id="MaCongViec" name="MaCongViec">
                     @if (ViewBag.Congviecs != null)
                     {
@@ -639,28 +665,12 @@
                         }
                     }
                 </select>
-
-
-            
-              
-
             </div>
-            <button type="submit" class="btn-primary" > Xếp lịch</button>
-            <button type="submit" class="huy"> Hủy</button>
+            <button type="submit" class="btn-primary">Xếp lịch</button>
+            <button type="button" class="huy">Hủy</button>
         </form>
-        @if (TempData["SuccessMessage"] != null)
-        {
-            <div class="alert-success" role="alert">
-                @TempData["SuccessMessage"]
-            </div>
-        }
 
-        @if (TempData["ErrorMessage"] != null)
-        {
-            <div class="alert-danger" role="alert">
-                @TempData["ErrorMessage"]
-            </div>
-        }
+       
         <div class="thng-tin-c-nhn11">
             <div class="thng-tin-c-nhn-child9"></div>
         </div>
@@ -675,36 +685,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 
-   
-     <script>   
-         var iMtKhu = document.getElementById("iMtKhu");
-        if (iMtKhu) {
-            iMtKhu.addEventListener("click", function (e) {
-                // Please sync "Đổi mật khẩu - ql" to the project
-            });
-        }
-   
-     
-        var qunLH = document.getElementById("qunLH");
-        if (qunLH) {
-            qunLH.addEventListener("click", function (e) {
-                window.location.href = "https://localhost:7221/Quanly/quanlyhoso";
-            });
-        }
 
-        var qunLPhng = document.getElementById("qunLPhng");
-        if (qunLPhng) {
-            qunLPhng.addEventListener("click", function (e) {
-                window.location.href = "https://localhost:7221/Quanly/Phongban";
-            });
-        }
-
-        var qunLCng = document.getElementById("qunLCng");
-        if (qunLCng) {
-            qunLCng.addEventListener("click", function (e) {
-                window.location.href = "https://localhost:7221/Quanly/Quanlycongviec";
-            });
-        }
-    </script>
+   
 </body>
 </html>

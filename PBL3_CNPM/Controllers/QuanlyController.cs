@@ -194,7 +194,7 @@ namespace PBL3_CNPM.Controllers
                 throw;
             }
         }
-      //  [Authentication]
+        //  [Authentication]
         public IActionResult Lichlamviec(DateTime? strSearch)
         {
             try
@@ -210,7 +210,7 @@ namespace PBL3_CNPM.Controllers
                                        where cnv.NgayLam.Date == strSearch.Value.Date
                                        select new
                                        {
-                                           MaCongViecNv= cnv.MaCongViecNv,
+                                           MaCongViecNv = cnv.MaCongViecNv,
                                            MaNv = cnv.MaNv,
                                            TenNhanVien = nv.TenNhanVien,
                                            MaCongViec = cv.MaCongViec,
@@ -254,10 +254,10 @@ namespace PBL3_CNPM.Controllers
 
             if (cv == null)
             {
-                
+
                 return RedirectToAction("Error");
             }
-           // var cv = db.CongviecNvs.Find(id);
+            // var cv = db.CongviecNvs.Find(id);
             db.CongviecNvs.Remove(cv);
             db.SaveChanges();
             return RedirectToAction("Lichlamviec");
@@ -316,12 +316,6 @@ namespace PBL3_CNPM.Controllers
             var cv = db.Congviecs.ToList();
             ViewBag.cv = cv;
 
-
-            if (cv == null || !cv.Any())
-            {
-                ViewBag.Message = "No tasks available";
-            }
-
             return View();
 
         }
@@ -341,7 +335,7 @@ namespace PBL3_CNPM.Controllers
                 if (congviec != null)
                 {
                     congviec.ChiTietCongViec = ChiTietCongViec;
-                    congviec.CaLam =CaLam;
+                    congviec.CaLam = CaLam;
                     db.SaveChanges();
                     return RedirectToAction("CongViec");
                 }
@@ -390,58 +384,78 @@ namespace PBL3_CNPM.Controllers
             return RedirectToAction("CongViec");
         }
 
-      
+
         public IActionResult Sapxepcongviec()
         {
 
             var cv = db.Congviecs.ToList();
-           
+
             var nv = db.Nhanviens.ToList();
-           
+
             ViewBag.Congviecs = cv;
             ViewBag.NhanViens = nv;
             return View();
 
 
         }
+
         [HttpPost]
-       
-       public ActionResult Sapxepcongviec(List<CongviecNv> congviecnvs)
+        public ActionResult Sapxepcongviec(CongviecNv congviecnv)
         {
             try
             {
-                foreach (var congviecnv in congviecnvs)
+                if (congviecnv == null || congviecnv.MaCongViec == 0 || string.IsNullOrEmpty(congviecnv.MaNv) || congviecnv.NgayLam == DateTime.MinValue)
                 {
-                    bool isAssigned = db.CongviecNvs.Any(cv => cv.MaCongViec == congviecnv.MaCongViec && cv.MaNv == congviecnv.MaNv && cv.NgayLam == congviecnv.NgayLam);
-                    if (isAssigned)
-                    {
-                       
-                        continue;
-                    }
-
-                    CongviecNv congviecNv = new CongviecNv();
-                    congviecNv.MaCongViec = congviecnv.MaCongViec;
-                    congviecNv.MaNv = congviecnv.MaNv;
-                    congviecNv.NgayLam = congviecnv.NgayLam;
-
-                    db.CongviecNvs.Add(congviecNv); 
-                  
+                    TempData["ErrorMessage"] = "Thông tin công việc không hợp lệ. Vui lòng kiểm tra lại.";
+                    return RedirectToAction("Sapxepcongviec");
                 }
 
-               
+                // Kiểm tra xem công việc đã được xếp cho nhân viên vào ngày đó chưa
+                bool isAssigned = db.CongviecNvs.Any(cv => cv.MaCongViec == congviecnv.MaCongViec && cv.NgayLam == congviecnv.NgayLam);
+                if (isAssigned)
+                {
+                    TempData["ErrorMessage"] = $"Công việc {congviecnv.MaCongViec} đã được xếp cho ít nhất một nhân viên vào ngày {congviecnv.NgayLam:dd/MM/yyyy}.";
+                    return RedirectToAction("Sapxepcongviec");
+                }
+
+                // Lấy danh sách mã nhân viên đã chọn
+                string[] maNvList = congviecnv.MaNv.Split(',');
+
+                // Thêm công việc cho từng nhân viên trong danh sách
+                foreach (var maNv in maNvList)
+                {
+                    if (!string.IsNullOrEmpty(maNv.Trim()))
+                    {
+                        CongviecNv newCongviecnv = new CongviecNv
+                        {
+                            MaCongViec = congviecnv.MaCongViec,
+                            MaNv = maNv.Trim(),
+                            NgayLam = congviecnv.NgayLam
+                        };
+
+                        db.CongviecNvs.Add(newCongviecnv);
+                    }
+                }
+
+                // Lưu các thay đổi vào cơ sở dữ liệu
                 db.SaveChanges();
-                TempData["SuccessMessage"] = "Thêm công việc thành công";
-                return RedirectToAction("Sapxepcongviec", "Quanly");
+
+                TempData["SuccessMessage"] = "Thêm công việc thành công.";
             }
             catch (Exception ex)
             {
-                TempData["ErrorMessage"] = "Thêm công việc thất bại";
-                return RedirectToAction("Sapxepcongviec", "Quanly");
+                TempData["ErrorMessage"] = "Thêm công việc thất bại. Lỗi: " + ex.Message;
             }
+
+            return RedirectToAction("Sapxepcongviec");
         }
 
 
     }
-
-
 }
+
+
+
+
+
+

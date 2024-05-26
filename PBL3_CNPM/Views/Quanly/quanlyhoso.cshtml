@@ -25,9 +25,10 @@
                 <div class="group-item" id="rectangle1"></div>
                 <div class="group-inner" id="rectangle2"></div>
 
-                <div class="i-mt-khu">Đổi mật khẩu</div>
+                <a asp-controller="Doimatkhau" asp-action="Doimatkhau" class="doimatkhau" style="position: absolute; font-weight: 500;
+                   display: inline-block; top: 13px; right: 190px;text-decoration: none; color:black;">Đổi mật khẩu</a>
                 <a asp-controller="Login" asp-action="Logout" class="dang-xuat-link" style="position: absolute; font-weight: 500;
-            display: inline-block; top: 13px; right: 45px;">Đăng xuất</a>
+            display: inline-block; top: 13px; right: 30px;text-decoration: none; color:black;">Đăng xuất</a>
             </div>
         </div>
         <img class="istockphoto-1420738401-170667a-icon"
@@ -92,8 +93,16 @@
                             <td>@nv.DiaChi</td>
                             <td>@nv.SoDienThoai</td>
                             <td>
-                                @Html.ActionLink("Chỉnh sửa", "Chinhsua", new { id = nv.MaNv })|
-                                @Html.ActionLink("Xóa", "xoa", new { id = nv.MaNv })
+                                <button type="button" class="btn btn-danger"
+                                        onclick="window.location.href='@Url.Action("Chinhsua", "Quanly", new { id = nv.MaNv })'">
+                                    Chỉnh sửa
+                                </button>
+                                <button type="button" class="btn btn-danger"
+                                        onclick="window.location.href='@Url.Action("xoa", "Quanly", new { id = nv.MaNv })'">
+                                    Xóa
+                                </button>
+                               @*  @Html.ActionLink("Chỉnh sửa", "Chinhsua", new { id = nv.MaNv })|
+                                @Html.ActionLink("Xóa", "xoa", new { id = nv.MaNv }) *@
                             </td>
                         </tr>
                     }
@@ -101,7 +110,7 @@
             </table>
         </div>
         <div>
-            <a asp-controller="Quanly" asp-action="themhoso" class="btAdd" ;">Thêm hồ sơ</a>
+            <a asp-controller="Quanly" asp-action="themhoso" class="btAdd" style="text-decoration: none; color:black ;">Thêm hồ sơ</a>
             @* <button class="btAdd" id="btAdd">Thêm hồ sơ</button> *@
         </div>
     </div>
@@ -109,36 +118,11 @@
     <script>
 
 
-        var rectangle1 = document.getElementById("rectangle1");
-        if (rectangle1) {
-            rectangle1.addEventListener("click", function (e) {
-                // Please sync "Đổi mật khẩu - ql" to the project
-            });
-        }
 
 
 
 
-        // var lchLmVic = document.getElementById("lchLmVic");
-        // if (lchLmVic) {
-        //     lchLmVic.addEventListener("click", function (e) {
-        //         window.location.href = "https://localhost:7221/Quanly/Phongban";
-        //     });
-        // }
-
-        // var rectangle = document.getElementById("rectangle");
-        // if (rectangle) {
-        //     rectangle.addEventListener("click", function (e) {
-        //         window.location.href = "https://localhost:7221/Quanly/Quanlycongviec";
-        //     });
-        // }
-
-        // var thngTinCNhn1 = document.getElementById("thngTinCNhn1");
-        // if (thngTinCNhn1) {
-        //     thngTinCNhn1.addEventListener("click", function (e) {
-        //         // Please sync "thông tin cá nhân" to the project
-        //     });
-        // }
+        
         let Add = document.querySelector(".btAdd");
         Add.addEventListener("click", () => {
             window.location.href = https://localhost:7221/Quanly/themhoso";
@@ -154,6 +138,15 @@
         font-size: 20px;
     }
 
+    .btn-danger {
+        background-color: rgba(39, 162, 58, 0.8);
+        border-color: rgba(39, 162, 58, 0.8);
+    }
+
+        .btn-danger:hover {
+            background-color: rgba(39, 162, 58, 0.8);
+            border-color: rgba(39, 162, 58, 0.8);
+        }
     .tim {
         position: absolute;
         top: 210px;
@@ -183,7 +176,12 @@
         height: 40px;
         font-size: 24px;
         border-radius: 5px;
-        background-color: var(--color-white);
+        background-color: rgba(39, 162, 58, 0.8);
+        border: 1px solid black;
+        display: flex;
+        justify-content: center; /* Canh giữa theo chiều ngang */
+        align-items: center; /* Canh giữa theo chiều dọc */
+
     }
 
     .mytable {
