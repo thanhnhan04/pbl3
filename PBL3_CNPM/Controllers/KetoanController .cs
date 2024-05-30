@@ -19,6 +19,22 @@ namespace PBL3_CNPM.Controllers
         {
             string currentUserId = HttpContext.Session.GetString("MaNv");
             ViewBag.Message = currentUserId;
+            DateTime now = DateTime.Now;
+            int thang = now.Month;
+            ViewBag.thang = thang;
+            decimal? thuong = 0, phat = 0, pc = 0, lcb = 0;
+            var luongnv = db.LuongNvs.Where(p => p.Thang == thang).Select(p => new { p.Thuong, p.Phat, p.MaLuongNavigation.PhuCap, p.MaLuongNavigation.LuongCoBan });
+            foreach (var i in luongnv.ToList())
+            {
+                thuong += i.Thuong;
+                phat += i.Phat;
+                pc += i.PhuCap;
+                lcb += i.LuongCoBan;
+            }
+            ViewBag.thuong = thuong;
+            ViewBag.phat = phat;
+            ViewBag.pc = pc;
+            ViewBag.lcb = lcb;
             return View();
         }
         [HttpGet]
@@ -29,18 +45,8 @@ namespace PBL3_CNPM.Controllers
             ViewBag.Message1 = currentUserId;
             if (thang == 0) thang = 1;
             ViewBag.Message2 = thang;
-            var luong = db.LuongNvs.Where(p => p.Thang == thang).Select(p => new {
-                p.MaLuongNv,
-                p.Thang,
-                p.MaNvNavigation.MaNv,
-                p.MaNvNavigation.TenNhanVien,
-                p.MaLuongNavigation.LuongCoBan,
-                p.MaLuongNavigation.PhuCap,
-                p.NgayCong,
-                p.Thuong,
-                p.Phat,
-                p.LuongTong
-            });
+            var luong = db.LuongNvs.Where(p => p.Thang == thang).Select(p => new { p.MaLuongNv ,p.Thang , p.MaNvNavigation.MaNv, p.MaNvNavigation.TenNhanVien,
+            p.MaLuongNavigation.LuongCoBan, p.MaLuongNavigation.PhuCap, p.NgayCong, p.Thuong, p.Phat, p.LuongTong} );
             return View(luong.ToList());
         }
         [HttpGet]
@@ -51,7 +57,7 @@ namespace PBL3_CNPM.Controllers
             ViewBag.Message1 = currentUserId;
             if (thang == 0) thang = 1;
             ViewBag.Message2 = thang;
-            var nv = db.Nhanviens.Where(nv => !nv.LuongNvs.Any(l => l.Thang == thang)).Select(p => new { p.MaNv, p.TenNhanVien, p.MaChucVuNavigation.ChucVu }).ToList();
+            var nv = db.Nhanviens.Where(nv => !nv.LuongNvs.Any(l => l.Thang == thang) && nv.MaPhanQuyen == "103").Select(p => new { p.MaNv,p.TenNhanVien,p.MaChucVuNavigation.ChucVu}).ToList();
             return View(nv.ToList());
         }
         [HttpGet]
@@ -88,7 +94,7 @@ namespace PBL3_CNPM.Controllers
         public ActionResult xoaluongnv(int id)
         {
             var luongnv = db.LuongNvs.Find(id);
-            db.Remove(luongnv);
+            db.LuongNvs.Remove(luongnv);
             db.SaveChanges();
             return RedirectToAction("bangluong");
         }
@@ -98,7 +104,7 @@ namespace PBL3_CNPM.Controllers
             var luongnv = db.LuongNvs.Where(p => p.Thang == id).ToList();
             foreach (var i in luongnv)
             {
-                db.Remove(i);
+                db.Remove(i);  
             }
             db.SaveChanges();
             return RedirectToAction("bangluong");
@@ -164,7 +170,7 @@ namespace PBL3_CNPM.Controllers
         }
         [HttpPost]
         [Authentication]
-        public ActionResult chinhsualuong(int maluong, string name, decimal salary, decimal allowance)
+        public ActionResult chinhsualuong(int maluong,string name, decimal salary, decimal allowance)
         {
             var luongUp = db.Luongs.FirstOrDefault(e => e.MaLuong == maluong);
             if (luongUp != null)
@@ -178,7 +184,7 @@ namespace PBL3_CNPM.Controllers
             else
             {
                 return View();
-            }
+            } 
         }
         [HttpGet]
         [Authentication]
@@ -208,5 +214,5 @@ namespace PBL3_CNPM.Controllers
             db.SaveChanges();
             return RedirectToAction("bangluong");
         }
-    }
+    } 
 }

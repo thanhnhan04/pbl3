@@ -333,8 +333,8 @@
 
         .chart-container {
             position: absolute;
-            top: 250px;
-            left: 300px;
+            top: 200px;
+            left: 400px;
             width: 1000px;
             height: 500px;
             background-color: white;
@@ -343,6 +343,13 @@
         canvas {
             width: 100% !important;
             height: 100% !important;
+        }
+        .bdo
+        {
+            position: absolute;
+            top: 140px;
+            left: 400px;
+            font-size:28px;
         }
     </style>
 </head>
@@ -357,8 +364,7 @@
                     <div class="group-item"></div>
                     <div class="group-inner"></div>
                     <div class="trang-ch">Trang chủ</div>
-                    <a asp-controller="Doimatkhau" asp-action="Doimatkhau" class="doimatkhau" style="position: absolute; font-weight: 500;
-            display: inline-block; top: 13px; right: 190px;text-decoration: none; color:black;">Đổi mật khẩu</a>
+                    <div class="i-mt-khu" id="iMtKhu">Đổi mật khẩu</div>
                     <a asp-controller="Login" asp-action="Logout" class="dang-xuat-link" style="position: absolute; font-weight: 500;
             display: inline-block; top: 13px; right: 45px;">Đăng xuất</a>
                 </div>
@@ -389,6 +395,9 @@
              alt=""
              src="https://scontent.fdad3-6.fna.fbcdn.net/v/t1.15752-9/435130161_653072980295404_4271028034475173711_n.png?_nc_cat=105&ccb=1-7&_nc_sid=5f2048&_nc_eui2=AeG8tk7KTjd7wcwF73zG-ynne93imBE8o2Z73eKYETyjZo30U7apSA5kMEvsTjqngkAAgoe4i1Cp2ORyFPureElV&_nc_ohc=-iM-PodUooYQ7kNvgH1xpYI&_nc_ht=scontent.fdad3-6.fna&oh=03_Q7cD1QGt1yGXxBJ2aN6rnikrioL4A70c21EVcZ7azsHq3fbtgg&oe=665B1BA9" />
     </div>
+   <div>
+        <label class="bdo">Biểu đồ khoảng chi phí trả lương cho nhân viên tháng @ViewData["thang"]</label>
+    </div>
     <div class="chart-container">
         <canvas id="myChart"></canvas>
     </div>
@@ -399,8 +408,8 @@
             data: {
                 labels: ['Lương cơ bản', 'Phụ cấp', 'Thưởng', 'Phạt'],
                 datasets: [{
-                    label: '# of Votes',
-                    data: [400, 500, 200, 500],
+                    label: 'Chi phí (VND)',
+                    data: [@ViewData["lcb"], @ViewData["pc"], @ViewData["thuong"], @ViewData["phat"]],
                     backgroundColor: [
                         'rgba(255, 99, 132, 0.2)',
                         'rgba(54, 162, 235, 0.2)',

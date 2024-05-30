@@ -221,10 +221,13 @@ namespace PBL3_CNPM.Controllers
                 }
                 else
                 {
+                    DateTime today = DateTime.Now.Date;
+                    DateTime nextWeek = today.AddDays(7);
 
                     lichLamViecList = (from cnv in _masterContext.CongviecNvs
                                        join cv in _masterContext.Congviecs on cnv.MaCongViec equals cv.MaCongViec
                                        join nv in _masterContext.Nhanviens on cnv.MaNv equals nv.MaNv
+                                       where cnv.NgayLam >= today && cnv.NgayLam <= nextWeek
                                        select new
                                        {
                                            MaCongViecNv = cnv.MaCongViecNv,
@@ -400,17 +403,17 @@ namespace PBL3_CNPM.Controllers
         }
 
         [HttpPost]
-        public ActionResult Sapxepcongviec(CongviecNv congviecnv)
+        public ActionResult Sapxepcongviec(CongviecNv congviecnv, string[] MaNv)
         {
             try
             {
-                if (congviecnv == null || congviecnv.MaCongViec == 0 || string.IsNullOrEmpty(congviecnv.MaNv) || congviecnv.NgayLam == DateTime.MinValue)
+                if (congviecnv == null || congviecnv.MaCongViec == 0 || MaNv == null || MaNv.Length == 0 || congviecnv.NgayLam == DateTime.MinValue)
                 {
                     TempData["ErrorMessage"] = "Thông tin công việc không hợp lệ. Vui lòng kiểm tra lại.";
                     return RedirectToAction("Sapxepcongviec");
                 }
 
-                // Kiểm tra xem công việc đã được xếp cho nhân viên vào ngày đó chưa
+            
                 bool isAssigned = db.CongviecNvs.Any(cv => cv.MaCongViec == congviecnv.MaCongViec && cv.NgayLam == congviecnv.NgayLam);
                 if (isAssigned)
                 {
@@ -418,14 +421,18 @@ namespace PBL3_CNPM.Controllers
                     return RedirectToAction("Sapxepcongviec");
                 }
 
-                // Lấy danh sách mã nhân viên đã chọn
-                string[] maNvList = congviecnv.MaNv.Split(',');
-
-                // Thêm công việc cho từng nhân viên trong danh sách
-                foreach (var maNv in maNvList)
+               
+                foreach (var maNv in MaNv)
                 {
                     if (!string.IsNullOrEmpty(maNv.Trim()))
                     {
+                        bool isEmployeeAssigned = db.CongviecNvs.Any(cv => cv.MaNv == maNv.Trim() && cv.NgayLam == congviecnv.NgayLam);
+                        if (isEmployeeAssigned)
+                        {
+                            TempData["ErrorMessage"] = $"Nhân viên {maNv.Trim()} đã được xếp công việc vào ngày {congviecnv.NgayLam:dd/MM/yyyy}.";
+                            return RedirectToAction("Sapxepcongviec");
+                        }
+
                         CongviecNv newCongviecnv = new CongviecNv
                         {
                             MaCongViec = congviecnv.MaCongViec,
@@ -437,7 +444,6 @@ namespace PBL3_CNPM.Controllers
                     }
                 }
 
-                // Lưu các thay đổi vào cơ sở dữ liệu
                 db.SaveChanges();
 
                 TempData["SuccessMessage"] = "Thêm công việc thành công.";

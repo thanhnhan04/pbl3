@@ -222,11 +222,22 @@ body {
 	text-decoration: none;	
 	text-shadow: 0px 0px 8px #7875B5;
 }
-
+  
 .social-login__icon:hover {
 	transform: scale(1.5);	
 }
     <style>
+	.alert-success {
+        color: #3c763d;
+        background-color: #dff0d8;
+        border-color: #d6e9c6;
+    }
+
+    .alert-danger {
+        color: #a94442;
+        background-color: #f2dede;
+        border-color: #ebccd1;
+    }
         body {
             margin: 0;
             line-height: normal;
@@ -264,6 +275,25 @@ body {
     </style>
 </head>
 <body>
+	 @if (!string.IsNullOrEmpty(ViewBag.ErrorMessage))
+    {
+        <div class="alert alert-danger" role="alert">
+            @ViewBag.ErrorMessage
+        </div>
+    }
+	@if (TempData["ErrorMessage"] != null)
+{
+    <div class="alert alert-danger">
+        @TempData["ErrorMessage"]
+    </div>
+}
+    <!-- Hiển thị thông báo thành công nếu có -->
+    @if (!string.IsNullOrEmpty(ViewBag.SuccessMessage))
+    {
+        <div class="alert alert-success" role="alert">
+            @ViewBag.SuccessMessage
+        </div>
+    }
     <div class="container">
         <div class="screen">
             <div class="screen__content">
