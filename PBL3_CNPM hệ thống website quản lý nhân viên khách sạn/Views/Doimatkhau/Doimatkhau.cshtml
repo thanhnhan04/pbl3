@@ -1,0 +1,346 @@
+﻿
+
+@{
+    Layout = null;
+}
+@using Microsoft.AspNetCore.Http
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="initial-scale=1, width=device-width" />
+
+    <link rel="stylesheet" href="./global.css" />
+    <link rel="stylesheet" href="./index.css" />
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Irish Grover:wght@400&display=swap" />
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" />
+</head>
+<style>
+    .i-mt-khu-ql-child {
+        position: absolute;
+        top: 120px;
+        left: 0;
+        background-color: var(--color-forestgreen-200);
+        width: 289px;
+        height: 904px;
+        overflow: hidden;
+    }
+
+    .binh-minh-hotel {
+        position: absolute;
+        top: 0;
+        left: 148px;
+        display: inline-block;
+        width: 279px;
+        height: 111px;
+    }
+
+    .frame-child {
+        position: absolute;
+        top: 35px;
+        left: 1234px;
+        border-radius: var(--br-3xs);
+        background-color: var(--color-white);
+        border: 1px solid var(--color-black);
+        box-sizing: border-box;
+        width: 160px;
+        height: 50px;
+        cursor: pointer;
+    }
+
+    .trang-ch {
+        position: absolute;
+        top: 48px;
+        left: 1264px;
+        font-size: var(--font-size-xl);
+        font-weight: 500;
+        font-family: var(--font-inter);
+        color: var(--color-black);
+        display: inline-block;
+        width: 116px;
+        height: 28px;
+    }
+
+    .binh-minh-hotel-parent {
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-color: var(--color-forestgreen-300);
+        width: 1550px;
+        height: 120px;
+        overflow: hidden;
+    }
+
+    .istockphoto-1420738401-170667a-icon {
+        position: absolute;
+        top: 13px;
+        left: 15px;
+        width: 107px;
+        height: 96px;
+        object-fit: cover;
+    }
+
+    .i-mt-khu-ql-item {
+        position: absolute;
+        top: 295px;
+        left: 463px;
+        box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+        border-radius: var(--br-3xs);
+        background-color: var(--color-white);
+        width: 800px;
+        height: 600px;
+        overflow: hidden;
+    }
+
+    .i-mt-khu {
+        position: absolute;
+        top: -1px;
+        left: -15px;
+        font-weight: 600;
+        display: flex;
+        align-items: flex-end;
+        justify-content: center;
+        width: 192px;
+        height: 30px;
+    }
+
+    .i-mt-khu-ql-inner,
+    .i-mt-khu-wrapper {
+        position: absolute;
+        width: 1404px;
+        height: 32px;
+    }
+
+    .i-mt-khu-wrapper {
+        top: 0;
+        left: 0;
+        background-color: var(--color-honeydew);
+        overflow: hidden;
+    }
+
+    .i-mt-khu-ql-inner {
+        top: 140px;
+        left: 311px;
+        text-align: center;
+        font-size: var(--font-size-xl);
+        color: var(--color-black);
+        font-family: var(--font-inter);
+    }
+
+    
+    .i-mt-khu-ql {
+        width: 100%;
+        position: relative;
+        height: 1024px;
+        overflow: hidden;
+        background-image: url(https://scontent.xx.fbcdn.net/v/t1.15752-9/435229924_1387605835555899_1676943816951711557_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=5f2048&_nc_eui2=AeFJMnRkpBX4VXFUqgQe8t4MAnEj3tDXrhwCcSPe0NeuHBfYQCRlTLYqRSzjZcYLanAmYfZQt1qLkkGk46N3Lk1j&_nc_ohc=4qGMy2x1nkAQ7kNvgF8QXEK&_nc_ad=z-m&_nc_cid=0&_nc_ht=scontent.xx&oh=03_Q7cD1QFmiijBIT5AWF2AnVv8f4IrwN93aRQe726l3hCJrs0eXg&oe=666F181D);
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: top;
+        text-align: left;
+        font-size: var(--font-size-31xl);
+        color: var(--color-white);
+        font-family: var(--font-irish-grover);
+    }
+
+    /* General form styling */
+    .form-container {
+        position: absolute;
+        top: 40%; /* Set top position to center */
+        left: 60%; /* Set left position to center */
+        transform: translate(-50%, -50%); /* Translate 50% to the left and top to center the form */
+        width: 400px;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        background-color: #f9f9f9;
+        color: black;
+        font-family: var(--font-inter); /* Set font family to Inter */
+        font-size:30px;
+    }
+
+    /* Styling for form groups */
+    .form-group {
+        margin-bottom: 15px;
+    }
+
+    /* Styling for labels */
+    .form-label {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: bold;
+    }
+
+    /* Styling for inputs */
+    .form-input {
+        width: 100%;
+        padding: 8px;
+        box-sizing: border-box;
+        border: 1px solid #ccc;
+        border-radius: 3px;
+    }
+
+    /* Styling for buttons */
+    .form-buttons {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .btn {
+        padding: 10px 20px;
+        border: none;
+        border-radius: 3px;
+        cursor: pointer;
+    }
+
+    #btLuu {
+        width:100px;
+        background-color: #4CAF50;
+        color: white;
+    }
+
+    #btHuy {
+        width: 100px;
+        background-color: #f44336;
+        color: white;
+    }
+
+    .alert-container {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 9999; /* Đảm bảo thông báo luôn hiển thị phía trên các phần khác của trang */
+        width: 300px; /* Độ rộng của container chứa thông báo */
+    }
+
+    .alert {
+        padding: 15px;
+        margin-bottom: 20px;
+        border: 1px solid transparent;
+        border-radius: 4px;
+        width: 100%; /* Đảm bảo thông báo chiếm toàn bộ chiều rộng của container */
+    }
+
+    .alert-success {
+        color: #3c763d;
+        background-color: #dff0d8;
+        border-color: #d6e9c6;
+    }
+
+    .alert-danger {
+        color: #a94442;
+        background-color: #f2dede;
+        border-color: #ebccd1;
+    }
+
+    body {
+        margin: 0;
+        line-height: normal;
+    }
+
+    :root {
+        /* fonts */
+        --font-inter: Inter;
+        --font-irish-grover: "Irish Grover";
+        /* font sizes */
+        --font-size-xl: 20px;
+        --font-size-31xl: 50px;
+        --font-size-3xl: 22px;
+        --font-size-11xl: 30px;
+        --font-size-21xl: 40px;
+        --font-size-5xl: 24px;
+        --font-size-29xl: 48px;
+        /* Colors */
+        --color-honeydew: #e2ffe1;
+        --color-black: #000;
+        --color-white: #fff;
+        --color-forestgreen-100: #31a227;
+        --color-forestgreen-200: rgba(39, 162, 58, 0.8);
+        --color-forestgreen-300: rgba(49, 162, 39, 0.8);
+        --color-darkslategray: rgba(48, 46, 46, 0.89);
+        --color-limegreen: #2dd01e;
+        /* Border radiuses */
+        --br-3xs: 10px;
+        --br-8xs: 5px;
+        --br-xl: 20px;
+    }
+
+</style>
+<body>
+    @if (!string.IsNullOrEmpty(ViewBag.ErrorMessage))
+    {
+        <div class="alert alert-danger" role="alert">
+            @ViewBag.ErrorMessage
+        </div>
+    }
+
+    <!-- Hiển thị thông báo thành công nếu có -->
+    @if (!string.IsNullOrEmpty(ViewBag.SuccessMessage))
+    {
+        <div class="alert alert-success" role="alert">
+            @ViewBag.SuccessMessage
+        </div>
+    }
+    <div class="i-mt-khu-ql">
+       
+        <div class="i-mt-khu-ql-child"></div>
+
+        <div class="binh-minh-hotel-parent">
+            <div class="binh-minh-hotel">BINH MINH HOTEL</div>
+          @*   <div class="frame-child" id="rectangle"></div> *@
+            @* <div class="trang-ch">Trang chủ</div> *@
+        </div>
+        <img class="istockphoto-1420738401-170667a-icon"
+             alt=""
+             src="https://scontent.fdad3-6.fna.fbcdn.net/v/t1.15752-9/434534001_1448732405736076_2728451762103298305_n.png?_nc_cat=108&ccb=1-7&_nc_sid=5f2048&_nc_eui2=AeELIMxQW_20PbqvrN_Laesa3i0KWcVikJ_eLQpZxWKQn5ANGfV59GLmC_gCpYHKR6n1pkGFUOFXN7xtrfKYOuxS&_nc_ohc=CBOICZWaGBkQ7kNvgFB0aYp&_nc_ht=scontent.fdad3-6.fna&oh=03_Q7cD1QFNS0J7t-2Jhyfg0lTMvPC455ubvURUvDIdufq4o60BfQ&oe=668C8E7E" />
+
+       @*  <div class="i-mt-khu-ql-item"></div> *@
+        <div class="i-mt-khu-ql-inner" >
+            <div class="i-mt-khu-wrapper">
+                <div class="i-mt-khu">Đổi mật khẩu</div>
+            </div>
+
+        </div>
+        <form id="myForm" action="/Doimatkhau/Doimatkhau" method="post">
+            <div class="form-container">
+                <div class="form-group">
+                    <label for="Password" class="form-label">Mật khẩu cũ</label>
+                    <input type="password" class="form-input" id="Password" name="Password" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="matkhaumoi" class="form-label">Mật khẩu mới</label>
+                    <input type="password" class="form-input" id="matkhaumoi" name="matkhaumoi" required>
+                </div>
+                <div class="form-group">
+                    <label for="matkhaumoi2" class="form-label">Nhập lại mật khẩu mới</label>
+                    <input type="password" class="form-input" id="matkhaumoi2" name="matkhaumoi2" required>
+                </div>
+
+                <div class="form-buttons">
+                    <button type="submit" class="btn" id="btLuu">Lưu lại</button>
+                   
+                    <button type="button" class="btn" id="btHuy">Trở lại</button>
+                    
+
+
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <script>
+
+     
+            document.getElementById("btHuy").addEventListener("click", function () {
+                window.history.back();
+            });
+   
+
+        
+    </script>
+</body>
+</html>

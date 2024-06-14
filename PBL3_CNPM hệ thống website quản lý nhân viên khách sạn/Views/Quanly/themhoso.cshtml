@@ -1,0 +1,816 @@
+﻿@{
+    Layout = null;
+}
+@model IEnumerable<Chucvu>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="initial-scale=1, width=device-width" />
+
+    <link rel="stylesheet" href="./global.css" />
+    <link rel="stylesheet" href="./index.css" />
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Irish Grover:wght@400&display=swap" />
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700&display=swap" />
+</head>
+<body>
+    <div class="qun-l-h-s-thm-h-s">
+        <div class="binh-minh-hotel-parent">
+            <div class="binh-minh-hotel">BINH MINH HOTEL</div>
+            <div class="rectangle-parent" id="groupContainer">
+                <div class="group-item" id="rectangle1"></div>
+                <div class="group-inner" id="rectangle2"></div>
+                <a asp-controller="Doimatkhau" asp-action="Doimatkhau" class="doimatkhau" style="position: absolute; font-weight: 500; text-decoration: none; color: black;
+            display: inline-block; top: 13px; right: 190px;">Đổi mật khẩu</a>
+                <a asp-controller="Login" asp-action="Logout" class="dang-xuat-link" style="position: absolute; font-weight: 500;
+            display: inline-block; top: 13px; right: 30px;">Đăng xuất</a>
+            </div>
+        </div>
+        <img class="istockphoto-1420738401-170667a-icon"
+             alt=""
+             src="https://scontent.xx.fbcdn.net/v/t1.15752-9/434534001_1448732405736076_2728451762103298305_n.png?_nc_cat=108&ccb=1-7&_nc_sid=5f2048&_nc_eui2=AeE2P5sA1mJK9p7yZAhnHbdR3i0KWcVikJ_eLQpZxWKQn2eF8rUbJCrgvsFmWc-PcaF3QNeTMGaAO-LHN5k9EqKX&_nc_ohc=y7ljPR0JchcQ7kNvgE03-wU&_nc_ad=z-m&_nc_cid=0&_nc_ht=scontent.xx&oh=03_Q7cD1QG9qre1FGLtoQKCts7TZOT8HTrfrbjC9JweMbkUsVettA&oe=666F1CFE" />
+
+        <div class="thng-tin-c-nhn">
+            <div class="thng-tin-c-nhn-child"></div>
+            <div class="qun-l-h">Quản lý hồ sơ</div>
+        </div>
+        <div class="lch-lm-vic" id="lchLmVic">
+            <div class="lch-lm-vic-child"></div>
+            <div class="qun-l-phng">Quản lý phòng ban</div>
+        </div>
+        <div class="qun-l-h-s-thm-h-s-child" id="rectangle"></div>
+        <div class="qun-l-cng-container">
+            <p class="qun-l-cng">Quản lý công việc</p>
+        </div>
+        <div class="qun-l-h-s-parent">
+            <div class="qun-l-h1">Quản lý hồ sơ</div>
+            <div class="thm-h-s">&gt; Thêm hồ sơ mới</div>
+        </div>
+        <div class="thng-tin-c-nhn1" id="thngTinCNhn1">
+            <div class="thng-tin-c-nhn-item"></div>
+        </div>
+        <b class="user01">@ViewData["Message"]</b>
+        <img class="n-1-icon"
+             alt=""
+             src="https://scontent.xx.fbcdn.net/v/t1.15752-9/435264282_1107310530502381_1832007922840023753_n.png?stp=cp0_dst-png&_nc_cat=105&ccb=1-7&_nc_sid=5f2048&_nc_eui2=AeEWw0jKlDzYG29vauLC2BRxJg-_qGl2dC4mD7-oaXZ0LmRBLhQT3PNGmmJczUgrzhH9vauygVsNzDWGfIeTVasP&_nc_ohc=7QbO5VWGLZcQ7kNvgGQ9hti&_nc_ad=z-m&_nc_cid=0&_nc_ht=scontent.xx&oh=03_Q7cD1QHuCahA-BZu5QRB0XzUuAmzHwPKWp8nrXBqtJI9nLtY8Q&oe=666F0A10" />
+
+        <div class="qun-l-h-s-thm-h-s-item"></div>
+        @using (Html.BeginForm("themhoso", "Quanly", FormMethod.Post))
+        {
+            <div class="chnh-sa-thng-tin-c-nhn-child1">
+                <div class="khung"></div>
+                <div class="MaNV">Mã nhân viên</div>
+                <input type="text" class="maNV" name="maNV" value="@ViewData["Id"]" readonly>
+                <div class="ten">Họ và tên</div>
+                <input type="text" class="tennv" name="tennv" required>
+                <div class="Ns">Ngày sinh</div>
+                <input type="date" class="ns" name="ns" required>
+                <div class="Gt">Giới tính</div>
+                <select id="gt" name="gt" class="gt">
+                    <option value="Nam">Nam</option>
+                    <option value="Nữ">Nữ</option>
+                </select>
+                <div class="Dc">Địa chỉ</div>
+                <input type="text" class="dc" name="dc">
+                <div class="Sdt">Số điện thoại</div>
+                <input type="text" class="sdt" name="sdt">
+                <div class="Em">Email</div>
+                <input type="text" class="em" name="em">
+                <div class="Stk">Số tài khoản</div>
+                <input type="text" class="stk" name="stk">
+                <div class="Bank">Tên ngân hàng</div>
+                <input type="text" class="bank" name="bank">
+                <div class="Cccd">Căn cước công dân</div>
+                <input type="text" class="cccd" name="cccd">
+                <div class="MaBH">Mã bảo hiểm</div>
+                <input type="text" class="maBH" name="maBH" value="">
+                <div class="Pass">Mật khẩu</div>
+                <input type="text" class="pass" name="pass" value="" required>
+                <div class="Cv">Chức vụ</div>
+                <select id="cv" name="cv" class="cv">
+                    @foreach (var cv in Model)
+                    {
+                        <option value="@cv.MaChucVu">@cv.ChucVu</option>
+                    }
+
+                </select>
+                <div class="Td">Trình độ</div>
+                <textarea id="td" name="td" class="td" rows="4" cols="50"></textarea><br>
+                <div class="Kn">Kinh nghiệm</div>
+                <textarea id="kn" name="kn" class="kn" rows="4" cols="50"></textarea><br>
+                <button class="btAdd" id="btAdd">Thêm hồ sơ</button>
+                <img src="https://scontent.xx.fbcdn.net/v/t1.15752-9/435130161_653072980295404_4271028034475173711_n.png?_nc_cat=105&ccb=1-7&_nc_sid=5f2048&_nc_eui2=AeE47DWn9eYgu-dKMT1AqTIje93imBE8o2Z73eKYETyjZliNkSuZ-ULRIv03MSjBc5sQ6O5_AfgOHBaaO2giRUt6&_nc_ohc=ImZXDsWxzYYQ7kNvgFY1Jtb&_nc_ad=z-m&_nc_cid=0&_nc_ht=scontent.xx&oh=03_Q7cD1QFbYVlUw3I01ahJq1kOJ6WUJe8k9fMo2sJUN8AMXsJ-XA&oe=669199A9" alt="" class="image">
+            </div>
+        }
+        <div><button class="btHuy" id="btHuy">Hủy</button></div>
+    </div>
+
+    <script>
+        var lchLmVic = document.getElementById("lchLmVic");
+        if (lchLmVic) {
+            lchLmVic.addEventListener("click", function (e) {
+                window.location.href = "/Quanly/Phongban";
+            });
+        }
+
+        var rectangle = document.getElementById("rectangle");
+        if (rectangle) {
+            rectangle.addEventListener("click", function (e) {
+                window.location.href = "/Quanly/Quanlycongviec";
+            });
+        }
+
+
+        var huy = document.getElementById("btHuy");
+        if (huy) {
+            huy.addEventListener("click", function (e) {
+                window.location.href = "/Quanly/quanlyhoso";
+            });
+        }
+        $(document).ready(function () {
+            $("#btAdd").click(function () {
+                var tennv = $("#tennv").val();
+                var maNV = $("#maNV").val();
+                var ns = $("#ns").val();
+                var gt = $("#gt").val();
+                var dc = $("#dc").val();
+                var sdt = $("#sdt").val();
+                var em = $("#em").val();
+                var stk = $("#stk").val();
+                var bank = $("#bank").val();
+                var cccd = $("#cccd").val();
+                var maBH = $("#maBH").val();
+                var pass = $("#pass").val();
+                var cv = $("#cv").val();
+                var kn = $("#kn").val();
+                var td = $("#td").val();
+                // Gửi dữ liệu đến phương thức hành động trong controller
+                $.ajax({
+                    url: '/Quanly/themhoso',
+                    type: 'POST',
+                    data: {
+                        tennv: tennv,
+                        maNV: maNV,
+                        ns: ns,
+                        gt: gt,
+                        dc: dc,
+                        sdt: sdt,
+                        em: em,
+                        stk: stk,
+                        bank: bank,
+                        cccd: cccd,
+                        maBH: maBH,
+                        pass: pass,
+                        kn: kn,
+                        td: td,
+                        cv: cv
+                    },
+                    success: function (result) {
+                        // Xử lý kết quả nếu cần thiết
+                    },
+                    error: function (xhr, status, error) {
+                        // Xử lý lỗi nếu cần thiết
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
+<style>
+    .khung {
+        position: absolute;
+        top: 185px;
+        left: 312px;
+        background-color: white;
+        height: 825px;
+        width: 1105px;
+        border-radius: 10px;
+    }
+
+    .MaNV {
+        position: absolute;
+        top: 200px;
+        left: 700px;
+        color: var(--color-black);
+        font-size: 20px;
+    }
+
+    .dang-xuat-link {
+        position: absolute;
+        top: 45px;
+        right: 140px;
+        font-weight: 500;
+        display: inline-block;
+        font-size: var(--font-size-xl); /* Điều chỉnh kích thước chữ */
+        color: black; /* Màu chữ */
+        font-family: var(--font-inter); /* Kiểu font chữ */
+        text-decoration: none; /* Loại bỏ gạch chân */
+    }
+
+    .maNV {
+        position: absolute;
+        top: 230px;
+        left: 700px;
+        width: 300px;
+        height: 30px;
+        padding: 5px;
+        border-radius: 10px;
+        font-size: 24px;
+        font-family: var(--font-inter);
+    }
+
+    .ten {
+        position: absolute;
+        top: 200px;
+        left: 1050px;
+        color: var(--color-black);
+        font-size: 20px;
+    }
+
+    .tennv {
+        position: absolute;
+        top: 230px;
+        left: 1050px;
+        width: 300px;
+        height: 30px;
+        padding: 5px;
+        border-radius: 10px;
+        font-size: 24px;
+        font-family: var(--font-inter);
+    }
+
+    .Ns {
+        position: absolute;
+        top: 280px;
+        left: 700px;
+        color: var(--color-black);
+        font-size: 20px;
+    }
+
+    .ns {
+        position: absolute;
+        top: 310px;
+        left: 700px;
+        width: 300px;
+        height: 30px;
+        padding: 5px;
+        border-radius: 10px;
+        font-size: 24px;
+        font-family: var(--font-inter);
+    }
+
+    .Gt {
+        position: absolute;
+        top: 280px;
+        left: 1050px;
+        color: var(--color-black);
+        font-size: 20px;
+    }
+
+    .gt {
+        position: absolute;
+        top: 310px;
+        left: 1050px;
+        width: 310px;
+        height: 45px;
+        padding: 5px;
+        border-radius: 10px;
+        font-size: 24px;
+        font-family: var(--font-inter);
+    }
+
+    .Dc {
+        position: absolute;
+        top: 360px;
+        left: 700px;
+        color: var(--color-black);
+        font-size: 20px;
+    }
+
+    .dc {
+        position: absolute;
+        top: 390px;
+        left: 700px;
+        width: 650px;
+        height: 30px;
+        padding: 5px;
+        border-radius: 10px;
+        font-size: 24px;
+        font-family: var(--font-inter);
+    }
+
+    .Sdt {
+        position: absolute;
+        top: 440px;
+        left: 700px;
+        color: var(--color-black);
+        font-size: 20px;
+    }
+
+    .sdt {
+        position: absolute;
+        top: 470px;
+        left: 700px;
+        width: 300px;
+        height: 30px;
+        padding: 5px;
+        border-radius: 10px;
+        font-size: 24px;
+        font-family: var(--font-inter);
+    }
+
+    .Em {
+        position: absolute;
+        top: 440px;
+        left: 1050px;
+        color: var(--color-black);
+        font-size: 20px;
+    }
+
+    .em {
+        position: absolute;
+        top: 470px;
+        left: 1050px;
+        width: 300px;
+        height: 30px;
+        padding: 5px;
+        border-radius: 10px;
+        font-size: 24px;
+        font-family: var(--font-inter);
+    }
+
+    .Stk {
+        position: absolute;
+        top: 520px;
+        left: 700px;
+        color: var(--color-black);
+        font-size: 20px;
+    }
+
+    .stk {
+        position: absolute;
+        top: 550px;
+        left: 700px;
+        width: 300px;
+        height: 30px;
+        padding: 5px;
+        border-radius: 10px;
+        font-size: 24px;
+        font-family: var(--font-inter);
+    }
+
+    .Bank {
+        position: absolute;
+        top: 520px;
+        left: 1050px;
+        color: var(--color-black);
+        font-size: 20px;
+    }
+
+    .bank {
+        position: absolute;
+        top: 550px;
+        left: 1050px;
+        width: 300px;
+        height: 30px;
+        padding: 5px;
+        border-radius: 10px;
+        font-size: 24px;
+        font-family: var(--font-inter);
+    }
+
+    .Cccd {
+        position: absolute;
+        top: 600px;
+        left: 700px;
+        color: var(--color-black);
+        font-size: 20px;
+    }
+
+    .cccd {
+        position: absolute;
+        top: 630px;
+        left: 700px;
+        width: 300px;
+        height: 30px;
+        padding: 5px;
+        border-radius: 10px;
+        font-size: 24px;
+        font-family: var(--font-inter);
+    }
+
+    .MaBH {
+        position: absolute;
+        top: 600px;
+        left: 1050px;
+        color: var(--color-black);
+        font-size: 20px;
+    }
+
+    .maBH {
+        position: absolute;
+        top: 630px;
+        left: 1050px;
+        width: 300px;
+        height: 30px;
+        padding: 5px;
+        border-radius: 10px;
+        font-size: 24px;
+        font-family: var(--font-inter);
+    }
+
+    .Cv {
+        position: absolute;
+        top: 680px;
+        left: 700px;
+        color: var(--color-black);
+        font-size: 20px;
+    }
+
+    .cv {
+        position: absolute;
+        top: 710px;
+        left: 700px;
+        width: 310px;
+        height: 45px;
+        padding: 5px;
+        border-radius: 10px;
+        font-size: 24px;
+        font-family: var(--font-inter);
+    }
+
+    .Pass {
+        position: absolute;
+        top: 680px;
+        left: 1050px;
+        color: var(--color-black);
+        font-size: 20px;
+    }
+
+    .pass {
+        position: absolute;
+        top: 710px;
+        left: 1050px;
+        width: 300px;
+        height: 30px;
+        padding: 5px;
+        border-radius: 10px;
+        font-size: 24px;
+        font-family: var(--font-inter);
+    }
+
+    .Td {
+        position: absolute;
+        top: 760px;
+        left: 350px;
+        color: var(--color-black);
+        font-size: 20px;
+    }
+
+    .td {
+        position: absolute;
+        top: 790px;
+        left: 350px;
+        width: 500px;
+        height: 100px;
+        padding: 5px;
+        border-radius: 10px;
+        font-size: 24px;
+        font-family: var(--font-inter);
+    }
+
+    .Kn {
+        position: absolute;
+        top: 760px;
+        left: 900px;
+        color: var(--color-black);
+        font-size: 20px;
+    }
+
+    .kn {
+        position: absolute;
+        top: 790px;
+        left: 900px;
+        width: 500px;
+        height: 100px;
+        padding: 5px;
+        border-radius: 10px;
+        font-size: 24px;
+        font-family: var(--font-inter);
+    }
+
+    .btAdd {
+        position: absolute;
+        top: 950px;
+        left: 600px;
+        width: 150px;
+        height: 40px;
+        font-size: 24px;
+        border-radius: 5px;
+        background-color: rgba(49, 162, 39, 0.8);
+    }
+
+    .btHuy {
+        position: absolute;
+        top: 950px;
+        left: 1000px;
+        width: 150px;
+        height: 40px;
+        font-size: 24px;
+        border-radius: 5px;
+    }
+
+    .image {
+        position: absolute;
+        top: 250px;
+        left: 400px;
+    }
+
+    .Doi_ha {
+        position: absolute;
+        top: 480px;
+        left: 433px;
+        font-size: 15px;
+        color: var(--color-black);
+    }
+
+    .binh-minh-hotel {
+        position: absolute;
+        top: 0;
+        left: 148px;
+        display: inline-block;
+        width: 279px;
+        height: 111px;
+    }
+
+    .group-child,
+    .group-inner,
+    .group-item {
+        position: absolute;
+        top: 0;
+        left: 0;
+        border-radius: var(--br-3xs);
+        background-color: var(--color-white);
+        border: 1px solid var(--color-black);
+        box-sizing: border-box;
+        width: 160px;
+        height: 50px;
+        cursor: pointer;
+    }
+
+    .group-inner,
+    .group-item {
+        left: 170px;
+    }
+
+    .group-inner {
+        left: 340px;
+    }
+
+    .i-mt-khu,
+    .ng-xut,
+    .trang-ch {
+        position: absolute;
+        top: 13px;
+        left: 33px;
+        font-weight: 500;
+        display: inline-block;
+        width: 116px;
+        height: 28px;
+    }
+
+    .i-mt-khu,
+    .ng-xut {
+        left: 191px;
+        width: 134px;
+    }
+
+    .ng-xut {
+        left: 372px;
+        width: 116px;
+    }
+
+    .rectangle-parent {
+        position: absolute;
+        top: 35px;
+        left: 900px;
+        width: 500px;
+        height: 50px;
+        cursor: pointer;
+        font-size: var(--font-size-xl);
+        color: var(--color-black);
+        font-family: var(--font-inter);
+    }
+
+    .binh-minh-hotel-parent {
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-color: rgba(49, 162, 39, 0.8);
+        width: 1550px;
+        height: 120px;
+        overflow: hidden;
+        font-size: 50px;
+        font-family: var(--font-irish-grover);
+    }
+
+    .istockphoto-1420738401-170667a-icon {
+        position: absolute;
+        top: 13px;
+        left: 15px;
+        width: 107px;
+        height: 96px;
+        object-fit: cover;
+    }
+
+    .thng-tin-c-nhn-child {
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-color: var(--color-black);
+        width: 289px;
+        height: 90px;
+    }
+
+    .qun-l-h {
+        position: absolute;
+        top: 32px;
+        left: 69.3px;
+        font-weight: 500;
+        display: inline-block;
+        width: 219.7px;
+        height: 32px;
+    }
+
+    .lch-lm-vic-child,
+    .thng-tin-c-nhn {
+        position: absolute;
+        top: 220px;
+        left: 0;
+        width: 289px;
+        height: 90px;
+    }
+
+    .lch-lm-vic-child {
+        top: 0;
+        background-color: var(--color-darkslategray);
+    }
+
+    .qun-l-phng {
+        position: absolute;
+        top: 32px;
+        left: 48px;
+        font-weight: 500;
+        display: inline-block;
+        width: 204.6px;
+        height: 40px;
+    }
+
+    .lch-lm-vic,
+    .qun-l-h-s-thm-h-s-child {
+        position: absolute;
+        top: 310px;
+        left: 0;
+        width: 289px;
+        height: 90px;
+        cursor: pointer;
+    }
+
+    .qun-l-h-s-thm-h-s-child {
+        top: 400px;
+        background-color: var(--color-darkslategray);
+    }
+
+    .qun-l-cng {
+        margin: 0;
+    }
+
+    .qun-l-cng-container {
+        position: absolute;
+        top: 429px;
+        left: 53px;
+        font-weight: 500;
+        display: inline-block;
+        width: 188px;
+        height: 39px;
+    }
+
+    .qun-l-h1,
+    .thm-h-s {
+        position: absolute;
+        top: -1px;
+        left: -11px;
+        font-weight: 600;
+        display: flex;
+        align-items: flex-end;
+        justify-content: center;
+        width: 192px;
+        height: 30px;
+    }
+
+    .thm-h-s {
+        top: -2px;
+        left: 161px;
+        white-space: pre-wrap;
+        width: 227px;
+        height: 31px;
+    }
+
+    .qun-l-h-s-parent {
+        position: absolute;
+        top: 140px;
+        left: 311px;
+        background-color: #e2ffe1;
+        width: 1104px;
+        height: 32px;
+        overflow: hidden;
+        text-align: center;
+        font-size: var(--font-size-xl);
+        color: var(--color-black);
+    }
+
+    .thng-tin-c-nhn-item,
+    .thng-tin-c-nhn1 {
+        position: absolute;
+        left: 0;
+        width: 289px;
+        height: 100px;
+    }
+
+    .thng-tin-c-nhn-item {
+        top: 0;
+        background-color: var(--color-darkslategray);
+    }
+
+    .thng-tin-c-nhn1 {
+        top: 120px;
+        cursor: pointer;
+    }
+
+    .user01 {
+        position: absolute;
+        top: 160px;
+        left: 155px;
+        display: inline-block;
+        text-align: right;
+        width: 86px;
+        height: 24px;
+    }
+
+    .n-1-icon {
+        position: absolute;
+        top: 136px;
+        left: 55px;
+        width: 75px;
+        height: 75px;
+        object-fit: cover;
+    }
+
+    .qun-l-h-s-thm-h-s-item {
+        position: absolute;
+        top: 490px;
+        left: 0;
+        background-color: rgba(39, 162, 58, 0.8);
+        width: 289px;
+        height: 534px;
+        overflow: hidden;
+    }
+
+    .qun-l-h-s-thm-h-s {
+        width: 100%;
+        position: relative;
+        height: 1024px;
+        overflow: hidden;
+        background-image: url(https://scontent.xx.fbcdn.net/v/t1.15752-9/435229924_1387605835555899_1676943816951711557_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=5f2048&_nc_eui2=AeFJMnRkpBX4VXFUqgQe8t4MAnEj3tDXrhwCcSPe0NeuHBfYQCRlTLYqRSzjZcYLanAmYfZQt1qLkkGk46N3Lk1j&_nc_ohc=4qGMy2x1nkAQ7kNvgF8QXEK&_nc_ad=z-m&_nc_cid=0&_nc_ht=scontent.xx&oh=03_Q7cD1QFmiijBIT5AWF2AnVv8f4IrwN93aRQe726l3hCJrs0eXg&oe=666F181D);
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: top;
+        text-align: left;
+        font-size: var(--font-size-3xl);
+        color: var(--color-white);
+        font-family: var(--font-inter);
+    }
+
+    body {
+        margin: 0;
+        line-height: normal;
+    }
+
+    :root {
+        /* fonts */
+        --font-inter: Inter;
+        --font-irish-grover: "Irish Grover";
+        /* font sizes */
+        --font-size-3xl: 22px;
+        --font-size-xl: 20px;
+        /* Colors */
+        --color-white: #fff;
+        --color-darkslategray: rgba(48, 46, 46, 0.89);
+        --color-black: #000;
+        /* Border radiuses */
+        --br-3xs: 10px;
+    }
+</style>

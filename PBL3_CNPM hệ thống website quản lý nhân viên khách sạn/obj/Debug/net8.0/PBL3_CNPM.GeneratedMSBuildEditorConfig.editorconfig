@@ -1,0 +1,147 @@
+is_global = true
+build_property.TargetFramework = net8.0
+build_property.TargetFramework = net8.0
+build_property.TargetPlatformMinVersion = 
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = PBL3_CNPM
+build_property.RootNamespace = PBL3_CNPM
+build_property.ProjectDir = C:\Users\OS\Downloads\PBL3_CNPM (1)\
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 
+build_property.RazorLangVersion = 8.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = C:\Users\OS\Downloads\PBL3_CNPM (1)
+build_property._RazorSourceGeneratorDebug = 
+
+[C:/Users/OS/Downloads/PBL3_CNPM (1)/Views/Doimatkhau/Doimatkhau.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRG9pbWF0a2hhdVxEb2ltYXRraGF1LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/OS/Downloads/PBL3_CNPM (1)/Views/Ketoan/bangluong.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcS2V0b2FuXGJhbmdsdW9uZy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/OS/Downloads/PBL3_CNPM (1)/Views/Ketoan/chinhsua.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcS2V0b2FuXGNoaW5oc3VhLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/OS/Downloads/PBL3_CNPM (1)/Views/Ketoan/chinhsualuongnv.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcS2V0b2FuXGNoaW5oc3VhbHVvbmdudi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/OS/Downloads/PBL3_CNPM (1)/Views/Ketoan/taobangluong.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcS2V0b2FuXHRhb2JhbmdsdW9uZy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/OS/Downloads/PBL3_CNPM (1)/Views/Ketoan/themluong.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcS2V0b2FuXHRoZW1sdW9uZy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/OS/Downloads/PBL3_CNPM (1)/Views/Ketoan/themmaluong.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcS2V0b2FuXHRoZW1tYWx1b25nLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/OS/Downloads/PBL3_CNPM (1)/Views/Ketoan/Trangchuketoan.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcS2V0b2FuXFRyYW5nY2h1a2V0b2FuLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/OS/Downloads/PBL3_CNPM (1)/Views/Ketoan/xemthongtinluong.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcS2V0b2FuXHhlbXRob25ndGlubHVvbmcuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/OS/Downloads/PBL3_CNPM (1)/Views/Login/Login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9naW5cTG9naW4uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/OS/Downloads/PBL3_CNPM (1)/Views/Nhanvien/chinhsua.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTmhhbnZpZW5cY2hpbmhzdWEuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/OS/Downloads/PBL3_CNPM (1)/Views/Nhanvien/Lichlamvieccanhan.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTmhhbnZpZW5cTGljaGxhbXZpZWNjYW5oYW4uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/OS/Downloads/PBL3_CNPM (1)/Views/Nhanvien/Luongcanhan.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTmhhbnZpZW5cTHVvbmdjYW5oYW4uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/OS/Downloads/PBL3_CNPM (1)/Views/Nhanvien/thongtin.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTmhhbnZpZW5cdGhvbmd0aW4uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/OS/Downloads/PBL3_CNPM (1)/Views/Quanly/Chinhsua.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUXVhbmx5XENoaW5oc3VhLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/OS/Downloads/PBL3_CNPM (1)/Views/Quanly/Chinhsuacongviec.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUXVhbmx5XENoaW5oc3VhY29uZ3ZpZWMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/OS/Downloads/PBL3_CNPM (1)/Views/Quanly/chinhsualichlamviec.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUXVhbmx5XGNoaW5oc3VhbGljaGxhbXZpZWMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/OS/Downloads/PBL3_CNPM (1)/Views/Quanly/CongViec.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUXVhbmx5XENvbmdWaWVjLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/OS/Downloads/PBL3_CNPM (1)/Views/Quanly/Lichlamviec.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUXVhbmx5XExpY2hsYW12aWVjLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/OS/Downloads/PBL3_CNPM (1)/Views/Quanly/Phongban.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUXVhbmx5XFBob25nYmFuLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/OS/Downloads/PBL3_CNPM (1)/Views/Quanly/Quanlycongviec.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUXVhbmx5XFF1YW5seWNvbmd2aWVjLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/OS/Downloads/PBL3_CNPM (1)/Views/Quanly/quanlyhoso.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUXVhbmx5XHF1YW5seWhvc28uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/OS/Downloads/PBL3_CNPM (1)/Views/Quanly/Sapxepcongviec.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUXVhbmx5XFNhcHhlcGNvbmd2aWVjLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/OS/Downloads/PBL3_CNPM (1)/Views/Quanly/themcongviec.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUXVhbmx5XHRoZW1jb25ndmllYy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/OS/Downloads/PBL3_CNPM (1)/Views/Quanly/themhoso.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUXVhbmx5XHRoZW1ob3NvLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/OS/Downloads/PBL3_CNPM (1)/Views/Shared/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/OS/Downloads/PBL3_CNPM (1)/Views/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/OS/Downloads/PBL3_CNPM (1)/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/OS/Downloads/PBL3_CNPM (1)/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/OS/Downloads/PBL3_CNPM (1)/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-tih62a4b7h
